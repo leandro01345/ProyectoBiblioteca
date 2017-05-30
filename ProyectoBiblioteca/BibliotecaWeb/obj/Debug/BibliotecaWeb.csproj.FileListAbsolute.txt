@@ -1,0 +1,100 @@
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\csc.exe
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\vbc.exe
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll.config
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.pdb
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.pdb
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.csprojResolveAssemblyReference.cache
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\csc.exe
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\vbc.exe
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll.config
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.pdb
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.csprojResolveAssemblyReference.cache
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.dll
+C:\Users\Jose\Desktop\Proyecto portafolioi de titulo\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.pdb
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\csc.exe
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\vbc.exe
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll.config
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.pdb
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.csprojResolveAssemblyReference.cache
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.pdb
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\csc.exe
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\vbc.exe
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll.config
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.pdb
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.dll
+C:\Users\Carlos\Desktop\PROYECTOFINAL\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.pdb
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\csc.exe
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\vbc.exe
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll.config
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\BibliotecaWeb.pdb
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.pdb
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.csprojResolveAssemblyReference.cache

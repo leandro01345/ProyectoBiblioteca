@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BibliotecaModelStoreContainer" CdmEntityContainer="BibliotecaEntities">
+    <EntitySetMapping Name="DOCUMENTO">
+      <EntityTypeMapping TypeName="BibliotecaModel.DOCUMENTO">
+        <MappingFragment StoreEntitySet="DOCUMENTO">
+          <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
+          <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+          <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
+          <ScalarProperty Name="AUTORDOCUMENTO" ColumnName="AUTORDOCUMENTO" />
+          <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
+          <ScalarProperty Name="ANIODOCUMENTO" ColumnName="ANIODOCUMENTO" />
+          <ScalarProperty Name="EDICIONDOCUMENTO" ColumnName="EDICIONDOCUMENTO" />
+          <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EJEMPLAR">
+      <EntityTypeMapping TypeName="BibliotecaModel.EJEMPLAR">
+        <MappingFragment StoreEntitySet="EJEMPLAR">
+          <ScalarProperty Name="DOCUMENTO_IDDOCUMENTO" ColumnName="DOCUMENTO_IDDOCUMENTO" />
+          <ScalarProperty Name="IDEJEMPLAR" ColumnName="IDEJEMPLAR" />
+          <ScalarProperty Name="ESTADOEJEMPLAR" ColumnName="ESTADOEJEMPLAR" />
+          <ScalarProperty Name="UBICACIONEJEMPLAR" ColumnName="UBICACIONEJEMPLAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRESTAMO">
+      <EntityTypeMapping TypeName="BibliotecaModel.PRESTAMO">
+        <MappingFragment StoreEntitySet="PRESTAMO">
+          <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+          <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+          <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
+          <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
+          <ScalarProperty Name="HORAPRESTAMO" ColumnName="HORAPRESTAMO" />
+          <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
+          <ScalarProperty Name="HORADEVOLUCIONPRESTAMO" ColumnName="HORADEVOLUCIONPRESTAMO" />
+          <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
+          <ScalarProperty Name="HORADEVOLUCIONREALPRESTAMO" ColumnName="HORADEVOLUCIONREALPRESTAMO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESION">
+      <EntityTypeMapping TypeName="BibliotecaModel.SESION">
+        <MappingFragment StoreEntitySet="SESION">
+          <ScalarProperty Name="TIPOSESION" ColumnName="TIPOSESION" />
+          <ScalarProperty Name="IDSESION" ColumnName="IDSESION" />
+          <ScalarProperty Name="USERNAMESESION" ColumnName="USERNAMESESION" />
+          <ScalarProperty Name="PASSWORDSESION" ColumnName="PASSWORDSESION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOLICITUD">
+      <EntityTypeMapping TypeName="BibliotecaModel.SOLICITUD">
+        <MappingFragment StoreEntitySet="SOLICITUD">
+          <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+          <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
+          <ScalarProperty Name="FECHASOLICITUD" ColumnName="FECHASOLICITUD" />
+          <ScalarProperty Name="HORASOLICITUD" ColumnName="HORASOLICITUD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="BibliotecaModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="RUTUSUARIO" ColumnName="RUTUSUARIO" />
+          <ScalarProperty Name="NOMBRESUSUARIO" ColumnName="NOMBRESUSUARIO" />
+          <ScalarProperty Name="APELLIDOSUSUARIO" ColumnName="APELLIDOSUSUARIO" />
+          <ScalarProperty Name="DIRECCIONUSUARIO" ColumnName="DIRECCIONUSUARIO" />
+          <ScalarProperty Name="TELEFONOUSUARIO" ColumnName="TELEFONOUSUARIO" />
+          <ScalarProperty Name="ACTIVOUSUARIO" ColumnName="ACTIVOUSUARIO" />
+          <ScalarProperty Name="HUELLAUSUARIO" ColumnName="HUELLAUSUARIO" />
+          <ScalarProperty Name="FOTOUSUARIO" ColumnName="FOTOUSUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DETALLESOLICITUD" TypeName="BibliotecaModel.DETALLESOLICITUD" StoreEntitySet="DETALLESOLICITUD">
+      <EndProperty Name="EJEMPLAR">
+        <ScalarProperty Name="IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+      </EndProperty>
+      <EndProperty Name="SOLICITUD">
+        <ScalarProperty Name="IDSOLICITUD" ColumnName="SOLICITUD_IDSOLICITUD" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="V_CATALOGO">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_CATALOGO">
+        <MappingFragment StoreEntitySet="V_CATALOGO">
+          <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
+          <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
+          <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+          <ScalarProperty Name="ANIODOCUMENTO" ColumnName="ANIODOCUMENTO" />
+          <ScalarProperty Name="EDICIONDOCUMENTO" ColumnName="EDICIONDOCUMENTO" />
+          <ScalarProperty Name="AUTORDOCUMENTO" ColumnName="AUTORDOCUMENTO" />
+          <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PRO_ADD_EJEMPLAR" FunctionName="BibliotecaModel.Store.PRO_ADD_EJEMPLAR" />
+    <FunctionImportMapping FunctionImportName="PRO_ADD_DOCUMENTO" FunctionName="BibliotecaModel.Store.PRO_ADD_DOCUMENTO" />
+    <EntitySetMapping Name="V_EJEMPLARES">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_EJEMPLARES">
+        <MappingFragment StoreEntitySet="V_EJEMPLARES">
+          <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
+          <ScalarProperty Name="UBICACIONEJEMPLAR" ColumnName="UBICACIONEJEMPLAR" />
+          <ScalarProperty Name="ESTADOEJEMPLAR" ColumnName="ESTADOEJEMPLAR" />
+          <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
+          <ScalarProperty Name="IDEJEMPLAR" ColumnName="IDEJEMPLAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PRO_ADD_USUARIO" FunctionName="BibliotecaModel.Store.PRO_ADD_USUARIO" />
+    <EntitySetMapping Name="V_CATEGORIASDOC">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_CATEGORIASDOC">
+        <MappingFragment StoreEntitySet="V_CATEGORIASDOC">
+          <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_TIPOSDOC">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_TIPOSDOC">
+        <MappingFragment StoreEntitySet="V_TIPOSDOC">
+          <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

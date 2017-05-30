@@ -1,0 +1,93 @@
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\ApplicationInsights.config
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.dll.config
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.pdb
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Negocio.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Web.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.ApplicationInsights.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.DALC.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\EntityFramework.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Negocio.pdb
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Web.xml
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.ApplicationInsights.xml
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.DALC.pdb
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\bin\EntityFramework.xml
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.dll
+C:\Users\René\Desktop\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.pdb
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\ApplicationInsights.config
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.dll.config
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.pdb
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Negocio.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Web.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.DALC.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Negocio.pdb
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Web.xml
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.DALC.pdb
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.pdb
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\ApplicationInsights.config
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.dll.config
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.pdb
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Negocio.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Web.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.ApplicationInsights.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.DALC.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Negocio.pdb
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Web.xml
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.ApplicationInsights.xml
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.DALC.pdb
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.csprojResolveAssemblyReference.cache
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.dll
+C:\Users\vina\Downloads\ProyectoBibliotecaNoMorir\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.pdb
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\ApplicationInsights.config
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.dll.config
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Servicio.pdb
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Negocio.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Web.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.DALC.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.Negocio.pdb
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.Web.xml
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\bin\Biblioteca.DALC.pdb
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.dll
+C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Servicio\obj\Debug\Biblioteca.Servicio.pdb

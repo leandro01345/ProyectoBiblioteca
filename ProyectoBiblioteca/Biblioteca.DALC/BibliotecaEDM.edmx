@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BibliotecaModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="DETALLESOLICITUD">
+          <Key>
+            <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+            <PropertyRef Name="SOLICITUD_IDSOLICITUD" />
+          </Key>
+          <Property Name="EJEMPLAR_IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SOLICITUD_IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOCUMENTO">
+          <Key>
+            <PropertyRef Name="IDDOCUMENTO" />
+          </Key>
+          <Property Name="IDDOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPODOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="TITULODOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="AUTORDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="EDITORIALDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ANIODOCUMENTO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="EDICIONDOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="CATEGORIADOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EJEMPLAR">
+          <Key>
+            <PropertyRef Name="IDEJEMPLAR" />
+          </Key>
+          <Property Name="DOCUMENTO_IDDOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ESTADOEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="UBICACIONEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRESTAMO">
+          <Key>
+            <PropertyRef Name="IDPRESTAMO" />
+          </Key>
+          <Property Name="EJEMPLAR_IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDPRESTAMO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOPRESTAMO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="FECHAPRESTAMO" Type="date" Nullable="false" />
+          <Property Name="HORAPRESTAMO" Type="date" Nullable="false" />
+          <Property Name="FECHADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
+          <Property Name="HORADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
+          <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="date" />
+          <Property Name="HORADEVOLUCIONREALPRESTAMO" Type="date" />
+        </EntityType>
+        <EntityType Name="SESION">
+          <Key>
+            <PropertyRef Name="IDSESION" />
+          </Key>
+          <Property Name="IDSESION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERNAMESESION" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="PASSWORDSESION" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="TIPOSESION" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SOLICITUD">
+          <Key>
+            <PropertyRef Name="IDSOLICITUD" />
+          </Key>
+          <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHASOLICITUD" Type="date" Nullable="false" />
+          <Property Name="HORASOLICITUD" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUTUSUARIO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="NOMBRESUSUARIO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="APELLIDOSUSUARIO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="DIRECCIONUSUARIO" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="TELEFONOUSUARIO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="ACTIVOUSUARIO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="HUELLAUSUARIO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="FOTOUSUARIO" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATALOGO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_CATALOGO">
+          <Key>
+            <PropertyRef Name="IDDOCUMENTO" />
+            <PropertyRef Name="TITULODOCUMENTO" />
+            <PropertyRef Name="AUTORDOCUMENTO" />
+            <PropertyRef Name="EDICIONDOCUMENTO" />
+            <PropertyRef Name="EDITORIALDOCUMENTO" />
+            <PropertyRef Name="ANIODOCUMENTO" />
+            <PropertyRef Name="TIPODOCUMENTO" />
+            <PropertyRef Name="CATEGORIADOCUMENTO" />
+          </Key>
+          <Property Name="IDDOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TITULODOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="AUTORDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="EDICIONDOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="EDITORIALDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ANIODOCUMENTO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="TIPODOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="CATEGORIADOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATEGORIASDOC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_CATEGORIASDOC">
+          <Key>
+            <PropertyRef Name="CATEGORIADOCUMENTO" />
+          </Key>
+          <Property Name="CATEGORIADOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_EJEMPLARES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_EJEMPLARES">
+          <Key>
+            <PropertyRef Name="IDEJEMPLAR" />
+            <PropertyRef Name="TITULODOCUMENTO" />
+            <PropertyRef Name="IDDOCUMENTO" />
+            <PropertyRef Name="ESTADOEJEMPLAR" />
+            <PropertyRef Name="UBICACIONEJEMPLAR" />
+          </Key>
+          <Property Name="IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TITULODOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="IDDOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ESTADOEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="UBICACIONEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_TIPOSDOC">
+          <Key>
+            <PropertyRef Name="TIPODOCUMENTO" />
+          </Key>
+          <Property Name="TIPODOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="DETALLESOLICITUD_EJEMPLAR_FK">
+          <End Role="EJEMPLAR" Type="Self.EJEMPLAR" Multiplicity="1" />
+          <End Role="DETALLESOLICITUD" Type="Self.DETALLESOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EJEMPLAR">
+              <PropertyRef Name="IDEJEMPLAR" />
+            </Principal>
+            <Dependent Role="DETALLESOLICITUD">
+              <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLESOLICITUD_SOLICITUD_FK">
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="1" />
+          <End Role="DETALLESOLICITUD" Type="Self.DETALLESOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOLICITUD">
+              <PropertyRef Name="IDSOLICITUD" />
+            </Principal>
+            <Dependent Role="DETALLESOLICITUD">
+              <PropertyRef Name="SOLICITUD_IDSOLICITUD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EJEMPLAR_DOCUMENTO_FK">
+          <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="1" />
+          <End Role="EJEMPLAR" Type="Self.EJEMPLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTO">
+              <PropertyRef Name="IDDOCUMENTO" />
+            </Principal>
+            <Dependent Role="EJEMPLAR">
+              <PropertyRef Name="DOCUMENTO_IDDOCUMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRESTAMO_EJEMPLAR_FK">
+          <End Role="EJEMPLAR" Type="Self.EJEMPLAR" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EJEMPLAR">
+              <PropertyRef Name="IDEJEMPLAR" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDPRESTAMO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IDUSUARIO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="USUARIO_IDUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PRO_ADD_DOCUMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+          <Parameter Name="TITULO_DOCUMENTO" Type="varchar2" Mode="In" />
+          <Parameter Name="AUTOR_DOCUMENTO" Type="varchar2" Mode="In" />
+          <Parameter Name="ANIO_DOCUMENTO" Type="varchar2" Mode="In" />
+          <Parameter Name="EDICION_DOCUMENTO" Type="varchar2" Mode="In" />
+          <Parameter Name="EDITORIAL_DOCUMENTO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIPO_DOCUMENTO" Type="varchar2" Mode="In" />
+          <Parameter Name="CATEGORIA_DOCUMENTO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="PRO_ADD_EJEMPLAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+          <Parameter Name="ID_DOCUMENTO" Type="number" Mode="In" />
+          <Parameter Name="ESTADO_EJEMPLAR" Type="varchar2" Mode="In" />
+          <Parameter Name="UBICACION_EJEMPLAR" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="PRO_ADD_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+          <Parameter Name="RUT_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="NOMBRES_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="APELLIDOS_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="DIRECCION_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="TELEFONO_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="FOTO_USUARIO" Type="char" Mode="In" />
+          <Parameter Name="HUELLA_USUARIO" Type="char" Mode="In" />
+        </Function>
+        <EntityContainer Name="BibliotecaModelStoreContainer">
+          <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
+          <EntitySet Name="EJEMPLAR" EntityType="Self.EJEMPLAR" Schema="BIBLIOTECA" store:Type="Tables" />
+          <EntitySet Name="PRESTAMO" EntityType="Self.PRESTAMO" Schema="BIBLIOTECA" store:Type="Tables" />
+          <EntitySet Name="SESION" EntityType="Self.SESION" Schema="BIBLIOTECA" store:Type="Tables" />
+          <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="BIBLIOTECA" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="BIBLIOTECA" store:Type="Tables" />
+          <EntitySet Name="DETALLESOLICITUD" EntityType="Self.DETALLESOLICITUD" store:Type="Tables" store:Schema="BIBLIOTECA">
+            <DefiningQuery>SELECT 
+"DETALLESOLICITUD"."EJEMPLAR_IDEJEMPLAR" AS "EJEMPLAR_IDEJEMPLAR", 
+"DETALLESOLICITUD"."SOLICITUD_IDSOLICITUD" AS "SOLICITUD_IDSOLICITUD"
+FROM "BIBLIOTECA"."DETALLESOLICITUD" "DETALLESOLICITUD"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_CATALOGO" EntityType="Self.V_CATALOGO" store:Type="Views" store:Schema="BIBLIOTECA">
+            <DefiningQuery>SELECT 
+"V_CATALOGO"."IDDOCUMENTO" AS "IDDOCUMENTO", 
+"V_CATALOGO"."TITULODOCUMENTO" AS "TITULODOCUMENTO", 
+"V_CATALOGO"."AUTORDOCUMENTO" AS "AUTORDOCUMENTO", 
+"V_CATALOGO"."EDICIONDOCUMENTO" AS "EDICIONDOCUMENTO", 
+"V_CATALOGO"."EDITORIALDOCUMENTO" AS "EDITORIALDOCUMENTO", 
+"V_CATALOGO"."ANIODOCUMENTO" AS "ANIODOCUMENTO", 
+"V_CATALOGO"."TIPODOCUMENTO" AS "TIPODOCUMENTO", 
+"V_CATALOGO"."CATEGORIADOCUMENTO" AS "CATEGORIADOCUMENTO", 
+"V_CATALOGO"."CANTIDAD" AS "CANTIDAD"
+FROM "BIBLIOTECA"."V_CATALOGO" "V_CATALOGO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_CATEGORIASDOC" EntityType="Self.V_CATEGORIASDOC" store:Type="Views" store:Schema="BIBLIOTECA">
+            <DefiningQuery>SELECT 
+"V_CATEGORIASDOC"."CATEGORIADOCUMENTO" AS "CATEGORIADOCUMENTO"
+FROM "BIBLIOTECA"."V_CATEGORIASDOC" "V_CATEGORIASDOC"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_EJEMPLARES" EntityType="Self.V_EJEMPLARES" store:Type="Views" store:Schema="BIBLIOTECA">
+            <DefiningQuery>SELECT 
+"V_EJEMPLARES"."IDEJEMPLAR" AS "IDEJEMPLAR", 
+"V_EJEMPLARES"."TITULODOCUMENTO" AS "TITULODOCUMENTO", 
+"V_EJEMPLARES"."IDDOCUMENTO" AS "IDDOCUMENTO", 
+"V_EJEMPLARES"."ESTADOEJEMPLAR" AS "ESTADOEJEMPLAR", 
+"V_EJEMPLARES"."UBICACIONEJEMPLAR" AS "UBICACIONEJEMPLAR"
+FROM "BIBLIOTECA"."V_EJEMPLARES" "V_EJEMPLARES"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_TIPOSDOC" EntityType="Self.V_TIPOSDOC" store:Type="Views" store:Schema="BIBLIOTECA">
+            <DefiningQuery>SELECT 
+"V_TIPOSDOC"."TIPODOCUMENTO" AS "TIPODOCUMENTO"
+FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="DETALLESOLICITUD_EJEMPLAR_FK" Association="Self.DETALLESOLICITUD_EJEMPLAR_FK">
+            <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
+            <End Role="DETALLESOLICITUD" EntitySet="DETALLESOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLESOLICITUD_SOLICITUD_FK" Association="Self.DETALLESOLICITUD_SOLICITUD_FK">
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+            <End Role="DETALLESOLICITUD" EntitySet="DETALLESOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="EJEMPLAR_DOCUMENTO_FK" Association="Self.EJEMPLAR_DOCUMENTO_FK">
+            <End Role="DOCUMENTO" EntitySet="DOCUMENTO" />
+            <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
+          </AssociationSet>
+          <AssociationSet Name="PRESTAMO_EJEMPLAR_FK" Association="Self.PRESTAMO_EJEMPLAR_FK">
+            <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDPRESTAMO_USUARIO_FK" Association="Self.SOLICITUDPRESTAMO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BibliotecaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DOCUMENTO">
+          <Key>
+            <PropertyRef Name="IDDOCUMENTO" />
+          </Key>
+          <Property Name="IDDOCUMENTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPODOCUMENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITULODOCUMENTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AUTORDOCUMENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EDITORIALDOCUMENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ANIODOCUMENTO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EDICIONDOCUMENTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CATEGORIADOCUMENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EJEMPLAR" Relationship="Self.EJEMPLAR_DOCUMENTO_FK" FromRole="DOCUMENTO" ToRole="EJEMPLAR" />
+        </EntityType>
+        <EntityType Name="EJEMPLAR">
+          <Key>
+            <PropertyRef Name="IDEJEMPLAR" />
+          </Key>
+          <Property Name="DOCUMENTO_IDDOCUMENTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDEJEMPLAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ESTADOEJEMPLAR" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UBICACIONEJEMPLAR" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DOCUMENTO" Relationship="Self.EJEMPLAR_DOCUMENTO_FK" FromRole="EJEMPLAR" ToRole="DOCUMENTO" />
+          <NavigationProperty Name="PRESTAMO" Relationship="Self.PRESTAMO_EJEMPLAR_FK" FromRole="EJEMPLAR" ToRole="PRESTAMO" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Self.DETALLESOLICITUD" FromRole="EJEMPLAR" ToRole="SOLICITUD" />
+        </EntityType>
+        <EntityType Name="PRESTAMO">
+          <Key>
+            <PropertyRef Name="IDPRESTAMO" />
+          </Key>
+          <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDPRESTAMO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOPRESTAMO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHAPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HORAPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HORADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
+          <Property Name="HORADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="EJEMPLAR" Relationship="Self.PRESTAMO_EJEMPLAR_FK" FromRole="PRESTAMO" ToRole="EJEMPLAR" />
+        </EntityType>
+        <EntityType Name="SESION">
+          <Key>
+            <PropertyRef Name="IDSESION" />
+          </Key>
+          <Property Name="IDSESION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERNAMESESION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORDSESION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPOSESION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SOLICITUD">
+          <Key>
+            <PropertyRef Name="IDSOLICITUD" />
+          </Key>
+          <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDSOLICITUD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHASOLICITUD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HORASOLICITUD" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="SOLICITUD" ToRole="USUARIO" />
+          <NavigationProperty Name="EJEMPLAR" Relationship="Self.DETALLESOLICITUD" FromRole="SOLICITUD" ToRole="EJEMPLAR" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUTUSUARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRESUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDOSUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCIONUSUARIO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONOUSUARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ACTIVOUSUARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="HUELLAUSUARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="FOTOUSUARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="SOLICITUD" />
+        </EntityType>
+        <Association Name="EJEMPLAR_DOCUMENTO_FK">
+          <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="1" />
+          <End Role="EJEMPLAR" Type="Self.EJEMPLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTO">
+              <PropertyRef Name="IDDOCUMENTO" />
+            </Principal>
+            <Dependent Role="EJEMPLAR">
+              <PropertyRef Name="DOCUMENTO_IDDOCUMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRESTAMO_EJEMPLAR_FK">
+          <End Role="EJEMPLAR" Type="Self.EJEMPLAR" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EJEMPLAR">
+              <PropertyRef Name="IDEJEMPLAR" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDPRESTAMO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IDUSUARIO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="USUARIO_IDUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLESOLICITUD">
+          <End Role="EJEMPLAR" Type="Self.EJEMPLAR" Multiplicity="*" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BibliotecaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" />
+          <EntitySet Name="EJEMPLAR" EntityType="Self.EJEMPLAR" />
+          <EntitySet Name="PRESTAMO" EntityType="Self.PRESTAMO" />
+          <EntitySet Name="SESION" EntityType="Self.SESION" />
+          <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="EJEMPLAR_DOCUMENTO_FK" Association="Self.EJEMPLAR_DOCUMENTO_FK">
+            <End Role="DOCUMENTO" EntitySet="DOCUMENTO" />
+            <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
+          </AssociationSet>
+          <AssociationSet Name="PRESTAMO_EJEMPLAR_FK" Association="Self.PRESTAMO_EJEMPLAR_FK">
+            <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDPRESTAMO_USUARIO_FK" Association="Self.SOLICITUDPRESTAMO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLESOLICITUD" Association="Self.DETALLESOLICITUD">
+            <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <EntitySet Name="V_CATALOGO" EntityType="BibliotecaModel.V_CATALOGO" />
+          <FunctionImport Name="PRO_ADD_EJEMPLAR">
+            <Parameter Name="ID_DOCUMENTO" Mode="In" Type="Decimal" />
+            <Parameter Name="ESTADO_EJEMPLAR" Mode="In" Type="String" />
+            <Parameter Name="UBICACION_EJEMPLAR" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PRO_ADD_DOCUMENTO">
+            <Parameter Name="TITULO_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="AUTOR_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="ANIO_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="EDICION_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="EDITORIAL_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="TIPO_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="CATEGORIA_DOCUMENTO" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="V_EJEMPLARES" EntityType="BibliotecaModel.V_EJEMPLARES" />
+          <FunctionImport Name="PRO_ADD_USUARIO">
+            <Parameter Name="RUT_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="NOMBRES_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="APELLIDOS_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="DIRECCION_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="TELEFONO_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="FOTO_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="HUELLA_USUARIO" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="V_CATEGORIASDOC" EntityType="BibliotecaModel.V_CATEGORIASDOC" />
+          <EntitySet Name="V_TIPOSDOC" EntityType="BibliotecaModel.V_TIPOSDOC" />
+        </EntityContainer>
+        <EntityType Name="V_CATALOGO">
+          <Key>
+            <PropertyRef Name="TITULODOCUMENTO" />
+            <PropertyRef Name="AUTORDOCUMENTO" />
+            <PropertyRef Name="EDICIONDOCUMENTO" />
+            <PropertyRef Name="ANIODOCUMENTO" />
+            <PropertyRef Name="TIPODOCUMENTO" />
+            <PropertyRef Name="CATEGORIADOCUMENTO" />
+            <PropertyRef Name="IDDOCUMENTO" />
+            <PropertyRef Name="EDITORIALDOCUMENTO" />
+          </Key>
+          <Property Name="TITULODOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AUTORDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EDICIONDOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ANIODOCUMENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TIPODOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORIADOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="EDITORIALDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_EJEMPLARES">
+          <Key>
+            <PropertyRef Name="IDEJEMPLAR" />
+            <PropertyRef Name="TITULODOCUMENTO" />
+            <PropertyRef Name="ESTADOEJEMPLAR" />
+            <PropertyRef Name="UBICACIONEJEMPLAR" />
+            <PropertyRef Name="IDDOCUMENTO" />
+          </Key>
+          <Property Name="IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TITULODOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADOEJEMPLAR" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UBICACIONEJEMPLAR" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="V_CATEGORIASDOC">
+          <Key>
+            <PropertyRef Name="CATEGORIADOCUMENTO" />
+          </Key>
+          <Property Name="CATEGORIADOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_TIPOSDOC">
+          <Key>
+            <PropertyRef Name="TIPODOCUMENTO" />
+          </Key>
+          <Property Name="TIPODOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BibliotecaModelStoreContainer" CdmEntityContainer="BibliotecaEntities">
+          <EntitySetMapping Name="DOCUMENTO">
+            <EntityTypeMapping TypeName="BibliotecaModel.DOCUMENTO">
+              <MappingFragment StoreEntitySet="DOCUMENTO">
+                <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
+                <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+                <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
+                <ScalarProperty Name="AUTORDOCUMENTO" ColumnName="AUTORDOCUMENTO" />
+                <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
+                <ScalarProperty Name="ANIODOCUMENTO" ColumnName="ANIODOCUMENTO" />
+                <ScalarProperty Name="EDICIONDOCUMENTO" ColumnName="EDICIONDOCUMENTO" />
+                <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EJEMPLAR">
+            <EntityTypeMapping TypeName="BibliotecaModel.EJEMPLAR">
+              <MappingFragment StoreEntitySet="EJEMPLAR">
+                <ScalarProperty Name="DOCUMENTO_IDDOCUMENTO" ColumnName="DOCUMENTO_IDDOCUMENTO" />
+                <ScalarProperty Name="IDEJEMPLAR" ColumnName="IDEJEMPLAR" />
+                <ScalarProperty Name="ESTADOEJEMPLAR" ColumnName="ESTADOEJEMPLAR" />
+                <ScalarProperty Name="UBICACIONEJEMPLAR" ColumnName="UBICACIONEJEMPLAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRESTAMO">
+            <EntityTypeMapping TypeName="BibliotecaModel.PRESTAMO">
+              <MappingFragment StoreEntitySet="PRESTAMO">
+                <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+                <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+                <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
+                <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
+                <ScalarProperty Name="HORAPRESTAMO" ColumnName="HORAPRESTAMO" />
+                <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
+                <ScalarProperty Name="HORADEVOLUCIONPRESTAMO" ColumnName="HORADEVOLUCIONPRESTAMO" />
+                <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
+                <ScalarProperty Name="HORADEVOLUCIONREALPRESTAMO" ColumnName="HORADEVOLUCIONREALPRESTAMO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SESION">
+            <EntityTypeMapping TypeName="BibliotecaModel.SESION">
+              <MappingFragment StoreEntitySet="SESION">
+                <ScalarProperty Name="TIPOSESION" ColumnName="TIPOSESION" />
+                <ScalarProperty Name="IDSESION" ColumnName="IDSESION" />
+                <ScalarProperty Name="USERNAMESESION" ColumnName="USERNAMESESION" />
+                <ScalarProperty Name="PASSWORDSESION" ColumnName="PASSWORDSESION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOLICITUD">
+            <EntityTypeMapping TypeName="BibliotecaModel.SOLICITUD">
+              <MappingFragment StoreEntitySet="SOLICITUD">
+                <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+                <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
+                <ScalarProperty Name="FECHASOLICITUD" ColumnName="FECHASOLICITUD" />
+                <ScalarProperty Name="HORASOLICITUD" ColumnName="HORASOLICITUD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="BibliotecaModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="RUTUSUARIO" ColumnName="RUTUSUARIO" />
+                <ScalarProperty Name="NOMBRESUSUARIO" ColumnName="NOMBRESUSUARIO" />
+                <ScalarProperty Name="APELLIDOSUSUARIO" ColumnName="APELLIDOSUSUARIO" />
+                <ScalarProperty Name="DIRECCIONUSUARIO" ColumnName="DIRECCIONUSUARIO" />
+                <ScalarProperty Name="TELEFONOUSUARIO" ColumnName="TELEFONOUSUARIO" />
+                <ScalarProperty Name="ACTIVOUSUARIO" ColumnName="ACTIVOUSUARIO" />
+                <ScalarProperty Name="HUELLAUSUARIO" ColumnName="HUELLAUSUARIO" />
+                <ScalarProperty Name="FOTOUSUARIO" ColumnName="FOTOUSUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DETALLESOLICITUD" TypeName="BibliotecaModel.DETALLESOLICITUD" StoreEntitySet="DETALLESOLICITUD">
+            <EndProperty Name="EJEMPLAR">
+              <ScalarProperty Name="IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+            </EndProperty>
+            <EndProperty Name="SOLICITUD">
+              <ScalarProperty Name="IDSOLICITUD" ColumnName="SOLICITUD_IDSOLICITUD" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="V_CATALOGO">
+            <EntityTypeMapping TypeName="BibliotecaModel.V_CATALOGO">
+              <MappingFragment StoreEntitySet="V_CATALOGO">
+                <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
+                <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
+                <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+                <ScalarProperty Name="ANIODOCUMENTO" ColumnName="ANIODOCUMENTO" />
+                <ScalarProperty Name="EDICIONDOCUMENTO" ColumnName="EDICIONDOCUMENTO" />
+                <ScalarProperty Name="AUTORDOCUMENTO" ColumnName="AUTORDOCUMENTO" />
+                <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PRO_ADD_EJEMPLAR" FunctionName="BibliotecaModel.Store.PRO_ADD_EJEMPLAR" />
+          <FunctionImportMapping FunctionImportName="PRO_ADD_DOCUMENTO" FunctionName="BibliotecaModel.Store.PRO_ADD_DOCUMENTO" />
+          <EntitySetMapping Name="V_EJEMPLARES">
+            <EntityTypeMapping TypeName="BibliotecaModel.V_EJEMPLARES">
+              <MappingFragment StoreEntitySet="V_EJEMPLARES">
+                <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
+                <ScalarProperty Name="UBICACIONEJEMPLAR" ColumnName="UBICACIONEJEMPLAR" />
+                <ScalarProperty Name="ESTADOEJEMPLAR" ColumnName="ESTADOEJEMPLAR" />
+                <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
+                <ScalarProperty Name="IDEJEMPLAR" ColumnName="IDEJEMPLAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PRO_ADD_USUARIO" FunctionName="BibliotecaModel.Store.PRO_ADD_USUARIO" />
+          <EntitySetMapping Name="V_CATEGORIASDOC">
+            <EntityTypeMapping TypeName="BibliotecaModel.V_CATEGORIASDOC">
+              <MappingFragment StoreEntitySet="V_CATEGORIASDOC">
+                <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_TIPOSDOC">
+            <EntityTypeMapping TypeName="BibliotecaModel.V_TIPOSDOC">
+              <MappingFragment StoreEntitySet="V_TIPOSDOC">
+                <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Predeterminado" />
+        <DesignerProperty Name="SynchronizePropertyFacets" Value="True" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToOracle.tt" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
