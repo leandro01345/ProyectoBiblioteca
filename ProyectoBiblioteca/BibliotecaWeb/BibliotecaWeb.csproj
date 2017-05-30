@@ -74,6 +74,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Css\form-elements.css" />
+    <Content Include="Css\style.css" />
     <Content Include="Css\StyleSheet.css" />
     <Content Include="Css\StyleSheet1.css" />
     <Content Include="Documentos.aspx" />
@@ -212,6 +214,13 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BibliotecaSvc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bootstrap\" />
+    <Folder Include="font-awesome\" />
+    <Folder Include="ico\" />
+    <Folder Include="Img\backgrounds\" />
+    <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

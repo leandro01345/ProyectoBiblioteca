@@ -98,3 +98,6 @@ C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft
 C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.dll
 C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.pdb
 C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.csprojResolveAssemblyReference.cache
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.csprojResolveAssemblyReference.cache
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.dll
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.pdb

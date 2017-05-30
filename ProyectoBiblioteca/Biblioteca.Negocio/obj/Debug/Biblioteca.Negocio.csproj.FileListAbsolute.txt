@@ -38,3 +38,13 @@ C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Negocio\bin\Debu
 C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Negocio\obj\Debug\Biblioteca.Negocio.csprojResolveAssemblyReference.cache
 C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Negocio\obj\Debug\Biblioteca.Negocio.dll
 C:\Users\Carlos\Desktop\it01vieja\ProyectoBiblioteca\Biblioteca.Negocio\obj\Debug\Biblioteca.Negocio.pdb
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\bin\Debug\Biblioteca.Negocio.dll.config
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\bin\Debug\Biblioteca.Negocio.dll
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\bin\Debug\Biblioteca.Negocio.pdb
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\bin\Debug\Biblioteca.DALC.dll
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\bin\Debug\EntityFramework.dll
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\bin\Debug\Biblioteca.DALC.pdb
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\bin\Debug\EntityFramework.xml
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\obj\Debug\Biblioteca.Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\obj\Debug\Biblioteca.Negocio.dll
+C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.Negocio\obj\Debug\Biblioteca.Negocio.pdb
