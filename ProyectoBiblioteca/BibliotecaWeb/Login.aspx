@@ -61,18 +61,23 @@
                         			<i class="fa fa-lock"></i>
                         		</div>
                             </div>
-                            <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="login-form">
+                            <div class="form-bottom" runat="server">
+			                    <form id="form1" runat="server">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                                        <asp:TextBox ID="txtNomUsuario" cssclass="form-username form-control" runat="server"></asp:TextBox>
+                                        <%--<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">--%>
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                        <asp:TextBox ID="txtPwd" cssclass="form-username form-control" runat="server" TextMode="Password"></asp:TextBox>
+                                        <%--<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">--%>
 			                        </div>
-			                        <button type="submit" class="btn">Sign in!</button>
-			                    </form>
+                                    <asp:Button ID="BtnLogear" CssClass="btn" runat="server" Text="Sing In!" OnClick="BtnLogear_Click" Width="508px" />
+                                    <%--<button type="submit" class="btn">Sign in!</button>--%>
+                                    <br />
+                                    <asp:Label ID="lblMsj" runat="server" ForeColor="Red"></asp:Label>
+                                </form>
 		                    </div>
                         </div>
                     </div>
@@ -109,7 +114,7 @@
         <![endif]-->
 
     </body>
-<%--<html xmlns="http://www.w3.org/1999/xhtml">
+    <%--<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 

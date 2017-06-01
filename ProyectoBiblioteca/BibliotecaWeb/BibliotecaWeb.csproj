@@ -69,11 +69,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bienvenido.aspx" />
+    <Content Include="bootstrap\css\bootstrap-theme.css" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\npm.js" />
     <Content Include="Catalogo.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mdl-v1.1.2\material.css" />
+    <Content Include="Content\mdl-v1.1.2\material.js" />
+    <Content Include="Content\mdl-v1.1.2\material.min.css" />
+    <Content Include="Content\mdl-v1.1.2\material.min.js" />
     <Content Include="Css\form-elements.css" />
     <Content Include="Css\style.css" />
     <Content Include="Css\StyleSheet.css" />
@@ -81,8 +92,20 @@
     <Content Include="Documentos.aspx" />
     <Content Include="Ejemplares.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Img\backgrounds\1%402x.jpg" />
+    <Content Include="Img\backgrounds\1.jpg" />
+    <Content Include="Img\backgrounds\2%402x.jpg" />
+    <Content Include="Img\backgrounds\2.jpg" />
+    <Content Include="Img\backgrounds\3%402x.jpg" />
+    <Content Include="Img\backgrounds\3.jpg" />
     <Content Include="Img\Fondo.jpg" />
     <Content Include="Img\Libro.jpg" />
+    <Content Include="js\jquery-1.11.1.js" />
+    <Content Include="js\jquery-1.11.1.min.js" />
+    <Content Include="js\jquery.backstretch.js" />
+    <Content Include="js\jquery.backstretch.min.js" />
+    <Content Include="js\placeholder.js" />
+    <Content Include="js\scripts.js" />
     <Content Include="Login.aspx" />
     <Content Include="NuevoDocumento.aspx" />
     <Content Include="NuevoEjemplar.aspx" />
@@ -96,6 +119,18 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap\css\bootstrap.css.map" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\mdl-v1.1.2\package.json" />
+    <Content Include="Content\mdl-v1.1.2\material.min.js.map" />
+    <Content Include="Content\mdl-v1.1.2\material.min.css.map" />
+    <Content Include="Content\mdl-v1.1.2\LICENSE" />
+    <Content Include="Content\mdl-v1.1.2\bower.json" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -216,11 +251,8 @@
     <WCFMetadataStorage Include="Service References\BibliotecaSvc\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bootstrap\" />
     <Folder Include="font-awesome\" />
     <Folder Include="ico\" />
-    <Folder Include="Img\backgrounds\" />
-    <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="BibliotecaWeb.Usuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+   
     <style type="text/css">
 
         .auto-style2 {
@@ -36,7 +37,7 @@
             <td __designer:mapid="36" class="auto-style3"></td>
             <td __designer:mapid="37" class="auto-style4">
                 <br />
-                <asp:GridView ID="grdUsuarios" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdUsuarios_SelectedIndexChanged" DataKeyNames="IDUSUARIO">
+                <asp:GridView cssclass="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" ID="grdUsuarios" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdUsuarios_SelectedIndexChanged" DataKeyNames="IDUSUARIO">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
