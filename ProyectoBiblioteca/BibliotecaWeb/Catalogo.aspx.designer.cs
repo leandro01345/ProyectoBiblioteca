@@ -13,6 +13,15 @@ namespace BibliotecaWeb {
     public partial class Catalogo {
         
         /// <summary>
+        /// Control lblVacio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVacio;
+        
+        /// <summary>
         /// Control GridView1.
         /// </summary>
         /// <remarks>
@@ -31,15 +40,6 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
         
         /// <summary>
-        /// Control cboCategoria.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboCategoria;
-        
-        /// <summary>
         /// Control SqlDataSource2.
         /// </summary>
         /// <remarks>
@@ -47,6 +47,15 @@ namespace BibliotecaWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        
+        /// <summary>
+        /// Control cboCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboCategoria;
         
         /// <summary>
         /// Control cboTipo.
@@ -101,5 +110,14 @@ namespace BibliotecaWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarASolicitud;
+        
+        /// <summary>
+        /// Control lblPrueba.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrueba;
     }
 }

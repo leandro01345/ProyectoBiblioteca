@@ -12,8 +12,9 @@
         <tr __designer:mapid="35">
             <td __designer:mapid="36" class="auto-style3"></td>
             <td __designer:mapid="37" class="auto-style4">
+                    <asp:Label ID="lblVacio" runat="server"></asp:Label>
                 <br />
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource4" CellPadding="4" CssClass="table" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource4" CellPadding="4" CssClass="table" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
@@ -28,7 +29,7 @@
                         <asp:BoundField DataField="CANTIDAD" HeaderText="CANTIDAD" SortExpression="CANTIDAD" />
                         <asp:TemplateField HeaderText="Agregar">
                             <ItemTemplate>
-                                <asp:CheckBox ID="CheckBox1" runat="server" />
+                                <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -43,10 +44,10 @@
                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_CATALOGO&quot;" FilterExpression="CATEGORIADOCUMENTO = '{0}' and TIPODOCUMENTO = '{1}' and TITULODOCUMENTO LIKE '%{2}%' and AUTORDOCUMENTO LIKE '%{3}%'">
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_CATALOGO&quot;" FilterExpression="CATEGORIADOCUMENTO LIKE '%{0}%' and TIPODOCUMENTO LIKE '%{1}%' and TITULODOCUMENTO LIKE '%{2}%' and AUTORDOCUMENTO LIKE '%{3}%'">
                     <FilterParameters>
-                        <asp:ControlParameter Name="CATEGORIA" ControlID="cboCategoria" PropertyName="SelectedValue" />
-                        <asp:ControlParameter Name="TIPO" ControlID="cboTipo" PropertyName="SelectedValue" />
+                        <asp:ControlParameter Name="CATEGORIA" ControlID="cboCategoria" PropertyName="SelectedValue" ConvertEmptyStringToNull="false"/>
+                        <asp:ControlParameter Name="TIPO" ControlID="cboTipo" PropertyName="SelectedValue" ConvertEmptyStringToNull="false"/>
                         <asp:ControlParameter Name="TITULO" ControlID="txtTitulo" PropertyName="Text" ConvertEmptyStringToNull="false"/>
                         <asp:ControlParameter Name="AUTOR" ControlID="txtAutor" PropertyName="Text" ConvertEmptyStringToNull="false"/>
                     </FilterParameters>
@@ -64,10 +65,11 @@
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style6">Categoría</td>
                 <td __designer:mapid="3c" class="auto-style7">
-                <asp:DropDownList ID="cboCategoria" runat="server" DataSourceID="SqlDataSource2" DataTextField="CATEGORIADOCUMENTO" DataValueField="CATEGORIADOCUMENTO" Width="200px">
+                
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_CATEGORIASDOC&quot;" OnSelecting="SqlDataSource2_Selecting"></asp:SqlDataSource>
+                <asp:DropDownList ID="cboCategoria" runat="server" DataSourceID="SqlDataSource2" DataTextField="CATEGORIADOCUMENTO" DataValueField="CATEGORIADOCUMENTO" Width="200px" AppendDataBoundItems="True">
                     <asp:ListItem Text="Todas" Value="" Selected="True" />
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_CATEGORIASDOC&quot;"></asp:SqlDataSource>
                 </td>
                 <td __designer:mapid="3c" class="auto-style8">
                     &nbsp;</td>
@@ -75,10 +77,10 @@
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style6">Tipo</td>
                 <td __designer:mapid="3c" class="auto-style7">
-                <asp:DropDownList ID="cboTipo" runat="server" DataSourceID="SqlDataSource3" DataTextField="TIPODOCUMENTO" DataValueField="TIPODOCUMENTO" Width="200px">
+                <asp:DropDownList ID="cboTipo" runat="server" DataSourceID="SqlDataSource3" DataTextField="TIPODOCUMENTO" DataValueField="TIPODOCUMENTO" Width="200px" AppendDataBoundItems="True">
                     <asp:ListItem Text="Todas" Value="" Selected="True" />
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_TIPOSDOC&quot;"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_TIPOSDOC&quot;" OnSelecting="SqlDataSource3_Selecting"></asp:SqlDataSource>
                 </td>
                 <td __designer:mapid="3c" class="auto-style8">
                     &nbsp;</td>
@@ -109,7 +111,9 @@
                 </td>
             </tr>
             <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
+                <td __designer:mapid="3b" class="auto-style2">
+                    <asp:Label ID="lblPrueba" runat="server" Text="Label"></asp:Label>
+                </td>
                 <td __designer:mapid="3c" class="auto-style5">
                     &nbsp;</td>
                 <td __designer:mapid="3c">
@@ -122,3 +126,4 @@
 
 
 </asp:Content>
+

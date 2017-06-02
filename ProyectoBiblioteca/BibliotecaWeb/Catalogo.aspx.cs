@@ -9,9 +9,20 @@ namespace BibliotecaWeb
 {
     public partial class Catalogo : System.Web.UI.Page
     {
+        List<string> titleList = new List<string>();
+        List<int> idList = new List<int>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<object> ListBox1 = new List<object>();
+            if (GridView1.Rows.Count == 0)
+            {
+                lblVacio.Text = "No se han encontrado documentos.";
+            }
+            else
+            {
+                lblVacio.Text = "";
+            }
+
         }
 
         protected void grdDocumentos_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,20 +44,45 @@ namespace BibliotecaWeb
         {
             for (int i = 0; i < GridView1.Rows.Count; i++)
             {
-                CheckBox ch = (CheckBox)GridView1.Rows[i].FindControl("CheckBox1");
-                Label lb = (Label)GridView1.Rows[i].FindControl("Label1");
-                if (ch.Checked == true) { 
-                    //some action
-                    // now we will put selected rows name in our listbox
-                    //but first we should make name field as template field..
-                    //now we can take the data from name field that shown in Lable1
-                    //but first we should do this...
-                    //thank U foe watching   :)
 
-                    
+                CheckBox ch = (CheckBox)GridView1.Rows[i].FindControl("CheckBox1");
+                //Label lb = (Label)GridView1.Rows[i].FindControl("Label1");
+
+                if (ch.Checked == true)
+                {
+                    string strTitulo = GridView1.Rows[i].Cells[1].Text;
+                    // Get the currently selected row using the SelectedRow property.
+                    GridViewRow row = GridView1.Rows[i];
+                    // And you respective cell's value
+                    strTitulo = row.Cells[2].Text;
+                    int idTitulo = int.Parse(row.Cells[1].Text);
+
+                    lblPrueba.Text = lblPrueba.Text + " " + strTitulo;
+                    this.titleList.Add(strTitulo);
                 }
 
             }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void SqlDataSource3_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+            //cboTipo.Items.Insert(0, "Todas");
+
+        }
+
+        protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+            //cboCategoria.Items.Insert(0, "Todas");
         }
     }
 }
