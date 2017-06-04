@@ -11,16 +11,11 @@ namespace BibliotecaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["TipoSesion"] == null) {
-                lblMensaje.Text = "tipo de sesion es null";
-            } else
+            if (!(Session["TipoSesion"].ToString().Equals("bibliotecario") || Session["TipoSesion"].ToString().Equals("superadmin")))
             {
-                if ((Session["TipoSesion"].ToString().Equals("admin")))
-                {
-                    lblMensaje.Text = "hola admin";
-                }
+                Response.Redirect("Bienvenido.aspx");
             }
-            
+
         }
 
         protected void grdEjemplares_SelectedIndexChanged(object sender, EventArgs e)

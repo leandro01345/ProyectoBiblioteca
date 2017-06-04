@@ -11,7 +11,10 @@ namespace BibliotecaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!(Session["TipoSesion"].ToString().Equals("bibliotecario") || Session["TipoSesion"].ToString().Equals("superadmin")))
+            {
+                Response.Redirect("Bienvenido.aspx");
+            }
         }
 
         protected void grdDocumentos_SelectedIndexChanged(object sender, EventArgs e)

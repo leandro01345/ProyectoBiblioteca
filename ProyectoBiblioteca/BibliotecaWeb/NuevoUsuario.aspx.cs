@@ -13,7 +13,10 @@ namespace BibliotecaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!(Session["TipoSesion"].ToString().Equals("admin") || Session["TipoSesion"].ToString().Equals("superadmin")))
+            {
+                Response.Redirect("Bienvenido.aspx");
+            }
         }
 
         protected void btnLimpiarFormulario_Click(object sender, EventArgs e)
