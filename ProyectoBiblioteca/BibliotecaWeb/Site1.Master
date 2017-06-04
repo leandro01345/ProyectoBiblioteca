@@ -54,10 +54,12 @@
     <li><a href="#">Separated link</a></li>
   </ul>
 </div>
-        <a class="mdl-navigation__link" href="Ejemplares.aspx">Link</a>
-        <a class="mdl-navigation__link" href="NuevoDocumento.aspx">Link</a>
-        <a class="mdl-navigation__link" href="NuevoUsuario.aspx">Link</a>
-        <a class="mdl-navigation__link" href="Catalogo.aspx">Link</a>
+        <a class="mdl-navigation__link" href="Ejemplares.aspx">Administrar Ejemplares</a>
+        <a class="mdl-navigation__link" href="NuevoEjemplar.aspx">Nuevo Ejemplar</a>
+        <a class="mdl-navigation__link" href="Documentos.aspx">Administrar Documentos</a>
+        <a class="mdl-navigation__link" href="NuevoDocumento.aspx">Nuevo Documento</a>
+        <a class="mdl-navigation__link" href="NuevoUsuario.aspx">Nuevo Usuario</a>
+        <a class="mdl-navigation__link" href="Catalogo.aspx">Consulta de Catálogo</a>
     <a> <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="mdl-navigation__link" />   </a>
       </nav>
     </div>

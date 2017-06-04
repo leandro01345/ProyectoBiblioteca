@@ -59,6 +59,7 @@ namespace BibliotecaWeb
 
                     lblPrueba.Text = lblPrueba.Text + " " + strTitulo;
                     this.titleList.Add(strTitulo);
+                    this.idList.Add(idTitulo);
                 }
 
             }
