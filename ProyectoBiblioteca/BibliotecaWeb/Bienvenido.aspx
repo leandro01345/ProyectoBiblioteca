@@ -9,7 +9,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p class="auto-style1">
-        Bienvenid@
+        Bienvenid@,
+        <asp:Label ID="lblUsuario" runat="server"></asp:Label>
         
     </p>
 </asp:Content>

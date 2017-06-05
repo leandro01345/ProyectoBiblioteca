@@ -11,7 +11,10 @@ namespace BibliotecaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (User.Identity.IsAuthenticated)
+            {
+                lblUsuario.Text = User.Identity.Name;
+            }
         }
     }
 }

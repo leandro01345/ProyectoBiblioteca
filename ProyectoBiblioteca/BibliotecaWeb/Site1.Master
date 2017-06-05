@@ -54,23 +54,26 @@
     <li><a href="#">Separated link</a></li>
   </ul>
 </div>
-        <a class="mdl-navigation__link" href="Ejemplares.aspx">Administrar Ejemplares</a>
-        <a class="mdl-navigation__link" href="NuevoEjemplar.aspx">Nuevo Ejemplar</a>
-        <a class="mdl-navigation__link" href="Documentos.aspx">Administrar Documentos</a>
-        <a class="mdl-navigation__link" href="NuevoDocumento.aspx">Nuevo Documento</a>
-        <a class="mdl-navigation__link" href="NuevoUsuario.aspx">Nuevo Usuario</a>
-        <a class="mdl-navigation__link" href="Catalogo.aspx">Consulta de Catálogo</a>
+      <asp:HyperLink runat="server" NavigateUrl="Ejemplares.aspx" ID="urlEjemplares1" class="mdl-navigation__link">Administrar Ejemplares</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="NuevoEjemplar.aspx" ID="urlNuevoEjemplar1" class="mdl-navigation__link">Nuevo Ejemplar</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="Documentos.aspx" ID="urlDocumentos1" class="mdl-navigation__link">Administrar Documentos</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="NuevoDocumento.aspx" ID="urlNuevoDoc1" class="mdl-navigation__link">Nuevo Documento</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="NuevoUsuario.aspx" ID="urlNuevoUsuario1" class="mdl-navigation__link">Nuevo Usuario</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="Catalogo.aspx" ID="urlCatalogo1" class="mdl-navigation__link">Consulta de Catálogo</asp:HyperLink>
     <a> <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="mdl-navigation__link" />   </a>
       </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
+    <span class="mdl-layout-title">SisBiblio</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
+      <asp:HyperLink runat="server" NavigateUrl="Ejemplares.aspx" ID="urlEjemplares2" class="mdl-navigation__link">Administrar Ejemplares</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="NuevoEjemplar.aspx" ID="urlNuevoEjemplar2" class="mdl-navigation__link">Nuevo Ejemplar</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="Documentos.aspx" ID="urlDocumentos2" class="mdl-navigation__link">Administrar Documentos</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="NuevoDocumento.aspx" ID="urlNuevoDoc2" class="mdl-navigation__link">Nuevo Documento</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="NuevoUsuario.aspx" ID="urlNuevoUsuario2" class="mdl-navigation__link">Nuevo Usuario</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="Catalogo.aspx" ID="urlCatalogo2" class="mdl-navigation__link">Consulta de Catálogo</asp:HyperLink>
+      <asp:Label ID="lblUser" runat="server"></asp:Label>
     </nav>
   </div>
   <main class="mdl-layout__content">

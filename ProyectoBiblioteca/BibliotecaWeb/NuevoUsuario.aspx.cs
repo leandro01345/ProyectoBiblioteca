@@ -47,7 +47,7 @@ namespace BibliotecaWeb
                 msj.Subject = "Bienvenido, este correo es automatico";
                 msj.Body = "Hola " + nombre + " Bienvenido al sistema sisBiblio, este correo es automatico para validar";
                 msj.IsBodyHtml = false;
-
+                
                 cli.Host = "smtp.gmail.com";
                 cli.Port = 587;
                 cli.Credentials = new NetworkCredential("sis.biblio.auto@gmail.com", "sistemaBiblioteca");
