@@ -25,6 +25,7 @@
     <NavigationProperty Name="DOCUMENTO" Relationship="Self.EJEMPLAR_DOCUMENTO_FK" FromRole="EJEMPLAR" ToRole="DOCUMENTO" />
     <NavigationProperty Name="PRESTAMO" Relationship="Self.PRESTAMO_EJEMPLAR_FK" FromRole="EJEMPLAR" ToRole="PRESTAMO" />
     <NavigationProperty Name="SOLICITUD" Relationship="Self.DETALLESOLICITUD" FromRole="EJEMPLAR" ToRole="SOLICITUD" />
+    <Property Name="DISPONIBILIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="PRESTAMO">
     <Key>
@@ -139,7 +140,6 @@
       <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
       <End Role="SOLICITUD" EntitySet="SOLICITUD" />
     </AssociationSet>
-    <EntitySet Name="V_CATALOGO" EntityType="BibliotecaModel.V_CATALOGO" />
     <FunctionImport Name="PRO_ADD_EJEMPLAR">
       <Parameter Name="ID_DOCUMENTO" Mode="In" Type="Decimal" />
       <Parameter Name="ESTADO_EJEMPLAR" Mode="In" Type="String" />
@@ -166,28 +166,11 @@
     </FunctionImport>
     <EntitySet Name="V_CATEGORIASDOC" EntityType="BibliotecaModel.V_CATEGORIASDOC" />
     <EntitySet Name="V_TIPOSDOC" EntityType="BibliotecaModel.V_TIPOSDOC" />
+    <FunctionImport Name="PRO_ADD_SOLICITUD">
+      <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <EntitySet Name="V_CATALOGO" EntityType="BibliotecaModel.V_CATALOGO" />
   </EntityContainer>
-  <EntityType Name="V_CATALOGO">
-    <Key>
-      <PropertyRef Name="TITULODOCUMENTO" />
-      <PropertyRef Name="AUTORDOCUMENTO" />
-      <PropertyRef Name="EDICIONDOCUMENTO" />
-      <PropertyRef Name="ANIODOCUMENTO" />
-      <PropertyRef Name="TIPODOCUMENTO" />
-      <PropertyRef Name="CATEGORIADOCUMENTO" />
-      <PropertyRef Name="IDDOCUMENTO" />
-      <PropertyRef Name="EDITORIALDOCUMENTO" />
-    </Key>
-    <Property Name="TITULODOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="AUTORDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="EDICIONDOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="ANIODOCUMENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="TIPODOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="CATEGORIADOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-    <Property Name="EDITORIALDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="V_EJEMPLARES">
     <Key>
       <PropertyRef Name="IDEJEMPLAR" />
@@ -213,5 +196,27 @@
       <PropertyRef Name="TIPODOCUMENTO" />
     </Key>
     <Property Name="TIPODOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="V_CATALOGO">
+    <Key>
+      <PropertyRef Name="IDDOCUMENTO" />
+      <PropertyRef Name="TITULODOCUMENTO" />
+      <PropertyRef Name="AUTORDOCUMENTO" />
+      <PropertyRef Name="EDICIONDOCUMENTO" />
+      <PropertyRef Name="ANIODOCUMENTO" />
+      <PropertyRef Name="TIPODOCUMENTO" />
+      <PropertyRef Name="CATEGORIADOCUMENTO" />
+      <PropertyRef Name="EDITORIALDOCUMENTO" />
+    </Key>
+    <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TITULODOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AUTORDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EDICIONDOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ANIODOCUMENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIPODOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORIADOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="DISPONIBLES" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="EDITORIALDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

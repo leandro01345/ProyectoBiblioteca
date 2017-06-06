@@ -45,15 +45,16 @@
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="IDDOCUMENTO" HeaderText="ID" HtmlEncode="False" SortExpression="IDDOCUMENTO" />
-                            <asp:BoundField DataField="TITULODOCUMENTO" HeaderText="Título" HtmlEncode="False" SortExpression="TITULODOCUMENTO" />
-                            <asp:BoundField DataField="AUTORDOCUMENTO" HeaderText="Autor" HtmlEncode="False" SortExpression="AUTORDOCUMENTO" />
-                            <asp:BoundField DataField="EDICIONDOCUMENTO" HeaderText="Edición" HtmlEncode="False" SortExpression="EDICIONDOCUMENTO" />
-                            <asp:BoundField DataField="EDITORIALDOCUMENTO" HeaderText="Editorial" HtmlEncode="False" SortExpression="EDITORIALDOCUMENTO" />
-                            <asp:BoundField DataField="ANIODOCUMENTO" HeaderText="Año" HtmlEncode="False" SortExpression="ANIODOCUMENTO" />
-                            <asp:BoundField DataField="TIPODOCUMENTO" HeaderText="Tipo" HtmlEncode="False" SortExpression="TIPODOCUMENTO" />
-                            <asp:BoundField DataField="CATEGORIADOCUMENTO" HeaderText="Categoría" HtmlEncode="False" SortExpression="CATEGORIADOCUMENTO" />
-                            <asp:BoundField DataField="CANTIDAD" HeaderText="Cantidad" HtmlEncode="False" SortExpression="CANTIDAD" />
+                            <asp:BoundField DataField="IDDOCUMENTO" HeaderText="IDDOCUMENTO" HtmlEncode="False" SortExpression="IDDOCUMENTO" />
+                            <asp:BoundField DataField="TITULODOCUMENTO" HeaderText="TITULODOCUMENTO" HtmlEncode="False" SortExpression="TITULODOCUMENTO" />
+                            <asp:BoundField DataField="AUTORDOCUMENTO" HeaderText="AUTORDOCUMENTO" HtmlEncode="False" SortExpression="AUTORDOCUMENTO" />
+                            <asp:BoundField DataField="EDICIONDOCUMENTO" HeaderText="EDICIONDOCUMENTO" HtmlEncode="False" SortExpression="EDICIONDOCUMENTO" />
+                            <asp:BoundField DataField="EDITORIALDOCUMENTO" HeaderText="EDITORIALDOCUMENTO" HtmlEncode="False" SortExpression="EDITORIALDOCUMENTO" />
+                            <asp:BoundField DataField="ANIODOCUMENTO" HeaderText="ANIODOCUMENTO" HtmlEncode="False" SortExpression="ANIODOCUMENTO" />
+                            <asp:BoundField DataField="TIPODOCUMENTO" HeaderText="TIPODOCUMENTO" HtmlEncode="False" SortExpression="TIPODOCUMENTO" />
+                            <asp:BoundField DataField="CATEGORIADOCUMENTO" HeaderText="CATEGORIADOCUMENTO" HtmlEncode="False" SortExpression="CATEGORIADOCUMENTO" />
+                            <asp:BoundField DataField="CANTIDAD" HeaderText="CANTIDAD" HtmlEncode="False" SortExpression="CANTIDAD" />
+                            <asp:BoundField DataField="DISPONIBLES" HeaderText="DISPONIBLES" HtmlEncode="False" SortExpression="DISPONIBLES" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

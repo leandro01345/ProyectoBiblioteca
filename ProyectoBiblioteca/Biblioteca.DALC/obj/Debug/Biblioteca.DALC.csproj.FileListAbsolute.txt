@@ -37,3 +37,11 @@ C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\B
 C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\obj\Debug\Biblioteca.DALC.csprojResolveAssemblyReference.cache
 C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\obj\Debug\Biblioteca.DALC.dll
 C:\Users\Jose\Documents\GitHub\SisBiblio\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\obj\Debug\Biblioteca.DALC.pdb
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\bin\Debug\Biblioteca.DALC.dll.config
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\bin\Debug\Biblioteca.DALC.dll
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\bin\Debug\Biblioteca.DALC.pdb
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\bin\Debug\EntityFramework.dll
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\bin\Debug\EntityFramework.xml
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\obj\Debug\Biblioteca.DALC.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\obj\Debug\Biblioteca.DALC.dll
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Biblioteca.DALC\obj\Debug\Biblioteca.DALC.pdb

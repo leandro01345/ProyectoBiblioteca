@@ -18,6 +18,7 @@
     <EntitySetMapping Name="EJEMPLAR">
       <EntityTypeMapping TypeName="BibliotecaModel.EJEMPLAR">
         <MappingFragment StoreEntitySet="EJEMPLAR">
+          <ScalarProperty Name="DISPONIBILIDAD" ColumnName="DISPONIBILIDAD" />
           <ScalarProperty Name="DOCUMENTO_IDDOCUMENTO" ColumnName="DOCUMENTO_IDDOCUMENTO" />
           <ScalarProperty Name="IDEJEMPLAR" ColumnName="IDEJEMPLAR" />
           <ScalarProperty Name="ESTADOEJEMPLAR" ColumnName="ESTADOEJEMPLAR" />
@@ -83,21 +84,6 @@
         <ScalarProperty Name="IDSOLICITUD" ColumnName="SOLICITUD_IDSOLICITUD" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="V_CATALOGO">
-      <EntityTypeMapping TypeName="BibliotecaModel.V_CATALOGO">
-        <MappingFragment StoreEntitySet="V_CATALOGO">
-          <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
-          <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
-          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-          <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
-          <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
-          <ScalarProperty Name="ANIODOCUMENTO" ColumnName="ANIODOCUMENTO" />
-          <ScalarProperty Name="EDICIONDOCUMENTO" ColumnName="EDICIONDOCUMENTO" />
-          <ScalarProperty Name="AUTORDOCUMENTO" ColumnName="AUTORDOCUMENTO" />
-          <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="PRO_ADD_EJEMPLAR" FunctionName="BibliotecaModel.Store.PRO_ADD_EJEMPLAR" />
     <FunctionImportMapping FunctionImportName="PRO_ADD_DOCUMENTO" FunctionName="BibliotecaModel.Store.PRO_ADD_DOCUMENTO" />
     <EntitySetMapping Name="V_EJEMPLARES">
@@ -123,6 +109,23 @@
       <EntityTypeMapping TypeName="BibliotecaModel.V_TIPOSDOC">
         <MappingFragment StoreEntitySet="V_TIPOSDOC">
           <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PRO_ADD_SOLICITUD" FunctionName="BibliotecaModel.Store.PRO_ADD_SOLICITUD" />
+    <EntitySetMapping Name="V_CATALOGO">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_CATALOGO">
+        <MappingFragment StoreEntitySet="V_CATALOGO">
+          <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
+          <ScalarProperty Name="DISPONIBLES" ColumnName="DISPONIBLES" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
+          <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+          <ScalarProperty Name="ANIODOCUMENTO" ColumnName="ANIODOCUMENTO" />
+          <ScalarProperty Name="EDICIONDOCUMENTO" ColumnName="EDICIONDOCUMENTO" />
+          <ScalarProperty Name="AUTORDOCUMENTO" ColumnName="AUTORDOCUMENTO" />
+          <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
+          <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

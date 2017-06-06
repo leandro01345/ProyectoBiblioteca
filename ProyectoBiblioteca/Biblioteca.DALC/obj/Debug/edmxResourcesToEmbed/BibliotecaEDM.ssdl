@@ -31,6 +31,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
     <Property Name="IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ESTADOEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
     <Property Name="UBICACIONEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
+    <Property Name="DISPONIBILIDAD" Type="varchar2" MaxLength="50" />
   </EntityType>
   <EntityType Name="PRESTAMO">
     <Key>
@@ -86,20 +87,21 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATALOGO' no tiene definida nin
       <PropertyRef Name="TITULODOCUMENTO" />
       <PropertyRef Name="AUTORDOCUMENTO" />
       <PropertyRef Name="EDICIONDOCUMENTO" />
-      <PropertyRef Name="EDITORIALDOCUMENTO" />
       <PropertyRef Name="ANIODOCUMENTO" />
       <PropertyRef Name="TIPODOCUMENTO" />
       <PropertyRef Name="CATEGORIADOCUMENTO" />
+      <PropertyRef Name="EDITORIALDOCUMENTO" />
     </Key>
     <Property Name="IDDOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="TITULODOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
     <Property Name="AUTORDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="EDICIONDOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
-    <Property Name="EDITORIALDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="ANIODOCUMENTO" Type="varchar2" MaxLength="10" Nullable="false" />
     <Property Name="TIPODOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="CATEGORIADOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="EDITORIALDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" />
+    <Property Name="DISPONIBLES" Type="number" Precision="38" Scale="0" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATEGORIASDOC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -207,6 +209,9 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
     <Parameter Name="ESTADO_EJEMPLAR" Type="varchar2" Mode="In" />
     <Parameter Name="UBICACION_EJEMPLAR" Type="varchar2" Mode="In" />
   </Function>
+  <Function Name="PRO_ADD_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+    <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
+  </Function>
   <Function Name="PRO_ADD_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="RUT_USUARIO" Type="varchar2" Mode="In" />
     <Parameter Name="NOMBRES_USUARIO" Type="varchar2" Mode="In" />
@@ -235,11 +240,12 @@ FROM "BIBLIOTECA"."DETALLESOLICITUD" "DETALLESOLICITUD"</DefiningQuery>
 "V_CATALOGO"."TITULODOCUMENTO" AS "TITULODOCUMENTO", 
 "V_CATALOGO"."AUTORDOCUMENTO" AS "AUTORDOCUMENTO", 
 "V_CATALOGO"."EDICIONDOCUMENTO" AS "EDICIONDOCUMENTO", 
-"V_CATALOGO"."EDITORIALDOCUMENTO" AS "EDITORIALDOCUMENTO", 
 "V_CATALOGO"."ANIODOCUMENTO" AS "ANIODOCUMENTO", 
 "V_CATALOGO"."TIPODOCUMENTO" AS "TIPODOCUMENTO", 
 "V_CATALOGO"."CATEGORIADOCUMENTO" AS "CATEGORIADOCUMENTO", 
-"V_CATALOGO"."CANTIDAD" AS "CANTIDAD"
+"V_CATALOGO"."EDITORIALDOCUMENTO" AS "EDITORIALDOCUMENTO", 
+"V_CATALOGO"."CANTIDAD" AS "CANTIDAD", 
+"V_CATALOGO"."DISPONIBLES" AS "DISPONIBLES"
 FROM "BIBLIOTECA"."V_CATALOGO" "V_CATALOGO"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_CATEGORIASDOC" EntityType="Self.V_CATEGORIASDOC" store:Type="Views" store:Schema="BIBLIOTECA">

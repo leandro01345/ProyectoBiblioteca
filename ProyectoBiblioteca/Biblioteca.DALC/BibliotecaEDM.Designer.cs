@@ -173,22 +173,6 @@ namespace Biblioteca.DALC
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        public ObjectSet<V_CATALOGO> V_CATALOGO
-        {
-            get
-            {
-                if ((_V_CATALOGO == null))
-                {
-                    _V_CATALOGO = base.CreateObjectSet<V_CATALOGO>("V_CATALOGO");
-                }
-                return _V_CATALOGO;
-            }
-        }
-        private ObjectSet<V_CATALOGO> _V_CATALOGO;
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
         public ObjectSet<V_EJEMPLARES> V_EJEMPLARES
         {
             get
@@ -233,6 +217,22 @@ namespace Biblioteca.DALC
             }
         }
         private ObjectSet<V_TIPOSDOC> _V_TIPOSDOC;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<V_CATALOGO> V_CATALOGO
+        {
+            get
+            {
+                if ((_V_CATALOGO == null))
+                {
+                    _V_CATALOGO = base.CreateObjectSet<V_CATALOGO>("V_CATALOGO");
+                }
+                return _V_CATALOGO;
+            }
+        }
+        private ObjectSet<V_CATALOGO> _V_CATALOGO;
 
         #endregion
 
@@ -287,14 +287,6 @@ namespace Biblioteca.DALC
         }
     
         /// <summary>
-        /// Método desusado para agregar un nuevo objeto al EntitySet V_CATALOGO. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
-        /// </summary>
-        public void AddToV_CATALOGO(V_CATALOGO v_CATALOGO)
-        {
-            base.AddObject("V_CATALOGO", v_CATALOGO);
-        }
-    
-        /// <summary>
         /// Método desusado para agregar un nuevo objeto al EntitySet V_EJEMPLARES. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
         /// </summary>
         public void AddToV_EJEMPLARES(V_EJEMPLARES v_EJEMPLARES)
@@ -316,6 +308,14 @@ namespace Biblioteca.DALC
         public void AddToV_TIPOSDOC(V_TIPOSDOC v_TIPOSDOC)
         {
             base.AddObject("V_TIPOSDOC", v_TIPOSDOC);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet V_CATALOGO. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToV_CATALOGO(V_CATALOGO v_CATALOGO)
+        {
+            base.AddObject("V_CATALOGO", v_CATALOGO);
         }
 
         #endregion
@@ -531,6 +531,25 @@ namespace Biblioteca.DALC
             }
     
             return base.ExecuteFunction("PRO_ADD_USUARIO", rUT_USUARIOParameter, nOMBRES_USUARIOParameter, aPELLIDOS_USUARIOParameter, dIRECCION_USUARIOParameter, tELEFONO_USUARIOParameter, fOTO_USUARIOParameter, hUELLA_USUARIOParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="iD_USUARIO">No hay documentación de metadatos disponible.</param>
+        public int PRO_ADD_SOLICITUD(Nullable<global::System.Decimal> iD_USUARIO)
+        {
+            ObjectParameter iD_USUARIOParameter;
+            if (iD_USUARIO.HasValue)
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", iD_USUARIO);
+            }
+            else
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction("PRO_ADD_SOLICITUD", iD_USUARIOParameter);
         }
 
         #endregion
@@ -934,6 +953,30 @@ namespace Biblioteca.DALC
         private global::System.String _UBICACIONEJEMPLAR;
         partial void OnUBICACIONEJEMPLARChanging(global::System.String value);
         partial void OnUBICACIONEJEMPLARChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DISPONIBILIDAD
+        {
+            get
+            {
+                return _DISPONIBILIDAD;
+            }
+            set
+            {
+                OnDISPONIBILIDADChanging(value);
+                ReportPropertyChanging("DISPONIBILIDAD");
+                _DISPONIBILIDAD = StructuralObject.SetValidValue(value, true, "DISPONIBILIDAD");
+                ReportPropertyChanged("DISPONIBILIDAD");
+                OnDISPONIBILIDADChanged();
+            }
+        }
+        private global::System.String _DISPONIBILIDAD;
+        partial void OnDISPONIBILIDADChanging(global::System.String value);
+        partial void OnDISPONIBILIDADChanged();
 
         #endregion
 
@@ -1960,24 +2003,24 @@ namespace Biblioteca.DALC
         /// <summary>
         /// Crear un nuevo objeto V_CATALOGO.
         /// </summary>
+        /// <param name="iDDOCUMENTO">Valor inicial de la propiedad IDDOCUMENTO.</param>
         /// <param name="tITULODOCUMENTO">Valor inicial de la propiedad TITULODOCUMENTO.</param>
         /// <param name="aUTORDOCUMENTO">Valor inicial de la propiedad AUTORDOCUMENTO.</param>
         /// <param name="eDICIONDOCUMENTO">Valor inicial de la propiedad EDICIONDOCUMENTO.</param>
         /// <param name="aNIODOCUMENTO">Valor inicial de la propiedad ANIODOCUMENTO.</param>
         /// <param name="tIPODOCUMENTO">Valor inicial de la propiedad TIPODOCUMENTO.</param>
         /// <param name="cATEGORIADOCUMENTO">Valor inicial de la propiedad CATEGORIADOCUMENTO.</param>
-        /// <param name="iDDOCUMENTO">Valor inicial de la propiedad IDDOCUMENTO.</param>
         /// <param name="eDITORIALDOCUMENTO">Valor inicial de la propiedad EDITORIALDOCUMENTO.</param>
-        public static V_CATALOGO CreateV_CATALOGO(global::System.String tITULODOCUMENTO, global::System.String aUTORDOCUMENTO, global::System.String eDICIONDOCUMENTO, global::System.String aNIODOCUMENTO, global::System.String tIPODOCUMENTO, global::System.String cATEGORIADOCUMENTO, global::System.Decimal iDDOCUMENTO, global::System.String eDITORIALDOCUMENTO)
+        public static V_CATALOGO CreateV_CATALOGO(global::System.Decimal iDDOCUMENTO, global::System.String tITULODOCUMENTO, global::System.String aUTORDOCUMENTO, global::System.String eDICIONDOCUMENTO, global::System.String aNIODOCUMENTO, global::System.String tIPODOCUMENTO, global::System.String cATEGORIADOCUMENTO, global::System.String eDITORIALDOCUMENTO)
         {
             V_CATALOGO v_CATALOGO = new V_CATALOGO();
+            v_CATALOGO.IDDOCUMENTO = iDDOCUMENTO;
             v_CATALOGO.TITULODOCUMENTO = tITULODOCUMENTO;
             v_CATALOGO.AUTORDOCUMENTO = aUTORDOCUMENTO;
             v_CATALOGO.EDICIONDOCUMENTO = eDICIONDOCUMENTO;
             v_CATALOGO.ANIODOCUMENTO = aNIODOCUMENTO;
             v_CATALOGO.TIPODOCUMENTO = tIPODOCUMENTO;
             v_CATALOGO.CATEGORIADOCUMENTO = cATEGORIADOCUMENTO;
-            v_CATALOGO.IDDOCUMENTO = iDDOCUMENTO;
             v_CATALOGO.EDITORIALDOCUMENTO = eDITORIALDOCUMENTO;
             return v_CATALOGO;
         }
@@ -1985,6 +2028,33 @@ namespace Biblioteca.DALC
         #endregion
 
         #region Propiedades simples
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal IDDOCUMENTO
+        {
+            get
+            {
+                return _IDDOCUMENTO;
+            }
+            set
+            {
+                if (_IDDOCUMENTO != value)
+                {
+                    OnIDDOCUMENTOChanging(value);
+                    ReportPropertyChanging("IDDOCUMENTO");
+                    _IDDOCUMENTO = StructuralObject.SetValidValue(value, "IDDOCUMENTO");
+                    ReportPropertyChanged("IDDOCUMENTO");
+                    OnIDDOCUMENTOChanged();
+                }
+            }
+        }
+        private global::System.Decimal _IDDOCUMENTO;
+        partial void OnIDDOCUMENTOChanging(global::System.Decimal value);
+        partial void OnIDDOCUMENTOChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -2175,29 +2245,26 @@ namespace Biblioteca.DALC
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal IDDOCUMENTO
+        public Nullable<global::System.Decimal> DISPONIBLES
         {
             get
             {
-                return _IDDOCUMENTO;
+                return _DISPONIBLES;
             }
             set
             {
-                if (_IDDOCUMENTO != value)
-                {
-                    OnIDDOCUMENTOChanging(value);
-                    ReportPropertyChanging("IDDOCUMENTO");
-                    _IDDOCUMENTO = StructuralObject.SetValidValue(value, "IDDOCUMENTO");
-                    ReportPropertyChanged("IDDOCUMENTO");
-                    OnIDDOCUMENTOChanged();
-                }
+                OnDISPONIBLESChanging(value);
+                ReportPropertyChanging("DISPONIBLES");
+                _DISPONIBLES = StructuralObject.SetValidValue(value, "DISPONIBLES");
+                ReportPropertyChanged("DISPONIBLES");
+                OnDISPONIBLESChanged();
             }
         }
-        private global::System.Decimal _IDDOCUMENTO;
-        partial void OnIDDOCUMENTOChanging(global::System.Decimal value);
-        partial void OnIDDOCUMENTOChanged();
+        private Nullable<global::System.Decimal> _DISPONIBLES;
+        partial void OnDISPONIBLESChanging(Nullable<global::System.Decimal> value);
+        partial void OnDISPONIBLESChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.

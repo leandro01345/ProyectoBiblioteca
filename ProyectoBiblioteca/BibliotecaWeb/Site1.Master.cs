@@ -11,7 +11,10 @@ namespace BibliotecaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ((Session["TipoSesion"]==null))
+            {
+                Response.Redirect("Login.aspx");
+            }
             if (!(Session["TipoSesion"].ToString().Equals("superadmin")))
             {
                 urlNuevoDoc1.Visible = false;

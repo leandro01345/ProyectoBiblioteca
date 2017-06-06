@@ -111,5 +111,20 @@ namespace Biblioteca.Negocio
                 return false;
             }
         }
+
+        public bool ExisteUserName(string username)
+        {
+            try
+            {
+                Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
+                   (u => u.NOMBRESUSUARIO == username);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
     }
 }

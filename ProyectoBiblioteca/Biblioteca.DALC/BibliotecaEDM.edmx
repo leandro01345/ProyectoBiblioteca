@@ -36,6 +36,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
           <Property Name="IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ESTADOEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="UBICACIONEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="DISPONIBILIDAD" Type="varchar2" MaxLength="50" />
         </EntityType>
         <EntityType Name="PRESTAMO">
           <Key>
@@ -91,20 +92,21 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATALOGO' no tiene definida nin
             <PropertyRef Name="TITULODOCUMENTO" />
             <PropertyRef Name="AUTORDOCUMENTO" />
             <PropertyRef Name="EDICIONDOCUMENTO" />
-            <PropertyRef Name="EDITORIALDOCUMENTO" />
             <PropertyRef Name="ANIODOCUMENTO" />
             <PropertyRef Name="TIPODOCUMENTO" />
             <PropertyRef Name="CATEGORIADOCUMENTO" />
+            <PropertyRef Name="EDITORIALDOCUMENTO" />
           </Key>
           <Property Name="IDDOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TITULODOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="AUTORDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="EDICIONDOCUMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
-          <Property Name="EDITORIALDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="ANIODOCUMENTO" Type="varchar2" MaxLength="10" Nullable="false" />
           <Property Name="TIPODOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="CATEGORIADOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="EDITORIALDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" />
+          <Property Name="DISPONIBLES" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATEGORIASDOC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -212,6 +214,9 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
           <Parameter Name="ESTADO_EJEMPLAR" Type="varchar2" Mode="In" />
           <Parameter Name="UBICACION_EJEMPLAR" Type="varchar2" Mode="In" />
         </Function>
+        <Function Name="PRO_ADD_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+          <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
+        </Function>
         <Function Name="PRO_ADD_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
           <Parameter Name="RUT_USUARIO" Type="varchar2" Mode="In" />
           <Parameter Name="NOMBRES_USUARIO" Type="varchar2" Mode="In" />
@@ -240,11 +245,12 @@ FROM "BIBLIOTECA"."DETALLESOLICITUD" "DETALLESOLICITUD"</DefiningQuery>
 "V_CATALOGO"."TITULODOCUMENTO" AS "TITULODOCUMENTO", 
 "V_CATALOGO"."AUTORDOCUMENTO" AS "AUTORDOCUMENTO", 
 "V_CATALOGO"."EDICIONDOCUMENTO" AS "EDICIONDOCUMENTO", 
-"V_CATALOGO"."EDITORIALDOCUMENTO" AS "EDITORIALDOCUMENTO", 
 "V_CATALOGO"."ANIODOCUMENTO" AS "ANIODOCUMENTO", 
 "V_CATALOGO"."TIPODOCUMENTO" AS "TIPODOCUMENTO", 
 "V_CATALOGO"."CATEGORIADOCUMENTO" AS "CATEGORIADOCUMENTO", 
-"V_CATALOGO"."CANTIDAD" AS "CANTIDAD"
+"V_CATALOGO"."EDITORIALDOCUMENTO" AS "EDITORIALDOCUMENTO", 
+"V_CATALOGO"."CANTIDAD" AS "CANTIDAD", 
+"V_CATALOGO"."DISPONIBLES" AS "DISPONIBLES"
 FROM "BIBLIOTECA"."V_CATALOGO" "V_CATALOGO"</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_CATEGORIASDOC" EntityType="Self.V_CATEGORIASDOC" store:Type="Views" store:Schema="BIBLIOTECA">
@@ -316,6 +322,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <NavigationProperty Name="DOCUMENTO" Relationship="Self.EJEMPLAR_DOCUMENTO_FK" FromRole="EJEMPLAR" ToRole="DOCUMENTO" />
           <NavigationProperty Name="PRESTAMO" Relationship="Self.PRESTAMO_EJEMPLAR_FK" FromRole="EJEMPLAR" ToRole="PRESTAMO" />
           <NavigationProperty Name="SOLICITUD" Relationship="Self.DETALLESOLICITUD" FromRole="EJEMPLAR" ToRole="SOLICITUD" />
+          <Property Name="DISPONIBILIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PRESTAMO">
           <Key>
@@ -430,7 +437,6 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
             <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
-          <EntitySet Name="V_CATALOGO" EntityType="BibliotecaModel.V_CATALOGO" />
           <FunctionImport Name="PRO_ADD_EJEMPLAR">
             <Parameter Name="ID_DOCUMENTO" Mode="In" Type="Decimal" />
             <Parameter Name="ESTADO_EJEMPLAR" Mode="In" Type="String" />
@@ -457,28 +463,11 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           </FunctionImport>
           <EntitySet Name="V_CATEGORIASDOC" EntityType="BibliotecaModel.V_CATEGORIASDOC" />
           <EntitySet Name="V_TIPOSDOC" EntityType="BibliotecaModel.V_TIPOSDOC" />
+          <FunctionImport Name="PRO_ADD_SOLICITUD">
+          <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="V_CATALOGO" EntityType="BibliotecaModel.V_CATALOGO" />
         </EntityContainer>
-        <EntityType Name="V_CATALOGO">
-          <Key>
-            <PropertyRef Name="TITULODOCUMENTO" />
-            <PropertyRef Name="AUTORDOCUMENTO" />
-            <PropertyRef Name="EDICIONDOCUMENTO" />
-            <PropertyRef Name="ANIODOCUMENTO" />
-            <PropertyRef Name="TIPODOCUMENTO" />
-            <PropertyRef Name="CATEGORIADOCUMENTO" />
-            <PropertyRef Name="IDDOCUMENTO" />
-            <PropertyRef Name="EDITORIALDOCUMENTO" />
-          </Key>
-          <Property Name="TITULODOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="AUTORDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="EDICIONDOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="ANIODOCUMENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="TIPODOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CATEGORIADOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
-          <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="EDITORIALDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="V_EJEMPLARES">
           <Key>
             <PropertyRef Name="IDEJEMPLAR" />
@@ -505,6 +494,28 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           </Key>
           <Property Name="TIPODOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="V_CATALOGO">
+          <Key>
+            <PropertyRef Name="IDDOCUMENTO" />
+            <PropertyRef Name="TITULODOCUMENTO" />
+            <PropertyRef Name="AUTORDOCUMENTO" />
+            <PropertyRef Name="EDICIONDOCUMENTO" />
+            <PropertyRef Name="ANIODOCUMENTO" />
+            <PropertyRef Name="TIPODOCUMENTO" />
+            <PropertyRef Name="CATEGORIADOCUMENTO" />
+            <PropertyRef Name="EDITORIALDOCUMENTO" />
+          </Key>
+          <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TITULODOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AUTORDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EDICIONDOCUMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ANIODOCUMENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TIPODOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORIADOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DISPONIBLES" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="EDITORIALDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -528,6 +539,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <EntitySetMapping Name="EJEMPLAR">
             <EntityTypeMapping TypeName="BibliotecaModel.EJEMPLAR">
               <MappingFragment StoreEntitySet="EJEMPLAR">
+                <ScalarProperty Name="DISPONIBILIDAD" ColumnName="DISPONIBILIDAD" />
                 <ScalarProperty Name="DOCUMENTO_IDDOCUMENTO" ColumnName="DOCUMENTO_IDDOCUMENTO" />
                 <ScalarProperty Name="IDEJEMPLAR" ColumnName="IDEJEMPLAR" />
                 <ScalarProperty Name="ESTADOEJEMPLAR" ColumnName="ESTADOEJEMPLAR" />
@@ -593,21 +605,6 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
               <ScalarProperty Name="IDSOLICITUD" ColumnName="SOLICITUD_IDSOLICITUD" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="V_CATALOGO">
-            <EntityTypeMapping TypeName="BibliotecaModel.V_CATALOGO">
-              <MappingFragment StoreEntitySet="V_CATALOGO">
-                <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
-                <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
-                <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
-                <ScalarProperty Name="ANIODOCUMENTO" ColumnName="ANIODOCUMENTO" />
-                <ScalarProperty Name="EDICIONDOCUMENTO" ColumnName="EDICIONDOCUMENTO" />
-                <ScalarProperty Name="AUTORDOCUMENTO" ColumnName="AUTORDOCUMENTO" />
-                <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PRO_ADD_EJEMPLAR" FunctionName="BibliotecaModel.Store.PRO_ADD_EJEMPLAR" />
           <FunctionImportMapping FunctionImportName="PRO_ADD_DOCUMENTO" FunctionName="BibliotecaModel.Store.PRO_ADD_DOCUMENTO" />
           <EntitySetMapping Name="V_EJEMPLARES">
@@ -633,6 +630,23 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <EntityTypeMapping TypeName="BibliotecaModel.V_TIPOSDOC">
               <MappingFragment StoreEntitySet="V_TIPOSDOC">
                 <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PRO_ADD_SOLICITUD" FunctionName="BibliotecaModel.Store.PRO_ADD_SOLICITUD" />
+          <EntitySetMapping Name="V_CATALOGO">
+            <EntityTypeMapping TypeName="BibliotecaModel.V_CATALOGO">
+              <MappingFragment StoreEntitySet="V_CATALOGO">
+                <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
+                <ScalarProperty Name="DISPONIBLES" ColumnName="DISPONIBLES" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="CATEGORIADOCUMENTO" ColumnName="CATEGORIADOCUMENTO" />
+                <ScalarProperty Name="TIPODOCUMENTO" ColumnName="TIPODOCUMENTO" />
+                <ScalarProperty Name="ANIODOCUMENTO" ColumnName="ANIODOCUMENTO" />
+                <ScalarProperty Name="EDICIONDOCUMENTO" ColumnName="EDICIONDOCUMENTO" />
+                <ScalarProperty Name="AUTORDOCUMENTO" ColumnName="AUTORDOCUMENTO" />
+                <ScalarProperty Name="TITULODOCUMENTO" ColumnName="TITULODOCUMENTO" />
+                <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

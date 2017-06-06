@@ -18,15 +18,16 @@
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="IDDOCUMENTO" HeaderText="IDDOCUMENTO" SortExpression="IDDOCUMENTO" />
-                        <asp:BoundField DataField="TITULODOCUMENTO" HeaderText="TITULODOCUMENTO" SortExpression="TITULODOCUMENTO" />
-                        <asp:BoundField DataField="AUTORDOCUMENTO" HeaderText="AUTORDOCUMENTO" SortExpression="AUTORDOCUMENTO" />
-                        <asp:BoundField DataField="EDICIONDOCUMENTO" HeaderText="EDICIONDOCUMENTO" SortExpression="EDICIONDOCUMENTO" />
-                        <asp:BoundField DataField="EDITORIALDOCUMENTO" HeaderText="EDITORIALDOCUMENTO" SortExpression="EDITORIALDOCUMENTO" />
-                        <asp:BoundField DataField="ANIODOCUMENTO" HeaderText="ANIODOCUMENTO" SortExpression="ANIODOCUMENTO" />
-                        <asp:BoundField DataField="TIPODOCUMENTO" HeaderText="TIPODOCUMENTO" SortExpression="TIPODOCUMENTO" />
-                        <asp:BoundField DataField="CATEGORIADOCUMENTO" HeaderText="CATEGORIADOCUMENTO" SortExpression="CATEGORIADOCUMENTO" />
-                        <asp:BoundField DataField="CANTIDAD" HeaderText="CANTIDAD" SortExpression="CANTIDAD" />
+                        <asp:BoundField DataField="IDDOCUMENTO" HeaderText="IDDOCUMENTO" HtmlEncode="False" SortExpression="IDDOCUMENTO" />
+                        <asp:BoundField DataField="TITULODOCUMENTO" HeaderText="TITULODOCUMENTO" HtmlEncode="False" SortExpression="TITULODOCUMENTO" />
+                        <asp:BoundField DataField="AUTORDOCUMENTO" HeaderText="AUTORDOCUMENTO" HtmlEncode="False" SortExpression="AUTORDOCUMENTO" />
+                        <asp:BoundField DataField="EDICIONDOCUMENTO" HeaderText="EDICIONDOCUMENTO" HtmlEncode="False" SortExpression="EDICIONDOCUMENTO" />
+                        <asp:BoundField DataField="EDITORIALDOCUMENTO" HeaderText="EDITORIALDOCUMENTO" HtmlEncode="False" SortExpression="EDITORIALDOCUMENTO" />
+                        <asp:BoundField DataField="ANIODOCUMENTO" HeaderText="ANIODOCUMENTO" HtmlEncode="False" SortExpression="ANIODOCUMENTO" />
+                        <asp:BoundField DataField="TIPODOCUMENTO" HeaderText="TIPODOCUMENTO" HtmlEncode="False" SortExpression="TIPODOCUMENTO" />
+                        <asp:BoundField DataField="CATEGORIADOCUMENTO" HeaderText="CATEGORIADOCUMENTO" HtmlEncode="False" SortExpression="CATEGORIADOCUMENTO" />
+                        <asp:BoundField DataField="CANTIDAD" HeaderText="CANTIDAD" HtmlEncode="False" SortExpression="CANTIDAD" />
+                        <asp:BoundField DataField="DISPONIBLES" HeaderText="DISPONIBLES" HtmlEncode="False" SortExpression="DISPONIBLES" />
                         <asp:TemplateField HeaderText="Agregar">
                             <ItemTemplate>
                                 <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
@@ -44,7 +45,7 @@
                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_CATALOGO&quot;" FilterExpression="CATEGORIADOCUMENTO LIKE '%{0}%' and TIPODOCUMENTO LIKE '%{1}%' and TITULODOCUMENTO LIKE '%{2}%' and AUTORDOCUMENTO LIKE '%{3}%'">
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_CATALOGO&quot;" FilterExpression="CATEGORIADOCUMENTO LIKE '%{0}%' and TIPODOCUMENTO LIKE '%{1}%' and TITULODOCUMENTO LIKE '%{2}%' and AUTORDOCUMENTO LIKE '%{3}%' AND DISPONIBLES > 0">
                     <FilterParameters>
                         <asp:ControlParameter Name="CATEGORIA" ControlID="cboCategoria" PropertyName="SelectedValue" ConvertEmptyStringToNull="false"/>
                         <asp:ControlParameter Name="TIPO" ControlID="cboTipo" PropertyName="SelectedValue" ConvertEmptyStringToNull="false"/>
