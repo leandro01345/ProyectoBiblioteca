@@ -67,6 +67,15 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.HyperLink urlNuevoDoc1;
         
         /// <summary>
+        /// Control urlUsuarios1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink urlUsuarios1;
+        
+        /// <summary>
         /// Control urlNuevoUsuario1.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace BibliotecaWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink urlNuevoDoc2;
+        
+        /// <summary>
+        /// Control urlUsuarios2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink urlUsuarios2;
         
         /// <summary>
         /// Control urlNuevoUsuario2.
