@@ -112,6 +112,15 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATEGORIASDOC' no tiene definid
     <Property Name="CATEGORIADOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_DOC_EJEMPLAR_DISPONIBLE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="V_DOC_EJEMPLAR_DISPONIBLE">
+    <Key>
+      <PropertyRef Name="IDDOCUMENTO" />
+    </Key>
+    <Property Name="IDDOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRIMER_EJEMPLAR_DISPONIBLE" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_EJEMPLARES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -195,6 +204,9 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="FN_EJEMPLAR_DISPONIBLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="number">
+    <Parameter Name="IDDOC" Type="number" Mode="In" />
+  </Function>
   <Function Name="PRO_ADD_DOCUMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="TITULO_DOCUMENTO" Type="varchar2" Mode="In" />
     <Parameter Name="AUTOR_DOCUMENTO" Type="varchar2" Mode="In" />
@@ -252,6 +264,12 @@ FROM "BIBLIOTECA"."V_CATALOGO" "V_CATALOGO"</DefiningQuery>
       <DefiningQuery>SELECT 
 "V_CATEGORIASDOC"."CATEGORIADOCUMENTO" AS "CATEGORIADOCUMENTO"
 FROM "BIBLIOTECA"."V_CATEGORIASDOC" "V_CATEGORIASDOC"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_DOC_EJEMPLAR_DISPONIBLE" EntityType="Self.V_DOC_EJEMPLAR_DISPONIBLE" store:Type="Views" store:Schema="BIBLIOTECA">
+      <DefiningQuery>SELECT 
+"V_DOC_EJEMPLAR_DISPONIBLE"."IDDOCUMENTO" AS "IDDOCUMENTO", 
+"V_DOC_EJEMPLAR_DISPONIBLE"."PRIMER_EJEMPLAR_DISPONIBLE" AS "PRIMER_EJEMPLAR_DISPONIBLE"
+FROM "BIBLIOTECA"."V_DOC_EJEMPLAR_DISPONIBLE" "V_DOC_EJEMPLAR_DISPONIBLE"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_EJEMPLARES" EntityType="Self.V_EJEMPLARES" store:Type="Views" store:Schema="BIBLIOTECA">
       <DefiningQuery>SELECT 

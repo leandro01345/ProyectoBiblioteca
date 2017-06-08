@@ -129,5 +129,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="V_DOC_EJEMPLAR_DISPONIBLE">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_DOC_EJEMPLAR_DISPONIBLE">
+        <MappingFragment StoreEntitySet="V_DOC_EJEMPLAR_DISPONIBLE">
+          <ScalarProperty Name="PRIMER_EJEMPLAR_DISPONIBLE" ColumnName="PRIMER_EJEMPLAR_DISPONIBLE" />
+          <ScalarProperty Name="IDDOCUMENTO" ColumnName="IDDOCUMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

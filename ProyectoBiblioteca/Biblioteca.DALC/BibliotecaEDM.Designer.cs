@@ -233,6 +233,22 @@ namespace Biblioteca.DALC
             }
         }
         private ObjectSet<V_CATALOGO> _V_CATALOGO;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<V_DOC_EJEMPLAR_DISPONIBLE> V_DOC_EJEMPLAR_DISPONIBLE
+        {
+            get
+            {
+                if ((_V_DOC_EJEMPLAR_DISPONIBLE == null))
+                {
+                    _V_DOC_EJEMPLAR_DISPONIBLE = base.CreateObjectSet<V_DOC_EJEMPLAR_DISPONIBLE>("V_DOC_EJEMPLAR_DISPONIBLE");
+                }
+                return _V_DOC_EJEMPLAR_DISPONIBLE;
+            }
+        }
+        private ObjectSet<V_DOC_EJEMPLAR_DISPONIBLE> _V_DOC_EJEMPLAR_DISPONIBLE;
 
         #endregion
 
@@ -316,6 +332,14 @@ namespace Biblioteca.DALC
         public void AddToV_CATALOGO(V_CATALOGO v_CATALOGO)
         {
             base.AddObject("V_CATALOGO", v_CATALOGO);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet V_DOC_EJEMPLAR_DISPONIBLE. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToV_DOC_EJEMPLAR_DISPONIBLE(V_DOC_EJEMPLAR_DISPONIBLE v_DOC_EJEMPLAR_DISPONIBLE)
+        {
+            base.AddObject("V_DOC_EJEMPLAR_DISPONIBLE", v_DOC_EJEMPLAR_DISPONIBLE);
         }
 
         #endregion
@@ -2348,6 +2372,86 @@ namespace Biblioteca.DALC
         private global::System.String _CATEGORIADOCUMENTO;
         partial void OnCATEGORIADOCUMENTOChanging(global::System.String value);
         partial void OnCATEGORIADOCUMENTOChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="V_DOC_EJEMPLAR_DISPONIBLE")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class V_DOC_EJEMPLAR_DISPONIBLE : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto V_DOC_EJEMPLAR_DISPONIBLE.
+        /// </summary>
+        /// <param name="iDDOCUMENTO">Valor inicial de la propiedad IDDOCUMENTO.</param>
+        public static V_DOC_EJEMPLAR_DISPONIBLE CreateV_DOC_EJEMPLAR_DISPONIBLE(global::System.Decimal iDDOCUMENTO)
+        {
+            V_DOC_EJEMPLAR_DISPONIBLE v_DOC_EJEMPLAR_DISPONIBLE = new V_DOC_EJEMPLAR_DISPONIBLE();
+            v_DOC_EJEMPLAR_DISPONIBLE.IDDOCUMENTO = iDDOCUMENTO;
+            return v_DOC_EJEMPLAR_DISPONIBLE;
+        }
+
+        #endregion
+
+        #region Propiedades simples
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal IDDOCUMENTO
+        {
+            get
+            {
+                return _IDDOCUMENTO;
+            }
+            set
+            {
+                if (_IDDOCUMENTO != value)
+                {
+                    OnIDDOCUMENTOChanging(value);
+                    ReportPropertyChanging("IDDOCUMENTO");
+                    _IDDOCUMENTO = StructuralObject.SetValidValue(value, "IDDOCUMENTO");
+                    ReportPropertyChanged("IDDOCUMENTO");
+                    OnIDDOCUMENTOChanged();
+                }
+            }
+        }
+        private global::System.Decimal _IDDOCUMENTO;
+        partial void OnIDDOCUMENTOChanging(global::System.Decimal value);
+        partial void OnIDDOCUMENTOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PRIMER_EJEMPLAR_DISPONIBLE
+        {
+            get
+            {
+                return _PRIMER_EJEMPLAR_DISPONIBLE;
+            }
+            set
+            {
+                OnPRIMER_EJEMPLAR_DISPONIBLEChanging(value);
+                ReportPropertyChanging("PRIMER_EJEMPLAR_DISPONIBLE");
+                _PRIMER_EJEMPLAR_DISPONIBLE = StructuralObject.SetValidValue(value, "PRIMER_EJEMPLAR_DISPONIBLE");
+                ReportPropertyChanged("PRIMER_EJEMPLAR_DISPONIBLE");
+                OnPRIMER_EJEMPLAR_DISPONIBLEChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PRIMER_EJEMPLAR_DISPONIBLE;
+        partial void OnPRIMER_EJEMPLAR_DISPONIBLEChanging(Nullable<global::System.Decimal> value);
+        partial void OnPRIMER_EJEMPLAR_DISPONIBLEChanged();
 
         #endregion
 

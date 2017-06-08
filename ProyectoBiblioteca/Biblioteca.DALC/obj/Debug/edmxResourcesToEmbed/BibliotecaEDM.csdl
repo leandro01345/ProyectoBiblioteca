@@ -170,6 +170,7 @@
       <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
     </FunctionImport>
     <EntitySet Name="V_CATALOGO" EntityType="BibliotecaModel.V_CATALOGO" />
+    <EntitySet Name="V_DOC_EJEMPLAR_DISPONIBLE" EntityType="BibliotecaModel.V_DOC_EJEMPLAR_DISPONIBLE" />
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -218,5 +219,12 @@
     <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="DISPONIBLES" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="EDITORIALDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="V_DOC_EJEMPLAR_DISPONIBLE">
+    <Key>
+      <PropertyRef Name="IDDOCUMENTO" />
+    </Key>
+    <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="PRIMER_EJEMPLAR_DISPONIBLE" Type="Decimal" Precision="38" Scale="0" />
   </EntityType>
 </Schema>
