@@ -9,8 +9,9 @@ namespace BibliotecaWeb
 {
     public partial class Catalogo : System.Web.UI.Page
     {
-        List<string> titleList = new List<string>();
-        List<int> idList = new List<int>();
+        List<string> titleList;
+        List<int> idList;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,6 +22,26 @@ namespace BibliotecaWeb
             else
             {
                 lblVacio.Text = "";
+            }
+
+            //if (this.idList  == null)
+            //{
+            //    idList = new List<int>();
+            //}
+            if (this.titleList == null)
+            {
+                titleList = new List<string>();
+            }
+            if (Session["idListCarro"] == null)
+            {
+                Session["idListCarro"] = new List<int>();
+            }
+            idList = (List<int>)Session["idListCarro"];
+
+            lblPrueba.Text = String.Empty;
+            foreach (var item in idList)
+            {
+                lblPrueba.Text = lblPrueba.Text + " " + item;
             }
 
         }
@@ -57,9 +78,22 @@ namespace BibliotecaWeb
                     strTitulo = row.Cells[2].Text;
                     int idTitulo = int.Parse(row.Cells[1].Text);
 
-                    lblPrueba.Text = lblPrueba.Text + " " + strTitulo;
-                    this.titleList.Add(strTitulo);
-                    this.idList.Add(idTitulo);
+                    bool existe = false;
+                    foreach (var item in idList)
+                    {
+                        if (item == idTitulo)
+                        {
+                            existe = true;
+                        }
+                    }
+
+                    //this.titleList.Add(strTitulo);
+                    if (!existe)
+                    {
+                        this.idList.Add(idTitulo);
+                    }
+                    
+                    Session["idListCarro"] = idList;
                 }
 
             }
