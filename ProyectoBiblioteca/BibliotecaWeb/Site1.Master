@@ -61,6 +61,7 @@
       <asp:HyperLink runat="server" NavigateUrl="Usuarios.aspx" ID="urlUsuarios1" class="mdl-navigation__link">Administrar Usuarios</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="NuevoUsuario.aspx" ID="urlNuevoUsuario1" class="mdl-navigation__link">Nuevo Usuario</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="Catalogo.aspx" ID="urlCatalogo1" class="mdl-navigation__link">Consulta de Catálogo</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="Carro.aspx" ID="urlCarro1" class="mdl-navigation__link">Carro</asp:HyperLink>
     <a> <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="mdl-navigation__link" />   </a>
       </nav>
     </div>
@@ -75,6 +76,7 @@
       <asp:HyperLink runat="server" NavigateUrl="Usuarios.aspx" ID="urlUsuarios2" class="mdl-navigation__link">Administrar Usuarios</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="NuevoUsuario.aspx" ID="urlNuevoUsuario2" class="mdl-navigation__link">Nuevo Usuario</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="Catalogo.aspx" ID="urlCatalogo2" class="mdl-navigation__link">Consulta de Catálogo</asp:HyperLink>
+      <asp:HyperLink runat="server" NavigateUrl="Carro.aspx" ID="urlCarro2" class="mdl-navigation__link">Carro</asp:HyperLink>
       <asp:Label ID="lblUser" runat="server"></asp:Label>
     </nav>
   </div>

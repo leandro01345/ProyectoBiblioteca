@@ -94,6 +94,15 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.HyperLink urlCatalogo1;
         
         /// <summary>
+        /// Control urlCarro1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink urlCarro1;
+        
+        /// <summary>
         /// Control LoginStatus1.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,15 @@ namespace BibliotecaWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink urlCatalogo2;
+        
+        /// <summary>
+        /// Control urlCarro2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink urlCarro2;
         
         /// <summary>
         /// Control lblUser.

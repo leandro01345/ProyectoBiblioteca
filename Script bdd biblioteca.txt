@@ -1,0 +1,212 @@
+CREATE TABLE DetalleSolicitud
+  (
+    Ejemplar_idEjemplar   INTEGER NOT NULL ,
+    Solicitud_idSolicitud INTEGER NOT NULL
+  ) ;
+
+
+CREATE TABLE Documento
+  (
+    idDocumento        INTEGER NOT NULL ,
+    tipoDocumento      VARCHAR2 (100) NOT NULL ,
+    tituloDocumento    VARCHAR2 (255) NOT NULL ,
+    autorDocumento     VARCHAR2 (100) NOT NULL ,
+    editorialDocumento VARCHAR2 (100) NOT NULL ,
+    anioDocumento      VARCHAR2 (10) NOT NULL ,
+    edicionDocumento   VARCHAR2 (255) NOT NULL ,
+    categoriaDocumento VARCHAR2 (100) NOT NULL ,
+    tipomedioDocumento VARCHAR2 (100) NOT NULL
+  ) ;
+ALTER TABLE Documento ADD CONSTRAINT Documento_idDocumento_UN PRIMARY KEY ( idDocumento ) ;
+
+
+CREATE TABLE Ejemplar
+  (
+    Documento_idDocumento INTEGER NOT NULL ,
+    idEjemplar            INTEGER NOT NULL ,
+    estadoEjemplar        VARCHAR2 (255) NOT NULL ,
+    ubicacionEjemplar     VARCHAR2 (255) NOT NULL
+  ) ;
+ALTER TABLE Ejemplar ADD CONSTRAINT Ejemplar_idEjemplar_UN PRIMARY KEY ( idEjemplar ) ;
+
+
+CREATE TABLE Prestamo
+  (
+    Ejemplar_idEjemplar         INTEGER NOT NULL ,
+    idPrestamo                  INTEGER NOT NULL ,
+    tipoPrestamo                VARCHAR2 (100) NOT NULL ,
+    fechaPrestamo               DATE NOT NULL ,
+    horaPrestamo                DATE NOT NULL ,
+    fechadevolucionPrestamo     DATE NOT NULL ,
+    horadevolucionPrestamo      DATE NOT NULL ,
+    fechadevolucionrealPrestamo DATE ,
+    horadevolucionrealPrestamo  DATE
+  ) ;
+ALTER TABLE Prestamo ADD CONSTRAINT Prestamo_idPrestamo_UN PRIMARY KEY ( idPrestamo ) ;
+
+
+CREATE TABLE Sesion
+  (
+    idSesion       INTEGER NOT NULL ,
+    usernameSesion VARCHAR2 (20) NOT NULL ,
+    passwordSesion VARCHAR2 (255) NOT NULL
+  ) ;
+ALTER TABLE Sesion ADD CONSTRAINT Sesion_PK PRIMARY KEY ( idSesion ) ;
+
+
+CREATE TABLE Solicitud
+  (
+    Usuario_idUsuario INTEGER NOT NULL ,
+    idSolicitud       INTEGER NOT NULL ,
+    fechaSolicitud    DATE NOT NULL ,
+    horaSolicitud     DATE NOT NULL
+  ) ;
+ALTER TABLE Solicitud ADD CONSTRAINT Solicitud_idSolicitud_UN PRIMARY KEY ( idSolicitud ) ;
+
+
+CREATE TABLE Usuario
+  (
+    idUsuario        INTEGER NOT NULL ,
+    rutUsuario       VARCHAR2 (10) NOT NULL ,
+    nombresUsuario   VARCHAR2 (100) NOT NULL ,
+    apellidosUsuario VARCHAR2 (100) NOT NULL ,
+    direccionUsuario VARCHAR2 (255) NOT NULL ,
+    telefonoUsuario  VARCHAR2 (20) NOT NULL ,
+    activoUsuario    CHAR (1) NOT NULL ,
+--el boolean se convirtio en char
+--huellaUsuario BLOB NOT NULL ,
+--fotoUsuario BLOB NOT NULL
+    huellaUsuario CHAR (1) NOT NULL ,
+    fotoUsuario CHAR (1) NOT NULL
+  ) ;
+ALTER TABLE Usuario ADD CONSTRAINT Usuario_idUsuario_UN PRIMARY KEY ( idUsuario ) ;
+
+
+ALTER TABLE DetalleSolicitud ADD CONSTRAINT DetalleSolicitud_Ejemplar_FK FOREIGN KEY ( Ejemplar_idEjemplar ) REFERENCES Ejemplar ( idEjemplar ) ;
+
+ALTER TABLE DetalleSolicitud ADD CONSTRAINT DetalleSolicitud_Solicitud_FK FOREIGN KEY ( Solicitud_idSolicitud ) REFERENCES Solicitud ( idSolicitud ) ;
+
+ALTER TABLE Ejemplar ADD CONSTRAINT Ejemplar_Documento_FK FOREIGN KEY ( Documento_idDocumento ) REFERENCES Documento ( idDocumento ) ;
+
+ALTER TABLE Prestamo ADD CONSTRAINT Prestamo_Ejemplar_FK FOREIGN KEY ( Ejemplar_idEjemplar ) REFERENCES Ejemplar ( idEjemplar ) ;
+
+ALTER TABLE Solicitud ADD CONSTRAINT SolicitudPrestamo_Usuario_FK FOREIGN KEY ( Usuario_idUsuario ) REFERENCES Usuario ( idUsuario ) ;
+
+CREATE SEQUENCE seq_usuario
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1;
+
+
+CREATE SEQUENCE seq_documento
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1; 
+
+
+CREATE SEQUENCE seq_ejemplar
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1; 
+
+
+CREATE SEQUENCE seq_prestamo
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1; 
+
+
+CREATE SEQUENCE seq_solicitud
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1;
+
+
+CREATE SEQUENCE seq_sesion
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1;
+
+insert into sesion
+values (seq_sesion.nextval,'admin','3244185981728979115075721453575112');
+
+ALTER TABLE DOCUMENTO
+DROP COLUMN TIPOMEDIODOCUMENTO; 
+
+create or replace view v_catalogo as
+select D.TITULODOCUMENTO, D.AUTORDOCUMENTO, D.EDICIONDOCUMENTO, D.ANIODOCUMENTO, D.TIPODOCUMENTO, D.CATEGORIADOCUMENTO,
+(SELECT COUNT(*) FROM EJEMPLAR E JOIN DOCUMENTO DO ON E.DOCUMENTO_IDDOCUMENTO = DO.IDDOCUMENTO WHERE E.DOCUMENTO_IDDOCUMENTO = D.IDDOCUMENTO) AS CANTIDAD
+from DOCUMENTO D;
+
+CREATE OR REPLACE PROCEDURE  PRO_ADD_EJEMPLAR (
+ id_documento      EJEMPLAR.DOCUMENTO_IDDOCUMENTO%TYPE,
+ estado_ejemplar   EJEMPLAR.ESTADOEJEMPLAR%TYPE,
+ ubicacion_ejemplar EJEMPLAR.UBICACIONEJEMPLAR%TYPE) IS
+BEGIN
+   INSERT INTO EJEMPLAR(IDEJEMPLAR,DOCUMENTO_IDDOCUMENTO,ESTADOEJEMPLAR, UBICACIONEJEMPLAR) 	VALUES(SEQ_EJEMPLAR.NEXTVAL, id_documento, estado_ejemplar, ubicacion_ejemplar);
+ DBMS_OUTPUT.PUT_LINE(' Filas insertadas: '||SQL%ROWCOUNT);
+END;
+
+commit;
+
+CREATE OR REPLACE PROCEDURE  PRO_ADD_DOCUMENTO (
+ titulo_documento DOCUMENTO.TITULODOCUMENTO%TYPE,
+ autor_documento  DOCUMENTO.AUTORDOCUMENTO%TYPE,
+ anio_documento DOCUMENTO.ANIODOCUMENTO%TYPE,
+ edicion_documento DOCUMENTO.EDICIONDOCUMENTO%TYPE,
+ editorial_documento DOCUMENTO.EDITORIALDOCUMENTO%TYPE,
+ tipo_documento DOCUMENTO.TIPODOCUMENTO%TYPE,
+ categoria_documento DOCUMENTO.CATEGORIADOCUMENTO%TYPE) IS
+BEGIN
+   INSERT INTO DOCUMENTO(IDDOCUMENTO,TITULODOCUMENTO, AUTORDOCUMENTO, ANIODOCUMENTO, EDICIONDOCUMENTO, EDITORIALDOCUMENTO, TIPODOCUMENTO, CATEGORIADOCUMENTO)   VALUES(SEQ_DOCUMENTO.NEXTVAL, titulo_documento, autor_documento, anio_documento, edicion_documento, editorial_documento, tipo_documento, categoria_documento);
+DBMS_OUTPUT.PUT_LINE(' Filas insertadas: '||SQL%ROWCOUNT);
+END;
+
+
+commit;
+
+create or replace view v_catalogo as
+select D.IDDOCUMENTO, D.TITULODOCUMENTO, D.AUTORDOCUMENTO, D.EDICIONDOCUMENTO, D.ANIODOCUMENTO, D.TIPODOCUMENTO, D.CATEGORIADOCUMENTO,
+(SELECT COUNT(*) FROM EJEMPLAR E JOIN DOCUMENTO DO ON E.DOCUMENTO_IDDOCUMENTO = DO.IDDOCUMENTO WHERE E.DOCUMENTO_IDDOCUMENTO = D.IDDOCUMENTO) AS CANTIDAD
+from DOCUMENTO D;
+
+CREATE OR REPLACE VIEW V_EJEMPLARES AS
+SELECT E.IDEJEMPLAR, D.TITULODOCUMENTO, E.ESTADOEJEMPLAR, E.UBICACIONEJEMPLAR
+FROM EJEMPLAR E JOIN DOCUMENTO D
+ON E.DOCUMENTO_IDDOCUMENTO = D.IDDOCUMENTO;
+
+commit;
+
+create or replace view v_catalogo as
+select D.IDDOCUMENTO, D.TITULODOCUMENTO, D.AUTORDOCUMENTO, D.EDICIONDOCUMENTO, D.EDITORIALDOCUMENTO, D.ANIODOCUMENTO, D.TIPODOCUMENTO, D.CATEGORIADOCUMENTO,
+(SELECT COUNT(*) FROM EJEMPLAR E JOIN DOCUMENTO DO ON E.DOCUMENTO_IDDOCUMENTO = DO.IDDOCUMENTO WHERE E.DOCUMENTO_IDDOCUMENTO = D.IDDOCUMENTO) AS CANTIDAD
+from DOCUMENTO D;
+
+CREATE OR REPLACE VIEW V_EJEMPLARES AS
+SELECT E.IDEJEMPLAR, D.TITULODOCUMENTO, D.IDDOCUMENTO, E.ESTADOEJEMPLAR, E.UBICACIONEJEMPLAR
+FROM EJEMPLAR E JOIN DOCUMENTO D
+ON E.DOCUMENTO_IDDOCUMENTO = D.IDDOCUMENTO;
+
+commit;
+
+CREATE OR REPLACE PROCEDURE  PRO_ADD_USUARIO (
+ rut_usuario   USUARIO.RUTUSUARIO%TYPE,
+ nombres_usuario USUARIO.NOMBRESUSUARIO%TYPE,
+ apellidos_usuario USUARIO.APELLIDOSUSUARIO%TYPE,
+ direccion_usuario USUARIO.DIRECCIONUSUARIO%TYPE,
+ telefono_usuario USUARIO.TELEFONOUSUARIO%TYPE,
+ foto_usuario USUARIO.FOTOUSUARIO%TYPE,
+ huella_usuario USUARIO.HUELLAUSUARIO%TYPE) IS
+BEGIN
+   INSERT INTO USUARIO(IDUSUARIO, RUTUSUARIO, NOMBRESUSUARIO, APELLIDOSUSUARIO, DIRECCIONUSUARIO, TELEFONOUSUARIO, ACTIVOUSUARIO, FOTOUSUARIO, HUELLAUSUARIO) 	
+   VALUES(SEQ_USUARIO.NEXTVAL, rut_usuario, nombres_usuario, apellidos_usuario, direccion_usuario, telefono_usuario, 'n', foto_usuario, huella_usuario);
+END;
+
+ALTER TABLE SESION
+ADD TIPOSESION VARCHAR2 (50);
+
+create or replace view v_categoriasDoc as select distinct categoriadocumento from documento;
+
+create or replace view v_tiposDoc as select distinct tipodocumento from documento;
+
+commit;

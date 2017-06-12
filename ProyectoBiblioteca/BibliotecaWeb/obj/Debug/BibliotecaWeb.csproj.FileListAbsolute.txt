@@ -137,3 +137,4 @@ C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\Bibliotec
 C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.dll
 C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.pdb
+C:\Users\Carlos\Documents\GitHub\ProyectoBiblioteca\ProyectoBiblioteca\BibliotecaWeb\obj\Debug\BibliotecaWeb.csprojResolveAssemblyReference.cache

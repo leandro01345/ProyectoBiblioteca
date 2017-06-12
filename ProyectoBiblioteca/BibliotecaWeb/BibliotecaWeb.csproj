@@ -76,6 +76,7 @@
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\npm.js" />
+    <Content Include="Carro.aspx" />
     <Content Include="Catalogo.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -207,6 +208,13 @@
     </Compile>
     <Compile Include="Bienvenido.aspx.designer.cs">
       <DependentUpon>Bienvenido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Carro.aspx.cs">
+      <DependentUpon>Carro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Carro.aspx.designer.cs">
+      <DependentUpon>Carro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogo.aspx.cs">
       <DependentUpon>Catalogo.aspx</DependentUpon>

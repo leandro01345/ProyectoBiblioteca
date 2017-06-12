@@ -1,0 +1,15 @@
+create or replace function fn_ejemplar_disponible (iddoc documento.iddocumento%type) RETURN ejemplar.idejemplar%type
+IS
+idej ejemplar.idejemplar%type := -1;
+BEGIN
+select E.IDEJEMPLAR INTO idej
+from ejemplar e join documento d on
+e.DOCUMENTO_IDDOCUMENTO = d.IDDOCUMENTO
+where e.DOCUMENTO_IDDOCUMENTO = iddoc and e.disponibilidad = 'disponible' and rownum=1;
+RETURN idej;
+END fn_ejemplar_disponible;
+
+create or replace view v_doc_ejemplar_disponible as
+select iddocumento, fn_ejemplar_disponible(iddocumento) as PRIMER_EJEMPLAR_DISPONIBLE from documento;
+
+commit;

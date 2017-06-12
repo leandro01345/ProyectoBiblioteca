@@ -1,0 +1,8 @@
+ALTER TABLE SESION
+ADD TIPOSESION VARCHAR2 (50);
+
+create or replace view v_categoriasDoc as select distinct categoriadocumento from documento;
+
+create or replace view v_tiposDoc as select distinct tipodocumento from documento;
+
+commit;
