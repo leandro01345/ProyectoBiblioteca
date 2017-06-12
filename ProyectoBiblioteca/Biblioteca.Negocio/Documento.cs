@@ -88,6 +88,20 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public int EjemplarDisponible (int Id)
+        {
+            try
+            {
+                Biblioteca.DALC.V_DOC_EJEMPLAR_DISPONIBLE ejdisp = CommonBC.ModeloBiblioteca.V_DOC_EJEMPLAR_DISPONIBLE.First
+                (d => d.IDDOCUMENTO == Id);
+                int idej = (int)ejdisp.PRIMER_EJEMPLAR_DISPONIBLE;
+                return idej;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
 
     }
 }

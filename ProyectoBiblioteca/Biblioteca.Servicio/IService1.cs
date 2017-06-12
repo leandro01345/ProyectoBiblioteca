@@ -25,7 +25,11 @@ namespace Biblioteca.Servicio
         [OperationContract]
         bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella);
         [OperationContract]
+        int Doc_EjemplarDisponible(int iddoc);
+        [OperationContract]
         bool ModificarEjemplar(int idejemplar, int iddocumento, string estado, string ubicacion);
+        [OperationContract]
+        bool ModificarEjemplarDisponibilidad(int idejemplar, string disponibilidad);
         [OperationContract]
         bool ModificarDocumento(int iddocumento, string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial);
         [OperationContract]

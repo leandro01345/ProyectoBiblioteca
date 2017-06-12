@@ -36,11 +36,23 @@
   <wsdl:message name="IService1_AgregarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:AgregarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Doc_EjemplarDisponible_InputMessage">
+    <wsdl:part name="parameters" element="tns:Doc_EjemplarDisponible" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Doc_EjemplarDisponible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Doc_EjemplarDisponibleResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_ModificarEjemplar_InputMessage">
     <wsdl:part name="parameters" element="tns:ModificarEjemplar" />
   </wsdl:message>
   <wsdl:message name="IService1_ModificarEjemplar_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarEjemplarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModificarEjemplarDisponibilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarEjemplarDisponibilidad" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModificarEjemplarDisponibilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarEjemplarDisponibilidadResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_ModificarDocumento_InputMessage">
     <wsdl:part name="parameters" element="tns:ModificarDocumento" />
@@ -93,9 +105,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarUsuario" message="tns:IService1_AgregarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarUsuarioResponse" message="tns:IService1_AgregarUsuario_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Doc_EjemplarDisponible">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Doc_EjemplarDisponible" message="tns:IService1_Doc_EjemplarDisponible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Doc_EjemplarDisponibleResponse" message="tns:IService1_Doc_EjemplarDisponible_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ModificarEjemplar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModificarEjemplar" message="tns:IService1_ModificarEjemplar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModificarEjemplarResponse" message="tns:IService1_ModificarEjemplar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEjemplarDisponibilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModificarEjemplarDisponibilidad" message="tns:IService1_ModificarEjemplarDisponibilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModificarEjemplarDisponibilidadResponse" message="tns:IService1_ModificarEjemplarDisponibilidad_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ModificarDocumento">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModificarDocumento" message="tns:IService1_ModificarDocumento_InputMessage" />
@@ -165,8 +185,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Doc_EjemplarDisponible">
+      <soap:operation soapAction="http://tempuri.org/IService1/Doc_EjemplarDisponible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ModificarEjemplar">
       <soap:operation soapAction="http://tempuri.org/IService1/ModificarEjemplar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEjemplarDisponibilidad">
+      <soap:operation soapAction="http://tempuri.org/IService1/ModificarEjemplarDisponibilidad" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

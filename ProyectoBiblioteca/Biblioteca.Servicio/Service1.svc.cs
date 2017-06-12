@@ -39,6 +39,12 @@ namespace Biblioteca.Servicio
             return doc.Create(titulo, autor, anio, tipo, categoria, edicion, editorial);
         }
 
+        public int Doc_EjemplarDisponible(int iddoc)
+        {
+            Documento doc = new Documento();
+            return doc.EjemplarDisponible(iddoc);
+        }
+
         public bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella)
         {
             Usuario us = new Usuario();
@@ -49,6 +55,12 @@ namespace Biblioteca.Servicio
         {
             Ejemplar ej = new Ejemplar();
             return ej.Update(idejemplar, iddocumento, estado, ubicacion);
+        }
+
+        public bool ModificarEjemplarDisponibilidad(int idejemplar, string disponibilidad)
+        {
+            Ejemplar ej = new Ejemplar();
+            return ej.Update_Disponibilidad (idejemplar, disponibilidad);
         }
 
         public bool ModificarDocumento(int iddocumento, string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial)

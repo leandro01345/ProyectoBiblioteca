@@ -50,6 +50,23 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public bool Update_Disponibilidad(int id, string disp)
+        {
+            try
+            {
+                Biblioteca.DALC.EJEMPLAR ej = CommonBC.ModeloBiblioteca.EJEMPLAR.First
+                    (e => e.IDEJEMPLAR == id);
+                ej.DISPONIBILIDAD = disp;
+                CommonBC.ModeloBiblioteca.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool Delete(int Id)
         {
             try

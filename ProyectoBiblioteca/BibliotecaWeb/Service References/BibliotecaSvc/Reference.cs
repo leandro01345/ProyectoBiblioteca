@@ -45,11 +45,23 @@ namespace BibliotecaWeb.BibliotecaSvc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarUsuario", ReplyAction="http://tempuri.org/IService1/AgregarUsuarioResponse")]
         System.Threading.Tasks.Task<bool> AgregarUsuarioAsync(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Doc_EjemplarDisponible", ReplyAction="http://tempuri.org/IService1/Doc_EjemplarDisponibleResponse")]
+        int Doc_EjemplarDisponible(int iddoc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Doc_EjemplarDisponible", ReplyAction="http://tempuri.org/IService1/Doc_EjemplarDisponibleResponse")]
+        System.Threading.Tasks.Task<int> Doc_EjemplarDisponibleAsync(int iddoc);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarEjemplar", ReplyAction="http://tempuri.org/IService1/ModificarEjemplarResponse")]
         bool ModificarEjemplar(int idejemplar, int iddocumento, string estado, string ubicacion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarEjemplar", ReplyAction="http://tempuri.org/IService1/ModificarEjemplarResponse")]
         System.Threading.Tasks.Task<bool> ModificarEjemplarAsync(int idejemplar, int iddocumento, string estado, string ubicacion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarEjemplarDisponibilidad", ReplyAction="http://tempuri.org/IService1/ModificarEjemplarDisponibilidadResponse")]
+        bool ModificarEjemplarDisponibilidad(int idejemplar, string disponibilidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarEjemplarDisponibilidad", ReplyAction="http://tempuri.org/IService1/ModificarEjemplarDisponibilidadResponse")]
+        System.Threading.Tasks.Task<bool> ModificarEjemplarDisponibilidadAsync(int idejemplar, string disponibilidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarDocumento", ReplyAction="http://tempuri.org/IService1/ModificarDocumentoResponse")]
         bool ModificarDocumento(int iddocumento, string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial);
@@ -149,12 +161,28 @@ namespace BibliotecaWeb.BibliotecaSvc {
             return base.Channel.AgregarUsuarioAsync(rut, nombres, apellidos, telefono, direccion, foto, huella);
         }
         
+        public int Doc_EjemplarDisponible(int iddoc) {
+            return base.Channel.Doc_EjemplarDisponible(iddoc);
+        }
+        
+        public System.Threading.Tasks.Task<int> Doc_EjemplarDisponibleAsync(int iddoc) {
+            return base.Channel.Doc_EjemplarDisponibleAsync(iddoc);
+        }
+        
         public bool ModificarEjemplar(int idejemplar, int iddocumento, string estado, string ubicacion) {
             return base.Channel.ModificarEjemplar(idejemplar, iddocumento, estado, ubicacion);
         }
         
         public System.Threading.Tasks.Task<bool> ModificarEjemplarAsync(int idejemplar, int iddocumento, string estado, string ubicacion) {
             return base.Channel.ModificarEjemplarAsync(idejemplar, iddocumento, estado, ubicacion);
+        }
+        
+        public bool ModificarEjemplarDisponibilidad(int idejemplar, string disponibilidad) {
+            return base.Channel.ModificarEjemplarDisponibilidad(idejemplar, disponibilidad);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ModificarEjemplarDisponibilidadAsync(int idejemplar, string disponibilidad) {
+            return base.Channel.ModificarEjemplarDisponibilidadAsync(idejemplar, disponibilidad);
         }
         
         public bool ModificarDocumento(int iddocumento, string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial) {
