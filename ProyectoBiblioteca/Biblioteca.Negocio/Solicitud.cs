@@ -15,7 +15,7 @@ namespace Biblioteca.Negocio
             {
                 Biblioteca.DALC.SOLICITUD soli = new DALC.SOLICITUD();
                 soli.FECHASOLICITUD = fechSolicitud;
-                soli.HORASOLICITUD = horaSolicitud;
+                //soli.HORASOLICITUD = horaSolicitud;
 
 
                 CommonBC.ModeloBiblioteca.SOLICITUD.AddObject(soli);
@@ -35,7 +35,7 @@ namespace Biblioteca.Negocio
                 Biblioteca.DALC.SOLICITUD soli = CommonBC.ModeloBiblioteca.SOLICITUD.First
                     (s => s.IDSOLICITUD == id);
                 soli.FECHASOLICITUD = fechSolicitud;
-                soli.HORASOLICITUD = horaSolicitud;
+                //soli.HORASOLICITUD = horaSolicitud;
 
                 CommonBC.ModeloBiblioteca.SaveChanges();
 

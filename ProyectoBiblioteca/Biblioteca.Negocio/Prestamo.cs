@@ -17,12 +17,12 @@ namespace Biblioteca.Negocio
             {
                 Biblioteca.DALC.PRESTAMO pres = new DALC.PRESTAMO();
                 pres.TIPOPRESTAMO = tipoPrestamo;
-                pres.HORAPRESTAMO = horaPrestamo;
+                //pres.HORAPRESTAMO = horaPrestamo;
                 pres.FECHAPRESTAMO = fechaPrestamo;
-                pres.HORADEVOLUCIONPRESTAMO = fechaDevolucion;
-                pres.HORADEVOLUCIONPRESTAMO = horaDevolucion;
+                pres.FECHADEVOLUCIONPRESTAMO = fechaDevolucion;
+                //pres.HORADEVOLUCIONPRESTAMO = horaDevolucion;
                 pres.FECHADEVOLUCIONREALPRESTAMO = fechaRealPrestamo;
-                pres.HORADEVOLUCIONREALPRESTAMO = horaRealPrestamo;
+                //pres.HORADEVOLUCIONREALPRESTAMO = horaRealPrestamo;
 
                 CommonBC.ModeloBiblioteca.PRESTAMO.AddObject(pres);
                 //CommonBC.ModeloBiblioteca.DOCUMENTO.AddObject(doc);
@@ -46,12 +46,12 @@ namespace Biblioteca.Negocio
                 Biblioteca.DALC.PRESTAMO pres = CommonBC.ModeloBiblioteca.PRESTAMO.First
                     (p => p.IDPRESTAMO == id);
                 pres.TIPOPRESTAMO = tipoPrestamo;
-                pres.HORAPRESTAMO = horaPrestamo;
+               // pres.HORAPRESTAMO = horaPrestamo;
                 pres.FECHAPRESTAMO = fechaPrestamo;
-                pres.HORADEVOLUCIONPRESTAMO = fechaDevolucion;
-                pres.HORADEVOLUCIONPRESTAMO = horaDevolucion;
+                pres.FECHADEVOLUCIONPRESTAMO = fechaDevolucion;
+                //pres.HORADEVOLUCIONPRESTAMO = horaDevolucion;
                 pres.FECHADEVOLUCIONREALPRESTAMO = fechaRealPrestamo;
-                pres.HORADEVOLUCIONREALPRESTAMO = horaRealPrestamo;
+                //pres.HORADEVOLUCIONREALPRESTAMO = horaRealPrestamo;
                 CommonBC.ModeloBiblioteca.SaveChanges();
 
                 return true;

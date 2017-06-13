@@ -41,11 +41,8 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
     <Property Name="IDPRESTAMO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="TIPOPRESTAMO" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="FECHAPRESTAMO" Type="date" Nullable="false" />
-    <Property Name="HORAPRESTAMO" Type="date" Nullable="false" />
     <Property Name="FECHADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
-    <Property Name="HORADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
     <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="date" />
-    <Property Name="HORADEVOLUCIONREALPRESTAMO" Type="date" />
   </EntityType>
   <EntityType Name="SESION">
     <Key>
@@ -63,7 +60,6 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
     <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="FECHASOLICITUD" Type="date" Nullable="false" />
-    <Property Name="HORASOLICITUD" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>

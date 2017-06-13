@@ -33,11 +33,8 @@
           <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
           <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
           <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
-          <ScalarProperty Name="HORAPRESTAMO" ColumnName="HORAPRESTAMO" />
           <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
-          <ScalarProperty Name="HORADEVOLUCIONPRESTAMO" ColumnName="HORADEVOLUCIONPRESTAMO" />
           <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
-          <ScalarProperty Name="HORADEVOLUCIONREALPRESTAMO" ColumnName="HORADEVOLUCIONREALPRESTAMO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -57,7 +54,6 @@
           <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
           <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
           <ScalarProperty Name="FECHASOLICITUD" ColumnName="FECHASOLICITUD" />
-          <ScalarProperty Name="HORASOLICITUD" ColumnName="HORASOLICITUD" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1109,19 +1109,15 @@ namespace Biblioteca.DALC
         /// <param name="iDPRESTAMO">Valor inicial de la propiedad IDPRESTAMO.</param>
         /// <param name="tIPOPRESTAMO">Valor inicial de la propiedad TIPOPRESTAMO.</param>
         /// <param name="fECHAPRESTAMO">Valor inicial de la propiedad FECHAPRESTAMO.</param>
-        /// <param name="hORAPRESTAMO">Valor inicial de la propiedad HORAPRESTAMO.</param>
         /// <param name="fECHADEVOLUCIONPRESTAMO">Valor inicial de la propiedad FECHADEVOLUCIONPRESTAMO.</param>
-        /// <param name="hORADEVOLUCIONPRESTAMO">Valor inicial de la propiedad HORADEVOLUCIONPRESTAMO.</param>
-        public static PRESTAMO CreatePRESTAMO(global::System.Decimal eJEMPLAR_IDEJEMPLAR, global::System.Decimal iDPRESTAMO, global::System.String tIPOPRESTAMO, global::System.DateTime fECHAPRESTAMO, global::System.DateTime hORAPRESTAMO, global::System.DateTime fECHADEVOLUCIONPRESTAMO, global::System.DateTime hORADEVOLUCIONPRESTAMO)
+        public static PRESTAMO CreatePRESTAMO(global::System.Decimal eJEMPLAR_IDEJEMPLAR, global::System.Decimal iDPRESTAMO, global::System.String tIPOPRESTAMO, global::System.DateTime fECHAPRESTAMO, global::System.DateTime fECHADEVOLUCIONPRESTAMO)
         {
             PRESTAMO pRESTAMO = new PRESTAMO();
             pRESTAMO.EJEMPLAR_IDEJEMPLAR = eJEMPLAR_IDEJEMPLAR;
             pRESTAMO.IDPRESTAMO = iDPRESTAMO;
             pRESTAMO.TIPOPRESTAMO = tIPOPRESTAMO;
             pRESTAMO.FECHAPRESTAMO = fECHAPRESTAMO;
-            pRESTAMO.HORAPRESTAMO = hORAPRESTAMO;
             pRESTAMO.FECHADEVOLUCIONPRESTAMO = fECHADEVOLUCIONPRESTAMO;
-            pRESTAMO.HORADEVOLUCIONPRESTAMO = hORADEVOLUCIONPRESTAMO;
             return pRESTAMO;
         }
 
@@ -1233,30 +1229,6 @@ namespace Biblioteca.DALC
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime HORAPRESTAMO
-        {
-            get
-            {
-                return _HORAPRESTAMO;
-            }
-            set
-            {
-                OnHORAPRESTAMOChanging(value);
-                ReportPropertyChanging("HORAPRESTAMO");
-                _HORAPRESTAMO = StructuralObject.SetValidValue(value, "HORAPRESTAMO");
-                ReportPropertyChanged("HORAPRESTAMO");
-                OnHORAPRESTAMOChanged();
-            }
-        }
-        private global::System.DateTime _HORAPRESTAMO;
-        partial void OnHORAPRESTAMOChanging(global::System.DateTime value);
-        partial void OnHORAPRESTAMOChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.DateTime FECHADEVOLUCIONPRESTAMO
         {
             get
@@ -1275,30 +1247,6 @@ namespace Biblioteca.DALC
         private global::System.DateTime _FECHADEVOLUCIONPRESTAMO;
         partial void OnFECHADEVOLUCIONPRESTAMOChanging(global::System.DateTime value);
         partial void OnFECHADEVOLUCIONPRESTAMOChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime HORADEVOLUCIONPRESTAMO
-        {
-            get
-            {
-                return _HORADEVOLUCIONPRESTAMO;
-            }
-            set
-            {
-                OnHORADEVOLUCIONPRESTAMOChanging(value);
-                ReportPropertyChanging("HORADEVOLUCIONPRESTAMO");
-                _HORADEVOLUCIONPRESTAMO = StructuralObject.SetValidValue(value, "HORADEVOLUCIONPRESTAMO");
-                ReportPropertyChanged("HORADEVOLUCIONPRESTAMO");
-                OnHORADEVOLUCIONPRESTAMOChanged();
-            }
-        }
-        private global::System.DateTime _HORADEVOLUCIONPRESTAMO;
-        partial void OnHORADEVOLUCIONPRESTAMOChanging(global::System.DateTime value);
-        partial void OnHORADEVOLUCIONPRESTAMOChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -1323,30 +1271,6 @@ namespace Biblioteca.DALC
         private Nullable<global::System.DateTime> _FECHADEVOLUCIONREALPRESTAMO;
         partial void OnFECHADEVOLUCIONREALPRESTAMOChanging(Nullable<global::System.DateTime> value);
         partial void OnFECHADEVOLUCIONREALPRESTAMOChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> HORADEVOLUCIONREALPRESTAMO
-        {
-            get
-            {
-                return _HORADEVOLUCIONREALPRESTAMO;
-            }
-            set
-            {
-                OnHORADEVOLUCIONREALPRESTAMOChanging(value);
-                ReportPropertyChanging("HORADEVOLUCIONREALPRESTAMO");
-                _HORADEVOLUCIONREALPRESTAMO = StructuralObject.SetValidValue(value, "HORADEVOLUCIONREALPRESTAMO");
-                ReportPropertyChanged("HORADEVOLUCIONREALPRESTAMO");
-                OnHORADEVOLUCIONREALPRESTAMOChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _HORADEVOLUCIONREALPRESTAMO;
-        partial void OnHORADEVOLUCIONREALPRESTAMOChanging(Nullable<global::System.DateTime> value);
-        partial void OnHORADEVOLUCIONREALPRESTAMOChanged();
 
         #endregion
 
@@ -1542,14 +1466,12 @@ namespace Biblioteca.DALC
         /// <param name="uSUARIO_IDUSUARIO">Valor inicial de la propiedad USUARIO_IDUSUARIO.</param>
         /// <param name="iDSOLICITUD">Valor inicial de la propiedad IDSOLICITUD.</param>
         /// <param name="fECHASOLICITUD">Valor inicial de la propiedad FECHASOLICITUD.</param>
-        /// <param name="hORASOLICITUD">Valor inicial de la propiedad HORASOLICITUD.</param>
-        public static SOLICITUD CreateSOLICITUD(global::System.Decimal uSUARIO_IDUSUARIO, global::System.Decimal iDSOLICITUD, global::System.DateTime fECHASOLICITUD, global::System.DateTime hORASOLICITUD)
+        public static SOLICITUD CreateSOLICITUD(global::System.Decimal uSUARIO_IDUSUARIO, global::System.Decimal iDSOLICITUD, global::System.DateTime fECHASOLICITUD)
         {
             SOLICITUD sOLICITUD = new SOLICITUD();
             sOLICITUD.USUARIO_IDUSUARIO = uSUARIO_IDUSUARIO;
             sOLICITUD.IDSOLICITUD = iDSOLICITUD;
             sOLICITUD.FECHASOLICITUD = fECHASOLICITUD;
-            sOLICITUD.HORASOLICITUD = hORASOLICITUD;
             return sOLICITUD;
         }
 
@@ -1631,30 +1553,6 @@ namespace Biblioteca.DALC
         private global::System.DateTime _FECHASOLICITUD;
         partial void OnFECHASOLICITUDChanging(global::System.DateTime value);
         partial void OnFECHASOLICITUDChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime HORASOLICITUD
-        {
-            get
-            {
-                return _HORASOLICITUD;
-            }
-            set
-            {
-                OnHORASOLICITUDChanging(value);
-                ReportPropertyChanging("HORASOLICITUD");
-                _HORASOLICITUD = StructuralObject.SetValidValue(value, "HORASOLICITUD");
-                ReportPropertyChanged("HORASOLICITUD");
-                OnHORASOLICITUDChanged();
-            }
-        }
-        private global::System.DateTime _HORASOLICITUD;
-        partial void OnHORASOLICITUDChanging(global::System.DateTime value);
-        partial void OnHORASOLICITUDChanged();
 
         #endregion
 

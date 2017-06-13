@@ -35,11 +35,8 @@
     <Property Name="IDPRESTAMO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
     <Property Name="TIPOPRESTAMO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="FECHAPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="HORAPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="HORADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
-    <Property Name="HORADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
     <NavigationProperty Name="EJEMPLAR" Relationship="Self.PRESTAMO_EJEMPLAR_FK" FromRole="PRESTAMO" ToRole="EJEMPLAR" />
   </EntityType>
   <EntityType Name="SESION">
@@ -58,7 +55,6 @@
     <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
     <Property Name="IDSOLICITUD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
     <Property Name="FECHASOLICITUD" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="HORASOLICITUD" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="USUARIO" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="SOLICITUD" ToRole="USUARIO" />
     <NavigationProperty Name="EJEMPLAR" Relationship="Self.DETALLESOLICITUD" FromRole="SOLICITUD" ToRole="EJEMPLAR" />
   </EntityType>
