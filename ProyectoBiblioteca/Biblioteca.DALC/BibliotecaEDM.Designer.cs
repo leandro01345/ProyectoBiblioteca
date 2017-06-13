@@ -1445,6 +1445,30 @@ namespace Biblioteca.DALC
         private global::System.String _TIPOSESION;
         partial void OnTIPOSESIONChanging(global::System.String value);
         partial void OnTIPOSESIONChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> USUARIO_IDUSUARIO
+        {
+            get
+            {
+                return _USUARIO_IDUSUARIO;
+            }
+            set
+            {
+                OnUSUARIO_IDUSUARIOChanging(value);
+                ReportPropertyChanging("USUARIO_IDUSUARIO");
+                _USUARIO_IDUSUARIO = StructuralObject.SetValidValue(value, "USUARIO_IDUSUARIO");
+                ReportPropertyChanged("USUARIO_IDUSUARIO");
+                OnUSUARIO_IDUSUARIOChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _USUARIO_IDUSUARIO;
+        partial void OnUSUARIO_IDUSUARIOChanging(Nullable<global::System.Decimal> value);
+        partial void OnUSUARIO_IDUSUARIOChanged();
 
         #endregion
 
@@ -1881,6 +1905,30 @@ namespace Biblioteca.DALC
         private global::System.String _FOTOUSUARIO;
         partial void OnFOTOUSUARIOChanging(global::System.String value);
         partial void OnFOTOUSUARIOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String EMAILUSUARIO
+        {
+            get
+            {
+                return _EMAILUSUARIO;
+            }
+            set
+            {
+                OnEMAILUSUARIOChanging(value);
+                ReportPropertyChanging("EMAILUSUARIO");
+                _EMAILUSUARIO = StructuralObject.SetValidValue(value, true, "EMAILUSUARIO");
+                ReportPropertyChanged("EMAILUSUARIO");
+                OnEMAILUSUARIOChanged();
+            }
+        }
+        private global::System.String _EMAILUSUARIO;
+        partial void OnEMAILUSUARIOChanging(global::System.String value);
+        partial void OnEMAILUSUARIOChanged();
 
         #endregion
 

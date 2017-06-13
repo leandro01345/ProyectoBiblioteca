@@ -41,6 +41,7 @@
     <EntitySetMapping Name="SESION">
       <EntityTypeMapping TypeName="BibliotecaModel.SESION">
         <MappingFragment StoreEntitySet="SESION">
+          <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
           <ScalarProperty Name="TIPOSESION" ColumnName="TIPOSESION" />
           <ScalarProperty Name="IDSESION" ColumnName="IDSESION" />
           <ScalarProperty Name="USERNAMESESION" ColumnName="USERNAMESESION" />
@@ -60,6 +61,7 @@
     <EntitySetMapping Name="USUARIO">
       <EntityTypeMapping TypeName="BibliotecaModel.USUARIO">
         <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="EMAILUSUARIO" ColumnName="EMAILUSUARIO" />
           <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
           <ScalarProperty Name="RUTUSUARIO" ColumnName="RUTUSUARIO" />
           <ScalarProperty Name="NOMBRESUSUARIO" ColumnName="NOMBRESUSUARIO" />

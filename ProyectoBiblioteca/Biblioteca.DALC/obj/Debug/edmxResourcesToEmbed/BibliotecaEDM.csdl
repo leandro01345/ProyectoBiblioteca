@@ -47,6 +47,7 @@
     <Property Name="USERNAMESESION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PASSWORDSESION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TIPOSESION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
   </EntityType>
   <EntityType Name="SOLICITUD">
     <Key>
@@ -72,6 +73,7 @@
     <Property Name="HUELLAUSUARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="FOTOUSUARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="SOLICITUD" />
+    <Property Name="EMAILUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="EJEMPLAR_DOCUMENTO_FK">
     <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="1" />

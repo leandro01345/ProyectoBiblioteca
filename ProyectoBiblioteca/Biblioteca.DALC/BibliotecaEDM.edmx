@@ -57,6 +57,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
           <Property Name="USERNAMESESION" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="PASSWORDSESION" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="TIPOSESION" Type="varchar2" MaxLength="50" />
+          <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
@@ -79,6 +80,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
           <Property Name="ACTIVOUSUARIO" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="HUELLAUSUARIO" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="FOTOUSUARIO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="EMAILUSUARIO" Type="varchar2" MaxLength="100" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATALOGO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -358,6 +360,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <Property Name="USERNAMESESION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PASSWORDSESION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TIPOSESION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
@@ -383,6 +386,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <Property Name="HUELLAUSUARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="FOTOUSUARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="SOLICITUD" />
+          <Property Name="EMAILUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="EJEMPLAR_DOCUMENTO_FK">
           <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="1" />
@@ -580,6 +584,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <EntitySetMapping Name="SESION">
             <EntityTypeMapping TypeName="BibliotecaModel.SESION">
               <MappingFragment StoreEntitySet="SESION">
+                <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
                 <ScalarProperty Name="TIPOSESION" ColumnName="TIPOSESION" />
                 <ScalarProperty Name="IDSESION" ColumnName="IDSESION" />
                 <ScalarProperty Name="USERNAMESESION" ColumnName="USERNAMESESION" />
@@ -599,6 +604,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="BibliotecaModel.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="EMAILUSUARIO" ColumnName="EMAILUSUARIO" />
                 <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
                 <ScalarProperty Name="RUTUSUARIO" ColumnName="RUTUSUARIO" />
                 <ScalarProperty Name="NOMBRESUSUARIO" ColumnName="NOMBRESUSUARIO" />
