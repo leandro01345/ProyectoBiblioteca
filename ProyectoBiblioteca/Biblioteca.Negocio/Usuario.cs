@@ -8,7 +8,7 @@ namespace Biblioteca.Negocio
 {
     public class Usuario
     {
-        public bool Create(string rut, string nombres, string apellidos, string direccion, string telefono, bool foto, bool huella)
+        public bool Create(string rut, string nombres, string apellidos, string direccion, string telefono, bool foto, bool huella, string username)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Biblioteca.Negocio
                 us.FOTOUSUARIO = fotostr;
                 us.HUELLAUSUARIO = huellastr;
 
-                CommonBC.ModeloBiblioteca.PRO_ADD_USUARIO(rut, nombres, apellidos, direccion, telefono, fotostr, huellastr);
+                CommonBC.ModeloBiblioteca.PRO_ADD_USUARIO(rut, nombres, apellidos, direccion, telefono, fotostr, huellastr, username);
                 CommonBC.ModeloBiblioteca.SaveChanges();
                 return true;
             }

@@ -21,6 +21,8 @@ namespace Biblioteca.Negocio
                 
                 CommonBC.ModeloBiblioteca.PRO_ADD_EJEMPLAR(ej.DOCUMENTO_IDDOCUMENTO,ej.ESTADOEJEMPLAR,ej.UBICACIONEJEMPLAR);
                 //CommonBC.ModeloBiblioteca.EJEMPLAR.AddObject(ej);
+
+
                 CommonBC.ModeloBiblioteca.SaveChanges();
 
                 return true;

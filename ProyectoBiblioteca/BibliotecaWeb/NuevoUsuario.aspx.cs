@@ -35,8 +35,9 @@ namespace BibliotecaWeb
         protected void btnAgregarUsuario_Click1(object sender, EventArgs e)
         {
             string RutCompleto = txtRut.Text + "-" + txtDVRut.Text;
+            string NomUsuario = txtNombres.Text.Trim().ToLower();
             BibliotecaSvc.Service1Client servicio = new BibliotecaSvc.Service1Client();
-            if (servicio.AgregarUsuario(RutCompleto, txtNombres.Text, txtApellidos.Text, txtTelefono.Text, txtDireccion.Text, chkFoto.Checked, chkHuella.Checked) == true)
+            if (servicio.AgregarUsuario(RutCompleto, txtNombres.Text, txtApellidos.Text, txtTelefono.Text, txtDireccion.Text, chkFoto.Checked, chkHuella.Checked, NomUsuario) == true)
             {
                 MailMessage msj = new MailMessage();
                 SmtpClient cli = new SmtpClient();

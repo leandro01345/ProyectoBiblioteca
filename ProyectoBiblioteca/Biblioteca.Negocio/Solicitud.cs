@@ -16,9 +16,9 @@ namespace Biblioteca.Negocio
                 Biblioteca.DALC.SOLICITUD soli = new DALC.SOLICITUD();
                 soli.FECHASOLICITUD = fechSolicitud;
                 //soli.HORASOLICITUD = horaSolicitud;
-
-
-                CommonBC.ModeloBiblioteca.SOLICITUD.AddObject(soli);
+                
+                CommonBC.ModeloBiblioteca.AddToSOLICITUD(soli);
+                //CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD
                 CommonBC.ModeloBiblioteca.SaveChanges();
                 return (int)soli.IDSOLICITUD;
             }

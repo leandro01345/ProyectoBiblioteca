@@ -205,6 +205,10 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
   <Function Name="FN_EJEMPLAR_DISPONIBLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="number">
     <Parameter Name="IDDOC" Type="number" Mode="In" />
   </Function>
+  <Function Name="PRO_ADD_DETALLESOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+    <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
+    <Parameter Name="ID_SOLICITUD" Type="number" Mode="In" />
+  </Function>
   <Function Name="PRO_ADD_DOCUMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="TITULO_DOCUMENTO" Type="varchar2" Mode="In" />
     <Parameter Name="AUTOR_DOCUMENTO" Type="varchar2" Mode="In" />
@@ -230,6 +234,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
     <Parameter Name="TELEFONO_USUARIO" Type="varchar2" Mode="In" />
     <Parameter Name="FOTO_USUARIO" Type="char" Mode="In" />
     <Parameter Name="HUELLA_USUARIO" Type="char" Mode="In" />
+    <Parameter Name="USERNAME_SESION" Type="varchar2" Mode="In" />
   </Function>
   <EntityContainer Name="BibliotecaModelStoreContainer">
     <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />

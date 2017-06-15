@@ -482,7 +482,8 @@ namespace Biblioteca.DALC
         /// <param name="tELEFONO_USUARIO">No hay documentación de metadatos disponible.</param>
         /// <param name="fOTO_USUARIO">No hay documentación de metadatos disponible.</param>
         /// <param name="hUELLA_USUARIO">No hay documentación de metadatos disponible.</param>
-        public int PRO_ADD_USUARIO(global::System.String rUT_USUARIO, global::System.String nOMBRES_USUARIO, global::System.String aPELLIDOS_USUARIO, global::System.String dIRECCION_USUARIO, global::System.String tELEFONO_USUARIO, global::System.String fOTO_USUARIO, global::System.String hUELLA_USUARIO)
+        /// <param name="uSERNAME_SESION">No hay documentación de metadatos disponible.</param>
+        public int PRO_ADD_USUARIO(global::System.String rUT_USUARIO, global::System.String nOMBRES_USUARIO, global::System.String aPELLIDOS_USUARIO, global::System.String dIRECCION_USUARIO, global::System.String tELEFONO_USUARIO, global::System.String fOTO_USUARIO, global::System.String hUELLA_USUARIO, global::System.String uSERNAME_SESION)
         {
             ObjectParameter rUT_USUARIOParameter;
             if (rUT_USUARIO != null)
@@ -554,7 +555,17 @@ namespace Biblioteca.DALC
                 hUELLA_USUARIOParameter = new ObjectParameter("HUELLA_USUARIO", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction("PRO_ADD_USUARIO", rUT_USUARIOParameter, nOMBRES_USUARIOParameter, aPELLIDOS_USUARIOParameter, dIRECCION_USUARIOParameter, tELEFONO_USUARIOParameter, fOTO_USUARIOParameter, hUELLA_USUARIOParameter);
+            ObjectParameter uSERNAME_SESIONParameter;
+            if (uSERNAME_SESION != null)
+            {
+                uSERNAME_SESIONParameter = new ObjectParameter("USERNAME_SESION", uSERNAME_SESION);
+            }
+            else
+            {
+                uSERNAME_SESIONParameter = new ObjectParameter("USERNAME_SESION", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("PRO_ADD_USUARIO", rUT_USUARIOParameter, nOMBRES_USUARIOParameter, aPELLIDOS_USUARIOParameter, dIRECCION_USUARIOParameter, tELEFONO_USUARIOParameter, fOTO_USUARIOParameter, hUELLA_USUARIOParameter, uSERNAME_SESIONParameter);
         }
     
         /// <summary>
@@ -574,6 +585,36 @@ namespace Biblioteca.DALC
             }
     
             return base.ExecuteFunction("PRO_ADD_SOLICITUD", iD_USUARIOParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="iD_EJEMPLAR">No hay documentación de metadatos disponible.</param>
+        /// <param name="iD_SOLICITUD">No hay documentación de metadatos disponible.</param>
+        public int PRO_ADD_DETALLESOLICITUD(Nullable<global::System.Decimal> iD_EJEMPLAR, Nullable<global::System.Decimal> iD_SOLICITUD)
+        {
+            ObjectParameter iD_EJEMPLARParameter;
+            if (iD_EJEMPLAR.HasValue)
+            {
+                iD_EJEMPLARParameter = new ObjectParameter("ID_EJEMPLAR", iD_EJEMPLAR);
+            }
+            else
+            {
+                iD_EJEMPLARParameter = new ObjectParameter("ID_EJEMPLAR", typeof(global::System.Decimal));
+            }
+    
+            ObjectParameter iD_SOLICITUDParameter;
+            if (iD_SOLICITUD.HasValue)
+            {
+                iD_SOLICITUDParameter = new ObjectParameter("ID_SOLICITUD", iD_SOLICITUD);
+            }
+            else
+            {
+                iD_SOLICITUDParameter = new ObjectParameter("ID_SOLICITUD", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction("PRO_ADD_DETALLESOLICITUD", iD_EJEMPLARParameter, iD_SOLICITUDParameter);
         }
 
         #endregion

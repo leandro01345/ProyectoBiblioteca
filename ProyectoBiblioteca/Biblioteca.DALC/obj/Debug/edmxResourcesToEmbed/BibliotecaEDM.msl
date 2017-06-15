@@ -135,5 +135,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PRO_ADD_DETALLESOLICITUD" FunctionName="BibliotecaModel.Store.PRO_ADD_DETALLESOLICITUD" />
   </EntityContainerMapping>
 </Mapping>

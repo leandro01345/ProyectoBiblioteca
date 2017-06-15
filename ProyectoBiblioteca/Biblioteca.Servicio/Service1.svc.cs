@@ -45,10 +45,10 @@ namespace Biblioteca.Servicio
             return doc.EjemplarDisponible(iddoc);
         }
 
-        public bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella)
+        public bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username)
         {
             Usuario us = new Usuario();
-            return us.Create(rut, nombres, apellidos, direccion, telefono, foto, huella);
+            return us.Create(rut, nombres, apellidos, direccion, telefono, foto, huella, username);
         }
 
         public bool ModificarEjemplar(int idejemplar, int iddocumento, string estado, string ubicacion)

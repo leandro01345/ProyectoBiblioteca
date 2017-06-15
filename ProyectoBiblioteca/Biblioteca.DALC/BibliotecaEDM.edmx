@@ -210,6 +210,13 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
         <Function Name="FN_EJEMPLAR_DISPONIBLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="number">
           <Parameter Name="IDDOC" Type="number" Mode="In" />
         </Function>
+        <Function Name="MD5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="varchar2">
+          <Parameter Name="INPUT" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="PRO_ADD_DETALLESOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+          <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
+          <Parameter Name="ID_SOLICITUD" Type="number" Mode="In" />
+        </Function>
         <Function Name="PRO_ADD_DOCUMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
           <Parameter Name="TITULO_DOCUMENTO" Type="varchar2" Mode="In" />
           <Parameter Name="AUTOR_DOCUMENTO" Type="varchar2" Mode="In" />
@@ -235,6 +242,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
           <Parameter Name="TELEFONO_USUARIO" Type="varchar2" Mode="In" />
           <Parameter Name="FOTO_USUARIO" Type="char" Mode="In" />
           <Parameter Name="HUELLA_USUARIO" Type="char" Mode="In" />
+          <Parameter Name="USERNAME_SESION" Type="varchar2" Mode="In" />
         </Function>
         <EntityContainer Name="BibliotecaModelStoreContainer">
           <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
@@ -474,14 +482,19 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <Parameter Name="TELEFONO_USUARIO" Mode="In" Type="String" />
             <Parameter Name="FOTO_USUARIO" Mode="In" Type="String" />
             <Parameter Name="HUELLA_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="USERNAME_SESION" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="V_CATEGORIASDOC" EntityType="BibliotecaModel.V_CATEGORIASDOC" />
           <EntitySet Name="V_TIPOSDOC" EntityType="BibliotecaModel.V_TIPOSDOC" />
           <FunctionImport Name="PRO_ADD_SOLICITUD">
-          <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <EntitySet Name="V_CATALOGO" EntityType="BibliotecaModel.V_CATALOGO" />
           <EntitySet Name="V_DOC_EJEMPLAR_DISPONIBLE" EntityType="BibliotecaModel.V_DOC_EJEMPLAR_DISPONIBLE" />
+          <FunctionImport Name="PRO_ADD_DETALLESOLICITUD">
+            <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
+            <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="V_EJEMPLARES">
           <Key>
@@ -678,6 +691,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PRO_ADD_DETALLESOLICITUD" FunctionName="BibliotecaModel.Store.PRO_ADD_DETALLESOLICITUD" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
