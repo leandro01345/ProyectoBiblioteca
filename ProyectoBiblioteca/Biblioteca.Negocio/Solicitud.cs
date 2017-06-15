@@ -9,7 +9,7 @@ namespace Biblioteca.Negocio
     public class Solicitud
     {
 
-        public bool Create(DateTime fechSolicitud, DateTime horaSolicitud)
+        public int Create(DateTime fechSolicitud)
         {
             try
             {
@@ -20,15 +20,15 @@ namespace Biblioteca.Negocio
 
                 CommonBC.ModeloBiblioteca.SOLICITUD.AddObject(soli);
                 CommonBC.ModeloBiblioteca.SaveChanges();
-                return true;
+                return (int)soli.IDSOLICITUD;
             }
             catch (Exception)
             {
-                return false;
+                return -1;
             }
         }
 
-        public bool Update(int id, DateTime fechSolicitud, DateTime horaSolicitud)
+        public bool Update(int id, DateTime fechSolicitud)
         {
             try
             {
