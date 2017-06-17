@@ -9,16 +9,19 @@ namespace Biblioteca.Negocio
     public class Solicitud
     {
 
-        public int Create(DateTime fechSolicitud)
+        public int Create(int IdUsuario, DateTime fechSolicitud)
         {
             try
             {
                 Biblioteca.DALC.SOLICITUD soli = new DALC.SOLICITUD();
                 soli.FECHASOLICITUD = fechSolicitud;
+
                 //soli.HORASOLICITUD = horaSolicitud;
                 
                 CommonBC.ModeloBiblioteca.AddToSOLICITUD(soli);
-                //CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD
+                //int id_sol = CommonBC.ModeloBiblioteca.;
+                
+                //CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD1(1);
                 CommonBC.ModeloBiblioteca.SaveChanges();
                 return (int)soli.IDSOLICITUD;
             }
@@ -79,7 +82,19 @@ namespace Biblioteca.Negocio
             }
         }
 
-
+        public int UltimaSolicitud(int id_usuario)
+        {
+            try
+            {
+                Biblioteca.DALC.SOLICITUD soli = CommonBC.ModeloBiblioteca.SOLICITUD.Last
+                    (s => s.USUARIO_IDUSUARIO == id_usuario);
+                return (int)soli.IDSOLICITUD;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
     
 
 }

@@ -616,6 +616,25 @@ namespace Biblioteca.DALC
     
             return base.ExecuteFunction("PRO_ADD_DETALLESOLICITUD", iD_EJEMPLARParameter, iD_SOLICITUDParameter);
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="iD_USUARIO">No hay documentación de metadatos disponible.</param>
+        public ObjectResult<Nullable<global::System.Int32>> PRO_ADD_SOLICITUD1(Nullable<global::System.Decimal> iD_USUARIO)
+        {
+            ObjectParameter iD_USUARIOParameter;
+            if (iD_USUARIO.HasValue)
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", iD_USUARIO);
+            }
+            else
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Int32>>("PRO_ADD_SOLICITUD1", iD_USUARIOParameter);
+        }
 
         #endregion
 

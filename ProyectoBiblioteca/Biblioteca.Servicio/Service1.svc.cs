@@ -51,6 +51,11 @@ namespace Biblioteca.Servicio
             return us.Create(rut, nombres, apellidos, direccion, telefono, foto, huella, username);
         }
 
+        public bool AgregarSolicitud(int idUsuario, DateTime fecha)
+        {
+            return false;
+        }
+
         public bool ModificarEjemplar(int idejemplar, int iddocumento, string estado, string ubicacion)
         {
             Ejemplar ej = new Ejemplar();

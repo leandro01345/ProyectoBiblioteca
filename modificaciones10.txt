@@ -17,4 +17,13 @@ BEGIN
    VALUES(id_ejemplar, id_solicitud);
 END;
 
+create or replace
+function fn_ultima_solicitud RETURN NUMBER
+IS
+idsol NUMBER := -1;
+BEGIN
+idsol := seq_solicitud.currval;
+RETURN idsol;
+END fn_ultima_solicitud;
+
 commit;

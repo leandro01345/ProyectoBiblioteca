@@ -210,6 +210,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
         <Function Name="FN_EJEMPLAR_DISPONIBLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="number">
           <Parameter Name="IDDOC" Type="number" Mode="In" />
         </Function>
+        <Function Name="FN_ULTIMA_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="number" />
         <Function Name="MD5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="varchar2">
           <Parameter Name="INPUT" Type="varchar2" Mode="In" />
         </Function>
@@ -495,6 +496,9 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
             <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="PRO_ADD_SOLICITUD1" ReturnType="Collection(Int32)">
+            <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="V_EJEMPLARES">
           <Key>
@@ -692,6 +696,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PRO_ADD_DETALLESOLICITUD" FunctionName="BibliotecaModel.Store.PRO_ADD_DETALLESOLICITUD" />
+          <FunctionImportMapping FunctionImportName="PRO_ADD_SOLICITUD1" FunctionName="BibliotecaModel.Store.PRO_ADD_SOLICITUD" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

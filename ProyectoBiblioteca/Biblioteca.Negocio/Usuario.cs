@@ -30,7 +30,7 @@ namespace Biblioteca.Negocio
                 }
                 us.FOTOUSUARIO = fotostr;
                 us.HUELLAUSUARIO = huellastr;
-
+                
                 CommonBC.ModeloBiblioteca.PRO_ADD_USUARIO(rut, nombres, apellidos, direccion, telefono, fotostr, huellastr, username);
                 CommonBC.ModeloBiblioteca.SaveChanges();
                 return true;
