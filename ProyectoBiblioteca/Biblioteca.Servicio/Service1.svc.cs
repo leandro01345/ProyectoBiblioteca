@@ -57,10 +57,10 @@ namespace Biblioteca.Servicio
             return doc.EjemplarDisponible(iddoc);
         }
 
-        public bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username)
+        public bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password)
         {
             Usuario us = new Usuario();
-            return us.Create(rut, nombres, apellidos, direccion, telefono, foto, huella, username);
+            return us.Create(rut, nombres, apellidos, direccion, telefono, foto, huella, username, password);
         }
 
         public int AgregarSolicitud(int idUsuario)

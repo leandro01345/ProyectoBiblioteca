@@ -162,6 +162,7 @@
       <Parameter Name="FOTO_USUARIO" Mode="In" Type="String" />
       <Parameter Name="HUELLA_USUARIO" Mode="In" Type="String" />
       <Parameter Name="USERNAME_SESION" Mode="In" Type="String" />
+      <Parameter Name="PASSWORD_SESION" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="V_CATEGORIASDOC" EntityType="BibliotecaModel.V_CATEGORIASDOC" />
     <EntitySet Name="V_TIPOSDOC" EntityType="BibliotecaModel.V_TIPOSDOC" />
@@ -177,6 +178,7 @@
     <FunctionImport Name="PRO_ADD_SOLICITUD1" ReturnType="Collection(Int32)">
       <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
     </FunctionImport>
+    <EntitySet Name="V_SOLICITUDES" EntityType="BibliotecaModel.V_SOLICITUDES" />
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -232,5 +234,15 @@
     </Key>
     <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="PRIMER_EJEMPLAR_DISPONIBLE" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="V_SOLICITUDES">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+      <PropertyRef Name="IDSOLICITUD" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="IDSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

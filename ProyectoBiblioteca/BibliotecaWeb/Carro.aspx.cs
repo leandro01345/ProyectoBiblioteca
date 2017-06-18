@@ -34,7 +34,8 @@ namespace BibliotecaWeb
             //Crear la solicitud
             string error = String.Empty;
             BibliotecaSvc.Service1Client servicio = new BibliotecaSvc.Service1Client();
-            int idsolicitud = servicio.AgregarSolicitud(1);//CONFIGURAR ID USUARIO
+            int idUsuario = (int)Session["IdUsuario"];
+            int idsolicitud = servicio.AgregarSolicitud(idUsuario);//CONFIGURAR ID USUARIO
             if (idsolicitud != -1)
             {
                 foreach (var iddoc in idList)
@@ -56,7 +57,7 @@ namespace BibliotecaWeb
             {
                 error = "Error al ingresar solicitud.";
             }
-            
+            lblError.Text = error;
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)

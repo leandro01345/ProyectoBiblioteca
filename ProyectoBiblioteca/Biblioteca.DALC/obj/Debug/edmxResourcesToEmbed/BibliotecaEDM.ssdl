@@ -135,6 +135,18 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_EJEMPLARES' no tiene definida n
     <Property Name="UBICACIONEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_SOLICITUDES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="V_SOLICITUDES">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+      <PropertyRef Name="IDSOLICITUD" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FECHA" Type="varchar2" MaxLength="10" />
+    <Property Name="HORA" Type="varchar2" MaxLength="8" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="V_TIPOSDOC">
     <Key>
@@ -239,6 +251,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
     <Parameter Name="FOTO_USUARIO" Type="char" Mode="In" />
     <Parameter Name="HUELLA_USUARIO" Type="char" Mode="In" />
     <Parameter Name="USERNAME_SESION" Type="varchar2" Mode="In" />
+    <Parameter Name="PASSWORD_SESION" Type="varchar2" Mode="In" />
   </Function>
   <EntityContainer Name="BibliotecaModelStoreContainer">
     <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
@@ -286,6 +299,14 @@ FROM "BIBLIOTECA"."V_DOC_EJEMPLAR_DISPONIBLE" "V_DOC_EJEMPLAR_DISPONIBLE"</Defin
 "V_EJEMPLARES"."ESTADOEJEMPLAR" AS "ESTADOEJEMPLAR", 
 "V_EJEMPLARES"."UBICACIONEJEMPLAR" AS "UBICACIONEJEMPLAR"
 FROM "BIBLIOTECA"."V_EJEMPLARES" "V_EJEMPLARES"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_SOLICITUDES" EntityType="Self.V_SOLICITUDES" store:Type="Views" store:Schema="BIBLIOTECA">
+      <DefiningQuery>SELECT 
+"V_SOLICITUDES"."IDUSUARIO" AS "IDUSUARIO", 
+"V_SOLICITUDES"."IDSOLICITUD" AS "IDSOLICITUD", 
+"V_SOLICITUDES"."FECHA" AS "FECHA", 
+"V_SOLICITUDES"."HORA" AS "HORA"
+FROM "BIBLIOTECA"."V_SOLICITUDES" "V_SOLICITUDES"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_TIPOSDOC" EntityType="Self.V_TIPOSDOC" store:Type="Views" store:Schema="BIBLIOTECA">
       <DefiningQuery>SELECT 

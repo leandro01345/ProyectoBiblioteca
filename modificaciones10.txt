@@ -26,4 +26,26 @@ idsol := seq_solicitud.currval;
 RETURN idsol;
 END fn_ultima_solicitud;
 
+create or replace view v_solicitudes as
+select usuario_idusuario as IDUSUARIO, idsolicitud, to_char(FECHASOLICITUD, 'mm/dd/yyyy') as FECHA, to_char(FECHASOLICITUD, 'hh24:mi:ss') as HORA from solicitud;
+
+create or replace
+PROCEDURE  PRO_ADD_USUARIO (
+ rut_usuario   USUARIO.RUTUSUARIO%TYPE,
+ nombres_usuario USUARIO.NOMBRESUSUARIO%TYPE,
+ apellidos_usuario USUARIO.APELLIDOSUSUARIO%TYPE,
+ direccion_usuario USUARIO.DIRECCIONUSUARIO%TYPE,
+ telefono_usuario USUARIO.TELEFONOUSUARIO%TYPE,
+ foto_usuario USUARIO.FOTOUSUARIO%TYPE,
+ huella_usuario USUARIO.HUELLAUSUARIO%TYPE,
+ username_sesion SESION.USERNAMESESION%TYPE,
+ password_sesion sesion.passwordsesion%TYPE
+ ) IS
+BEGIN
+   INSERT INTO USUARIO(IDUSUARIO, RUTUSUARIO, NOMBRESUSUARIO, APELLIDOSUSUARIO, DIRECCIONUSUARIO, TELEFONOUSUARIO, ACTIVOUSUARIO, FOTOUSUARIO, HUELLAUSUARIO) 	
+   VALUES(SEQ_USUARIO.NEXTVAL, rut_usuario, nombres_usuario, apellidos_usuario, direccion_usuario, telefono_usuario, 'n', foto_usuario, huella_usuario);
+   INSERT INTO SESION(IDSESION, USERNAMESESION, PASSWORDSESION, TIPOSESION, USUARIO_IDUSUARIO) 	
+   VALUES(SEQ_SESION.NEXTVAL, username_sesion, password_sesion,'usuarioNuevo',SEQ_USUARIO.CURRVAL);
+END;
+
 commit;

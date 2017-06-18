@@ -140,6 +140,18 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_EJEMPLARES' no tiene definida n
           <Property Name="UBICACIONEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_SOLICITUDES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_SOLICITUDES">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="IDSOLICITUD" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="varchar2" MaxLength="10" />
+          <Property Name="HORA" Type="varchar2" MaxLength="8" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="V_TIPOSDOC">
           <Key>
@@ -244,6 +256,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
           <Parameter Name="FOTO_USUARIO" Type="char" Mode="In" />
           <Parameter Name="HUELLA_USUARIO" Type="char" Mode="In" />
           <Parameter Name="USERNAME_SESION" Type="varchar2" Mode="In" />
+          <Parameter Name="PASSWORD_SESION" Type="varchar2" Mode="In" />
         </Function>
         <EntityContainer Name="BibliotecaModelStoreContainer">
           <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
@@ -291,6 +304,14 @@ FROM "BIBLIOTECA"."V_DOC_EJEMPLAR_DISPONIBLE" "V_DOC_EJEMPLAR_DISPONIBLE"</Defin
 "V_EJEMPLARES"."ESTADOEJEMPLAR" AS "ESTADOEJEMPLAR", 
 "V_EJEMPLARES"."UBICACIONEJEMPLAR" AS "UBICACIONEJEMPLAR"
 FROM "BIBLIOTECA"."V_EJEMPLARES" "V_EJEMPLARES"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_SOLICITUDES" EntityType="Self.V_SOLICITUDES" store:Type="Views" store:Schema="BIBLIOTECA">
+            <DefiningQuery>SELECT 
+"V_SOLICITUDES"."IDUSUARIO" AS "IDUSUARIO", 
+"V_SOLICITUDES"."IDSOLICITUD" AS "IDSOLICITUD", 
+"V_SOLICITUDES"."FECHA" AS "FECHA", 
+"V_SOLICITUDES"."HORA" AS "HORA"
+FROM "BIBLIOTECA"."V_SOLICITUDES" "V_SOLICITUDES"</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_TIPOSDOC" EntityType="Self.V_TIPOSDOC" store:Type="Views" store:Schema="BIBLIOTECA">
             <DefiningQuery>SELECT 
@@ -484,11 +505,12 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <Parameter Name="FOTO_USUARIO" Mode="In" Type="String" />
             <Parameter Name="HUELLA_USUARIO" Mode="In" Type="String" />
             <Parameter Name="USERNAME_SESION" Mode="In" Type="String" />
+            <Parameter Name="PASSWORD_SESION" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="V_CATEGORIASDOC" EntityType="BibliotecaModel.V_CATEGORIASDOC" />
           <EntitySet Name="V_TIPOSDOC" EntityType="BibliotecaModel.V_TIPOSDOC" />
           <FunctionImport Name="PRO_ADD_SOLICITUD">
-            <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <EntitySet Name="V_CATALOGO" EntityType="BibliotecaModel.V_CATALOGO" />
           <EntitySet Name="V_DOC_EJEMPLAR_DISPONIBLE" EntityType="BibliotecaModel.V_DOC_EJEMPLAR_DISPONIBLE" />
@@ -497,8 +519,9 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="PRO_ADD_SOLICITUD1" ReturnType="Collection(Int32)">
-            <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="V_SOLICITUDES" EntityType="BibliotecaModel.V_SOLICITUDES" />
         </EntityContainer>
         <EntityType Name="V_EJEMPLARES">
           <Key>
@@ -554,6 +577,16 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           </Key>
           <Property Name="IDDOCUMENTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="PRIMER_EJEMPLAR_DISPONIBLE" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="V_SOLICITUDES">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="IDSOLICITUD" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -697,6 +730,16 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PRO_ADD_DETALLESOLICITUD" FunctionName="BibliotecaModel.Store.PRO_ADD_DETALLESOLICITUD" />
           <FunctionImportMapping FunctionImportName="PRO_ADD_SOLICITUD1" FunctionName="BibliotecaModel.Store.PRO_ADD_SOLICITUD" />
+          <EntitySetMapping Name="V_SOLICITUDES">
+            <EntityTypeMapping TypeName="BibliotecaModel.V_SOLICITUDES">
+              <MappingFragment StoreEntitySet="V_SOLICITUDES">
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

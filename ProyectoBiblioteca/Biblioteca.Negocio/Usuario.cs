@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Security.Cryptography;
+
 namespace Biblioteca.Negocio
 {
     public class Usuario
     {
-        public bool Create(string rut, string nombres, string apellidos, string direccion, string telefono, bool foto, bool huella, string username)
+        public bool Create(string rut, string nombres, string apellidos, string direccion, string telefono, bool foto, bool huella, string username, string password)
         {
             try
             {
@@ -30,8 +32,8 @@ namespace Biblioteca.Negocio
                 }
                 us.FOTOUSUARIO = fotostr;
                 us.HUELLAUSUARIO = huellastr;
-                
-                CommonBC.ModeloBiblioteca.PRO_ADD_USUARIO(rut, nombres, apellidos, direccion, telefono, fotostr, huellastr, username);
+                password = CalculateMD5Hash(password);
+                CommonBC.ModeloBiblioteca.PRO_ADD_USUARIO(rut, nombres, apellidos, direccion, telefono, fotostr, huellastr, username, password);
                 CommonBC.ModeloBiblioteca.SaveChanges();
                 return true;
             }
@@ -124,6 +126,35 @@ namespace Biblioteca.Negocio
             {
                 return false;
             }
+        }
+
+        public string CalculateMD5Hash(string input)
+
+        {
+
+            // step 1, calculate MD5 hash from input
+
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+
+            // step 2, convert byte array to hex string
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hash.Length; i++)
+
+            {
+
+                sb.Append(hash[i].ToString());
+
+            }
+
+            return sb.ToString();
+
         }
 
     }

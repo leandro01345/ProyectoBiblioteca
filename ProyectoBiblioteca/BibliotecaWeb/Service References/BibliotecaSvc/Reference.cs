@@ -52,10 +52,10 @@ namespace BibliotecaWeb.BibliotecaSvc {
         System.Threading.Tasks.Task<bool> AgregarDocumentoAsync(string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarUsuario", ReplyAction="http://tempuri.org/IService1/AgregarUsuarioResponse")]
-        bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username);
+        bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarUsuario", ReplyAction="http://tempuri.org/IService1/AgregarUsuarioResponse")]
-        System.Threading.Tasks.Task<bool> AgregarUsuarioAsync(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username);
+        System.Threading.Tasks.Task<bool> AgregarUsuarioAsync(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarSolicitud", ReplyAction="http://tempuri.org/IService1/AgregarSolicitudResponse")]
         int AgregarSolicitud(int idUsuario);
@@ -193,12 +193,12 @@ namespace BibliotecaWeb.BibliotecaSvc {
             return base.Channel.AgregarDocumentoAsync(titulo, autor, anio, tipo, categoria, edicion, editorial);
         }
         
-        public bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username) {
-            return base.Channel.AgregarUsuario(rut, nombres, apellidos, telefono, direccion, foto, huella, username);
+        public bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password) {
+            return base.Channel.AgregarUsuario(rut, nombres, apellidos, telefono, direccion, foto, huella, username, password);
         }
         
-        public System.Threading.Tasks.Task<bool> AgregarUsuarioAsync(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username) {
-            return base.Channel.AgregarUsuarioAsync(rut, nombres, apellidos, telefono, direccion, foto, huella, username);
+        public System.Threading.Tasks.Task<bool> AgregarUsuarioAsync(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password) {
+            return base.Channel.AgregarUsuarioAsync(rut, nombres, apellidos, telefono, direccion, foto, huella, username, password);
         }
         
         public int AgregarSolicitud(int idUsuario) {

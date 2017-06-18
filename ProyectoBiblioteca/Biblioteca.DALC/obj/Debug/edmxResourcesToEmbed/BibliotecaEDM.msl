@@ -137,5 +137,15 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="PRO_ADD_DETALLESOLICITUD" FunctionName="BibliotecaModel.Store.PRO_ADD_DETALLESOLICITUD" />
     <FunctionImportMapping FunctionImportName="PRO_ADD_SOLICITUD1" FunctionName="BibliotecaModel.Store.PRO_ADD_SOLICITUD" />
+    <EntitySetMapping Name="V_SOLICITUDES">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_SOLICITUDES">
+        <MappingFragment StoreEntitySet="V_SOLICITUDES">
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

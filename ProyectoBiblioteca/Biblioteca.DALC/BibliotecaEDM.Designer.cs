@@ -249,6 +249,22 @@ namespace Biblioteca.DALC
             }
         }
         private ObjectSet<V_DOC_EJEMPLAR_DISPONIBLE> _V_DOC_EJEMPLAR_DISPONIBLE;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<V_SOLICITUDES> V_SOLICITUDES
+        {
+            get
+            {
+                if ((_V_SOLICITUDES == null))
+                {
+                    _V_SOLICITUDES = base.CreateObjectSet<V_SOLICITUDES>("V_SOLICITUDES");
+                }
+                return _V_SOLICITUDES;
+            }
+        }
+        private ObjectSet<V_SOLICITUDES> _V_SOLICITUDES;
 
         #endregion
 
@@ -340,6 +356,14 @@ namespace Biblioteca.DALC
         public void AddToV_DOC_EJEMPLAR_DISPONIBLE(V_DOC_EJEMPLAR_DISPONIBLE v_DOC_EJEMPLAR_DISPONIBLE)
         {
             base.AddObject("V_DOC_EJEMPLAR_DISPONIBLE", v_DOC_EJEMPLAR_DISPONIBLE);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet V_SOLICITUDES. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToV_SOLICITUDES(V_SOLICITUDES v_SOLICITUDES)
+        {
+            base.AddObject("V_SOLICITUDES", v_SOLICITUDES);
         }
 
         #endregion
@@ -483,7 +507,8 @@ namespace Biblioteca.DALC
         /// <param name="fOTO_USUARIO">No hay documentación de metadatos disponible.</param>
         /// <param name="hUELLA_USUARIO">No hay documentación de metadatos disponible.</param>
         /// <param name="uSERNAME_SESION">No hay documentación de metadatos disponible.</param>
-        public int PRO_ADD_USUARIO(global::System.String rUT_USUARIO, global::System.String nOMBRES_USUARIO, global::System.String aPELLIDOS_USUARIO, global::System.String dIRECCION_USUARIO, global::System.String tELEFONO_USUARIO, global::System.String fOTO_USUARIO, global::System.String hUELLA_USUARIO, global::System.String uSERNAME_SESION)
+        /// <param name="pASSWORD_SESION">No hay documentación de metadatos disponible.</param>
+        public int PRO_ADD_USUARIO(global::System.String rUT_USUARIO, global::System.String nOMBRES_USUARIO, global::System.String aPELLIDOS_USUARIO, global::System.String dIRECCION_USUARIO, global::System.String tELEFONO_USUARIO, global::System.String fOTO_USUARIO, global::System.String hUELLA_USUARIO, global::System.String uSERNAME_SESION, global::System.String pASSWORD_SESION)
         {
             ObjectParameter rUT_USUARIOParameter;
             if (rUT_USUARIO != null)
@@ -565,7 +590,17 @@ namespace Biblioteca.DALC
                 uSERNAME_SESIONParameter = new ObjectParameter("USERNAME_SESION", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction("PRO_ADD_USUARIO", rUT_USUARIOParameter, nOMBRES_USUARIOParameter, aPELLIDOS_USUARIOParameter, dIRECCION_USUARIOParameter, tELEFONO_USUARIOParameter, fOTO_USUARIOParameter, hUELLA_USUARIOParameter, uSERNAME_SESIONParameter);
+            ObjectParameter pASSWORD_SESIONParameter;
+            if (pASSWORD_SESION != null)
+            {
+                pASSWORD_SESIONParameter = new ObjectParameter("PASSWORD_SESION", pASSWORD_SESION);
+            }
+            else
+            {
+                pASSWORD_SESIONParameter = new ObjectParameter("PASSWORD_SESION", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("PRO_ADD_USUARIO", rUT_USUARIOParameter, nOMBRES_USUARIOParameter, aPELLIDOS_USUARIOParameter, dIRECCION_USUARIOParameter, tELEFONO_USUARIOParameter, fOTO_USUARIOParameter, hUELLA_USUARIOParameter, uSERNAME_SESIONParameter, pASSWORD_SESIONParameter);
         }
     
         /// <summary>
@@ -2630,6 +2665,139 @@ namespace Biblioteca.DALC
         private global::System.Decimal _IDDOCUMENTO;
         partial void OnIDDOCUMENTOChanging(global::System.Decimal value);
         partial void OnIDDOCUMENTOChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="V_SOLICITUDES")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class V_SOLICITUDES : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto V_SOLICITUDES.
+        /// </summary>
+        /// <param name="iDUSUARIO">Valor inicial de la propiedad IDUSUARIO.</param>
+        /// <param name="iDSOLICITUD">Valor inicial de la propiedad IDSOLICITUD.</param>
+        public static V_SOLICITUDES CreateV_SOLICITUDES(global::System.Decimal iDUSUARIO, global::System.Decimal iDSOLICITUD)
+        {
+            V_SOLICITUDES v_SOLICITUDES = new V_SOLICITUDES();
+            v_SOLICITUDES.IDUSUARIO = iDUSUARIO;
+            v_SOLICITUDES.IDSOLICITUD = iDSOLICITUD;
+            return v_SOLICITUDES;
+        }
+
+        #endregion
+
+        #region Propiedades simples
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal IDUSUARIO
+        {
+            get
+            {
+                return _IDUSUARIO;
+            }
+            set
+            {
+                if (_IDUSUARIO != value)
+                {
+                    OnIDUSUARIOChanging(value);
+                    ReportPropertyChanging("IDUSUARIO");
+                    _IDUSUARIO = StructuralObject.SetValidValue(value, "IDUSUARIO");
+                    ReportPropertyChanged("IDUSUARIO");
+                    OnIDUSUARIOChanged();
+                }
+            }
+        }
+        private global::System.Decimal _IDUSUARIO;
+        partial void OnIDUSUARIOChanging(global::System.Decimal value);
+        partial void OnIDUSUARIOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal IDSOLICITUD
+        {
+            get
+            {
+                return _IDSOLICITUD;
+            }
+            set
+            {
+                if (_IDSOLICITUD != value)
+                {
+                    OnIDSOLICITUDChanging(value);
+                    ReportPropertyChanging("IDSOLICITUD");
+                    _IDSOLICITUD = StructuralObject.SetValidValue(value, "IDSOLICITUD");
+                    ReportPropertyChanged("IDSOLICITUD");
+                    OnIDSOLICITUDChanged();
+                }
+            }
+        }
+        private global::System.Decimal _IDSOLICITUD;
+        partial void OnIDSOLICITUDChanging(global::System.Decimal value);
+        partial void OnIDSOLICITUDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FECHA
+        {
+            get
+            {
+                return _FECHA;
+            }
+            set
+            {
+                OnFECHAChanging(value);
+                ReportPropertyChanging("FECHA");
+                _FECHA = StructuralObject.SetValidValue(value, true, "FECHA");
+                ReportPropertyChanged("FECHA");
+                OnFECHAChanged();
+            }
+        }
+        private global::System.String _FECHA;
+        partial void OnFECHAChanging(global::System.String value);
+        partial void OnFECHAChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String HORA
+        {
+            get
+            {
+                return _HORA;
+            }
+            set
+            {
+                OnHORAChanging(value);
+                ReportPropertyChanging("HORA");
+                _HORA = StructuralObject.SetValidValue(value, true, "HORA");
+                ReportPropertyChanged("HORA");
+                OnHORAChanged();
+            }
+        }
+        private global::System.String _HORA;
+        partial void OnHORAChanging(global::System.String value);
+        partial void OnHORAChanged();
 
         #endregion
 
