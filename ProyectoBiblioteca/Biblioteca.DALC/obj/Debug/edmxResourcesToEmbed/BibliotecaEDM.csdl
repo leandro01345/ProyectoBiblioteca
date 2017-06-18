@@ -48,6 +48,7 @@
     <Property Name="PASSWORDSESION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TIPOSESION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="USUARIO" Relationship="BibliotecaModel.SESION_USUARIO_FK" FromRole="SESION" ToRole="USUARIO" />
   </EntityType>
   <EntityType Name="SOLICITUD">
     <Key>
@@ -58,6 +59,7 @@
     <Property Name="FECHASOLICITUD" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="USUARIO" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="SOLICITUD" ToRole="USUARIO" />
     <NavigationProperty Name="EJEMPLAR" Relationship="Self.DETALLESOLICITUD" FromRole="SOLICITUD" ToRole="EJEMPLAR" />
+    <Property Name="ESTADOSOLICITUD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>
@@ -74,6 +76,7 @@
     <Property Name="FOTOUSUARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="SOLICITUD" />
     <Property Name="EMAILUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SESION" Relationship="BibliotecaModel.SESION_USUARIO_FK" FromRole="USUARIO" ToRole="SESION" />
   </EntityType>
   <Association Name="EJEMPLAR_DOCUMENTO_FK">
     <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="1" />
@@ -163,6 +166,7 @@
       <Parameter Name="HUELLA_USUARIO" Mode="In" Type="String" />
       <Parameter Name="USERNAME_SESION" Mode="In" Type="String" />
       <Parameter Name="PASSWORD_SESION" Mode="In" Type="String" />
+      <Parameter Name="EMAIL_USUARIO" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="V_CATEGORIASDOC" EntityType="BibliotecaModel.V_CATEGORIASDOC" />
     <EntitySet Name="V_TIPOSDOC" EntityType="BibliotecaModel.V_TIPOSDOC" />
@@ -179,6 +183,10 @@
       <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
     </FunctionImport>
     <EntitySet Name="V_SOLICITUDES" EntityType="BibliotecaModel.V_SOLICITUDES" />
+    <AssociationSet Name="SESION_USUARIO_FK" Association="BibliotecaModel.SESION_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="SESION" EntitySet="SESION" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -245,4 +253,16 @@
     <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
   </EntityType>
+  <Association Name="SESION_USUARIO_FK">
+    <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+    <End Type="BibliotecaModel.SESION" Role="SESION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="SESION">
+        <PropertyRef Name="USUARIO_IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

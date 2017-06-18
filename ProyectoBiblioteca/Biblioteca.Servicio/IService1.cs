@@ -27,7 +27,7 @@ namespace Biblioteca.Servicio
         [OperationContract]
         bool AgregarDocumento(string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial);
         [OperationContract]
-        bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password);
+        bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password, string email);
         [OperationContract]
         int AgregarSolicitud(int idUsuario);
         [OperationContract]

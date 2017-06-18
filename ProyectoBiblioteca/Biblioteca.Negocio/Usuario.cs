@@ -10,7 +10,7 @@ namespace Biblioteca.Negocio
 {
     public class Usuario
     {
-        public bool Create(string rut, string nombres, string apellidos, string direccion, string telefono, bool foto, bool huella, string username, string password)
+        public bool Create(string rut, string nombres, string apellidos, string direccion, string telefono, bool foto, bool huella, string username, string password, string email)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace Biblioteca.Negocio
                 us.FOTOUSUARIO = fotostr;
                 us.HUELLAUSUARIO = huellastr;
                 password = CalculateMD5Hash(password);
-                CommonBC.ModeloBiblioteca.PRO_ADD_USUARIO(rut, nombres, apellidos, direccion, telefono, fotostr, huellastr, username, password);
+                CommonBC.ModeloBiblioteca.PRO_ADD_USUARIO(rut, nombres, apellidos, direccion, telefono, fotostr, huellastr, username, password, email);
                 CommonBC.ModeloBiblioteca.SaveChanges();
                 return true;
             }

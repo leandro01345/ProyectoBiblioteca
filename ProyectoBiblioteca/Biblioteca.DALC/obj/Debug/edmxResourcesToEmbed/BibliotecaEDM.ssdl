@@ -61,6 +61,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
     <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="FECHASOLICITUD" Type="date" Nullable="false" />
+    <Property Name="ESTADOSOLICITUD" Type="varchar2" MaxLength="50" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>
@@ -202,6 +203,18 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="SESION_USUARIO_FK">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="SESION" Type="Self.SESION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="SESION">
+        <PropertyRef Name="USUARIO_IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="SOLICITUDPRESTAMO_USUARIO_FK">
     <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
     <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
@@ -252,6 +265,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
     <Parameter Name="HUELLA_USUARIO" Type="char" Mode="In" />
     <Parameter Name="USERNAME_SESION" Type="varchar2" Mode="In" />
     <Parameter Name="PASSWORD_SESION" Type="varchar2" Mode="In" />
+    <Parameter Name="EMAIL_USUARIO" Type="varchar2" Mode="In" />
   </Function>
   <EntityContainer Name="BibliotecaModelStoreContainer">
     <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
@@ -328,6 +342,10 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
     <AssociationSet Name="PRESTAMO_EJEMPLAR_FK" Association="Self.PRESTAMO_EJEMPLAR_FK">
       <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
       <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+    </AssociationSet>
+    <AssociationSet Name="SESION_USUARIO_FK" Association="Self.SESION_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="SESION" EntitySet="SESION" />
     </AssociationSet>
     <AssociationSet Name="SOLICITUDPRESTAMO_USUARIO_FK" Association="Self.SOLICITUDPRESTAMO_USUARIO_FK">
       <End Role="USUARIO" EntitySet="USUARIO" />

@@ -23,6 +23,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "PRESTAMO_EJEMPLAR_FK", "EJEMPLAR", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Biblioteca.DALC.EJEMPLAR), "PRESTAMO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.PRESTAMO), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "SOLICITUDPRESTAMO_USUARIO_FK", "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Biblioteca.DALC.USUARIO), "SOLICITUD", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SOLICITUD), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "DETALLESOLICITUD", "EJEMPLAR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.EJEMPLAR), "SOLICITUD", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SOLICITUD))]
+[assembly: EdmRelationshipAttribute("BibliotecaModel", "SESION_USUARIO_FK", "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Biblioteca.DALC.USUARIO), "SESION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SESION), true)]
 
 #endregion
 
@@ -508,7 +509,8 @@ namespace Biblioteca.DALC
         /// <param name="hUELLA_USUARIO">No hay documentación de metadatos disponible.</param>
         /// <param name="uSERNAME_SESION">No hay documentación de metadatos disponible.</param>
         /// <param name="pASSWORD_SESION">No hay documentación de metadatos disponible.</param>
-        public int PRO_ADD_USUARIO(global::System.String rUT_USUARIO, global::System.String nOMBRES_USUARIO, global::System.String aPELLIDOS_USUARIO, global::System.String dIRECCION_USUARIO, global::System.String tELEFONO_USUARIO, global::System.String fOTO_USUARIO, global::System.String hUELLA_USUARIO, global::System.String uSERNAME_SESION, global::System.String pASSWORD_SESION)
+        /// <param name="eMAIL_USUARIO">No hay documentación de metadatos disponible.</param>
+        public int PRO_ADD_USUARIO(global::System.String rUT_USUARIO, global::System.String nOMBRES_USUARIO, global::System.String aPELLIDOS_USUARIO, global::System.String dIRECCION_USUARIO, global::System.String tELEFONO_USUARIO, global::System.String fOTO_USUARIO, global::System.String hUELLA_USUARIO, global::System.String uSERNAME_SESION, global::System.String pASSWORD_SESION, global::System.String eMAIL_USUARIO)
         {
             ObjectParameter rUT_USUARIOParameter;
             if (rUT_USUARIO != null)
@@ -600,7 +602,17 @@ namespace Biblioteca.DALC
                 pASSWORD_SESIONParameter = new ObjectParameter("PASSWORD_SESION", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction("PRO_ADD_USUARIO", rUT_USUARIOParameter, nOMBRES_USUARIOParameter, aPELLIDOS_USUARIOParameter, dIRECCION_USUARIOParameter, tELEFONO_USUARIOParameter, fOTO_USUARIOParameter, hUELLA_USUARIOParameter, uSERNAME_SESIONParameter, pASSWORD_SESIONParameter);
+            ObjectParameter eMAIL_USUARIOParameter;
+            if (eMAIL_USUARIO != null)
+            {
+                eMAIL_USUARIOParameter = new ObjectParameter("EMAIL_USUARIO", eMAIL_USUARIO);
+            }
+            else
+            {
+                eMAIL_USUARIOParameter = new ObjectParameter("EMAIL_USUARIO", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("PRO_ADD_USUARIO", rUT_USUARIOParameter, nOMBRES_USUARIOParameter, aPELLIDOS_USUARIOParameter, dIRECCION_USUARIOParameter, tELEFONO_USUARIOParameter, fOTO_USUARIOParameter, hUELLA_USUARIOParameter, uSERNAME_SESIONParameter, pASSWORD_SESIONParameter, eMAIL_USUARIOParameter);
         }
     
         /// <summary>
@@ -1567,6 +1579,48 @@ namespace Biblioteca.DALC
 
         #endregion
 
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "SESION_USUARIO_FK", "USUARIO")]
+        public USUARIO USUARIO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.SESION_USUARIO_FK", "USUARIO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.SESION_USUARIO_FK", "USUARIO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<USUARIO> USUARIOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.SESION_USUARIO_FK", "USUARIO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<USUARIO>("BibliotecaModel.SESION_USUARIO_FK", "USUARIO", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -1672,6 +1726,30 @@ namespace Biblioteca.DALC
         private global::System.DateTime _FECHASOLICITUD;
         partial void OnFECHASOLICITUDChanging(global::System.DateTime value);
         partial void OnFECHASOLICITUDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ESTADOSOLICITUD
+        {
+            get
+            {
+                return _ESTADOSOLICITUD;
+            }
+            set
+            {
+                OnESTADOSOLICITUDChanging(value);
+                ReportPropertyChanging("ESTADOSOLICITUD");
+                _ESTADOSOLICITUD = StructuralObject.SetValidValue(value, true, "ESTADOSOLICITUD");
+                ReportPropertyChanged("ESTADOSOLICITUD");
+                OnESTADOSOLICITUDChanged();
+            }
+        }
+        private global::System.String _ESTADOSOLICITUD;
+        partial void OnESTADOSOLICITUDChanging(global::System.String value);
+        partial void OnESTADOSOLICITUDChanged();
 
         #endregion
 
@@ -2047,6 +2125,28 @@ namespace Biblioteca.DALC
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SOLICITUD>("BibliotecaModel.SOLICITUDPRESTAMO_USUARIO_FK", "SOLICITUD", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "SESION_USUARIO_FK", "SESION")]
+        public EntityCollection<SESION> SESION
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SESION>("BibliotecaModel.SESION_USUARIO_FK", "SESION");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SESION>("BibliotecaModel.SESION_USUARIO_FK", "SESION", value);
                 }
             }
         }

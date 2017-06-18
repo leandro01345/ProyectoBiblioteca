@@ -57,12 +57,14 @@ namespace BibliotecaWeb
             int r2 = rnd.Next(9);
             int r3 = rnd.Next(9);
             string Password = r1.ToString() + r2.ToString() + r3.ToString();
-            
-            if (servicio.AgregarUsuario(RutCompleto, txtNombres.Text, txtApellidos.Text, txtTelefono.Text, txtDireccion.Text, chkFoto.Checked, chkHuella.Checked, NomUsuario, Password) == true)
+
+            string email = txtCorreo.Text.ToString();
+
+            if (servicio.AgregarUsuario(RutCompleto, txtNombres.Text, txtApellidos.Text, txtTelefono.Text, txtDireccion.Text, chkFoto.Checked, chkHuella.Checked, NomUsuario, Password, email) == true)
             {
                 MailMessage msj = new MailMessage();
                 SmtpClient cli = new SmtpClient();
-                string email = txtCorreo.Text.ToString();
+                
                 string nombre = txtNombres.Text.ToString();
                 msj.From = new MailAddress("sis.biblio.auto@gmail.com");
                 msj.To.Add(new MailAddress(email));

@@ -27,6 +27,7 @@ namespace BibliotecaWeb
                     btnConfirmar.Enabled = false;
                 }
             }
+            //lblVacio.Text = Session["UserName"].ToString();
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)

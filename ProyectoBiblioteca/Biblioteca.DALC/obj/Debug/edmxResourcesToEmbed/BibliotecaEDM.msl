@@ -52,6 +52,7 @@
     <EntitySetMapping Name="SOLICITUD">
       <EntityTypeMapping TypeName="BibliotecaModel.SOLICITUD">
         <MappingFragment StoreEntitySet="SOLICITUD">
+          <ScalarProperty Name="ESTADOSOLICITUD" ColumnName="ESTADOSOLICITUD" />
           <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
           <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
           <ScalarProperty Name="FECHASOLICITUD" ColumnName="FECHASOLICITUD" />

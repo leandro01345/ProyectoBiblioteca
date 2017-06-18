@@ -37,9 +37,9 @@ namespace BibliotecaWeb
                 if (servicio.Logear(txtNomUsuario.Text, txtPwd.Text))
                 {
 
-                    Session.Add("UserName", txtNomUsuario.ToString());
+                    Session.Add("UserName", txtNomUsuario.Text);
                     Session.Add("TipoSesion", servicio.TipoSesion(txtNomUsuario.Text));
-                    Session.Add("IdUsuario", servicio.IdUsuarioSesion(txtNomUsuario.ToString()));
+                    Session.Add("IdUsuario", servicio.IdUsuarioSesion(txtNomUsuario.Text));
                     FormsAuthentication.RedirectFromLoginPage(txtNomUsuario.Text, false);
                     Response.Redirect("Bienvenido.aspx");
 
