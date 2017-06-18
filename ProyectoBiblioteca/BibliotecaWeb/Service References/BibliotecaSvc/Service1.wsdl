@@ -18,6 +18,18 @@
   <wsdl:message name="IService1_TipoSesion_OutputMessage">
     <wsdl:part name="parameters" element="tns:TipoSesionResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_IdUsuarioSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:IdUsuarioSesion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IdUsuarioSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IdUsuarioSesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserNameExiste_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserNameExiste" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserNameExiste_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserNameExisteResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_AgregarEjemplar_InputMessage">
     <wsdl:part name="parameters" element="tns:AgregarEjemplar" />
   </wsdl:message>
@@ -35,6 +47,18 @@
   </wsdl:message>
   <wsdl:message name="IService1_AgregarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:AgregarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarSolicitud_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarSolicitud_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarDetalleSolicitud_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarDetalleSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarDetalleSolicitud_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarDetalleSolicitudResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_Doc_EjemplarDisponible_InputMessage">
     <wsdl:part name="parameters" element="tns:Doc_EjemplarDisponible" />
@@ -93,6 +117,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoSesion" message="tns:IService1_TipoSesion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoSesionResponse" message="tns:IService1_TipoSesion_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IdUsuarioSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IdUsuarioSesion" message="tns:IService1_IdUsuarioSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IdUsuarioSesionResponse" message="tns:IService1_IdUsuarioSesion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserNameExiste">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UserNameExiste" message="tns:IService1_UserNameExiste_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UserNameExisteResponse" message="tns:IService1_UserNameExiste_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AgregarEjemplar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarEjemplar" message="tns:IService1_AgregarEjemplar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarEjemplarResponse" message="tns:IService1_AgregarEjemplar_OutputMessage" />
@@ -104,6 +136,14 @@
     <wsdl:operation name="AgregarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarUsuario" message="tns:IService1_AgregarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarUsuarioResponse" message="tns:IService1_AgregarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSolicitud">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarSolicitud" message="tns:IService1_AgregarSolicitud_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarSolicitudResponse" message="tns:IService1_AgregarSolicitud_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDetalleSolicitud">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarDetalleSolicitud" message="tns:IService1_AgregarDetalleSolicitud_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarDetalleSolicitudResponse" message="tns:IService1_AgregarDetalleSolicitud_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Doc_EjemplarDisponible">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Doc_EjemplarDisponible" message="tns:IService1_Doc_EjemplarDisponible_InputMessage" />
@@ -158,6 +198,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IdUsuarioSesion">
+      <soap:operation soapAction="http://tempuri.org/IService1/IdUsuarioSesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserNameExiste">
+      <soap:operation soapAction="http://tempuri.org/IService1/UserNameExiste" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AgregarEjemplar">
       <soap:operation soapAction="http://tempuri.org/IService1/AgregarEjemplar" style="document" />
       <wsdl:input>
@@ -178,6 +236,24 @@
     </wsdl:operation>
     <wsdl:operation name="AgregarUsuario">
       <soap:operation soapAction="http://tempuri.org/IService1/AgregarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSolicitud">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDetalleSolicitud">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarDetalleSolicitud" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

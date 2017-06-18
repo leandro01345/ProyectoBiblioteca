@@ -9,21 +9,21 @@ namespace Biblioteca.Negocio
     public class Solicitud
     {
 
-        public int Create(int IdUsuario, DateTime fechSolicitud)
+        public int Create(int IdUsuario)
         {
             try
             {
                 Biblioteca.DALC.SOLICITUD soli = new DALC.SOLICITUD();
-                soli.FECHASOLICITUD = fechSolicitud;
+                //soli.FECHASOLICITUD = fechSolicitud;
 
                 //soli.HORASOLICITUD = horaSolicitud;
-                
-                CommonBC.ModeloBiblioteca.AddToSOLICITUD(soli);
+                soli.USUARIO_IDUSUARIO = IdUsuario;
+                CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD(soli.USUARIO_IDUSUARIO);
                 //int id_sol = CommonBC.ModeloBiblioteca.;
                 
                 //CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD1(1);
                 CommonBC.ModeloBiblioteca.SaveChanges();
-                return (int)soli.IDSOLICITUD;
+                return UltimaSolicitud(IdUsuario);
             }
             catch (Exception)
             {
@@ -86,7 +86,8 @@ namespace Biblioteca.Negocio
         {
             try
             {
-                Biblioteca.DALC.SOLICITUD soli = CommonBC.ModeloBiblioteca.SOLICITUD.Last
+
+                Biblioteca.DALC.SOLICITUD soli = CommonBC.ModeloBiblioteca.SOLICITUD.OrderByDescending(s => s.IDSOLICITUD).First
                     (s => s.USUARIO_IDUSUARIO == id_usuario);
                 return (int)soli.IDSOLICITUD;
             }
@@ -94,6 +95,22 @@ namespace Biblioteca.Negocio
             {
                 return -1;
             }
+        }
+
+        public bool CrearDetalle(int idEj, int idSol)
+        {
+            try
+            {
+                CommonBC.ModeloBiblioteca.PRO_ADD_DETALLESOLICITUD(idEj, idSol);
+                CommonBC.ModeloBiblioteca.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+            
         }
     
 

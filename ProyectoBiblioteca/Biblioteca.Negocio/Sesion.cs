@@ -41,6 +41,34 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public int IdUsuarioSesion(string nomUser)
+        {
+            try
+            {
+                Biblioteca.DALC.SESION sesion = CommonBC.ModeloBiblioteca.SESION.First
+                    (c => c.USERNAMESESION.Equals(nomUser));
+                return (int)sesion.USUARIO_IDUSUARIO;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        public bool UserNameExiste(string nomUser)
+        {
+            try
+            {
+                Biblioteca.DALC.SESION sesion = CommonBC.ModeloBiblioteca.SESION.First
+                    (c => c.USERNAMESESION.Equals(nomUser));
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public string CalculateMD5Hash(string input)
 
         {

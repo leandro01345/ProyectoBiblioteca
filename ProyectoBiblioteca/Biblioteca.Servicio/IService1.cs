@@ -19,13 +19,19 @@ namespace Biblioteca.Servicio
         [OperationContract]
         string TipoSesion(string nomUser);
         [OperationContract]
+        int IdUsuarioSesion(string nomUser);
+        [OperationContract]
+        bool UserNameExiste(string nomUser);
+        [OperationContract]
         bool AgregarEjemplar(int iddocumento, string estado, string ubicacion);
         [OperationContract]
         bool AgregarDocumento(string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial);
         [OperationContract]
         bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username);
         [OperationContract]
-        bool AgregarSolicitud(int idUsuario, DateTime fecha);
+        int AgregarSolicitud(int idUsuario);
+        [OperationContract]
+        bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud);
         [OperationContract]
         int Doc_EjemplarDisponible(int iddoc);
         [OperationContract]

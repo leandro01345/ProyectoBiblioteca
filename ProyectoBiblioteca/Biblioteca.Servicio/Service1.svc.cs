@@ -27,6 +27,18 @@ namespace Biblioteca.Servicio
             return sec.TipoSesion(nomUser);
         }
 
+        public int IdUsuarioSesion(string nomUser)
+        {
+            Sesion sec = new Sesion();
+            return sec.IdUsuarioSesion(nomUser);
+        }
+
+        public bool UserNameExiste (string nomUser)
+        {
+            Sesion sec = new Sesion();
+            return sec.UserNameExiste(nomUser);
+        }
+
         public bool AgregarEjemplar(int iddocumento, string estado, string ubicacion)
         {
             Ejemplar ej = new Ejemplar();
@@ -51,9 +63,18 @@ namespace Biblioteca.Servicio
             return us.Create(rut, nombres, apellidos, direccion, telefono, foto, huella, username);
         }
 
-        public bool AgregarSolicitud(int idUsuario, DateTime fecha)
+        public int AgregarSolicitud(int idUsuario)
         {
-            return false;
+            Solicitud sol = new Solicitud();
+            
+            return sol.Create(idUsuario);
+        }
+
+        public bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud)
+        {
+            Solicitud sol = new Solicitud();
+
+            return sol.CrearDetalle(idEjemplar,idSolicitud);
         }
 
         public bool ModificarEjemplar(int idejemplar, int iddocumento, string estado, string ubicacion)

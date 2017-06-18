@@ -27,6 +27,18 @@ namespace BibliotecaWeb.BibliotecaSvc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/TipoSesion", ReplyAction="http://tempuri.org/IService1/TipoSesionResponse")]
         System.Threading.Tasks.Task<string> TipoSesionAsync(string nomUser);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IdUsuarioSesion", ReplyAction="http://tempuri.org/IService1/IdUsuarioSesionResponse")]
+        int IdUsuarioSesion(string nomUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IdUsuarioSesion", ReplyAction="http://tempuri.org/IService1/IdUsuarioSesionResponse")]
+        System.Threading.Tasks.Task<int> IdUsuarioSesionAsync(string nomUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UserNameExiste", ReplyAction="http://tempuri.org/IService1/UserNameExisteResponse")]
+        bool UserNameExiste(string nomUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UserNameExiste", ReplyAction="http://tempuri.org/IService1/UserNameExisteResponse")]
+        System.Threading.Tasks.Task<bool> UserNameExisteAsync(string nomUser);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarEjemplar", ReplyAction="http://tempuri.org/IService1/AgregarEjemplarResponse")]
         bool AgregarEjemplar(int iddocumento, string estado, string ubicacion);
         
@@ -44,6 +56,18 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarUsuario", ReplyAction="http://tempuri.org/IService1/AgregarUsuarioResponse")]
         System.Threading.Tasks.Task<bool> AgregarUsuarioAsync(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarSolicitud", ReplyAction="http://tempuri.org/IService1/AgregarSolicitudResponse")]
+        int AgregarSolicitud(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarSolicitud", ReplyAction="http://tempuri.org/IService1/AgregarSolicitudResponse")]
+        System.Threading.Tasks.Task<int> AgregarSolicitudAsync(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarDetalleSolicitud", ReplyAction="http://tempuri.org/IService1/AgregarDetalleSolicitudResponse")]
+        bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarDetalleSolicitud", ReplyAction="http://tempuri.org/IService1/AgregarDetalleSolicitudResponse")]
+        System.Threading.Tasks.Task<bool> AgregarDetalleSolicitudAsync(int idEjemplar, int idSolicitud);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Doc_EjemplarDisponible", ReplyAction="http://tempuri.org/IService1/Doc_EjemplarDisponibleResponse")]
         int Doc_EjemplarDisponible(int iddoc);
@@ -137,6 +161,22 @@ namespace BibliotecaWeb.BibliotecaSvc {
             return base.Channel.TipoSesionAsync(nomUser);
         }
         
+        public int IdUsuarioSesion(string nomUser) {
+            return base.Channel.IdUsuarioSesion(nomUser);
+        }
+        
+        public System.Threading.Tasks.Task<int> IdUsuarioSesionAsync(string nomUser) {
+            return base.Channel.IdUsuarioSesionAsync(nomUser);
+        }
+        
+        public bool UserNameExiste(string nomUser) {
+            return base.Channel.UserNameExiste(nomUser);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UserNameExisteAsync(string nomUser) {
+            return base.Channel.UserNameExisteAsync(nomUser);
+        }
+        
         public bool AgregarEjemplar(int iddocumento, string estado, string ubicacion) {
             return base.Channel.AgregarEjemplar(iddocumento, estado, ubicacion);
         }
@@ -159,6 +199,22 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         public System.Threading.Tasks.Task<bool> AgregarUsuarioAsync(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username) {
             return base.Channel.AgregarUsuarioAsync(rut, nombres, apellidos, telefono, direccion, foto, huella, username);
+        }
+        
+        public int AgregarSolicitud(int idUsuario) {
+            return base.Channel.AgregarSolicitud(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<int> AgregarSolicitudAsync(int idUsuario) {
+            return base.Channel.AgregarSolicitudAsync(idUsuario);
+        }
+        
+        public bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud) {
+            return base.Channel.AgregarDetalleSolicitud(idEjemplar, idSolicitud);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AgregarDetalleSolicitudAsync(int idEjemplar, int idSolicitud) {
+            return base.Channel.AgregarDetalleSolicitudAsync(idEjemplar, idSolicitud);
         }
         
         public int Doc_EjemplarDisponible(int iddoc) {

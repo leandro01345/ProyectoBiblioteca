@@ -32,22 +32,31 @@ namespace BibliotecaWeb
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             //Crear la solicitud
+            string error = String.Empty;
             BibliotecaSvc.Service1Client servicio = new BibliotecaSvc.Service1Client();
-            //int idsolicitud = servicio.
-            foreach (var iddoc in idList)
+            int idsolicitud = servicio.AgregarSolicitud(1);//CONFIGURAR ID USUARIO
+            if (idsolicitud != -1)
             {
-                
-                int idejemplr = servicio.Doc_EjemplarDisponible(iddoc);
-                if (idejemplr != -1)
+                foreach (var iddoc in idList)
                 {
-                    
-                    Response.AppendHeader("Refresh", "3");
+
+                    int idejemplr = servicio.Doc_EjemplarDisponible(iddoc);
+                    if (idejemplr != -1)
+                    {
+                        servicio.AgregarDetalleSolicitud(idejemplr, idsolicitud);
+                    }
+                    else
+                    {
+                        error = "Uno o más documentos de su solicitud ya no se encuentran disponibles.";
+                    }
                 }
-                else
-                {
-                    
-                }
+                Session["idListCarro"] = null;
             }
+            else
+            {
+                error = "Error al ingresar solicitud.";
+            }
+            
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)

@@ -29,6 +29,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IdUsuarioSesion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdUsuarioSesionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdUsuarioSesionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserNameExiste">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserNameExisteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserNameExisteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AgregarEjemplar">
     <xs:complexType>
       <xs:sequence>
@@ -83,6 +111,35 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="AgregarUsuarioResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarSolicitud">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarSolicitudResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgregarSolicitudResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarDetalleSolicitud">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEjemplar" type="xs:int" />
+        <xs:element minOccurs="0" name="idSolicitud" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarDetalleSolicitudResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgregarDetalleSolicitudResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

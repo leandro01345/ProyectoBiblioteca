@@ -205,6 +205,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
   <Function Name="FN_EJEMPLAR_DISPONIBLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="number">
     <Parameter Name="IDDOC" Type="number" Mode="In" />
   </Function>
+  <Function Name="FN_ULTIMA_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="number" />
   <Function Name="MD5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="varchar2">
     <Parameter Name="INPUT" Type="varchar2" Mode="In" />
   </Function>
