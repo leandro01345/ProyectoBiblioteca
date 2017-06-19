@@ -187,6 +187,7 @@
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="SESION" EntitySet="SESION" />
     </AssociationSet>
+    <EntitySet Name="V_SOLICITUDES_PENDIENTES" EntityType="BibliotecaModel.V_SOLICITUDES_PENDIENTES" />
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -252,6 +253,7 @@
     <Property Name="IDSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBREUSUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="SESION_USUARIO_FK">
     <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
@@ -265,4 +267,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="V_SOLICITUDES_PENDIENTES">
+    <Key>
+      <PropertyRef Name="IDSOLICITUD" />
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="IDUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="NOMBREUSUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

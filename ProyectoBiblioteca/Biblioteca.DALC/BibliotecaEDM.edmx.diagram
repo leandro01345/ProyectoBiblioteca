@@ -22,6 +22,7 @@
         <EntityTypeShape EntityType="BibliotecaModel.V_DOC_EJEMPLAR_DISPONIBLE" Width="1.5" PointX="12.125" PointY="8.625" />
         <EntityTypeShape EntityType="BibliotecaModel.V_SOLICITUDES" Width="1.5" PointX="12.125" PointY="6.5" />
         <AssociationConnector Association="BibliotecaModel.SESION_USUARIO_FK" />
+        <EntityTypeShape EntityType="BibliotecaModel.V_SOLICITUDES_PENDIENTES" Width="1.5" PointX="0.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

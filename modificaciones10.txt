@@ -84,4 +84,12 @@ BEGIN
    VALUES(id_usuario, SEQ_SOLICITUD.NEXTVAL, sysdate, 'pendiente');
 END PRO_ADD_SOLICITUD;
 
+create or replace view v_solicitudes_pendientes as
+select sol.IDSOLICITUD, us.IDUSUARIO, us.nombresusuario || ' ' || us.apellidosusuario as NOMBREUSUARIO, TO_CHAR(sol.FECHASOLICITUD, 'mm/dd/yyyy') AS FECHA,
+    TO_CHAR(sol.FECHASOLICITUD, 'hh24:mi:ss') AS HORA from SOLICITUD sol JOIN USUARIO us on sol.USUARIO_IDUSUARIO = us.IDUSUARIO where ESTADOSOLICITUD = 'pendiente';
+
+create or replace view v_solicitudes as
+select sol.IDSOLICITUD, us.IDUSUARIO, us.nombresusuario || ' ' || us.apellidosusuario as NOMBREUSUARIO, TO_CHAR(sol.FECHASOLICITUD, 'mm/dd/yyyy') AS FECHA,
+    TO_CHAR(sol.FECHASOLICITUD, 'hh24:mi:ss') AS HORA from SOLICITUD sol JOIN USUARIO us on sol.USUARIO_IDUSUARIO = us.IDUSUARIO;
+
 commit;

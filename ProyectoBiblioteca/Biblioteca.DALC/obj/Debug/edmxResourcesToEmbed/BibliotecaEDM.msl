@@ -141,10 +141,22 @@
     <EntitySetMapping Name="V_SOLICITUDES">
       <EntityTypeMapping TypeName="BibliotecaModel.V_SOLICITUDES">
         <MappingFragment StoreEntitySet="V_SOLICITUDES">
+          <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
           <ScalarProperty Name="HORA" ColumnName="HORA" />
           <ScalarProperty Name="FECHA" ColumnName="FECHA" />
           <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
           <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_SOLICITUDES_PENDIENTES">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_SOLICITUDES_PENDIENTES">
+        <MappingFragment StoreEntitySet="V_SOLICITUDES_PENDIENTES">
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

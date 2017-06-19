@@ -37,15 +37,15 @@
             <td __designer:mapid="36" class="auto-style3"></td>
             <td __designer:mapid="37" class="auto-style4">
                 <br />
-                <asp:GridView ID="grdEjemplares" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdEjemplares_SelectedIndexChanged" DataSourceID="SqlDataSource1">
+                <asp:GridView ID="grdEjemplares" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdEjemplares_SelectedIndexChanged" DataSourceID="SqlDataSource1" CssClass="table">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="IDEJEMPLAR" HeaderText="ID" HtmlEncode="False" SortExpression="IDEJEMPLAR" />
+                        <asp:BoundField DataField="IDEJEMPLAR" HeaderText="Id" HtmlEncode="False" SortExpression="IDEJEMPLAR" />
                         <asp:BoundField DataField="TITULODOCUMENTO" HeaderText="Título" HtmlEncode="False" SortExpression="TITULODOCUMENTO" />
                         <asp:BoundField DataField="ESTADOEJEMPLAR" HeaderText="Estado" HtmlEncode="False" SortExpression="ESTADOEJEMPLAR" />
                         <asp:BoundField DataField="UBICACIONEJEMPLAR" HeaderText="Ubicación" HtmlEncode="False" SortExpression="UBICACIONEJEMPLAR" />
-                        <asp:BoundField DataField="IDDOCUMENTO" HeaderText="ID Documento" HtmlEncode="False" SortExpression="IDDOCUMENTO" />
+                        <asp:BoundField DataField="IDDOCUMENTO" HeaderText="Id Documento" HtmlEncode="False" SortExpression="IDDOCUMENTO" />
                     </Columns>
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

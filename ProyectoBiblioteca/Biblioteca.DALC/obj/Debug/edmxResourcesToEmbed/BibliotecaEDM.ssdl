@@ -139,11 +139,25 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_EJEMPLARES' no tiene definida n
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_SOLICITUDES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="V_SOLICITUDES">
     <Key>
-      <PropertyRef Name="IDUSUARIO" />
       <PropertyRef Name="IDSOLICITUD" />
+      <PropertyRef Name="IDUSUARIO" />
     </Key>
-    <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBREUSUARIO" Type="varchar2" MaxLength="201" />
+    <Property Name="FECHA" Type="varchar2" MaxLength="10" />
+    <Property Name="HORA" Type="varchar2" MaxLength="8" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_SOLICITUDES_PENDIENTES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="V_SOLICITUDES_PENDIENTES">
+    <Key>
+      <PropertyRef Name="IDSOLICITUD" />
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBREUSUARIO" Type="varchar2" MaxLength="201" />
     <Property Name="FECHA" Type="varchar2" MaxLength="10" />
     <Property Name="HORA" Type="varchar2" MaxLength="8" />
   </EntityType>
@@ -316,11 +330,21 @@ FROM "BIBLIOTECA"."V_EJEMPLARES" "V_EJEMPLARES"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_SOLICITUDES" EntityType="Self.V_SOLICITUDES" store:Type="Views" store:Schema="BIBLIOTECA">
       <DefiningQuery>SELECT 
-"V_SOLICITUDES"."IDUSUARIO" AS "IDUSUARIO", 
 "V_SOLICITUDES"."IDSOLICITUD" AS "IDSOLICITUD", 
+"V_SOLICITUDES"."IDUSUARIO" AS "IDUSUARIO", 
+"V_SOLICITUDES"."NOMBREUSUARIO" AS "NOMBREUSUARIO", 
 "V_SOLICITUDES"."FECHA" AS "FECHA", 
 "V_SOLICITUDES"."HORA" AS "HORA"
 FROM "BIBLIOTECA"."V_SOLICITUDES" "V_SOLICITUDES"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_SOLICITUDES_PENDIENTES" EntityType="Self.V_SOLICITUDES_PENDIENTES" store:Type="Views" store:Schema="BIBLIOTECA">
+      <DefiningQuery>SELECT 
+"V_SOLICITUDES_PENDIENTES"."IDSOLICITUD" AS "IDSOLICITUD", 
+"V_SOLICITUDES_PENDIENTES"."IDUSUARIO" AS "IDUSUARIO", 
+"V_SOLICITUDES_PENDIENTES"."NOMBREUSUARIO" AS "NOMBREUSUARIO", 
+"V_SOLICITUDES_PENDIENTES"."FECHA" AS "FECHA", 
+"V_SOLICITUDES_PENDIENTES"."HORA" AS "HORA"
+FROM "BIBLIOTECA"."V_SOLICITUDES_PENDIENTES" "V_SOLICITUDES_PENDIENTES"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_TIPOSDOC" EntityType="Self.V_TIPOSDOC" store:Type="Views" store:Schema="BIBLIOTECA">
       <DefiningQuery>SELECT 

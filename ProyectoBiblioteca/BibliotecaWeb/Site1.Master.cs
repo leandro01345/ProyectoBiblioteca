@@ -29,6 +29,8 @@ namespace BibliotecaWeb
                 urlNuevoEjemplar2.Visible = false;
                 urlNuevoUsuario1.Visible = false;
                 urlNuevoUsuario2.Visible = false;
+                urlSolicitudes1.Visible = false;
+                urlSolicitudes2.Visible = false;
             }
             if (Session["TipoSesion"].ToString().Equals("admin"))
             {
@@ -47,6 +49,8 @@ namespace BibliotecaWeb
                 urlEjemplares2.Visible = true;
                 urlNuevoEjemplar1.Visible = true;
                 urlNuevoEjemplar2.Visible = true;
+                urlSolicitudes1.Visible = true;
+                urlSolicitudes2.Visible = true;
             }
         }
     }
