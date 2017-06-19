@@ -103,5 +103,19 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public string InfoDocumento (int Id)
+        {
+            try
+            {
+                Biblioteca.DALC.DOCUMENTO doc = CommonBC.ModeloBiblioteca.DOCUMENTO.First
+                    (d => d.IDDOCUMENTO == Id);
+                return doc.TITULODOCUMENTO+", "+doc.AUTORDOCUMENTO;
+            }
+            catch (Exception)
+            {
+                return String.Empty;
+            }
+        }
+
     }
 }

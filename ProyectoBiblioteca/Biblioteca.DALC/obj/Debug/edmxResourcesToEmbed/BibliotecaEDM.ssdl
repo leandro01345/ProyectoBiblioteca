@@ -111,6 +111,17 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATEGORIASDOC' no tiene definid
     <Property Name="CATEGORIADOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_DETALLE_EJEMPLAR_TITULO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="V_DETALLE_EJEMPLAR_TITULO">
+    <Key>
+      <PropertyRef Name="SOLICITUD_IDSOLICITUD" />
+      <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+    </Key>
+    <Property Name="SOLICITUD_IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EJEMPLAR_IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TITULO" Type="varchar2" MaxLength="255" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_DOC_EJEMPLAR_DISPONIBLE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="V_DOC_EJEMPLAR_DISPONIBLE">
     <Key>
@@ -312,6 +323,13 @@ FROM "BIBLIOTECA"."V_CATALOGO" "V_CATALOGO"</DefiningQuery>
       <DefiningQuery>SELECT 
 "V_CATEGORIASDOC"."CATEGORIADOCUMENTO" AS "CATEGORIADOCUMENTO"
 FROM "BIBLIOTECA"."V_CATEGORIASDOC" "V_CATEGORIASDOC"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_DETALLE_EJEMPLAR_TITULO" EntityType="Self.V_DETALLE_EJEMPLAR_TITULO" store:Type="Views" store:Schema="BIBLIOTECA">
+      <DefiningQuery>SELECT 
+"V_DETALLE_EJEMPLAR_TITULO"."SOLICITUD_IDSOLICITUD" AS "SOLICITUD_IDSOLICITUD", 
+"V_DETALLE_EJEMPLAR_TITULO"."EJEMPLAR_IDEJEMPLAR" AS "EJEMPLAR_IDEJEMPLAR", 
+"V_DETALLE_EJEMPLAR_TITULO"."TITULO" AS "TITULO"
+FROM "BIBLIOTECA"."V_DETALLE_EJEMPLAR_TITULO" "V_DETALLE_EJEMPLAR_TITULO"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_DOC_EJEMPLAR_DISPONIBLE" EntityType="Self.V_DOC_EJEMPLAR_DISPONIBLE" store:Type="Views" store:Schema="BIBLIOTECA">
       <DefiningQuery>SELECT 

@@ -44,6 +44,7 @@
                     <asp:GridView ID="grdSolicitudes" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdDocumentos_SelectedIndexChanged" CssClass="table">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDSOLICITUD" HeaderText="Id Solicitud" SortExpression="IDSOLICITUD" />
                             <asp:BoundField DataField="IDUSUARIO" HeaderText="Id Usuario" SortExpression="IDUSUARIO" />
                             <asp:BoundField DataField="NOMBREUSUARIO" HeaderText="Nombre de usuario" SortExpression="NOMBREUSUARIO" />
@@ -82,63 +83,46 @@
                 </td>
                 <td __designer:mapid="3c" class="auto-style8">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtID" ErrorMessage="(*) Debe seleccionar un documento"></asp:RequiredFieldValidator>
+                    <asp:Label ID="lblIdSoli" runat="server" Visible="False">0</asp:Label>
                     </td>
             </tr>
             <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style6"></td>
-                <td __designer:mapid="3c" class="auto-style7">
+                <td __designer:mapid="3b" class="auto-style6">
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_DETALLE_EJEMPLAR_TITULO&quot;" FilterExpression="SOLICITUD_IDSOLICITUD={0}">
+                       <FilterParameters>
+                        <asp:ControlParameter Name="SOLICITUD_IDSOLICITUD" ControlID="lblIdSoli" PropertyName="Text" DbType="Int32"/>
+                    </FilterParameters>
+                    </asp:SqlDataSource>
                 </td>
-                <td __designer:mapid="3c" class="auto-style8">
+                <td __designer:mapid="3c" class="auto-style8" colspan="2">
+                    <asp:GridView ID="grdSolicitudes0" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdDocumentos_SelectedIndexChanged" CssClass="table">
+                        <AlternatingRowStyle BackColor="White" />
+                        <Columns>
+                            <asp:BoundField DataField="SOLICITUD_IDSOLICITUD" HeaderText="SOLICITUD_IDSOLICITUD" SortExpression="SOLICITUD_IDSOLICITUD" />
+                            <asp:BoundField DataField="EJEMPLAR_IDEJEMPLAR" HeaderText="EJEMPLAR_IDEJEMPLAR" SortExpression="EJEMPLAR_IDEJEMPLAR" />
+                            <asp:BoundField DataField="TITULO" HeaderText="TITULO" SortExpression="TITULO" />
+                        </Columns>
+                        <EditRowStyle BackColor="#2461BF" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                    </asp:GridView>
                 </td>
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
+                    <asp:Button ID="btnGenerarPrestamo" runat="server" Text="Generar préstamo" />
+                </td>
                 <td __designer:mapid="3c">
-                    &nbsp;</td>
-            </tr>
-            <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
-                <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
-                <td __designer:mapid="3c">
-                    &nbsp;</td>
-            </tr>
-            <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
-                <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
-                <td __designer:mapid="3c">
-                    &nbsp;</td>
-            </tr>
-            <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
-                <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
-                <td __designer:mapid="3c">
-                    &nbsp;</td>
-            </tr>
-            <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
-                <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
-                <td __designer:mapid="3c">
-                    &nbsp;</td>
-            </tr>
-            <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
-                <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
-                <td __designer:mapid="3c">
-                    &nbsp;</td>
-            </tr>
-            <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
-                <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
-                <td __designer:mapid="3c">
-                    &nbsp;</td>
+                    <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Cancelar solicitud" />
+                </td>
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>

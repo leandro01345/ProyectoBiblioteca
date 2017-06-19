@@ -51,6 +51,12 @@ namespace BibliotecaWeb.BibliotecaSvc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarDocumento", ReplyAction="http://tempuri.org/IService1/AgregarDocumentoResponse")]
         System.Threading.Tasks.Task<bool> AgregarDocumentoAsync(string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InfoDocumento", ReplyAction="http://tempuri.org/IService1/InfoDocumentoResponse")]
+        string InfoDocumento(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InfoDocumento", ReplyAction="http://tempuri.org/IService1/InfoDocumentoResponse")]
+        System.Threading.Tasks.Task<string> InfoDocumentoAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarUsuario", ReplyAction="http://tempuri.org/IService1/AgregarUsuarioResponse")]
         bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password, string email);
         
@@ -191,6 +197,14 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         public System.Threading.Tasks.Task<bool> AgregarDocumentoAsync(string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial) {
             return base.Channel.AgregarDocumentoAsync(titulo, autor, anio, tipo, categoria, edicion, editorial);
+        }
+        
+        public string InfoDocumento(int id) {
+            return base.Channel.InfoDocumento(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> InfoDocumentoAsync(int id) {
+            return base.Channel.InfoDocumentoAsync(id);
         }
         
         public bool AgregarUsuario(string rut, string nombres, string apellidos, string telefono, string direccion, bool foto, bool huella, string username, string password, string email) {

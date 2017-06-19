@@ -188,6 +188,7 @@
       <End Role="SESION" EntitySet="SESION" />
     </AssociationSet>
     <EntitySet Name="V_SOLICITUDES_PENDIENTES" EntityType="BibliotecaModel.V_SOLICITUDES_PENDIENTES" />
+    <EntitySet Name="V_DETALLE_EJEMPLAR_TITULO" EntityType="BibliotecaModel.V_DETALLE_EJEMPLAR_TITULO" />
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -277,5 +278,14 @@
     <Property Name="NOMBREUSUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
     <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="V_DETALLE_EJEMPLAR_TITULO">
+    <Key>
+      <PropertyRef Name="SOLICITUD_IDSOLICITUD" />
+      <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+    </Key>
+    <Property Name="SOLICITUD_IDSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TITULO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

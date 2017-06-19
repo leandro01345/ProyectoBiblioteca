@@ -160,5 +160,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="V_DETALLE_EJEMPLAR_TITULO">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_DETALLE_EJEMPLAR_TITULO">
+        <MappingFragment StoreEntitySet="V_DETALLE_EJEMPLAR_TITULO">
+          <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+          <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+          <ScalarProperty Name="SOLICITUD_IDSOLICITUD" ColumnName="SOLICITUD_IDSOLICITUD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -22,7 +22,8 @@ namespace BibliotecaWeb
             // Get the currently selected row using the SelectedRow property.
             GridViewRow row = grdSolicitudes.SelectedRow;
             // And you respective cell's value
-            txtID.Text = row.Cells[1].Text;
+            lblIdSoli.Text = row.Cells[1].Text;
+            txtID.Text = lblIdSoli.Text;
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)

@@ -13,6 +13,15 @@ namespace BibliotecaWeb {
     public partial class Carro {
         
         /// <summary>
+        /// Control lblListaCarro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblListaCarro;
+        
+        /// <summary>
         /// Control lblVacio.
         /// </summary>
         /// <remarks>
@@ -20,15 +29,6 @@ namespace BibliotecaWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblVacio;
-        
-        /// <summary>
-        /// Control lblIDCarro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIDCarro;
         
         /// <summary>
         /// Control btnConfirmar.

@@ -54,8 +54,8 @@
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
-                        			<h3>Login to our site</h3>
-                            		<p>Enter your username and password to log on:</p>
+                        			<h3>Login</h3>
+                            		<p>Ingresa tu usuario y contraseña:</p>
                         		</div>
                         		<div class="form-top-right">
                         			<i class="fa fa-lock"></i>
@@ -73,7 +73,7 @@
                                         <asp:TextBox ID="txtPwd" cssclass="form-username form-control" runat="server" TextMode="Password"></asp:TextBox>
                                         <%--<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">--%>
 			                        </div>
-                                    <asp:Button ID="BtnLogear" CssClass="btn" runat="server" Text="Sing In!" OnClick="BtnLogear_Click" Width="508px" />
+                                    <asp:Button ID="BtnLogear" CssClass="btn" runat="server" Text="Iniciar Sesión" OnClick="BtnLogear_Click" Width="508px" />
                                     <%--<button type="submit" class="btn">Sign in!</button>--%>
                                     <br />
                                     <asp:Label ID="lblMsj" runat="server" ForeColor="Red"></asp:Label>
@@ -83,8 +83,8 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
-                        	<h3>...or login with:</h3>
-                        	<div class="social-login-buttons">
+                        	<!--<h3>...or login with:</h3-->
+                        	<!--<div class="social-login-buttons">
 	                        	<a class="btn btn-link-2" href="#">
 	                        		<i class="fa fa-facebook"></i> Facebook
 	                        	</a>
@@ -94,7 +94,7 @@
 	                        	<a class="btn btn-link-2" href="#">
 	                        		<i class="fa fa-google-plus"></i> Google Plus
 	                        	</a>
-                        	</div>
+                        	</div>-->
                         </div>
                     </div>
                 </div>

@@ -25,6 +25,14 @@ namespace BibliotecaWeb
                 {
                     lblVacio.Text = "No se han solicitado documentos.";
                     btnConfirmar.Enabled = false;
+                } else
+                {
+                    lblListaCarro.Text = String.Empty;
+                    foreach (var id in idList)
+                    {
+                        BibliotecaSvc.Service1Client servicioListar = new BibliotecaSvc.Service1Client();
+                        lblListaCarro.Text = lblListaCarro.Text + servicioListar.InfoDocumento(id) + "<br/>";
+                    }
                 }
             }
             //lblVacio.Text = Session["UserName"].ToString();
@@ -53,6 +61,7 @@ namespace BibliotecaWeb
                     }
                 }
                 Session["idListCarro"] = null;
+                Response.AppendHeader("Refresh", "1");
             }
             else
             {
@@ -63,7 +72,8 @@ namespace BibliotecaWeb
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            Session["idListCarro"] = null;
+            Response.AppendHeader("Refresh", "1");
         }
     }
 }

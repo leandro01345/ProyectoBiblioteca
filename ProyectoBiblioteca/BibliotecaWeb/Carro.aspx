@@ -25,12 +25,12 @@
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style6">
-                    <asp:Label ID="lblVacio" runat="server"></asp:Label>
-                    <asp:Label ID="lblIDCarro" runat="server"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style7">
                 
-                    &nbsp;</td>
+                    <asp:Label ID="lblListaCarro" runat="server"></asp:Label>
+                    <asp:Label ID="lblVacio" runat="server"></asp:Label>
+                    </td>
                 <td __designer:mapid="3c" class="auto-style8">
                     &nbsp;</td>
             </tr>
@@ -67,10 +67,10 @@
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">
                     <asp:Label ID="lblPrueba" runat="server"></asp:Label>
-                    <asp:Label ID="lblError" runat="server"></asp:Label>
                 </td>
                 <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
+                    <asp:Label ID="lblError" runat="server"></asp:Label>
+                </td>
                 <td __designer:mapid="3c">
                     &nbsp;</td>
             </tr>

@@ -51,6 +51,12 @@ namespace Biblioteca.Servicio
             return doc.Create(titulo, autor, anio, tipo, categoria, edicion, editorial);
         }
 
+        public string InfoDocumento(int id)
+        {
+            Documento doc = new Documento();
+            return doc.InfoDocumento(id);
+        }
+
         public int Doc_EjemplarDisponible(int iddoc)
         {
             Documento doc = new Documento();

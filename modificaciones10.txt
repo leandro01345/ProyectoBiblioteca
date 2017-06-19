@@ -92,4 +92,11 @@ create or replace view v_solicitudes as
 select sol.IDSOLICITUD, us.IDUSUARIO, us.nombresusuario || ' ' || us.apellidosusuario as NOMBREUSUARIO, TO_CHAR(sol.FECHASOLICITUD, 'mm/dd/yyyy') AS FECHA,
     TO_CHAR(sol.FECHASOLICITUD, 'hh24:mi:ss') AS HORA from SOLICITUD sol JOIN USUARIO us on sol.USUARIO_IDUSUARIO = us.IDUSUARIO;
 
+create or replace view v_detalle_ejemplar_titulo as
+ select det.solicitud_idsolicitud, det.ejemplar_idejemplar, 
+ (select doc.titulodocumento from documento doc join ejemplar ej on doc.iddocumento = ej.documento_iddocumento where 
+ej.idejemplar = det.ejemplar_idejemplar)
+ as titulo
+ from detallesolicitud det join ejemplar ej on det.ejemplar_idejemplar = ej.idejemplar;
+
 commit;

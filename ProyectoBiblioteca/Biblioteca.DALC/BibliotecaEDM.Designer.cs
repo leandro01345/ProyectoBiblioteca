@@ -282,6 +282,22 @@ namespace Biblioteca.DALC
             }
         }
         private ObjectSet<V_SOLICITUDES_PENDIENTES> _V_SOLICITUDES_PENDIENTES;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<V_DETALLE_EJEMPLAR_TITULO> V_DETALLE_EJEMPLAR_TITULO
+        {
+            get
+            {
+                if ((_V_DETALLE_EJEMPLAR_TITULO == null))
+                {
+                    _V_DETALLE_EJEMPLAR_TITULO = base.CreateObjectSet<V_DETALLE_EJEMPLAR_TITULO>("V_DETALLE_EJEMPLAR_TITULO");
+                }
+                return _V_DETALLE_EJEMPLAR_TITULO;
+            }
+        }
+        private ObjectSet<V_DETALLE_EJEMPLAR_TITULO> _V_DETALLE_EJEMPLAR_TITULO;
 
         #endregion
 
@@ -389,6 +405,14 @@ namespace Biblioteca.DALC
         public void AddToV_SOLICITUDES_PENDIENTES(V_SOLICITUDES_PENDIENTES v_SOLICITUDES_PENDIENTES)
         {
             base.AddObject("V_SOLICITUDES_PENDIENTES", v_SOLICITUDES_PENDIENTES);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet V_DETALLE_EJEMPLAR_TITULO. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToV_DETALLE_EJEMPLAR_TITULO(V_DETALLE_EJEMPLAR_TITULO v_DETALLE_EJEMPLAR_TITULO)
+        {
+            base.AddObject("V_DETALLE_EJEMPLAR_TITULO", v_DETALLE_EJEMPLAR_TITULO);
         }
 
         #endregion
@@ -2537,6 +2561,115 @@ namespace Biblioteca.DALC
         private global::System.String _CATEGORIADOCUMENTO;
         partial void OnCATEGORIADOCUMENTOChanging(global::System.String value);
         partial void OnCATEGORIADOCUMENTOChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="V_DETALLE_EJEMPLAR_TITULO")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class V_DETALLE_EJEMPLAR_TITULO : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto V_DETALLE_EJEMPLAR_TITULO.
+        /// </summary>
+        /// <param name="sOLICITUD_IDSOLICITUD">Valor inicial de la propiedad SOLICITUD_IDSOLICITUD.</param>
+        /// <param name="eJEMPLAR_IDEJEMPLAR">Valor inicial de la propiedad EJEMPLAR_IDEJEMPLAR.</param>
+        public static V_DETALLE_EJEMPLAR_TITULO CreateV_DETALLE_EJEMPLAR_TITULO(global::System.Decimal sOLICITUD_IDSOLICITUD, global::System.Decimal eJEMPLAR_IDEJEMPLAR)
+        {
+            V_DETALLE_EJEMPLAR_TITULO v_DETALLE_EJEMPLAR_TITULO = new V_DETALLE_EJEMPLAR_TITULO();
+            v_DETALLE_EJEMPLAR_TITULO.SOLICITUD_IDSOLICITUD = sOLICITUD_IDSOLICITUD;
+            v_DETALLE_EJEMPLAR_TITULO.EJEMPLAR_IDEJEMPLAR = eJEMPLAR_IDEJEMPLAR;
+            return v_DETALLE_EJEMPLAR_TITULO;
+        }
+
+        #endregion
+
+        #region Propiedades simples
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal SOLICITUD_IDSOLICITUD
+        {
+            get
+            {
+                return _SOLICITUD_IDSOLICITUD;
+            }
+            set
+            {
+                if (_SOLICITUD_IDSOLICITUD != value)
+                {
+                    OnSOLICITUD_IDSOLICITUDChanging(value);
+                    ReportPropertyChanging("SOLICITUD_IDSOLICITUD");
+                    _SOLICITUD_IDSOLICITUD = StructuralObject.SetValidValue(value, "SOLICITUD_IDSOLICITUD");
+                    ReportPropertyChanged("SOLICITUD_IDSOLICITUD");
+                    OnSOLICITUD_IDSOLICITUDChanged();
+                }
+            }
+        }
+        private global::System.Decimal _SOLICITUD_IDSOLICITUD;
+        partial void OnSOLICITUD_IDSOLICITUDChanging(global::System.Decimal value);
+        partial void OnSOLICITUD_IDSOLICITUDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal EJEMPLAR_IDEJEMPLAR
+        {
+            get
+            {
+                return _EJEMPLAR_IDEJEMPLAR;
+            }
+            set
+            {
+                if (_EJEMPLAR_IDEJEMPLAR != value)
+                {
+                    OnEJEMPLAR_IDEJEMPLARChanging(value);
+                    ReportPropertyChanging("EJEMPLAR_IDEJEMPLAR");
+                    _EJEMPLAR_IDEJEMPLAR = StructuralObject.SetValidValue(value, "EJEMPLAR_IDEJEMPLAR");
+                    ReportPropertyChanged("EJEMPLAR_IDEJEMPLAR");
+                    OnEJEMPLAR_IDEJEMPLARChanged();
+                }
+            }
+        }
+        private global::System.Decimal _EJEMPLAR_IDEJEMPLAR;
+        partial void OnEJEMPLAR_IDEJEMPLARChanging(global::System.Decimal value);
+        partial void OnEJEMPLAR_IDEJEMPLARChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TITULO
+        {
+            get
+            {
+                return _TITULO;
+            }
+            set
+            {
+                OnTITULOChanging(value);
+                ReportPropertyChanging("TITULO");
+                _TITULO = StructuralObject.SetValidValue(value, true, "TITULO");
+                ReportPropertyChanged("TITULO");
+                OnTITULOChanged();
+            }
+        }
+        private global::System.String _TITULO;
+        partial void OnTITULOChanging(global::System.String value);
+        partial void OnTITULOChanged();
 
         #endregion
 
