@@ -160,4 +160,19 @@ BEGIN
    update ejemplar set disponibilidad = 'reservado' where idejemplar = id_ejemplar;
 END;
 
+create or replace view v_prestamos_vencidos as
+select * from prestamo where sysdate > fechadevolucionprestamo and fechadevolucionrealprestamo is null;
+
+create or replace view v_prestamos_vencidos_sala as
+select * from prestamo where sysdate > fechadevolucionprestamo and tipoprestamo = 'sala' and fechadevolucionrealprestamo is null;
+
+create or replace
+PROCEDURE PRO_DEVOLVER_EJEMPLAR (
+ id_ejemplar ejemplar.idejemplar%TYPE
+ ) IS
+BEGIN
+    update prestamo set fechadevolucionrealprestamo = sysdate where ejemplar_idejemplar = id_ejemplar and fechadevolucionrealprestamo is null;
+    update ejemplar set disponibilidad = 'disponible' where idejemplar = id_ejemplar;
+END PRO_DEVOLVER_EJEMPLAR;
+
 commit;

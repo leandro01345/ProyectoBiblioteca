@@ -39,7 +39,7 @@ namespace BibliotecaWeb
             int idUsuario = int.Parse(lblIdUsuario.Text);
             string tipoPrestamo = "domicilio";
             DateTime fechaDevolucion = DateTime.Now;
-            fechaDevolucion.AddDays(14);
+            fechaDevolucion = fechaDevolucion.AddDays(14);
 
             for (int i = 0; i < grdDetalles.Rows.Count; i++)
             {

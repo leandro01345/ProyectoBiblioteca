@@ -10,7 +10,7 @@
 namespace BibliotecaWeb {
     
     
-    public partial class Solicitudes {
+    public partial class Prestamos {
         
         /// <summary>
         /// Control grdSolicitudes.
@@ -67,49 +67,13 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.Label lblIdUsuario;
         
         /// <summary>
-        /// Control SqlDataSource2.
+        /// Control btnDevolverEjemplar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
-        /// <summary>
-        /// Control grdDetalles.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdDetalles;
-        
-        /// <summary>
-        /// Control btnGenerarPrestamo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerarPrestamo;
-        
-        /// <summary>
-        /// Control btnCancelarSolicitud.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelarSolicitud;
-        
-        /// <summary>
-        /// Control urlPrestamos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink urlPrestamos;
+        protected global::System.Web.UI.WebControls.Button btnDevolverEjemplar;
         
         /// <summary>
         /// Control lblMensaje.

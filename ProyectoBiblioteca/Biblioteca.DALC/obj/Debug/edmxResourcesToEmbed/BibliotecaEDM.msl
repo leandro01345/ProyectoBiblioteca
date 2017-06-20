@@ -173,5 +173,31 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="PRO_ADD_PRESTAMO" FunctionName="BibliotecaModel.Store.PRO_ADD_PRESTAMO" />
     <FunctionImportMapping FunctionImportName="PRO_DEVOLVER_EJEMPLAR" FunctionName="BibliotecaModel.Store.PRO_DEVOLVER_EJEMPLAR" />
+    <EntitySetMapping Name="V_PRESTAMOS_VENCIDOS">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_PRESTAMOS_VENCIDOS">
+        <MappingFragment StoreEntitySet="V_PRESTAMOS_VENCIDOS">
+          <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+          <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
+          <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
+          <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
+          <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
+          <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+          <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_PRESTAMOS_VENCIDOS_SALA">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_PRESTAMOS_VENCIDOS_SALA">
+        <MappingFragment StoreEntitySet="V_PRESTAMOS_VENCIDOS_SALA">
+          <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+          <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
+          <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
+          <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
+          <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
+          <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+          <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

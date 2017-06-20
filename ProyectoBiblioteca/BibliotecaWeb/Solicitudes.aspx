@@ -123,6 +123,7 @@
                 </td>
                 <td __designer:mapid="3c">
                     <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Cancelar solicitud" />
+                    <asp:HyperLink runat="server" NavigateUrl="Prestamos.aspx" ID="urlPrestamos" class="mdl-navigation__link">Administrar Préstamos</asp:HyperLink>
                 </td>
             </tr>
             <tr __designer:mapid="3a">
@@ -133,6 +134,7 @@
                 <td __designer:mapid="3c">
                     &nbsp;</td>
             </tr>
+            
         </table>
     </div>
 </asp:Content>

@@ -42,18 +42,20 @@
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
             <div class="dropdown">
-  <!--<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>-->
+  
 </div>
+
+          <!--<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownEjemplares" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Ejemplares
+    <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+          </ul>-->
       <asp:HyperLink runat="server" NavigateUrl="Ejemplares.aspx" ID="urlEjemplares1" class="mdl-navigation__link">Administrar Ejemplares</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="NuevoEjemplar.aspx" ID="urlNuevoEjemplar1" class="mdl-navigation__link">Nuevo Ejemplar</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="Documentos.aspx" ID="urlDocumentos1" class="mdl-navigation__link">Administrar Documentos</asp:HyperLink>
