@@ -272,6 +272,7 @@
     <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
     <Property Name="NOMBREUSUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADOSOLICITUD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="SESION_USUARIO_FK">
     <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />

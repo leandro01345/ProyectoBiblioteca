@@ -164,6 +164,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_SOLICITUDES' no tiene definida 
           <Property Name="NOMBREUSUARIO" Type="varchar2" MaxLength="201" />
           <Property Name="FECHA" Type="varchar2" MaxLength="10" />
           <Property Name="HORA" Type="varchar2" MaxLength="8" />
+          <Property Name="ESTADOSOLICITUD" Type="varchar2" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_SOLICITUDES_PENDIENTES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -380,7 +381,8 @@ FROM "BIBLIOTECA"."V_EJEMPLARES" "V_EJEMPLARES"</DefiningQuery>
 "V_SOLICITUDES"."IDUSUARIO" AS "IDUSUARIO", 
 "V_SOLICITUDES"."NOMBREUSUARIO" AS "NOMBREUSUARIO", 
 "V_SOLICITUDES"."FECHA" AS "FECHA", 
-"V_SOLICITUDES"."HORA" AS "HORA"
+"V_SOLICITUDES"."HORA" AS "HORA", 
+"V_SOLICITUDES"."ESTADOSOLICITUD" AS "ESTADOSOLICITUD"
 FROM "BIBLIOTECA"."V_SOLICITUDES" "V_SOLICITUDES"</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_SOLICITUDES_PENDIENTES" EntityType="Self.V_SOLICITUDES_PENDIENTES" store:Type="Views" store:Schema="BIBLIOTECA">
@@ -702,6 +704,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="NOMBREUSUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADOSOLICITUD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="SESION_USUARIO_FK">
           <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
@@ -894,6 +897,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <EntitySetMapping Name="V_SOLICITUDES">
             <EntityTypeMapping TypeName="BibliotecaModel.V_SOLICITUDES">
               <MappingFragment StoreEntitySet="V_SOLICITUDES">
+                <ScalarProperty Name="ESTADOSOLICITUD" ColumnName="ESTADOSOLICITUD" />
                 <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
                 <ScalarProperty Name="HORA" ColumnName="HORA" />
                 <ScalarProperty Name="FECHA" ColumnName="FECHA" />

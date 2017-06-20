@@ -3246,6 +3246,30 @@ namespace Biblioteca.DALC
         private global::System.String _NOMBREUSUARIO;
         partial void OnNOMBREUSUARIOChanging(global::System.String value);
         partial void OnNOMBREUSUARIOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ESTADOSOLICITUD
+        {
+            get
+            {
+                return _ESTADOSOLICITUD;
+            }
+            set
+            {
+                OnESTADOSOLICITUDChanging(value);
+                ReportPropertyChanging("ESTADOSOLICITUD");
+                _ESTADOSOLICITUD = StructuralObject.SetValidValue(value, true, "ESTADOSOLICITUD");
+                ReportPropertyChanged("ESTADOSOLICITUD");
+                OnESTADOSOLICITUDChanged();
+            }
+        }
+        private global::System.String _ESTADOSOLICITUD;
+        partial void OnESTADOSOLICITUDChanging(global::System.String value);
+        partial void OnESTADOSOLICITUDChanged();
 
         #endregion
 

@@ -142,6 +142,7 @@
     <EntitySetMapping Name="V_SOLICITUDES">
       <EntityTypeMapping TypeName="BibliotecaModel.V_SOLICITUDES">
         <MappingFragment StoreEntitySet="V_SOLICITUDES">
+          <ScalarProperty Name="ESTADOSOLICITUD" ColumnName="ESTADOSOLICITUD" />
           <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
           <ScalarProperty Name="HORA" ColumnName="HORA" />
           <ScalarProperty Name="FECHA" ColumnName="FECHA" />
