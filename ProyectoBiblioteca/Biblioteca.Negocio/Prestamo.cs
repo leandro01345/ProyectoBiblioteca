@@ -9,22 +9,17 @@ namespace Biblioteca.Negocio
     public class Prestamo
     {
 
-        public bool Create(string tipoPrestamo, DateTime fechaPrestamo, DateTime horaPrestamo,
-            DateTime fechaDevolucion, DateTime horaDevolucion, DateTime fechaRealPrestamo,
-            DateTime horaRealPrestamo)
+        public bool Create(int idEjemplar, string tipoPrestamo,
+            DateTime fechaDevolucion, int idSoli, int idUsu)
         {
             try
             {
                 Biblioteca.DALC.PRESTAMO pres = new DALC.PRESTAMO();
                 pres.TIPOPRESTAMO = tipoPrestamo;
-                //pres.HORAPRESTAMO = horaPrestamo;
-                pres.FECHAPRESTAMO = fechaPrestamo;
+                pres.EJEMPLAR_IDEJEMPLAR = idEjemplar;
                 pres.FECHADEVOLUCIONPRESTAMO = fechaDevolucion;
-                //pres.HORADEVOLUCIONPRESTAMO = horaDevolucion;
-                pres.FECHADEVOLUCIONREALPRESTAMO = fechaRealPrestamo;
-                //pres.HORADEVOLUCIONREALPRESTAMO = horaRealPrestamo;
 
-                CommonBC.ModeloBiblioteca.PRESTAMO.AddObject(pres);
+                CommonBC.ModeloBiblioteca.PRO_ADD_PRESTAMO(idEjemplar, tipoPrestamo, fechaDevolucion, idSoli, idUsu);
                 //CommonBC.ModeloBiblioteca.DOCUMENTO.AddObject(doc);
                 CommonBC.ModeloBiblioteca.SaveChanges();
                 return true;
@@ -86,6 +81,21 @@ namespace Biblioteca.Negocio
             {
                 Biblioteca.DALC.PRESTAMO doc = CommonBC.ModeloBiblioteca.PRESTAMO.First
                    (p => p.IDPRESTAMO == Id);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Devolucion(int idEjemplar)
+        {
+            try
+            {
+                CommonBC.ModeloBiblioteca.PRO_DEVOLVER_EJEMPLAR(idEjemplar);
+                CommonBC.ModeloBiblioteca.SaveChanges();
+
                 return true;
             }
             catch (Exception)

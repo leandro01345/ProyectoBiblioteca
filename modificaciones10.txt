@@ -99,4 +99,65 @@ ej.idejemplar = det.ejemplar_idejemplar)
  as titulo
  from detallesolicitud det join ejemplar ej on det.ejemplar_idejemplar = ej.idejemplar;
 
+CREATE OR REPLACE PROCEDURE  PRO_ADD_PRESTAMO (
+ id_ejemplar PRESTAMO.EJEMPLAR_IDEJEMPLAR%TYPE,
+ tipo_prestamo PRESTAMO.TIPOPRESTAMO%TYPE,
+ fecha_devolucion PRESTAMO.FECHADEVOLUCIONPRESTAMO%TYPE
+ ) IS
+BEGIN
+   INSERT INTO PRESTAMO(EJEMPLAR_IDEJEMPLAR, IDPRESTAMO, TIPOPRESTAMO, FECHAPRESTAMO, FECHADEVOLUCIONPRESTAMO) 	
+   VALUES(id_ejemplar, seq_prestamo.nextval, tipo_prestamo, sysdate, fecha_devolucion);
+END;
+
+ALTER TABLE PRESTAMO
+ADD USUARIO_IDUSUARIO INTEGER;
+
+ALTER TABLE PRESTAMO ADD CONSTRAINT Prestamo_Usuario_FK FOREIGN KEY ( Usuario_idUsuario ) REFERENCES Usuario ( idUsuario ) ;
+
+CREATE OR REPLACE PROCEDURE PRO_DEVOLVER_EJEMPLAR (
+ id_ejemplar ejemplar.idejemplar%TYPE
+ ) IS
+BEGIN
+    update prestamo set fechadevolucionrealprestamo = sysdate where ejemplar_idejemplar = id_ejemplar and fechadevolucionrealprestamo = null;
+    update ejemplar set disponibilidad = 'disponible' where idejemplar = id_ejemplar;
+END PRO_DEVOLVER_EJEMPLAR;
+
+create or replace
+PROCEDURE  PRO_ADD_PRESTAMO (
+ id_ejemplar PRESTAMO.EJEMPLAR_IDEJEMPLAR%TYPE,
+ tipo_prestamo PRESTAMO.TIPOPRESTAMO%TYPE,
+ fecha_devolucion PRESTAMO.FECHADEVOLUCIONPRESTAMO%TYPE
+ ) IS
+BEGIN
+   INSERT INTO PRESTAMO(EJEMPLAR_IDEJEMPLAR, IDPRESTAMO, TIPOPRESTAMO, FECHAPRESTAMO, FECHADEVOLUCIONPRESTAMO) 	
+   VALUES(id_ejemplar, seq_prestamo.nextval, tipo_prestamo, sysdate, fecha_devolucion);
+   update ejemplar set disponibilidad = 'prestado_'||tipo_prestamo where idejemplar = id_ejemplar;
+END;
+
+create or replace
+PROCEDURE  PRO_ADD_PRESTAMO (
+ id_ejemplar PRESTAMO.EJEMPLAR_IDEJEMPLAR%TYPE,
+ tipo_prestamo PRESTAMO.TIPOPRESTAMO%TYPE,
+ fecha_devolucion PRESTAMO.FECHADEVOLUCIONPRESTAMO%TYPE,
+ id_solicitud SOLICITUD.IDSOLICITUD%TYPE,
+ id_usuario PRESTAMO.USUARIO_IDUSUARIO%TYPE
+ ) IS
+BEGIN
+   INSERT INTO PRESTAMO(EJEMPLAR_IDEJEMPLAR, IDPRESTAMO, TIPOPRESTAMO, FECHAPRESTAMO, FECHADEVOLUCIONPRESTAMO, USUARIO_IDUSUARIO) 	
+   VALUES(id_ejemplar, seq_prestamo.nextval, tipo_prestamo, sysdate, fecha_devolucion, id_usuario);
+   update ejemplar set disponibilidad = 'prestado_'||tipo_prestamo where idejemplar = id_ejemplar;
+   update solicitud set estadosolicitud = 'prestamos generados' where idsolicitud = id_solicitud;
+END;
+
+create or replace
+PROCEDURE  PRO_ADD_DETALLESOLICITUD (
+ id_ejemplar DETALLESOLICITUD.EJEMPLAR_IDEJEMPLAR%TYPE,
+ id_solicitud DETALLESOLICITUD.SOLICITUD_IDSOLICITUD%TYPE
+ ) IS
+BEGIN
+   INSERT INTO DETALLESOLICITUD(EJEMPLAR_IDEJEMPLAR, SOLICITUD_IDSOLICITUD) 	
+   VALUES(id_ejemplar, id_solicitud);
+   update ejemplar set disponibilidad = 'reservado' where idejemplar = id_ejemplar;
+END;
+
 commit;

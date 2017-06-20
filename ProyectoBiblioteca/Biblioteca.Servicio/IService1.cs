@@ -35,6 +35,10 @@ namespace Biblioteca.Servicio
         [OperationContract]
         bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud);
         [OperationContract]
+        bool AgregarPrestamo(int idEjemplar, string tipoPrestamo, DateTime fechaDevolucion, int idSoli, int idUsu);
+        [OperationContract]
+        bool DevolucionPrestamo(int idEjemplar);
+        [OperationContract]
         int Doc_EjemplarDisponible(int iddoc);
         [OperationContract]
         bool ModificarEjemplar(int idejemplar, int iddocumento, string estado, string ubicacion);

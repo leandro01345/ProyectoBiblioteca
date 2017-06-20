@@ -83,6 +83,18 @@ namespace Biblioteca.Servicio
             return sol.CrearDetalle(idEjemplar,idSolicitud);
         }
 
+        public bool AgregarPrestamo(int idEjemplar, string tipoPrestamo, DateTime fechaDevolucion, int idSoli, int idUsu)
+        {
+            Prestamo pres = new Prestamo();
+            return pres.Create(idEjemplar, tipoPrestamo, fechaDevolucion, idSoli, idUsu);
+        }
+
+        public bool DevolucionPrestamo(int idEjemplar)
+        {
+            Prestamo pres = new Prestamo();
+            return pres.Devolucion(idEjemplar);
+        }
+
         public bool ModificarEjemplar(int idejemplar, int iddocumento, string estado, string ubicacion)
         {
             Ejemplar ej = new Ejemplar();

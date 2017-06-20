@@ -58,6 +58,15 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.Label lblIdSoli;
         
         /// <summary>
+        /// Control lblIdUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdUsuario;
+        
+        /// <summary>
         /// Control SqlDataSource2.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
-        /// Control grdSolicitudes0.
+        /// Control grdDetalles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdSolicitudes0;
+        protected global::System.Web.UI.WebControls.GridView grdDetalles;
         
         /// <summary>
         /// Control btnGenerarPrestamo.

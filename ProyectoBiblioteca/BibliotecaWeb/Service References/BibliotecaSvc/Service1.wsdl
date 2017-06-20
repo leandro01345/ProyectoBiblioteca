@@ -66,6 +66,18 @@
   <wsdl:message name="IService1_AgregarDetalleSolicitud_OutputMessage">
     <wsdl:part name="parameters" element="tns:AgregarDetalleSolicitudResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AgregarPrestamo_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarPrestamo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarPrestamo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarPrestamoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DevolucionPrestamo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolucionPrestamo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DevolucionPrestamo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolucionPrestamoResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Doc_EjemplarDisponible_InputMessage">
     <wsdl:part name="parameters" element="tns:Doc_EjemplarDisponible" />
   </wsdl:message>
@@ -154,6 +166,14 @@
     <wsdl:operation name="AgregarDetalleSolicitud">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarDetalleSolicitud" message="tns:IService1_AgregarDetalleSolicitud_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarDetalleSolicitudResponse" message="tns:IService1_AgregarDetalleSolicitud_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPrestamo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarPrestamo" message="tns:IService1_AgregarPrestamo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarPrestamoResponse" message="tns:IService1_AgregarPrestamo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolucionPrestamo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DevolucionPrestamo" message="tns:IService1_DevolucionPrestamo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DevolucionPrestamoResponse" message="tns:IService1_DevolucionPrestamo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Doc_EjemplarDisponible">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Doc_EjemplarDisponible" message="tns:IService1_Doc_EjemplarDisponible_InputMessage" />
@@ -273,6 +293,24 @@
     </wsdl:operation>
     <wsdl:operation name="AgregarDetalleSolicitud">
       <soap:operation soapAction="http://tempuri.org/IService1/AgregarDetalleSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPrestamo">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarPrestamo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolucionPrestamo">
+      <soap:operation soapAction="http://tempuri.org/IService1/DevolucionPrestamo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

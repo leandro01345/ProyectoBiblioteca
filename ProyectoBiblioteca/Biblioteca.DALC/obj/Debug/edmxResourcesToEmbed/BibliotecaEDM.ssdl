@@ -43,6 +43,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
     <Property Name="FECHAPRESTAMO" Type="date" Nullable="false" />
     <Property Name="FECHADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
     <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="date" />
+    <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
   </EntityType>
   <EntityType Name="SESION">
     <Key>
@@ -228,6 +229,18 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PRESTAMO_USUARIO_FK">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="PRESTAMO">
+        <PropertyRef Name="USUARIO_IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="SESION_USUARIO_FK">
     <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
     <End Role="SESION" Type="Self.SESION" Multiplicity="*" />
@@ -277,6 +290,13 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
     <Parameter Name="ESTADO_EJEMPLAR" Type="varchar2" Mode="In" />
     <Parameter Name="UBICACION_EJEMPLAR" Type="varchar2" Mode="In" />
   </Function>
+  <Function Name="PRO_ADD_PRESTAMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+    <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
+    <Parameter Name="TIPO_PRESTAMO" Type="varchar2" Mode="In" />
+    <Parameter Name="FECHA_DEVOLUCION" Type="date" Mode="In" />
+    <Parameter Name="ID_SOLICITUD" Type="number" Mode="In" />
+    <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
+  </Function>
   <Function Name="PRO_ADD_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
   </Function>
@@ -291,6 +311,9 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
     <Parameter Name="USERNAME_SESION" Type="varchar2" Mode="In" />
     <Parameter Name="PASSWORD_SESION" Type="varchar2" Mode="In" />
     <Parameter Name="EMAIL_USUARIO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="PRO_DEVOLVER_EJEMPLAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+    <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
   </Function>
   <EntityContainer Name="BibliotecaModelStoreContainer">
     <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
@@ -383,6 +406,10 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
     </AssociationSet>
     <AssociationSet Name="PRESTAMO_EJEMPLAR_FK" Association="Self.PRESTAMO_EJEMPLAR_FK">
       <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
+      <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+    </AssociationSet>
+    <AssociationSet Name="PRESTAMO_USUARIO_FK" Association="Self.PRESTAMO_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="PRESTAMO" EntitySet="PRESTAMO" />
     </AssociationSet>
     <AssociationSet Name="SESION_USUARIO_FK" Association="Self.SESION_USUARIO_FK">

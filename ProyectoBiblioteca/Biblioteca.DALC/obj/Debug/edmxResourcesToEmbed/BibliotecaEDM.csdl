@@ -38,6 +38,8 @@
     <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
     <NavigationProperty Name="EJEMPLAR" Relationship="Self.PRESTAMO_EJEMPLAR_FK" FromRole="PRESTAMO" ToRole="EJEMPLAR" />
+    <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="USUARIO" Relationship="BibliotecaModel.PRESTAMO_USUARIO_FK" FromRole="PRESTAMO" ToRole="USUARIO" />
   </EntityType>
   <EntityType Name="SESION">
     <Key>
@@ -77,6 +79,7 @@
     <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="SOLICITUD" />
     <Property Name="EMAILUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="SESION" Relationship="BibliotecaModel.SESION_USUARIO_FK" FromRole="USUARIO" ToRole="SESION" />
+    <NavigationProperty Name="PRESTAMO" Relationship="BibliotecaModel.PRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="PRESTAMO" />
   </EntityType>
   <Association Name="EJEMPLAR_DOCUMENTO_FK">
     <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="1" />
@@ -189,6 +192,20 @@
     </AssociationSet>
     <EntitySet Name="V_SOLICITUDES_PENDIENTES" EntityType="BibliotecaModel.V_SOLICITUDES_PENDIENTES" />
     <EntitySet Name="V_DETALLE_EJEMPLAR_TITULO" EntityType="BibliotecaModel.V_DETALLE_EJEMPLAR_TITULO" />
+    <FunctionImport Name="PRO_ADD_PRESTAMO">
+      <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
+      <Parameter Name="TIPO_PRESTAMO" Mode="In" Type="String" />
+      <Parameter Name="FECHA_DEVOLUCION" Mode="In" Type="DateTime" />
+      <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
+      <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <AssociationSet Name="PRESTAMO_USUARIO_FK" Association="BibliotecaModel.PRESTAMO_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+    </AssociationSet>
+    <FunctionImport Name="PRO_DEVOLVER_EJEMPLAR">
+      <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -288,4 +305,16 @@
     <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="TITULO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
+  <Association Name="PRESTAMO_USUARIO_FK">
+    <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+    <End Type="BibliotecaModel.PRESTAMO" Role="PRESTAMO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="PRESTAMO">
+        <PropertyRef Name="USUARIO_IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

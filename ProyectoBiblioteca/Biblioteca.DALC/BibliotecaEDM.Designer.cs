@@ -24,6 +24,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "SOLICITUDPRESTAMO_USUARIO_FK", "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Biblioteca.DALC.USUARIO), "SOLICITUD", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SOLICITUD), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "DETALLESOLICITUD", "EJEMPLAR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.EJEMPLAR), "SOLICITUD", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SOLICITUD))]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "SESION_USUARIO_FK", "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Biblioteca.DALC.USUARIO), "SESION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SESION), true)]
+[assembly: EdmRelationshipAttribute("BibliotecaModel", "PRESTAMO_USUARIO_FK", "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Biblioteca.DALC.USUARIO), "PRESTAMO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.PRESTAMO), true)]
 
 #endregion
 
@@ -730,6 +731,88 @@ namespace Biblioteca.DALC
     
             return base.ExecuteFunction<Nullable<global::System.Int32>>("PRO_ADD_SOLICITUD1", iD_USUARIOParameter);
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="iD_EJEMPLAR">No hay documentación de metadatos disponible.</param>
+        /// <param name="tIPO_PRESTAMO">No hay documentación de metadatos disponible.</param>
+        /// <param name="fECHA_DEVOLUCION">No hay documentación de metadatos disponible.</param>
+        /// <param name="iD_SOLICITUD">No hay documentación de metadatos disponible.</param>
+        /// <param name="iD_USUARIO">No hay documentación de metadatos disponible.</param>
+        public int PRO_ADD_PRESTAMO(Nullable<global::System.Decimal> iD_EJEMPLAR, global::System.String tIPO_PRESTAMO, Nullable<global::System.DateTime> fECHA_DEVOLUCION, Nullable<global::System.Decimal> iD_SOLICITUD, Nullable<global::System.Decimal> iD_USUARIO)
+        {
+            ObjectParameter iD_EJEMPLARParameter;
+            if (iD_EJEMPLAR.HasValue)
+            {
+                iD_EJEMPLARParameter = new ObjectParameter("ID_EJEMPLAR", iD_EJEMPLAR);
+            }
+            else
+            {
+                iD_EJEMPLARParameter = new ObjectParameter("ID_EJEMPLAR", typeof(global::System.Decimal));
+            }
+    
+            ObjectParameter tIPO_PRESTAMOParameter;
+            if (tIPO_PRESTAMO != null)
+            {
+                tIPO_PRESTAMOParameter = new ObjectParameter("TIPO_PRESTAMO", tIPO_PRESTAMO);
+            }
+            else
+            {
+                tIPO_PRESTAMOParameter = new ObjectParameter("TIPO_PRESTAMO", typeof(global::System.String));
+            }
+    
+            ObjectParameter fECHA_DEVOLUCIONParameter;
+            if (fECHA_DEVOLUCION.HasValue)
+            {
+                fECHA_DEVOLUCIONParameter = new ObjectParameter("FECHA_DEVOLUCION", fECHA_DEVOLUCION);
+            }
+            else
+            {
+                fECHA_DEVOLUCIONParameter = new ObjectParameter("FECHA_DEVOLUCION", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter iD_SOLICITUDParameter;
+            if (iD_SOLICITUD.HasValue)
+            {
+                iD_SOLICITUDParameter = new ObjectParameter("ID_SOLICITUD", iD_SOLICITUD);
+            }
+            else
+            {
+                iD_SOLICITUDParameter = new ObjectParameter("ID_SOLICITUD", typeof(global::System.Decimal));
+            }
+    
+            ObjectParameter iD_USUARIOParameter;
+            if (iD_USUARIO.HasValue)
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", iD_USUARIO);
+            }
+            else
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction("PRO_ADD_PRESTAMO", iD_EJEMPLARParameter, tIPO_PRESTAMOParameter, fECHA_DEVOLUCIONParameter, iD_SOLICITUDParameter, iD_USUARIOParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="iD_EJEMPLAR">No hay documentación de metadatos disponible.</param>
+        public int PRO_DEVOLVER_EJEMPLAR(Nullable<global::System.Decimal> iD_EJEMPLAR)
+        {
+            ObjectParameter iD_EJEMPLARParameter;
+            if (iD_EJEMPLAR.HasValue)
+            {
+                iD_EJEMPLARParameter = new ObjectParameter("ID_EJEMPLAR", iD_EJEMPLAR);
+            }
+            else
+            {
+                iD_EJEMPLARParameter = new ObjectParameter("ID_EJEMPLAR", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction("PRO_DEVOLVER_EJEMPLAR", iD_EJEMPLARParameter);
+        }
 
         #endregion
 
@@ -1426,6 +1509,30 @@ namespace Biblioteca.DALC
         private Nullable<global::System.DateTime> _FECHADEVOLUCIONREALPRESTAMO;
         partial void OnFECHADEVOLUCIONREALPRESTAMOChanging(Nullable<global::System.DateTime> value);
         partial void OnFECHADEVOLUCIONREALPRESTAMOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> USUARIO_IDUSUARIO
+        {
+            get
+            {
+                return _USUARIO_IDUSUARIO;
+            }
+            set
+            {
+                OnUSUARIO_IDUSUARIOChanging(value);
+                ReportPropertyChanging("USUARIO_IDUSUARIO");
+                _USUARIO_IDUSUARIO = StructuralObject.SetValidValue(value, "USUARIO_IDUSUARIO");
+                ReportPropertyChanged("USUARIO_IDUSUARIO");
+                OnUSUARIO_IDUSUARIOChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _USUARIO_IDUSUARIO;
+        partial void OnUSUARIO_IDUSUARIOChanging(Nullable<global::System.Decimal> value);
+        partial void OnUSUARIO_IDUSUARIOChanged();
 
         #endregion
 
@@ -1465,6 +1572,44 @@ namespace Biblioteca.DALC
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EJEMPLAR>("BibliotecaModel.PRESTAMO_EJEMPLAR_FK", "EJEMPLAR", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "PRESTAMO_USUARIO_FK", "USUARIO")]
+        public USUARIO USUARIO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.PRESTAMO_USUARIO_FK", "USUARIO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.PRESTAMO_USUARIO_FK", "USUARIO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<USUARIO> USUARIOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.PRESTAMO_USUARIO_FK", "USUARIO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<USUARIO>("BibliotecaModel.PRESTAMO_USUARIO_FK", "USUARIO", value);
                 }
             }
         }
@@ -2195,6 +2340,28 @@ namespace Biblioteca.DALC
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SESION>("BibliotecaModel.SESION_USUARIO_FK", "SESION", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "PRESTAMO_USUARIO_FK", "PRESTAMO")]
+        public EntityCollection<PRESTAMO> PRESTAMO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PRESTAMO>("BibliotecaModel.PRESTAMO_USUARIO_FK", "PRESTAMO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PRESTAMO>("BibliotecaModel.PRESTAMO_USUARIO_FK", "PRESTAMO", value);
                 }
             }
         }

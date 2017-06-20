@@ -75,6 +75,18 @@ namespace BibliotecaWeb.BibliotecaSvc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarDetalleSolicitud", ReplyAction="http://tempuri.org/IService1/AgregarDetalleSolicitudResponse")]
         System.Threading.Tasks.Task<bool> AgregarDetalleSolicitudAsync(int idEjemplar, int idSolicitud);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarPrestamo", ReplyAction="http://tempuri.org/IService1/AgregarPrestamoResponse")]
+        bool AgregarPrestamo(int idEjemplar, string tipoPrestamo, System.DateTime fechaDevolucion, int idSoli, int idUsu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarPrestamo", ReplyAction="http://tempuri.org/IService1/AgregarPrestamoResponse")]
+        System.Threading.Tasks.Task<bool> AgregarPrestamoAsync(int idEjemplar, string tipoPrestamo, System.DateTime fechaDevolucion, int idSoli, int idUsu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DevolucionPrestamo", ReplyAction="http://tempuri.org/IService1/DevolucionPrestamoResponse")]
+        bool DevolucionPrestamo(int idEjemplar);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DevolucionPrestamo", ReplyAction="http://tempuri.org/IService1/DevolucionPrestamoResponse")]
+        System.Threading.Tasks.Task<bool> DevolucionPrestamoAsync(int idEjemplar);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Doc_EjemplarDisponible", ReplyAction="http://tempuri.org/IService1/Doc_EjemplarDisponibleResponse")]
         int Doc_EjemplarDisponible(int iddoc);
         
@@ -229,6 +241,22 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         public System.Threading.Tasks.Task<bool> AgregarDetalleSolicitudAsync(int idEjemplar, int idSolicitud) {
             return base.Channel.AgregarDetalleSolicitudAsync(idEjemplar, idSolicitud);
+        }
+        
+        public bool AgregarPrestamo(int idEjemplar, string tipoPrestamo, System.DateTime fechaDevolucion, int idSoli, int idUsu) {
+            return base.Channel.AgregarPrestamo(idEjemplar, tipoPrestamo, fechaDevolucion, idSoli, idUsu);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AgregarPrestamoAsync(int idEjemplar, string tipoPrestamo, System.DateTime fechaDevolucion, int idSoli, int idUsu) {
+            return base.Channel.AgregarPrestamoAsync(idEjemplar, tipoPrestamo, fechaDevolucion, idSoli, idUsu);
+        }
+        
+        public bool DevolucionPrestamo(int idEjemplar) {
+            return base.Channel.DevolucionPrestamo(idEjemplar);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DevolucionPrestamoAsync(int idEjemplar) {
+            return base.Channel.DevolucionPrestamoAsync(idEjemplar);
         }
         
         public int Doc_EjemplarDisponible(int iddoc) {

@@ -48,6 +48,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
           <Property Name="FECHAPRESTAMO" Type="date" Nullable="false" />
           <Property Name="FECHADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
           <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="date" />
+          <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="SESION">
           <Key>
@@ -233,6 +234,18 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="PRESTAMO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IDUSUARIO" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="USUARIO_IDUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="SESION_USUARIO_FK">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
           <End Role="SESION" Type="Self.SESION" Multiplicity="*" />
@@ -282,6 +295,13 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
           <Parameter Name="ESTADO_EJEMPLAR" Type="varchar2" Mode="In" />
           <Parameter Name="UBICACION_EJEMPLAR" Type="varchar2" Mode="In" />
         </Function>
+        <Function Name="PRO_ADD_PRESTAMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+          <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
+          <Parameter Name="TIPO_PRESTAMO" Type="varchar2" Mode="In" />
+          <Parameter Name="FECHA_DEVOLUCION" Type="date" Mode="In" />
+          <Parameter Name="ID_SOLICITUD" Type="number" Mode="In" />
+          <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
+        </Function>
         <Function Name="PRO_ADD_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
           <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
         </Function>
@@ -296,6 +316,9 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
           <Parameter Name="USERNAME_SESION" Type="varchar2" Mode="In" />
           <Parameter Name="PASSWORD_SESION" Type="varchar2" Mode="In" />
           <Parameter Name="EMAIL_USUARIO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="PRO_DEVOLVER_EJEMPLAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+          <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
         </Function>
         <EntityContainer Name="BibliotecaModelStoreContainer">
           <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
@@ -390,6 +413,10 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <End Role="EJEMPLAR" EntitySet="EJEMPLAR" />
             <End Role="PRESTAMO" EntitySet="PRESTAMO" />
           </AssociationSet>
+          <AssociationSet Name="PRESTAMO_USUARIO_FK" Association="Self.PRESTAMO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
           <AssociationSet Name="SESION_USUARIO_FK" Association="Self.SESION_USUARIO_FK">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="SESION" EntitySet="SESION" />
@@ -441,6 +468,8 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
           <NavigationProperty Name="EJEMPLAR" Relationship="Self.PRESTAMO_EJEMPLAR_FK" FromRole="PRESTAMO" ToRole="EJEMPLAR" />
+          <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="USUARIO" Relationship="BibliotecaModel.PRESTAMO_USUARIO_FK" FromRole="PRESTAMO" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="SESION">
           <Key>
@@ -480,6 +509,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="SOLICITUD" />
           <Property Name="EMAILUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SESION" Relationship="BibliotecaModel.SESION_USUARIO_FK" FromRole="USUARIO" ToRole="SESION" />
+          <NavigationProperty Name="PRESTAMO" Relationship="BibliotecaModel.PRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="PRESTAMO" />
         </EntityType>
         <Association Name="EJEMPLAR_DOCUMENTO_FK">
           <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="1" />
@@ -592,6 +622,20 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="V_SOLICITUDES_PENDIENTES" EntityType="BibliotecaModel.V_SOLICITUDES_PENDIENTES" />
           <EntitySet Name="V_DETALLE_EJEMPLAR_TITULO" EntityType="BibliotecaModel.V_DETALLE_EJEMPLAR_TITULO" />
+          <FunctionImport Name="PRO_ADD_PRESTAMO">
+            <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
+            <Parameter Name="TIPO_PRESTAMO" Mode="In" Type="String" />
+            <Parameter Name="FECHA_DEVOLUCION" Mode="In" Type="DateTime" />
+            <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
+            <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <AssociationSet Name="PRESTAMO_USUARIO_FK" Association="BibliotecaModel.PRESTAMO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+          <FunctionImport Name="PRO_DEVOLVER_EJEMPLAR">
+          <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="V_EJEMPLARES">
           <Key>
@@ -691,6 +735,18 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="TITULO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="PRESTAMO_USUARIO_FK">
+          <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+          <End Type="BibliotecaModel.PRESTAMO" Role="PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IDUSUARIO" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="USUARIO_IDUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -725,6 +781,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <EntitySetMapping Name="PRESTAMO">
             <EntityTypeMapping TypeName="BibliotecaModel.PRESTAMO">
               <MappingFragment StoreEntitySet="PRESTAMO">
+                <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
                 <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
                 <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
                 <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
@@ -865,6 +922,8 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PRO_ADD_PRESTAMO" FunctionName="BibliotecaModel.Store.PRO_ADD_PRESTAMO" />
+          <FunctionImportMapping FunctionImportName="PRO_DEVOLVER_EJEMPLAR" FunctionName="BibliotecaModel.Store.PRO_DEVOLVER_EJEMPLAR" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

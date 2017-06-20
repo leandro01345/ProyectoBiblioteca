@@ -34,7 +34,7 @@
             <tr __designer:mapid="30">
                 <td __designer:mapid="31" class="auto-style2">&nbsp;</td>
                 <td __designer:mapid="32">
-                    <h2 __designer:mapid="33">Solicitudes</h2>
+                    <h2 __designer:mapid="33">Solicitudes pendientes</h2>
                 </td>
             </tr>
             <tr __designer:mapid="35">
@@ -72,18 +72,19 @@
             <tr __designer:mapid="35">
                 <td __designer:mapid="36" class="auto-style2">&nbsp;</td>
                 <td __designer:mapid="37" class="auto-style5">
-                    <h3>Generar préstamo</h3></td>
+                    <h3>Generar préstamos</h3></td>
                 <td __designer:mapid="37">
                     &nbsp;</td>
             </tr>
             <tr __designer:mapid="3a">
-                <td __designer:mapid="3b" class="auto-style6">ID</td>
+                <td __designer:mapid="3b" class="auto-style6">&nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style7">
-                    <asp:TextBox ID="txtID" runat="server" Enabled="False" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-                </td>
+                    Id</td>
                 <td __designer:mapid="3c" class="auto-style8">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtID" ErrorMessage="(*) Debe seleccionar un documento"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtID" runat="server" Enabled="False" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtID" ErrorMessage="(*) Debe seleccionar una solicitud"></asp:RequiredFieldValidator>
                     <asp:Label ID="lblIdSoli" runat="server" Visible="False">0</asp:Label>
+                    <asp:Label ID="lblIdUsuario" runat="server" Visible="False">0</asp:Label>
                     </td>
             </tr>
             <tr __designer:mapid="3a">
@@ -95,7 +96,7 @@
                     </asp:SqlDataSource>
                 </td>
                 <td __designer:mapid="3c" class="auto-style8" colspan="2">
-                    <asp:GridView ID="grdSolicitudes0" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdDocumentos_SelectedIndexChanged" CssClass="table">
+                    <asp:GridView ID="grdDetalles" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdDocumentos_SelectedIndexChanged" CssClass="table">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="SOLICITUD_IDSOLICITUD" HeaderText="SOLICITUD_IDSOLICITUD" SortExpression="SOLICITUD_IDSOLICITUD" />
@@ -118,7 +119,7 @@
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style5">
-                    <asp:Button ID="btnGenerarPrestamo" runat="server" Text="Generar préstamo" />
+                    <asp:Button ID="btnGenerarPrestamo" runat="server" Text="Generar préstamos" OnClick="btnGenerarPrestamo_Click" />
                 </td>
                 <td __designer:mapid="3c">
                     <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Cancelar solicitud" />

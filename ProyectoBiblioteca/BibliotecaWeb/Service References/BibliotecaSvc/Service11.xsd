@@ -159,6 +159,38 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AgregarPrestamo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEjemplar" type="xs:int" />
+        <xs:element minOccurs="0" name="tipoPrestamo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fechaDevolucion" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="idSoli" type="xs:int" />
+        <xs:element minOccurs="0" name="idUsu" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarPrestamoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgregarPrestamoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolucionPrestamo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEjemplar" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolucionPrestamoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DevolucionPrestamoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Doc_EjemplarDisponible">
     <xs:complexType>
       <xs:sequence>

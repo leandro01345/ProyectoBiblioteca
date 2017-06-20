@@ -29,6 +29,7 @@
     <EntitySetMapping Name="PRESTAMO">
       <EntityTypeMapping TypeName="BibliotecaModel.PRESTAMO">
         <MappingFragment StoreEntitySet="PRESTAMO">
+          <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
           <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
           <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
           <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
@@ -169,5 +170,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PRO_ADD_PRESTAMO" FunctionName="BibliotecaModel.Store.PRO_ADD_PRESTAMO" />
+    <FunctionImportMapping FunctionImportName="PRO_DEVOLVER_EJEMPLAR" FunctionName="BibliotecaModel.Store.PRO_DEVOLVER_EJEMPLAR" />
   </EntityContainerMapping>
 </Mapping>
