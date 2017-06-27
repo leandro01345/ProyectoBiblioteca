@@ -112,6 +112,25 @@ namespace Biblioteca.Negocio
             
             
         }
+
+        public bool Rechazar(int idSol, int idEj)
+        {
+            try
+            {
+                Biblioteca.DALC.SOLICITUD soli = CommonBC.ModeloBiblioteca.SOLICITUD.First
+                   (s => s.IDSOLICITUD == idSol);
+
+                CommonBC.ModeloBiblioteca.PRO_RECHAZAR_PRESTAMO(idEj, idSol);
+
+                CommonBC.ModeloBiblioteca.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     
 
 }

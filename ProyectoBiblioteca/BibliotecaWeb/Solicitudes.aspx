@@ -122,7 +122,7 @@
                     <asp:Button ID="btnGenerarPrestamo" runat="server" Text="Generar préstamos" OnClick="btnGenerarPrestamo_Click" />
                 </td>
                 <td __designer:mapid="3c">
-                    <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Cancelar solicitud" />
+                    <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Rechazar solicitud" OnClick="btnCancelarSolicitud_Click" />
                     <asp:HyperLink runat="server" NavigateUrl="Prestamos.aspx" ID="urlPrestamos" class="mdl-navigation__link">Administrar Préstamos</asp:HyperLink>
                 </td>
             </tr>

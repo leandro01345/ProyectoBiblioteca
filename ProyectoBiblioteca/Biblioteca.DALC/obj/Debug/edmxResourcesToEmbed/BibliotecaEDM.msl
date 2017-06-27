@@ -199,5 +199,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PRO_RECHAZAR_PRESTAMO" FunctionName="BibliotecaModel.Store.PRO_RECHAZAR_PRESTAMO" />
   </EntityContainerMapping>
 </Mapping>

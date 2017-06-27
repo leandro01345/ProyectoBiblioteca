@@ -208,6 +208,10 @@
     </FunctionImport>
     <EntitySet Name="V_PRESTAMOS_VENCIDOS" EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS" />
     <EntitySet Name="V_PRESTAMOS_VENCIDOS_SALA" EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_SALA" />
+    <FunctionImport Name="PRO_RECHAZAR_PRESTAMO">
+      <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
+      <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>

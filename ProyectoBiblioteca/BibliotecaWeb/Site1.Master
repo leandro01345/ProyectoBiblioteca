@@ -56,6 +56,7 @@
               <li role="separator" class="divider"></li>
               <li><a href="#">Separated link</a></li>
           </ul>-->
+      
       <asp:HyperLink runat="server" NavigateUrl="Ejemplares.aspx" ID="urlEjemplares1" class="mdl-navigation__link">Administrar Ejemplares</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="NuevoEjemplar.aspx" ID="urlNuevoEjemplar1" class="mdl-navigation__link">Nuevo Ejemplar</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="Documentos.aspx" ID="urlDocumentos1" class="mdl-navigation__link">Administrar Documentos</asp:HyperLink>

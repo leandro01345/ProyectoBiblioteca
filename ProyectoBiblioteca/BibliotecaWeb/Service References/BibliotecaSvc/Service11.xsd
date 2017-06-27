@@ -322,4 +322,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RechazarSolicitud">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idSol" type="xs:int" />
+        <xs:element minOccurs="0" name="idEj" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechazarSolicitudResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RechazarSolicitudResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

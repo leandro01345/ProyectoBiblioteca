@@ -352,6 +352,10 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
   <Function Name="PRO_DEVOLVER_EJEMPLAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
   </Function>
+  <Function Name="PRO_RECHAZAR_PRESTAMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+    <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
+    <Parameter Name="ID_SOLICITUD" Type="number" Mode="In" />
+  </Function>
   <EntityContainer Name="BibliotecaModelStoreContainer">
     <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
     <EntitySet Name="EJEMPLAR" EntityType="Self.EJEMPLAR" Schema="BIBLIOTECA" store:Type="Tables" />

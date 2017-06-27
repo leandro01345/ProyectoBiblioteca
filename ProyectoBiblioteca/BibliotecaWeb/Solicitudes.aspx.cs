@@ -53,5 +53,24 @@ namespace BibliotecaWeb
             }
             Response.AppendHeader("Refresh", "1");
         }
+
+        protected void btnCancelarSolicitud_Click(object sender, EventArgs e)
+        {
+            BibliotecaSvc.Service1Client servicio = new BibliotecaSvc.Service1Client();
+            int idSolicitud = int.Parse(lblIdSoli.Text);
+
+            for (int i = 0; i < grdDetalles.Rows.Count; i++)
+            {
+                GridViewRow row = grdDetalles.Rows[i];
+                string strIdEj = row.Cells[1].Text;
+                int idEj = int.Parse(strIdEj);
+
+                servicio.RechazarSolicitud(idSolicitud, idEj);
+                
+
+            }
+            Response.AppendHeader("Refresh", "1");
+
+        }
     }
 }

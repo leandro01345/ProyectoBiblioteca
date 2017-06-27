@@ -861,6 +861,36 @@ namespace Biblioteca.DALC
     
             return base.ExecuteFunction("PRO_DEVOLVER_EJEMPLAR", iD_EJEMPLARParameter);
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="iD_EJEMPLAR">No hay documentación de metadatos disponible.</param>
+        /// <param name="iD_SOLICITUD">No hay documentación de metadatos disponible.</param>
+        public int PRO_RECHAZAR_PRESTAMO(Nullable<global::System.Decimal> iD_EJEMPLAR, Nullable<global::System.Decimal> iD_SOLICITUD)
+        {
+            ObjectParameter iD_EJEMPLARParameter;
+            if (iD_EJEMPLAR.HasValue)
+            {
+                iD_EJEMPLARParameter = new ObjectParameter("ID_EJEMPLAR", iD_EJEMPLAR);
+            }
+            else
+            {
+                iD_EJEMPLARParameter = new ObjectParameter("ID_EJEMPLAR", typeof(global::System.Decimal));
+            }
+    
+            ObjectParameter iD_SOLICITUDParameter;
+            if (iD_SOLICITUD.HasValue)
+            {
+                iD_SOLICITUDParameter = new ObjectParameter("ID_SOLICITUD", iD_SOLICITUD);
+            }
+            else
+            {
+                iD_SOLICITUDParameter = new ObjectParameter("ID_SOLICITUD", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction("PRO_RECHAZAR_PRESTAMO", iD_EJEMPLARParameter, iD_SOLICITUDParameter);
+        }
 
         #endregion
 

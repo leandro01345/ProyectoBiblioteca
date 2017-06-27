@@ -175,4 +175,14 @@ BEGIN
     update ejemplar set disponibilidad = 'disponible' where idejemplar = id_ejemplar;
 END PRO_DEVOLVER_EJEMPLAR;
 
+create or replace
+PROCEDURE  PRO_RECHAZAR_PRESTAMO (
+ id_ejemplar PRESTAMO.EJEMPLAR_IDEJEMPLAR%TYPE,
+ id_solicitud SOLICITUD.IDSOLICITUD%TYPE
+ ) IS
+BEGIN
+   update ejemplar set disponibilidad = 'disponible' where idejemplar = id_ejemplar;
+   update solicitud set estadosolicitud = 'rechazada' where idsolicitud = id_solicitud;
+END;
+
 commit;

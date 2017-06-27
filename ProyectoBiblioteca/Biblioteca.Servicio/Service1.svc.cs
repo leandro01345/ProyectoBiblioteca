@@ -137,5 +137,10 @@ namespace Biblioteca.Servicio
             return us.Delete(id);
         }
 
+        public bool RechazarSolicitud(int idSol, int idEj)
+        {
+            Solicitud sol = new Solicitud();
+            return sol.Rechazar(idSol, idEj);
+        }
     }
 }

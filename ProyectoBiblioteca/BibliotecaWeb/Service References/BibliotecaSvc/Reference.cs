@@ -134,6 +134,12 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarUsuario", ReplyAction="http://tempuri.org/IService1/EliminarUsuarioResponse")]
         System.Threading.Tasks.Task<bool> EliminarUsuarioAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RechazarSolicitud", ReplyAction="http://tempuri.org/IService1/RechazarSolicitudResponse")]
+        bool RechazarSolicitud(int idSol, int idEj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RechazarSolicitud", ReplyAction="http://tempuri.org/IService1/RechazarSolicitudResponse")]
+        System.Threading.Tasks.Task<bool> RechazarSolicitudAsync(int idSol, int idEj);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -321,6 +327,14 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         public System.Threading.Tasks.Task<bool> EliminarUsuarioAsync(int id) {
             return base.Channel.EliminarUsuarioAsync(id);
+        }
+        
+        public bool RechazarSolicitud(int idSol, int idEj) {
+            return base.Channel.RechazarSolicitud(idSol, idEj);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RechazarSolicitudAsync(int idSol, int idEj) {
+            return base.Channel.RechazarSolicitudAsync(idSol, idEj);
         }
     }
 }

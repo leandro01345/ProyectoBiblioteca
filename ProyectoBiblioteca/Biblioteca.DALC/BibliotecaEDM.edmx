@@ -357,6 +357,10 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
         <Function Name="PRO_DEVOLVER_EJEMPLAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
           <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
         </Function>
+        <Function Name="PRO_RECHAZAR_PRESTAMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+          <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
+          <Parameter Name="ID_SOLICITUD" Type="number" Mode="In" />
+        </Function>
         <EntityContainer Name="BibliotecaModelStoreContainer">
           <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="BIBLIOTECA" store:Type="Tables" />
           <EntitySet Name="EJEMPLAR" EntityType="Self.EJEMPLAR" Schema="BIBLIOTECA" store:Type="Tables" />
@@ -698,6 +702,10 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           </FunctionImport>
           <EntitySet Name="V_PRESTAMOS_VENCIDOS" EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS" />
           <EntitySet Name="V_PRESTAMOS_VENCIDOS_SALA" EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_SALA" />
+          <FunctionImport Name="PRO_RECHAZAR_PRESTAMO">
+            <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
+            <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="V_EJEMPLARES">
           <Key>
@@ -1046,6 +1054,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PRO_RECHAZAR_PRESTAMO" FunctionName="BibliotecaModel.Store.PRO_RECHAZAR_PRESTAMO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

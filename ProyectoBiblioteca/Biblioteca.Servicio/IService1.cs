@@ -54,6 +54,8 @@ namespace Biblioteca.Servicio
         bool EliminarDocumento(int id);
         [OperationContract]
         bool EliminarUsuario(int id);
+        [OperationContract]
+        bool RechazarSolicitud(int idSol, int idEj);
     }
 
 
