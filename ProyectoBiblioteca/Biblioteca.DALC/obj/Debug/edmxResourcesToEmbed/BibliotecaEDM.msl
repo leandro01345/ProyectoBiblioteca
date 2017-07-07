@@ -53,6 +53,7 @@
     <EntitySetMapping Name="SOLICITUD">
       <EntityTypeMapping TypeName="BibliotecaModel.SOLICITUD">
         <MappingFragment StoreEntitySet="SOLICITUD">
+          <ScalarProperty Name="FECHARESERVA" ColumnName="FECHARESERVA" />
           <ScalarProperty Name="ESTADOSOLICITUD" ColumnName="ESTADOSOLICITUD" />
           <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
           <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
@@ -116,6 +117,7 @@
     <EntitySetMapping Name="V_CATALOGO">
       <EntityTypeMapping TypeName="BibliotecaModel.V_CATALOGO">
         <MappingFragment StoreEntitySet="V_CATALOGO">
+          <ScalarProperty Name="PRESTADOS_SALA" ColumnName="PRESTADOS_SALA" />
           <ScalarProperty Name="EDITORIALDOCUMENTO" ColumnName="EDITORIALDOCUMENTO" />
           <ScalarProperty Name="DISPONIBLES" ColumnName="DISPONIBLES" />
           <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
@@ -200,5 +202,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="PRO_RECHAZAR_PRESTAMO" FunctionName="BibliotecaModel.Store.PRO_RECHAZAR_PRESTAMO" />
+    <FunctionImportMapping FunctionImportName="PRO_ADD_SOLICITUD_FECHA" FunctionName="BibliotecaModel.Store.PRO_ADD_SOLICITUD_FECHA" />
   </EntityContainerMapping>
 </Mapping>

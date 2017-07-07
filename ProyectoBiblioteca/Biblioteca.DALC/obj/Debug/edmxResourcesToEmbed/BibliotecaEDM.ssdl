@@ -63,6 +63,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
     <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="FECHASOLICITUD" Type="date" Nullable="false" />
     <Property Name="ESTADOSOLICITUD" Type="varchar2" MaxLength="50" />
+    <Property Name="FECHARESERVA" Type="date" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>
@@ -102,6 +103,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATALOGO' no tiene definida nin
     <Property Name="EDITORIALDOCUMENTO" Type="varchar2" MaxLength="100" Nullable="false" />
     <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" />
     <Property Name="DISPONIBLES" Type="number" Precision="38" Scale="0" />
+    <Property Name="PRESTADOS_SALA" Type="number" Precision="38" Scale="0" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_CATEGORIASDOC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -337,6 +339,10 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
   <Function Name="PRO_ADD_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
   </Function>
+  <Function Name="PRO_ADD_SOLICITUD_FECHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+    <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
+    <Parameter Name="FECHA" Type="date" Mode="In" />
+  </Function>
   <Function Name="PRO_ADD_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="RUT_USUARIO" Type="varchar2" Mode="In" />
     <Parameter Name="NOMBRES_USUARIO" Type="varchar2" Mode="In" />
@@ -380,7 +386,8 @@ FROM "BIBLIOTECA"."DETALLESOLICITUD" "DETALLESOLICITUD"</DefiningQuery>
 "V_CATALOGO"."CATEGORIADOCUMENTO" AS "CATEGORIADOCUMENTO", 
 "V_CATALOGO"."EDITORIALDOCUMENTO" AS "EDITORIALDOCUMENTO", 
 "V_CATALOGO"."CANTIDAD" AS "CANTIDAD", 
-"V_CATALOGO"."DISPONIBLES" AS "DISPONIBLES"
+"V_CATALOGO"."DISPONIBLES" AS "DISPONIBLES", 
+"V_CATALOGO"."PRESTADOS_SALA" AS "PRESTADOS_SALA"
 FROM "BIBLIOTECA"."V_CATALOGO" "V_CATALOGO"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_CATEGORIASDOC" EntityType="Self.V_CATEGORIASDOC" store:Type="Views" store:Schema="BIBLIOTECA">

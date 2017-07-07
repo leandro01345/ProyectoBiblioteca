@@ -75,5 +75,29 @@ namespace BibliotecaWeb
             Session["idListCarro"] = null;
             Response.AppendHeader("Refresh", "1");
         }
+
+        protected void DateChange(object sender, EventArgs e)
+        {
+            txtFecha.Text = Calendar1.SelectedDate.ToLongDateString();
+            DateTime date = Calendar1.SelectedDate;
+        }
+
+        protected void chkReservaFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkReservaFecha.Checked)
+            {
+                Calendar1.Enabled = true;
+                Calendar1.Visible = true;
+                txtFecha.Enabled = true;
+                txtFecha.Visible = true;
+            }
+            else
+            {
+                Calendar1.Enabled = false;
+                Calendar1.Visible = false;
+                txtFecha.Enabled = false;
+                txtFecha.Visible = false;
+            }
+        }
     }
 }

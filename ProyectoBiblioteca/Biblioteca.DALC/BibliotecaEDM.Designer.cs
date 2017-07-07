@@ -891,6 +891,36 @@ namespace Biblioteca.DALC
     
             return base.ExecuteFunction("PRO_RECHAZAR_PRESTAMO", iD_EJEMPLARParameter, iD_SOLICITUDParameter);
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="iD_USUARIO">No hay documentación de metadatos disponible.</param>
+        /// <param name="fECHA">No hay documentación de metadatos disponible.</param>
+        public int PRO_ADD_SOLICITUD_FECHA(Nullable<global::System.Decimal> iD_USUARIO, Nullable<global::System.DateTime> fECHA)
+        {
+            ObjectParameter iD_USUARIOParameter;
+            if (iD_USUARIO.HasValue)
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", iD_USUARIO);
+            }
+            else
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", typeof(global::System.Decimal));
+            }
+    
+            ObjectParameter fECHAParameter;
+            if (fECHA.HasValue)
+            {
+                fECHAParameter = new ObjectParameter("FECHA", fECHA);
+            }
+            else
+            {
+                fECHAParameter = new ObjectParameter("FECHA", typeof(global::System.DateTime));
+            }
+    
+            return base.ExecuteFunction("PRO_ADD_SOLICITUD_FECHA", iD_USUARIOParameter, fECHAParameter);
+        }
 
         #endregion
 
@@ -2021,6 +2051,30 @@ namespace Biblioteca.DALC
         private global::System.String _ESTADOSOLICITUD;
         partial void OnESTADOSOLICITUDChanging(global::System.String value);
         partial void OnESTADOSOLICITUDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FECHARESERVA
+        {
+            get
+            {
+                return _FECHARESERVA;
+            }
+            set
+            {
+                OnFECHARESERVAChanging(value);
+                ReportPropertyChanging("FECHARESERVA");
+                _FECHARESERVA = StructuralObject.SetValidValue(value, "FECHARESERVA");
+                ReportPropertyChanged("FECHARESERVA");
+                OnFECHARESERVAChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FECHARESERVA;
+        partial void OnFECHARESERVAChanging(Nullable<global::System.DateTime> value);
+        partial void OnFECHARESERVAChanged();
 
         #endregion
 
@@ -2750,6 +2804,30 @@ namespace Biblioteca.DALC
         private global::System.String _EDITORIALDOCUMENTO;
         partial void OnEDITORIALDOCUMENTOChanging(global::System.String value);
         partial void OnEDITORIALDOCUMENTOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PRESTADOS_SALA
+        {
+            get
+            {
+                return _PRESTADOS_SALA;
+            }
+            set
+            {
+                OnPRESTADOS_SALAChanging(value);
+                ReportPropertyChanging("PRESTADOS_SALA");
+                _PRESTADOS_SALA = StructuralObject.SetValidValue(value, "PRESTADOS_SALA");
+                ReportPropertyChanged("PRESTADOS_SALA");
+                OnPRESTADOS_SALAChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PRESTADOS_SALA;
+        partial void OnPRESTADOS_SALAChanging(Nullable<global::System.Decimal> value);
+        partial void OnPRESTADOS_SALAChanged();
 
         #endregion
 

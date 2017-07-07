@@ -62,6 +62,7 @@
     <NavigationProperty Name="USUARIO" Relationship="Self.SOLICITUDPRESTAMO_USUARIO_FK" FromRole="SOLICITUD" ToRole="USUARIO" />
     <NavigationProperty Name="EJEMPLAR" Relationship="Self.DETALLESOLICITUD" FromRole="SOLICITUD" ToRole="EJEMPLAR" />
     <Property Name="ESTADOSOLICITUD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHARESERVA" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>
@@ -212,6 +213,10 @@
       <Parameter Name="ID_EJEMPLAR" Mode="In" Type="Decimal" />
       <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
     </FunctionImport>
+    <FunctionImport Name="PRO_ADD_SOLICITUD_FECHA">
+      <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+      <Parameter Name="FECHA" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -260,6 +265,7 @@
     <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="DISPONIBLES" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="EDITORIALDOCUMENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PRESTADOS_SALA" Type="Decimal" Precision="38" Scale="0" />
   </EntityType>
   <EntityType Name="V_DOC_EJEMPLAR_DISPONIBLE">
     <Key>

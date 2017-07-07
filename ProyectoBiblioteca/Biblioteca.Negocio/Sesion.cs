@@ -90,7 +90,7 @@ namespace Biblioteca.Negocio
 
             {
 
-                sb.Append(hash[i].ToString());
+                sb.Append(hash[i].ToString("x2"));
 
             }
 

@@ -26,7 +26,7 @@
         <EntityTypeShape EntityType="BibliotecaModel.V_DETALLE_EJEMPLAR_TITULO" Width="3.125" PointX="3.375" PointY="8.75" />
         <AssociationConnector Association="BibliotecaModel.PRESTAMO_USUARIO_FK" />
         <EntityTypeShape EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS" Width="1.5" PointX="8.75" PointY="7.75" />
-        <EntityTypeShape EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_SALA" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_SALA" Width="1.5" PointX="6.875" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

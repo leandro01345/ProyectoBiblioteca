@@ -32,14 +32,18 @@
                     <asp:Label ID="lblVacio" runat="server"></asp:Label>
                     </td>
                 <td __designer:mapid="3c" class="auto-style8">
-                    &nbsp;</td>
+                    Reservar para fecha específica<asp:CheckBox ID="chkReservaFecha" runat="server" AutoPostBack="True" OnCheckedChanged="chkReservaFecha_CheckedChanged" />
+                </td>
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style6">&nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style7">
                     &nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style8">
-                    &nbsp;</td>
+                    <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="DateChange" Visible="False">
+                    </asp:Calendar>
+                    <asp:TextBox ID="txtFecha" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
+                </td>
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
@@ -66,7 +70,7 @@
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">
-                    <asp:Label ID="lblPrueba" runat="server"></asp:Label>
+                    <asp:Label ID="lblPrueba" runat="server" Visible="False"></asp:Label>
                 </td>
                 <td __designer:mapid="3c" class="auto-style5">
                     <asp:Label ID="lblError" runat="server"></asp:Label>
