@@ -31,6 +31,10 @@ namespace BibliotecaWeb
                 urlNuevoUsuario2.Visible = false;
                 urlSolicitudes1.Visible = false;
                 urlSolicitudes2.Visible = false;
+                urlPrestamos1.Visible = false;
+                dropdownSolicitudes.Visible = false;
+                dropdownEjemplares.Visible = false;
+                dropDownUsuarios.Visible = false;
             }
             if (Session["TipoSesion"].ToString().Equals("admin"))
             {
@@ -38,6 +42,7 @@ namespace BibliotecaWeb
                 urlNuevoUsuario2.Visible = true;
                 urlUsuarios1.Visible = true;
                 urlUsuarios2.Visible = true;
+                dropDownUsuarios.Visible = true;
             }
             if (Session["TipoSesion"].ToString().Equals("bibliotecario"))
             {
@@ -51,6 +56,9 @@ namespace BibliotecaWeb
                 urlNuevoEjemplar2.Visible = true;
                 urlSolicitudes1.Visible = true;
                 urlSolicitudes2.Visible = true;
+                urlPrestamos1.Visible = true;
+                dropdownSolicitudes.Visible = true;
+                dropdownEjemplares.Visible = true;
             }
         }
     }

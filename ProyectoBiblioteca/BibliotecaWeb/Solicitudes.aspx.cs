@@ -37,7 +37,7 @@ namespace BibliotecaWeb
             BibliotecaSvc.Service1Client servicio = new BibliotecaSvc.Service1Client();
             int idSolicitud = int.Parse(lblIdSoli.Text);
             int idUsuario = int.Parse(lblIdUsuario.Text);
-            string tipoPrestamo = "domicilio";
+            string tipoPrestamo = cboTipoPrestamo.SelectedValue;
             DateTime fechaDevolucion = DateTime.Now;
             fechaDevolucion = fechaDevolucion.AddDays(14);
 

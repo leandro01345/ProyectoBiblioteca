@@ -31,6 +31,15 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Control dropdownEjemplares.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton dropdownEjemplares;
+        
+        /// <summary>
         /// Control urlEjemplares1.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,42 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.HyperLink urlNuevoDoc1;
         
         /// <summary>
+        /// Control dropdownSolicitudes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton dropdownSolicitudes;
+        
+        /// <summary>
+        /// Control urlSolicitudes1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink urlSolicitudes1;
+        
+        /// <summary>
+        /// Control urlPrestamos1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink urlPrestamos1;
+        
+        /// <summary>
+        /// Control dropDownUsuarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton dropDownUsuarios;
+        
+        /// <summary>
         /// Control urlUsuarios1.
         /// </summary>
         /// <remarks>
@@ -83,15 +128,6 @@ namespace BibliotecaWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink urlNuevoUsuario1;
-        
-        /// <summary>
-        /// Control urlSolicitudes1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink urlSolicitudes1;
         
         /// <summary>
         /// Control urlCatalogo1.

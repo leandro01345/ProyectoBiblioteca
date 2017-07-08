@@ -41,29 +41,44 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <div class="dropdown">
-  
-</div>
-
-          <!--<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownEjemplares" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Ejemplares
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" runat="server" type="button" id="dropdownEjemplares" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Administrar colección
     <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownEjemplares">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
+              <li><asp:HyperLink runat="server" NavigateUrl="Ejemplares.aspx" ID="urlEjemplares1">Administrar Ejemplares</asp:HyperLink></li>
+              <li><asp:HyperLink runat="server" NavigateUrl="NuevoEjemplar.aspx" ID="urlNuevoEjemplar1">Nuevo Ejemplar</asp:HyperLink></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-          </ul>-->
+              <li><asp:HyperLink runat="server" NavigateUrl="Documentos.aspx" ID="urlDocumentos1">Administrar Documentos</asp:HyperLink></li>
+              <li><asp:HyperLink runat="server" NavigateUrl="NuevoDocumento.aspx" ID="urlNuevoDoc1">Nuevo Documento</asp:HyperLink></li>
+          </ul>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" runat="server" type="button" id="dropdownSolicitudes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Solicitudes y préstamos
+    <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownEjemplares">
+              <li><asp:HyperLink runat="server" NavigateUrl="Solicitudes.aspx" ID="urlSolicitudes1">Solicitudes de préstamo</asp:HyperLink></li>
+              <li><asp:HyperLink runat="server" NavigateUrl="Prestamos.aspx" ID="urlPrestamos1">Préstamos</asp:HyperLink></li>
+          </ul>
+</div>          
       
-      <asp:HyperLink runat="server" NavigateUrl="Ejemplares.aspx" ID="urlEjemplares1" class="mdl-navigation__link">Administrar Ejemplares</asp:HyperLink>
-      <asp:HyperLink runat="server" NavigateUrl="NuevoEjemplar.aspx" ID="urlNuevoEjemplar1" class="mdl-navigation__link">Nuevo Ejemplar</asp:HyperLink>
-      <asp:HyperLink runat="server" NavigateUrl="Documentos.aspx" ID="urlDocumentos1" class="mdl-navigation__link">Administrar Documentos</asp:HyperLink>
-      <asp:HyperLink runat="server" NavigateUrl="NuevoDocumento.aspx" ID="urlNuevoDoc1" class="mdl-navigation__link">Nuevo Documento</asp:HyperLink>
-      <asp:HyperLink runat="server" NavigateUrl="Usuarios.aspx" ID="urlUsuarios1" class="mdl-navigation__link">Administrar Usuarios</asp:HyperLink>
-      <asp:HyperLink runat="server" NavigateUrl="NuevoUsuario.aspx" ID="urlNuevoUsuario1" class="mdl-navigation__link">Nuevo Usuario</asp:HyperLink>
-      <asp:HyperLink runat="server" NavigateUrl="Solicitudes.aspx" ID="urlSolicitudes1" class="mdl-navigation__link">Solicitudes de préstamo</asp:HyperLink>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" runat="server" type="button" id="dropDownUsuarios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Cuentas de usuarios
+    <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownEjemplares">
+              <li><asp:HyperLink runat="server" NavigateUrl="Usuarios.aspx" ID="urlUsuarios1">Administrar Usuarios</asp:HyperLink></li>
+              <li><asp:HyperLink runat="server" NavigateUrl="NuevoUsuario.aspx" ID="urlNuevoUsuario1">Nuevo Usuario</asp:HyperLink></li>
+          </ul>
+</div>       
+      
+      
+      
       <asp:HyperLink runat="server" NavigateUrl="Catalogo.aspx" ID="urlCatalogo1" class="mdl-navigation__link">Consulta de Catálogo</asp:HyperLink>
       <asp:HyperLink runat="server" NavigateUrl="Carro.aspx" ID="urlCarro1" class="mdl-navigation__link">Carro</asp:HyperLink>
       

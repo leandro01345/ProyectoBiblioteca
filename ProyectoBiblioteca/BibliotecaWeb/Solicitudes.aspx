@@ -99,9 +99,9 @@
                     <asp:GridView ID="grdDetalles" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdDocumentos_SelectedIndexChanged" CssClass="table">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField DataField="SOLICITUD_IDSOLICITUD" HeaderText="SOLICITUD_IDSOLICITUD" SortExpression="SOLICITUD_IDSOLICITUD" />
-                            <asp:BoundField DataField="EJEMPLAR_IDEJEMPLAR" HeaderText="EJEMPLAR_IDEJEMPLAR" SortExpression="EJEMPLAR_IDEJEMPLAR" />
-                            <asp:BoundField DataField="TITULO" HeaderText="TITULO" SortExpression="TITULO" />
+                            <asp:BoundField DataField="SOLICITUD_IDSOLICITUD" HeaderText="Id de solicitud" SortExpression="SOLICITUD_IDSOLICITUD" />
+                            <asp:BoundField DataField="EJEMPLAR_IDEJEMPLAR" HeaderText="Id del ejemplar" SortExpression="EJEMPLAR_IDEJEMPLAR" />
+                            <asp:BoundField DataField="TITULO" HeaderText="Título" SortExpression="TITULO" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -119,11 +119,40 @@
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style5">
+                    Rut del usuario:</td>
+                <td __designer:mapid="3c">
+                    <asp:TextBox ID="txtRut" runat="server"></asp:TextBox>
+                    -<asp:TextBox ID="txtDv" runat="server" Width="16px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr __designer:mapid="3a">
+                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
+                <td __designer:mapid="3c" class="auto-style5">
+                    Huella del usuario:
+                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                </td>
+                <td __designer:mapid="3c">
+                    &nbsp;</td>
+            </tr>
+            <tr __designer:mapid="3a">
+                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
+                <td __designer:mapid="3c" class="auto-style5">
+                    Tipo de préstamo:</td>
+                <td __designer:mapid="3c">
+                    <asp:DropDownList ID="cboTipoPrestamo" runat="server">
+                        <asp:ListItem Value="sala">Sala</asp:ListItem>
+                        <asp:ListItem Value="domicilio">Domicilio</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr __designer:mapid="3a">
+                <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
+                <td __designer:mapid="3c" class="auto-style5">
                     <asp:Button ID="btnGenerarPrestamo" runat="server" Text="Generar préstamos" OnClick="btnGenerarPrestamo_Click" />
                 </td>
                 <td __designer:mapid="3c">
                     <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Rechazar solicitud" OnClick="btnCancelarSolicitud_Click" />
-                    <asp:HyperLink runat="server" NavigateUrl="Prestamos.aspx" ID="urlPrestamos" class="mdl-navigation__link">Administrar Préstamos</asp:HyperLink>
+                    
                 </td>
             </tr>
             <tr __designer:mapid="3a">
