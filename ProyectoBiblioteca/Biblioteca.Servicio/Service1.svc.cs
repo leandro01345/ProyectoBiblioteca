@@ -142,5 +142,11 @@ namespace Biblioteca.Servicio
             Solicitud sol = new Solicitud();
             return sol.Rechazar(idSol, idEj);
         }
+
+        public string GetEmailUsuario(int idUsuario)
+        {
+            Usuario us = new Usuario();
+            return us.getEmail(idUsuario);
+        }
     }
 }

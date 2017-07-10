@@ -132,6 +132,12 @@
   <wsdl:message name="IService1_RechazarSolicitud_OutputMessage">
     <wsdl:part name="parameters" element="tns:RechazarSolicitudResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetEmailUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEmailUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Logear">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logear" message="tns:IService1_Logear_InputMessage" />
@@ -216,6 +222,10 @@
     <wsdl:operation name="RechazarSolicitud">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RechazarSolicitud" message="tns:IService1_RechazarSolicitud_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RechazarSolicitudResponse" message="tns:IService1_RechazarSolicitud_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEmailUsuario" message="tns:IService1_GetEmailUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEmailUsuarioResponse" message="tns:IService1_GetEmailUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -402,6 +412,15 @@
     </wsdl:operation>
     <wsdl:operation name="RechazarSolicitud">
       <soap:operation soapAction="http://tempuri.org/IService1/RechazarSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEmailUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

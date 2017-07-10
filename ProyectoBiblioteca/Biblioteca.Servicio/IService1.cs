@@ -56,6 +56,8 @@ namespace Biblioteca.Servicio
         bool EliminarUsuario(int id);
         [OperationContract]
         bool RechazarSolicitud(int idSol, int idEj);
+        [OperationContract]
+        string GetEmailUsuario(int idUsuario);
     }
 
 

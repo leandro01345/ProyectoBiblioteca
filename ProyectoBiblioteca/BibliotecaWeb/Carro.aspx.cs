@@ -78,8 +78,27 @@ namespace BibliotecaWeb
 
         protected void DateChange(object sender, EventArgs e)
         {
-            txtFecha.Text = Calendar1.SelectedDate.ToLongDateString();
+            
             DateTime date = Calendar1.SelectedDate;
+            date = date.Date + new TimeSpan(0, 0, 0);
+            DateTime todayDate = DateTime.Now;
+            todayDate = todayDate.Date + new TimeSpan(0, 0, 0);
+            txtFecha.Text = Calendar1.SelectedDate.ToLongDateString();
+            int dias = (int)(date - todayDate).TotalDays;
+            lblMsgFecha.Text = "Reserva dentro de: " + dias + " días";
+            
+            if (todayDate >= date)
+            {
+                Calendar1.SelectedDate = DateTime.Now;
+                lblMsgFecha.Text = "La fecha de reserva debe ser posterior a la fecha actual";
+                txtFecha.Text = String.Empty;
+                dias = 0;
+            } else if (dias > 28) {
+                lblMsgFecha.Text = "La fecha de reserva no debe ser superior a 4 semanas a partir de la fecha actual.";
+                txtFecha.Text = String.Empty;
+                dias = 0;
+            }
+            
         }
 
         protected void chkReservaFecha_CheckedChanged(object sender, EventArgs e)
@@ -90,6 +109,7 @@ namespace BibliotecaWeb
                 Calendar1.Visible = true;
                 txtFecha.Enabled = true;
                 txtFecha.Visible = true;
+                lblMsgFecha.Visible = true;
             }
             else
             {
@@ -97,6 +117,7 @@ namespace BibliotecaWeb
                 Calendar1.Visible = false;
                 txtFecha.Enabled = false;
                 txtFecha.Visible = false;
+                lblMsgFecha.Visible = false;
             }
         }
     }

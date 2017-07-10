@@ -203,5 +203,18 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="PRO_RECHAZAR_PRESTAMO" FunctionName="BibliotecaModel.Store.PRO_RECHAZAR_PRESTAMO" />
     <FunctionImportMapping FunctionImportName="PRO_ADD_SOLICITUD_FECHA" FunctionName="BibliotecaModel.Store.PRO_ADD_SOLICITUD_FECHA" />
+    <EntitySetMapping Name="V_PRESTAMOS_VENCIDOS_DOMICILIO">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO">
+        <MappingFragment StoreEntitySet="V_PRESTAMOS_VENCIDOS_DOMICILIO">
+          <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+          <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
+          <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
+          <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
+          <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
+          <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+          <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -42,7 +42,9 @@
                 <td __designer:mapid="3c" class="auto-style8">
                     <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="DateChange" Visible="False">
                     </asp:Calendar>
-                    <asp:TextBox ID="txtFecha" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
+                    <asp:TextBox ID="txtFecha" runat="server" ReadOnly="True" Visible="False" Width="180px"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="lblMsgFecha" runat="server" Visible="False"></asp:Label>
                 </td>
             </tr>
             <tr __designer:mapid="3a">

@@ -103,6 +103,15 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.HyperLink urlPrestamos1;
         
         /// <summary>
+        /// Control urlDevoluciones1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink urlDevoluciones1;
+        
+        /// <summary>
         /// Control dropDownUsuarios.
         /// </summary>
         /// <remarks>

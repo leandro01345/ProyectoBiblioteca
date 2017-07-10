@@ -140,6 +140,12 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RechazarSolicitud", ReplyAction="http://tempuri.org/IService1/RechazarSolicitudResponse")]
         System.Threading.Tasks.Task<bool> RechazarSolicitudAsync(int idSol, int idEj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEmailUsuario", ReplyAction="http://tempuri.org/IService1/GetEmailUsuarioResponse")]
+        string GetEmailUsuario(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEmailUsuario", ReplyAction="http://tempuri.org/IService1/GetEmailUsuarioResponse")]
+        System.Threading.Tasks.Task<string> GetEmailUsuarioAsync(int idUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -335,6 +341,14 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         public System.Threading.Tasks.Task<bool> RechazarSolicitudAsync(int idSol, int idEj) {
             return base.Channel.RechazarSolicitudAsync(idSol, idEj);
+        }
+        
+        public string GetEmailUsuario(int idUsuario) {
+            return base.Channel.GetEmailUsuario(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetEmailUsuarioAsync(int idUsuario) {
+            return base.Channel.GetEmailUsuarioAsync(idUsuario);
         }
     }
 }

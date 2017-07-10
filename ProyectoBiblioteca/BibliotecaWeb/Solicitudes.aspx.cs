@@ -25,6 +25,7 @@ namespace BibliotecaWeb
             lblIdSoli.Text = row.Cells[1].Text;
             txtID.Text = lblIdSoli.Text;
             lblIdUsuario.Text = row.Cells[2].Text;
+            txtNombre.Text = row.Cells[3].Text;
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)

@@ -173,6 +173,24 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_PRESTAMOS_VENCIDOS' no tiene de
           <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_PRESTAMOS_VENCIDOS_DOMICILIO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_PRESTAMOS_VENCIDOS_DOMICILIO">
+          <Key>
+            <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+            <PropertyRef Name="IDPRESTAMO" />
+            <PropertyRef Name="TIPOPRESTAMO" />
+            <PropertyRef Name="FECHAPRESTAMO" />
+            <PropertyRef Name="FECHADEVOLUCIONPRESTAMO" />
+          </Key>
+          <Property Name="EJEMPLAR_IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDPRESTAMO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOPRESTAMO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="FECHAPRESTAMO" Type="date" Nullable="false" />
+          <Property Name="FECHADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
+          <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="date" />
+          <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_PRESTAMOS_VENCIDOS_SALA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="V_PRESTAMOS_VENCIDOS_SALA">
           <Key>
@@ -432,6 +450,17 @@ FROM "BIBLIOTECA"."V_EJEMPLARES" "V_EJEMPLARES"</DefiningQuery>
 "V_PRESTAMOS_VENCIDOS"."FECHADEVOLUCIONREALPRESTAMO" AS "FECHADEVOLUCIONREALPRESTAMO", 
 "V_PRESTAMOS_VENCIDOS"."USUARIO_IDUSUARIO" AS "USUARIO_IDUSUARIO"
 FROM "BIBLIOTECA"."V_PRESTAMOS_VENCIDOS" "V_PRESTAMOS_VENCIDOS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_PRESTAMOS_VENCIDOS_DOMICILIO" EntityType="Self.V_PRESTAMOS_VENCIDOS_DOMICILIO" store:Type="Views" store:Schema="BIBLIOTECA">
+            <DefiningQuery>SELECT 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."EJEMPLAR_IDEJEMPLAR" AS "EJEMPLAR_IDEJEMPLAR", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."IDPRESTAMO" AS "IDPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."TIPOPRESTAMO" AS "TIPOPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."FECHAPRESTAMO" AS "FECHAPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."FECHADEVOLUCIONPRESTAMO" AS "FECHADEVOLUCIONPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."FECHADEVOLUCIONREALPRESTAMO" AS "FECHADEVOLUCIONREALPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."USUARIO_IDUSUARIO" AS "USUARIO_IDUSUARIO"
+FROM "BIBLIOTECA"."V_PRESTAMOS_VENCIDOS_DOMICILIO" "V_PRESTAMOS_VENCIDOS_DOMICILIO"</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_PRESTAMOS_VENCIDOS_SALA" EntityType="Self.V_PRESTAMOS_VENCIDOS_SALA" store:Type="Views" store:Schema="BIBLIOTECA">
             <DefiningQuery>SELECT 
@@ -718,6 +747,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
             <Parameter Name="FECHA" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="V_PRESTAMOS_VENCIDOS_DOMICILIO" EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO" />
         </EntityContainer>
         <EntityType Name="V_EJEMPLARES">
           <Key>
@@ -848,6 +878,22 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="V_PRESTAMOS_VENCIDOS_SALA">
+          <Key>
+            <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+            <PropertyRef Name="IDPRESTAMO" />
+            <PropertyRef Name="TIPOPRESTAMO" />
+            <PropertyRef Name="FECHAPRESTAMO" />
+            <PropertyRef Name="FECHADEVOLUCIONPRESTAMO" />
+          </Key>
+          <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDPRESTAMO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TIPOPRESTAMO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FECHAPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
+          <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="V_PRESTAMOS_VENCIDOS_DOMICILIO">
           <Key>
             <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
             <PropertyRef Name="IDPRESTAMO" />
@@ -1071,6 +1117,19 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PRO_RECHAZAR_PRESTAMO" FunctionName="BibliotecaModel.Store.PRO_RECHAZAR_PRESTAMO" />
           <FunctionImportMapping FunctionImportName="PRO_ADD_SOLICITUD_FECHA" FunctionName="BibliotecaModel.Store.PRO_ADD_SOLICITUD_FECHA" />
+          <EntitySetMapping Name="V_PRESTAMOS_VENCIDOS_DOMICILIO">
+            <EntityTypeMapping TypeName="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO">
+              <MappingFragment StoreEntitySet="V_PRESTAMOS_VENCIDOS_DOMICILIO">
+                <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+                <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
+                <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
+                <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
+                <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
+                <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+                <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -157,5 +157,19 @@ namespace Biblioteca.Negocio
 
         }
 
+        public string getEmail(int idUsuario)
+        {
+            try
+            {
+                Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
+                   (u => u.IDUSUARIO == idUsuario);
+                return us.EMAILUSUARIO;
+            }
+            catch (Exception)
+            {
+                return String.Empty;
+            }
+        }
+
     }
 }

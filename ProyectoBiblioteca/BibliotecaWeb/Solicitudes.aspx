@@ -47,7 +47,7 @@
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDSOLICITUD" HeaderText="Id Solicitud" SortExpression="IDSOLICITUD" />
                             <asp:BoundField DataField="IDUSUARIO" HeaderText="Id Usuario" SortExpression="IDUSUARIO" />
-                            <asp:BoundField DataField="NOMBREUSUARIO" HeaderText="Nombre de usuario" SortExpression="NOMBREUSUARIO" />
+                            <asp:BoundField DataField="NOMBREUSUARIO" HeaderText="Nombre de usuario" SortExpression="NOMBREUSUARIO" HtmlEncode="False"/>
                             <asp:BoundField DataField="FECHA" HeaderText="Fecha" SortExpression="FECHA" />
                             <asp:BoundField DataField="HORA" HeaderText="Hora" SortExpression="HORA" />
                         </Columns>
@@ -88,6 +88,14 @@
                     </td>
             </tr>
             <tr __designer:mapid="3a">
+                <td __designer:mapid="3b" class="auto-style6">&nbsp;</td>
+                <td __designer:mapid="3c" class="auto-style7">
+                    Nombre de usuario</td>
+                <td __designer:mapid="3c" class="auto-style8">
+                    <asp:TextBox ID="txtNombre" runat="server" Enabled="False"></asp:TextBox>
+                    </td>
+            </tr>
+            <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style6">
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_DETALLE_EJEMPLAR_TITULO&quot;" FilterExpression="SOLICITUD_IDSOLICITUD={0}">
                        <FilterParameters>
@@ -99,8 +107,8 @@
                     <asp:GridView ID="grdDetalles" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdDocumentos_SelectedIndexChanged" CssClass="table">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField DataField="SOLICITUD_IDSOLICITUD" HeaderText="Id de solicitud" SortExpression="SOLICITUD_IDSOLICITUD" />
-                            <asp:BoundField DataField="EJEMPLAR_IDEJEMPLAR" HeaderText="Id del ejemplar" SortExpression="EJEMPLAR_IDEJEMPLAR" />
+                            <asp:BoundField DataField="SOLICITUD_IDSOLICITUD" HeaderText="Id Solicitud" SortExpression="SOLICITUD_IDSOLICITUD" />
+                            <asp:BoundField DataField="EJEMPLAR_IDEJEMPLAR" HeaderText="Id Ejemplar" SortExpression="EJEMPLAR_IDEJEMPLAR" />
                             <asp:BoundField DataField="TITULO" HeaderText="Título" SortExpression="TITULO" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />

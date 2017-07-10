@@ -168,6 +168,24 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_PRESTAMOS_VENCIDOS' no tiene de
     <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_PRESTAMOS_VENCIDOS_DOMICILIO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="V_PRESTAMOS_VENCIDOS_DOMICILIO">
+    <Key>
+      <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+      <PropertyRef Name="IDPRESTAMO" />
+      <PropertyRef Name="TIPOPRESTAMO" />
+      <PropertyRef Name="FECHAPRESTAMO" />
+      <PropertyRef Name="FECHADEVOLUCIONPRESTAMO" />
+    </Key>
+    <Property Name="EJEMPLAR_IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDPRESTAMO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPOPRESTAMO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="FECHAPRESTAMO" Type="date" Nullable="false" />
+    <Property Name="FECHADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
+    <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="date" />
+    <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_PRESTAMOS_VENCIDOS_SALA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="V_PRESTAMOS_VENCIDOS_SALA">
     <Key>
@@ -427,6 +445,17 @@ FROM "BIBLIOTECA"."V_EJEMPLARES" "V_EJEMPLARES"</DefiningQuery>
 "V_PRESTAMOS_VENCIDOS"."FECHADEVOLUCIONREALPRESTAMO" AS "FECHADEVOLUCIONREALPRESTAMO", 
 "V_PRESTAMOS_VENCIDOS"."USUARIO_IDUSUARIO" AS "USUARIO_IDUSUARIO"
 FROM "BIBLIOTECA"."V_PRESTAMOS_VENCIDOS" "V_PRESTAMOS_VENCIDOS"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_PRESTAMOS_VENCIDOS_DOMICILIO" EntityType="Self.V_PRESTAMOS_VENCIDOS_DOMICILIO" store:Type="Views" store:Schema="BIBLIOTECA">
+      <DefiningQuery>SELECT 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."EJEMPLAR_IDEJEMPLAR" AS "EJEMPLAR_IDEJEMPLAR", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."IDPRESTAMO" AS "IDPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."TIPOPRESTAMO" AS "TIPOPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."FECHAPRESTAMO" AS "FECHAPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."FECHADEVOLUCIONPRESTAMO" AS "FECHADEVOLUCIONPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."FECHADEVOLUCIONREALPRESTAMO" AS "FECHADEVOLUCIONREALPRESTAMO", 
+"V_PRESTAMOS_VENCIDOS_DOMICILIO"."USUARIO_IDUSUARIO" AS "USUARIO_IDUSUARIO"
+FROM "BIBLIOTECA"."V_PRESTAMOS_VENCIDOS_DOMICILIO" "V_PRESTAMOS_VENCIDOS_DOMICILIO"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_PRESTAMOS_VENCIDOS_SALA" EntityType="Self.V_PRESTAMOS_VENCIDOS_SALA" store:Type="Views" store:Schema="BIBLIOTECA">
       <DefiningQuery>SELECT 

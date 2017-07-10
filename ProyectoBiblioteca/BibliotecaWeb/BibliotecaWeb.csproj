@@ -90,6 +90,7 @@
     <Content Include="Css\style.css" />
     <Content Include="Css\StyleSheet.css" />
     <Content Include="Css\StyleSheet1.css" />
+    <Content Include="Devolucion.aspx" />
     <Content Include="Documentos.aspx" />
     <Content Include="Ejemplares.aspx" />
     <Content Include="font-awesome\css\font-awesome.css" />
@@ -224,6 +225,13 @@
     </Compile>
     <Compile Include="Catalogo.aspx.designer.cs">
       <DependentUpon>Catalogo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Devolucion.aspx.cs">
+      <DependentUpon>Devolucion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Devolucion.aspx.designer.cs">
+      <DependentUpon>Devolucion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Documentos.aspx.cs">
       <DependentUpon>Documentos.aspx</DependentUpon>

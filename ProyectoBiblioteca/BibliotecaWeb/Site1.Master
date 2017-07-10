@@ -63,6 +63,7 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownEjemplares">
               <li><asp:HyperLink runat="server" NavigateUrl="Solicitudes.aspx" ID="urlSolicitudes1">Solicitudes de préstamo</asp:HyperLink></li>
               <li><asp:HyperLink runat="server" NavigateUrl="Prestamos.aspx" ID="urlPrestamos1">Préstamos</asp:HyperLink></li>
+              <li><asp:HyperLink runat="server" NavigateUrl="Devolucion.aspx" ID="urlDevoluciones1">Devoluciones</asp:HyperLink></li>
           </ul>
 </div>          
       
