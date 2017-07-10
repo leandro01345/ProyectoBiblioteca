@@ -347,6 +347,22 @@ namespace Biblioteca.DALC
             }
         }
         private ObjectSet<V_PRESTAMOS_VENCIDOS_DOMICILIO> _V_PRESTAMOS_VENCIDOS_DOMICILIO;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<V_PRESTAMOS_ACTUALES> V_PRESTAMOS_ACTUALES
+        {
+            get
+            {
+                if ((_V_PRESTAMOS_ACTUALES == null))
+                {
+                    _V_PRESTAMOS_ACTUALES = base.CreateObjectSet<V_PRESTAMOS_ACTUALES>("V_PRESTAMOS_ACTUALES");
+                }
+                return _V_PRESTAMOS_ACTUALES;
+            }
+        }
+        private ObjectSet<V_PRESTAMOS_ACTUALES> _V_PRESTAMOS_ACTUALES;
 
         #endregion
 
@@ -486,6 +502,14 @@ namespace Biblioteca.DALC
         public void AddToV_PRESTAMOS_VENCIDOS_DOMICILIO(V_PRESTAMOS_VENCIDOS_DOMICILIO v_PRESTAMOS_VENCIDOS_DOMICILIO)
         {
             base.AddObject("V_PRESTAMOS_VENCIDOS_DOMICILIO", v_PRESTAMOS_VENCIDOS_DOMICILIO);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet V_PRESTAMOS_ACTUALES. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToV_PRESTAMOS_ACTUALES(V_PRESTAMOS_ACTUALES v_PRESTAMOS_ACTUALES)
+        {
+            base.AddObject("V_PRESTAMOS_ACTUALES", v_PRESTAMOS_ACTUALES);
         }
 
         #endregion
@@ -3017,6 +3041,30 @@ namespace Biblioteca.DALC
         private global::System.String _TITULO;
         partial void OnTITULOChanging(global::System.String value);
         partial void OnTITULOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TIPO
+        {
+            get
+            {
+                return _TIPO;
+            }
+            set
+            {
+                OnTIPOChanging(value);
+                ReportPropertyChanging("TIPO");
+                _TIPO = StructuralObject.SetValidValue(value, true, "TIPO");
+                ReportPropertyChanged("TIPO");
+                OnTIPOChanged();
+            }
+        }
+        private global::System.String _TIPO;
+        partial void OnTIPOChanging(global::System.String value);
+        partial void OnTIPOChanged();
 
         #endregion
 
@@ -3269,6 +3317,250 @@ namespace Biblioteca.DALC
         private global::System.Decimal _IDDOCUMENTO;
         partial void OnIDDOCUMENTOChanging(global::System.Decimal value);
         partial void OnIDDOCUMENTOChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="V_PRESTAMOS_ACTUALES")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class V_PRESTAMOS_ACTUALES : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto V_PRESTAMOS_ACTUALES.
+        /// </summary>
+        /// <param name="eJEMPLAR_IDEJEMPLAR">Valor inicial de la propiedad EJEMPLAR_IDEJEMPLAR.</param>
+        /// <param name="iDPRESTAMO">Valor inicial de la propiedad IDPRESTAMO.</param>
+        /// <param name="tIPOPRESTAMO">Valor inicial de la propiedad TIPOPRESTAMO.</param>
+        /// <param name="fECHAPRESTAMO">Valor inicial de la propiedad FECHAPRESTAMO.</param>
+        /// <param name="fECHADEVOLUCIONPRESTAMO">Valor inicial de la propiedad FECHADEVOLUCIONPRESTAMO.</param>
+        public static V_PRESTAMOS_ACTUALES CreateV_PRESTAMOS_ACTUALES(global::System.Decimal eJEMPLAR_IDEJEMPLAR, global::System.Decimal iDPRESTAMO, global::System.String tIPOPRESTAMO, global::System.DateTime fECHAPRESTAMO, global::System.DateTime fECHADEVOLUCIONPRESTAMO)
+        {
+            V_PRESTAMOS_ACTUALES v_PRESTAMOS_ACTUALES = new V_PRESTAMOS_ACTUALES();
+            v_PRESTAMOS_ACTUALES.EJEMPLAR_IDEJEMPLAR = eJEMPLAR_IDEJEMPLAR;
+            v_PRESTAMOS_ACTUALES.IDPRESTAMO = iDPRESTAMO;
+            v_PRESTAMOS_ACTUALES.TIPOPRESTAMO = tIPOPRESTAMO;
+            v_PRESTAMOS_ACTUALES.FECHAPRESTAMO = fECHAPRESTAMO;
+            v_PRESTAMOS_ACTUALES.FECHADEVOLUCIONPRESTAMO = fECHADEVOLUCIONPRESTAMO;
+            return v_PRESTAMOS_ACTUALES;
+        }
+
+        #endregion
+
+        #region Propiedades simples
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal EJEMPLAR_IDEJEMPLAR
+        {
+            get
+            {
+                return _EJEMPLAR_IDEJEMPLAR;
+            }
+            set
+            {
+                if (_EJEMPLAR_IDEJEMPLAR != value)
+                {
+                    OnEJEMPLAR_IDEJEMPLARChanging(value);
+                    ReportPropertyChanging("EJEMPLAR_IDEJEMPLAR");
+                    _EJEMPLAR_IDEJEMPLAR = StructuralObject.SetValidValue(value, "EJEMPLAR_IDEJEMPLAR");
+                    ReportPropertyChanged("EJEMPLAR_IDEJEMPLAR");
+                    OnEJEMPLAR_IDEJEMPLARChanged();
+                }
+            }
+        }
+        private global::System.Decimal _EJEMPLAR_IDEJEMPLAR;
+        partial void OnEJEMPLAR_IDEJEMPLARChanging(global::System.Decimal value);
+        partial void OnEJEMPLAR_IDEJEMPLARChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal IDPRESTAMO
+        {
+            get
+            {
+                return _IDPRESTAMO;
+            }
+            set
+            {
+                if (_IDPRESTAMO != value)
+                {
+                    OnIDPRESTAMOChanging(value);
+                    ReportPropertyChanging("IDPRESTAMO");
+                    _IDPRESTAMO = StructuralObject.SetValidValue(value, "IDPRESTAMO");
+                    ReportPropertyChanged("IDPRESTAMO");
+                    OnIDPRESTAMOChanged();
+                }
+            }
+        }
+        private global::System.Decimal _IDPRESTAMO;
+        partial void OnIDPRESTAMOChanging(global::System.Decimal value);
+        partial void OnIDPRESTAMOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TIPOPRESTAMO
+        {
+            get
+            {
+                return _TIPOPRESTAMO;
+            }
+            set
+            {
+                if (_TIPOPRESTAMO != value)
+                {
+                    OnTIPOPRESTAMOChanging(value);
+                    ReportPropertyChanging("TIPOPRESTAMO");
+                    _TIPOPRESTAMO = StructuralObject.SetValidValue(value, false, "TIPOPRESTAMO");
+                    ReportPropertyChanged("TIPOPRESTAMO");
+                    OnTIPOPRESTAMOChanged();
+                }
+            }
+        }
+        private global::System.String _TIPOPRESTAMO;
+        partial void OnTIPOPRESTAMOChanging(global::System.String value);
+        partial void OnTIPOPRESTAMOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FECHAPRESTAMO
+        {
+            get
+            {
+                return _FECHAPRESTAMO;
+            }
+            set
+            {
+                if (_FECHAPRESTAMO != value)
+                {
+                    OnFECHAPRESTAMOChanging(value);
+                    ReportPropertyChanging("FECHAPRESTAMO");
+                    _FECHAPRESTAMO = StructuralObject.SetValidValue(value, "FECHAPRESTAMO");
+                    ReportPropertyChanged("FECHAPRESTAMO");
+                    OnFECHAPRESTAMOChanged();
+                }
+            }
+        }
+        private global::System.DateTime _FECHAPRESTAMO;
+        partial void OnFECHAPRESTAMOChanging(global::System.DateTime value);
+        partial void OnFECHAPRESTAMOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FECHADEVOLUCIONPRESTAMO
+        {
+            get
+            {
+                return _FECHADEVOLUCIONPRESTAMO;
+            }
+            set
+            {
+                if (_FECHADEVOLUCIONPRESTAMO != value)
+                {
+                    OnFECHADEVOLUCIONPRESTAMOChanging(value);
+                    ReportPropertyChanging("FECHADEVOLUCIONPRESTAMO");
+                    _FECHADEVOLUCIONPRESTAMO = StructuralObject.SetValidValue(value, "FECHADEVOLUCIONPRESTAMO");
+                    ReportPropertyChanged("FECHADEVOLUCIONPRESTAMO");
+                    OnFECHADEVOLUCIONPRESTAMOChanged();
+                }
+            }
+        }
+        private global::System.DateTime _FECHADEVOLUCIONPRESTAMO;
+        partial void OnFECHADEVOLUCIONPRESTAMOChanging(global::System.DateTime value);
+        partial void OnFECHADEVOLUCIONPRESTAMOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FECHADEVOLUCIONREALPRESTAMO
+        {
+            get
+            {
+                return _FECHADEVOLUCIONREALPRESTAMO;
+            }
+            set
+            {
+                OnFECHADEVOLUCIONREALPRESTAMOChanging(value);
+                ReportPropertyChanging("FECHADEVOLUCIONREALPRESTAMO");
+                _FECHADEVOLUCIONREALPRESTAMO = StructuralObject.SetValidValue(value, "FECHADEVOLUCIONREALPRESTAMO");
+                ReportPropertyChanged("FECHADEVOLUCIONREALPRESTAMO");
+                OnFECHADEVOLUCIONREALPRESTAMOChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FECHADEVOLUCIONREALPRESTAMO;
+        partial void OnFECHADEVOLUCIONREALPRESTAMOChanging(Nullable<global::System.DateTime> value);
+        partial void OnFECHADEVOLUCIONREALPRESTAMOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> USUARIO_IDUSUARIO
+        {
+            get
+            {
+                return _USUARIO_IDUSUARIO;
+            }
+            set
+            {
+                OnUSUARIO_IDUSUARIOChanging(value);
+                ReportPropertyChanging("USUARIO_IDUSUARIO");
+                _USUARIO_IDUSUARIO = StructuralObject.SetValidValue(value, "USUARIO_IDUSUARIO");
+                ReportPropertyChanged("USUARIO_IDUSUARIO");
+                OnUSUARIO_IDUSUARIOChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _USUARIO_IDUSUARIO;
+        partial void OnUSUARIO_IDUSUARIOChanging(Nullable<global::System.Decimal> value);
+        partial void OnUSUARIO_IDUSUARIOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NOMBRE_USUARIO
+        {
+            get
+            {
+                return _NOMBRE_USUARIO;
+            }
+            set
+            {
+                OnNOMBRE_USUARIOChanging(value);
+                ReportPropertyChanging("NOMBRE_USUARIO");
+                _NOMBRE_USUARIO = StructuralObject.SetValidValue(value, true, "NOMBRE_USUARIO");
+                ReportPropertyChanged("NOMBRE_USUARIO");
+                OnNOMBRE_USUARIOChanged();
+            }
+        }
+        private global::System.String _NOMBRE_USUARIO;
+        partial void OnNOMBRE_USUARIOChanging(global::System.String value);
+        partial void OnNOMBRE_USUARIOChanged();
 
         #endregion
 

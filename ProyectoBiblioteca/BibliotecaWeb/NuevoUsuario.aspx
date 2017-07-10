@@ -14,10 +14,6 @@
         .auto-style7 {
         width: 499px;
     }
-        .auto-style5 {
-            width: 168px;
-            height: 29px;
-        }
         .auto-style8 {
         width: 499px;
         height: 29px;
@@ -30,6 +26,23 @@
         .auto-style10 {
             width: 499px;
             height: 30px;
+        }
+
+        .auto-style11 {
+            display: block;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
         }
 
     </style>
@@ -48,7 +61,7 @@
             <td __designer:mapid="48" label label-default">Rut:</td>
             <td __designer:mapid="49" class="auto-style10">
                 <asp:TextBox ID="txtRut" cssclass="form-control" runat="server" Width="90px"></asp:TextBox>
-                -<asp:TextBox ID="txtDVRut" cssclass="form-control" runat="server" Width="16px"></asp:TextBox>
+                -<asp:TextBox ID="txtDVRut" cssclass="auto-style11" runat="server" Width="49px"></asp:TextBox>
             </td>
             <td __designer:mapid="49" class="auto-style8">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtRut" ErrorMessage="(*) Obligatorio" CssClass="alert alert-warning" ForeColor="Red"></asp:RequiredFieldValidator>

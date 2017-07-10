@@ -149,7 +149,7 @@ namespace Biblioteca.Negocio
 
             {
 
-                sb.Append(hash[i].ToString());
+                sb.Append(hash[i].ToString("x2"));
 
             }
 
@@ -164,6 +164,20 @@ namespace Biblioteca.Negocio
                 Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
                    (u => u.IDUSUARIO == idUsuario);
                 return us.EMAILUSUARIO;
+            }
+            catch (Exception)
+            {
+                return String.Empty;
+            }
+        }
+
+        public string getRut(int idUsuario)
+        {
+            try
+            {
+                Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
+                   (u => u.IDUSUARIO == idUsuario);
+                return us.RUTUSUARIO;
             }
             catch (Exception)
             {

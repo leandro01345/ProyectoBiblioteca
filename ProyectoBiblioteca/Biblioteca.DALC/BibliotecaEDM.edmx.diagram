@@ -28,6 +28,7 @@
         <EntityTypeShape EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS" Width="1.5" PointX="8.75" PointY="7.75" />
         <EntityTypeShape EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_SALA" Width="1.5" PointX="6.875" PointY="8.75" />
         <EntityTypeShape EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="BibliotecaModel.V_PRESTAMOS_ACTUALES" Width="1.5" PointX="3.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

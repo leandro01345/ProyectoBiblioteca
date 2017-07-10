@@ -110,6 +110,7 @@
                             <asp:BoundField DataField="SOLICITUD_IDSOLICITUD" HeaderText="Id Solicitud" SortExpression="SOLICITUD_IDSOLICITUD" />
                             <asp:BoundField DataField="EJEMPLAR_IDEJEMPLAR" HeaderText="Id Ejemplar" SortExpression="EJEMPLAR_IDEJEMPLAR" />
                             <asp:BoundField DataField="TITULO" HeaderText="Título" SortExpression="TITULO" />
+                            <asp:BoundField DataField="TIPO" HeaderText="Tipo" HtmlEncode="False" SortExpression="TIPO" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -131,6 +132,9 @@
                 <td __designer:mapid="3c">
                     <asp:TextBox ID="txtRut" runat="server"></asp:TextBox>
                     -<asp:TextBox ID="txtDv" runat="server" Width="16px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtRut" ErrorMessage="(*) Obligatorio" CssClass="alert alert-warning" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtRut" ErrorMessage="(*) El Rut debe ser numérico" Operator="DataTypeCheck" Type="Integer" CssClass="alert alert-warning" ForeColor="Red"></asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtDv" ErrorMessage="(*) Debe incluir dígito verificador" CssClass="alert alert-warning" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr __designer:mapid="3a">
@@ -147,7 +151,7 @@
                 <td __designer:mapid="3c" class="auto-style5">
                     Tipo de préstamo:</td>
                 <td __designer:mapid="3c">
-                    <asp:DropDownList ID="cboTipoPrestamo" runat="server">
+                    <asp:DropDownList ID="cboTipoPrestamo" runat="server" OnSelectedIndexChanged="cboTipoPrestamo_SelectedIndexChanged">
                         <asp:ListItem Value="sala">Sala</asp:ListItem>
                         <asp:ListItem Value="domicilio">Domicilio</asp:ListItem>
                     </asp:DropDownList>
@@ -159,14 +163,16 @@
                     <asp:Button ID="btnGenerarPrestamo" runat="server" Text="Generar préstamos" OnClick="btnGenerarPrestamo_Click" />
                 </td>
                 <td __designer:mapid="3c">
-                    <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Rechazar solicitud" OnClick="btnCancelarSolicitud_Click" />
+                    <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Rechazar solicitud" OnClick="btnCancelarSolicitud_Click" CausesValidation="False" />
                     
                 </td>
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style5">
-                <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>
+                    <br />
+                <asp:Label ID="lblComprobante" runat="server"></asp:Label>
                 </td>
                 <td __designer:mapid="3c">
                     &nbsp;</td>

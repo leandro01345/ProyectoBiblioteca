@@ -148,5 +148,12 @@ namespace Biblioteca.Servicio
             Usuario us = new Usuario();
             return us.getEmail(idUsuario);
         }
+
+        public string GetRutUsuario(int idUsuario)
+        {
+            Usuario us = new Usuario();
+            return us.getRut(idUsuario);
+        }
+
     }
 }

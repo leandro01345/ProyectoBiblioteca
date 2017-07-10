@@ -128,6 +128,7 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_DETALLE_EJEMPLAR_TITULO' no tie
           <Property Name="SOLICITUD_IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="EJEMPLAR_IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TITULO" Type="varchar2" MaxLength="255" />
+          <Property Name="TIPO" Type="varchar2" MaxLength="100" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_DOC_EJEMPLAR_DISPONIBLE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -153,6 +154,25 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_EJEMPLARES' no tiene definida n
           <Property Name="IDDOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ESTADOEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="UBICACIONEJEMPLAR" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.V_PRESTAMOS_ACTUALES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_PRESTAMOS_ACTUALES">
+          <Key>
+            <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+            <PropertyRef Name="IDPRESTAMO" />
+            <PropertyRef Name="TIPOPRESTAMO" />
+            <PropertyRef Name="FECHAPRESTAMO" />
+            <PropertyRef Name="FECHADEVOLUCIONPRESTAMO" />
+          </Key>
+          <Property Name="EJEMPLAR_IDEJEMPLAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDPRESTAMO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOPRESTAMO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="FECHAPRESTAMO" Type="date" Nullable="false" />
+          <Property Name="FECHADEVOLUCIONPRESTAMO" Type="date" Nullable="false" />
+          <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="date" />
+          <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
+          <Property Name="NOMBRE_USUARIO" Type="varchar2" MaxLength="201" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BIBLIOTECA.V_PRESTAMOS_VENCIDOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -422,7 +442,8 @@ FROM "BIBLIOTECA"."V_CATEGORIASDOC" "V_CATEGORIASDOC"</DefiningQuery>
             <DefiningQuery>SELECT 
 "V_DETALLE_EJEMPLAR_TITULO"."SOLICITUD_IDSOLICITUD" AS "SOLICITUD_IDSOLICITUD", 
 "V_DETALLE_EJEMPLAR_TITULO"."EJEMPLAR_IDEJEMPLAR" AS "EJEMPLAR_IDEJEMPLAR", 
-"V_DETALLE_EJEMPLAR_TITULO"."TITULO" AS "TITULO"
+"V_DETALLE_EJEMPLAR_TITULO"."TITULO" AS "TITULO", 
+"V_DETALLE_EJEMPLAR_TITULO"."TIPO" AS "TIPO"
 FROM "BIBLIOTECA"."V_DETALLE_EJEMPLAR_TITULO" "V_DETALLE_EJEMPLAR_TITULO"</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_DOC_EJEMPLAR_DISPONIBLE" EntityType="Self.V_DOC_EJEMPLAR_DISPONIBLE" store:Type="Views" store:Schema="BIBLIOTECA">
@@ -439,6 +460,18 @@ FROM "BIBLIOTECA"."V_DOC_EJEMPLAR_DISPONIBLE" "V_DOC_EJEMPLAR_DISPONIBLE"</Defin
 "V_EJEMPLARES"."ESTADOEJEMPLAR" AS "ESTADOEJEMPLAR", 
 "V_EJEMPLARES"."UBICACIONEJEMPLAR" AS "UBICACIONEJEMPLAR"
 FROM "BIBLIOTECA"."V_EJEMPLARES" "V_EJEMPLARES"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_PRESTAMOS_ACTUALES" EntityType="Self.V_PRESTAMOS_ACTUALES" store:Type="Views" store:Schema="BIBLIOTECA">
+            <DefiningQuery>SELECT 
+"V_PRESTAMOS_ACTUALES"."EJEMPLAR_IDEJEMPLAR" AS "EJEMPLAR_IDEJEMPLAR", 
+"V_PRESTAMOS_ACTUALES"."IDPRESTAMO" AS "IDPRESTAMO", 
+"V_PRESTAMOS_ACTUALES"."TIPOPRESTAMO" AS "TIPOPRESTAMO", 
+"V_PRESTAMOS_ACTUALES"."FECHAPRESTAMO" AS "FECHAPRESTAMO", 
+"V_PRESTAMOS_ACTUALES"."FECHADEVOLUCIONPRESTAMO" AS "FECHADEVOLUCIONPRESTAMO", 
+"V_PRESTAMOS_ACTUALES"."FECHADEVOLUCIONREALPRESTAMO" AS "FECHADEVOLUCIONREALPRESTAMO", 
+"V_PRESTAMOS_ACTUALES"."USUARIO_IDUSUARIO" AS "USUARIO_IDUSUARIO", 
+"V_PRESTAMOS_ACTUALES"."NOMBRE_USUARIO" AS "NOMBRE_USUARIO"
+FROM "BIBLIOTECA"."V_PRESTAMOS_ACTUALES" "V_PRESTAMOS_ACTUALES"</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_PRESTAMOS_VENCIDOS" EntityType="Self.V_PRESTAMOS_VENCIDOS" store:Type="Views" store:Schema="BIBLIOTECA">
             <DefiningQuery>SELECT 
@@ -748,6 +781,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
             <Parameter Name="FECHA" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="V_PRESTAMOS_VENCIDOS_DOMICILIO" EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO" />
+          <EntitySet Name="V_PRESTAMOS_ACTUALES" EntityType="BibliotecaModel.V_PRESTAMOS_ACTUALES" />
         </EntityContainer>
         <EntityType Name="V_EJEMPLARES">
           <Key>
@@ -848,6 +882,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <Property Name="SOLICITUD_IDSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="TITULO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="PRESTAMO_USUARIO_FK">
           <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
@@ -908,6 +943,23 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
           <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="V_PRESTAMOS_ACTUALES">
+          <Key>
+            <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+            <PropertyRef Name="IDPRESTAMO" />
+            <PropertyRef Name="TIPOPRESTAMO" />
+            <PropertyRef Name="FECHAPRESTAMO" />
+            <PropertyRef Name="FECHADEVOLUCIONPRESTAMO" />
+          </Key>
+          <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDPRESTAMO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TIPOPRESTAMO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FECHAPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
+          <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1081,6 +1133,7 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <EntitySetMapping Name="V_DETALLE_EJEMPLAR_TITULO">
             <EntityTypeMapping TypeName="BibliotecaModel.V_DETALLE_EJEMPLAR_TITULO">
               <MappingFragment StoreEntitySet="V_DETALLE_EJEMPLAR_TITULO">
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
                 <ScalarProperty Name="TITULO" ColumnName="TITULO" />
                 <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
                 <ScalarProperty Name="SOLICITUD_IDSOLICITUD" ColumnName="SOLICITUD_IDSOLICITUD" />
@@ -1120,6 +1173,20 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
           <EntitySetMapping Name="V_PRESTAMOS_VENCIDOS_DOMICILIO">
             <EntityTypeMapping TypeName="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO">
               <MappingFragment StoreEntitySet="V_PRESTAMOS_VENCIDOS_DOMICILIO">
+                <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+                <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
+                <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
+                <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
+                <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
+                <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+                <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_PRESTAMOS_ACTUALES">
+            <EntityTypeMapping TypeName="BibliotecaModel.V_PRESTAMOS_ACTUALES">
+              <MappingFragment StoreEntitySet="V_PRESTAMOS_ACTUALES">
+                <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
                 <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
                 <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
                 <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />

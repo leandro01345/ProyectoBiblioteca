@@ -218,6 +218,7 @@
       <Parameter Name="FECHA" Mode="In" Type="DateTime" />
     </FunctionImport>
     <EntitySet Name="V_PRESTAMOS_VENCIDOS_DOMICILIO" EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO" />
+    <EntitySet Name="V_PRESTAMOS_ACTUALES" EntityType="BibliotecaModel.V_PRESTAMOS_ACTUALES" />
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -318,6 +319,7 @@
     <Property Name="SOLICITUD_IDSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="TITULO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="PRESTAMO_USUARIO_FK">
     <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
@@ -378,5 +380,22 @@
     <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
     <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="V_PRESTAMOS_ACTUALES">
+    <Key>
+      <PropertyRef Name="EJEMPLAR_IDEJEMPLAR" />
+      <PropertyRef Name="IDPRESTAMO" />
+      <PropertyRef Name="TIPOPRESTAMO" />
+      <PropertyRef Name="FECHAPRESTAMO" />
+      <PropertyRef Name="FECHADEVOLUCIONPRESTAMO" />
+    </Key>
+    <Property Name="EJEMPLAR_IDEJEMPLAR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="IDPRESTAMO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TIPOPRESTAMO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FECHADEVOLUCIONPRESTAMO" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="DateTime" Precision="0" />
+    <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

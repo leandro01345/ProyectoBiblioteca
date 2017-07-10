@@ -34,7 +34,7 @@
             <tr __designer:mapid="30">
                 <td __designer:mapid="31" class="auto-style2">&nbsp;</td>
                 <td __designer:mapid="32">
-                    <h2 __designer:mapid="33">Préstamos vencidos</h2>
+                    <h2 __designer:mapid="33">Préstamos actuales</h2>
                 </td>
             </tr>
             <tr __designer:mapid="35">
@@ -44,13 +44,14 @@
                     <asp:GridView ID="grdSolicitudes" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdDocumentos_SelectedIndexChanged" CssClass="table">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField DataField="EJEMPLAR_IDEJEMPLAR" HeaderText="EJEMPLAR_IDEJEMPLAR" SortExpression="EJEMPLAR_IDEJEMPLAR" />
-                            <asp:BoundField DataField="IDPRESTAMO" HeaderText="IDPRESTAMO" SortExpression="IDPRESTAMO" />
-                            <asp:BoundField DataField="TIPOPRESTAMO" HeaderText="TIPOPRESTAMO" SortExpression="TIPOPRESTAMO" />
-                            <asp:BoundField DataField="FECHAPRESTAMO" HeaderText="FECHAPRESTAMO" SortExpression="FECHAPRESTAMO" />
-                            <asp:BoundField DataField="FECHADEVOLUCIONPRESTAMO" HeaderText="FECHADEVOLUCIONPRESTAMO" SortExpression="FECHADEVOLUCIONPRESTAMO" />
-                            <asp:BoundField DataField="FECHADEVOLUCIONREALPRESTAMO" HeaderText="FECHADEVOLUCIONREALPRESTAMO" SortExpression="FECHADEVOLUCIONREALPRESTAMO" />
-                            <asp:BoundField DataField="USUARIO_IDUSUARIO" HeaderText="USUARIO_IDUSUARIO" SortExpression="USUARIO_IDUSUARIO" />
+                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:BoundField DataField="EJEMPLAR_IDEJEMPLAR" HeaderText="Id Ejemplar" SortExpression="EJEMPLAR_IDEJEMPLAR" />
+                            <asp:BoundField DataField="IDPRESTAMO" HeaderText="Id Préstamo" SortExpression="IDPRESTAMO" />
+                            <asp:BoundField DataField="TIPOPRESTAMO" HeaderText="Tipo" SortExpression="TIPOPRESTAMO" />
+                            <asp:BoundField DataField="FECHAPRESTAMO" HeaderText="Fecha" SortExpression="FECHAPRESTAMO" />
+                            <asp:BoundField DataField="FECHADEVOLUCIONPRESTAMO" HeaderText="Fecha de devolución" SortExpression="FECHADEVOLUCIONPRESTAMO" />
+                            <asp:BoundField DataField="USUARIO_IDUSUARIO" HeaderText="Id Usuario" SortExpression="USUARIO_IDUSUARIO" />
+                            <asp:BoundField DataField="NOMBRE_USUARIO" HeaderText="Nombre Usuario" SortExpression="NOMBRE_USUARIO" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -63,7 +64,7 @@
                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_PRESTAMOS_VENCIDOS&quot;"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;V_PRESTAMOS_ACTUALES&quot;"></asp:SqlDataSource>
                 </td>
             </tr>
             </table>

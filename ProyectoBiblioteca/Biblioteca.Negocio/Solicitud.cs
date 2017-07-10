@@ -31,6 +31,28 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public int CreateFecha(int IdUsuario, DateTime fecha)
+        {
+            try
+            {
+                Biblioteca.DALC.SOLICITUD soli = new DALC.SOLICITUD();
+                //soli.FECHASOLICITUD = fechSolicitud;
+
+                //soli.HORASOLICITUD = horaSolicitud;
+                soli.USUARIO_IDUSUARIO = IdUsuario;
+                CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD(soli.USUARIO_IDUSUARIO);
+                //int id_sol = CommonBC.ModeloBiblioteca.;
+
+                //CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD1(1);
+                CommonBC.ModeloBiblioteca.SaveChanges();
+                return UltimaSolicitud(IdUsuario);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         public bool Update(int id, DateTime fechSolicitud)
         {
             try

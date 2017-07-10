@@ -58,6 +58,8 @@ namespace Biblioteca.Servicio
         bool RechazarSolicitud(int idSol, int idEj);
         [OperationContract]
         string GetEmailUsuario(int idUsuario);
+        [OperationContract]
+        string GetRutUsuario(int idUsuario);
     }
 
 

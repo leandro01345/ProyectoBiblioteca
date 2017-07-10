@@ -218,4 +218,36 @@ AS
   AND tipoprestamo                 = 'domicilio'
   AND fechadevolucionrealprestamo IS NULL;
 
+CREATE OR REPLACE VIEW V_DETALLE_EJEMPLAR_TITULO AS
+  SELECT det.solicitud_idsolicitud,
+    det.ejemplar_idejemplar,
+    (SELECT doc.titulodocumento
+    FROM documento doc
+    JOIN ejemplar ej
+    ON doc.iddocumento  = ej.documento_iddocumento
+    WHERE ej.idejemplar = det.ejemplar_idejemplar
+    ) AS titulo,
+    (SELECT doc.tipodocumento
+    FROM documento doc
+    JOIN ejemplar ej
+    ON doc.iddocumento  = ej.documento_iddocumento
+    WHERE ej.idejemplar = det.ejemplar_idejemplar
+    ) AS tipo
+  FROM detallesolicitud det
+  JOIN ejemplar ej
+  ON det.ejemplar_idejemplar = ej.idejemplar;
+
+CREATE OR REPLACE VIEW V_PRESTAMOS_ACTUALES
+AS
+  SELECT EJEMPLAR_IDEJEMPLAR,
+    IDPRESTAMO,
+    TIPOPRESTAMO,
+    FECHAPRESTAMO,
+    FECHADEVOLUCIONPRESTAMO,
+    FECHADEVOLUCIONREALPRESTAMO,
+    USUARIO_IDUSUARIO,
+    (SELECT NOMBRESUSUARIO||' '||APELLIDOSUSUARIO FROM USUARIO WHERE IDUSUARIO = USUARIO_IDUSUARIO)  AS NOMBRE_USUARIO
+  FROM prestamo
+  WHERE fechadevolucionrealprestamo IS NULL;
+
 commit;

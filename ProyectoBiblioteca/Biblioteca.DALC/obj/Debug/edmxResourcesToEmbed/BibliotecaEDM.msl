@@ -167,6 +167,7 @@
     <EntitySetMapping Name="V_DETALLE_EJEMPLAR_TITULO">
       <EntityTypeMapping TypeName="BibliotecaModel.V_DETALLE_EJEMPLAR_TITULO">
         <MappingFragment StoreEntitySet="V_DETALLE_EJEMPLAR_TITULO">
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
           <ScalarProperty Name="TITULO" ColumnName="TITULO" />
           <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
           <ScalarProperty Name="SOLICITUD_IDSOLICITUD" ColumnName="SOLICITUD_IDSOLICITUD" />
@@ -206,6 +207,20 @@
     <EntitySetMapping Name="V_PRESTAMOS_VENCIDOS_DOMICILIO">
       <EntityTypeMapping TypeName="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO">
         <MappingFragment StoreEntitySet="V_PRESTAMOS_VENCIDOS_DOMICILIO">
+          <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+          <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
+          <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
+          <ScalarProperty Name="FECHAPRESTAMO" ColumnName="FECHAPRESTAMO" />
+          <ScalarProperty Name="TIPOPRESTAMO" ColumnName="TIPOPRESTAMO" />
+          <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+          <ScalarProperty Name="EJEMPLAR_IDEJEMPLAR" ColumnName="EJEMPLAR_IDEJEMPLAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_PRESTAMOS_ACTUALES">
+      <EntityTypeMapping TypeName="BibliotecaModel.V_PRESTAMOS_ACTUALES">
+        <MappingFragment StoreEntitySet="V_PRESTAMOS_ACTUALES">
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
           <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
           <ScalarProperty Name="FECHADEVOLUCIONREALPRESTAMO" ColumnName="FECHADEVOLUCIONREALPRESTAMO" />
           <ScalarProperty Name="FECHADEVOLUCIONPRESTAMO" ColumnName="FECHADEVOLUCIONPRESTAMO" />
