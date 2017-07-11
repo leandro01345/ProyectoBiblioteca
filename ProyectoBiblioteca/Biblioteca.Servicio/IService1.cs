@@ -33,6 +33,8 @@ namespace Biblioteca.Servicio
         [OperationContract]
         int AgregarSolicitud(int idUsuario);
         [OperationContract]
+        int AgregarSolicitudFecha(int idUsuario, DateTime fecha);
+        [OperationContract]
         bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud);
         [OperationContract]
         bool AgregarPrestamo(int idEjemplar, string tipoPrestamo, DateTime fechaDevolucion, int idSoli, int idUsu);
@@ -60,6 +62,14 @@ namespace Biblioteca.Servicio
         string GetEmailUsuario(int idUsuario);
         [OperationContract]
         string GetRutUsuario(int idUsuario);
+        [OperationContract]
+        bool ExisteRutUsuario(string rut);
+        [OperationContract]
+        bool ExisteEmailUsuario(string email);
+        [OperationContract]
+        bool ActivarUsuario(int id, string rut);
+        [OperationContract]
+        bool EsActivoUsuario(int id);
     }
 
 

@@ -43,6 +43,53 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public bool EsActivo(int id)
+        {
+            try
+            {
+                Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
+                    (u => u.IDUSUARIO == id);
+                if (us.ACTIVOUSUARIO.Equals("y"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Activar(int id, string rut)
+        {
+            try
+            {
+                Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
+                    (u => u.IDUSUARIO == id);
+                if (us.RUTUSUARIO.Equals(rut))
+                {
+                    us.ACTIVOUSUARIO = "y";
+                    CommonBC.ModeloBiblioteca.SaveChanges();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool Update(int id, string rut, string nombres, string apellidos, string direccion, string telefono, bool activo, bool foto, bool huella)
         {
             try
@@ -106,6 +153,34 @@ namespace Biblioteca.Negocio
             {
                 Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
                    (u => u.IDUSUARIO == Id);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool ExisteEmail(string email)
+        {
+            try
+            {
+                Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
+                   (u => u.EMAILUSUARIO == email);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool ExisteRut(string rut)
+        {
+            try
+            {
+                Biblioteca.DALC.USUARIO us = CommonBC.ModeloBiblioteca.USUARIO.First
+                   (u => u.RUTUSUARIO == rut);
                 return true;
             }
             catch (Exception)

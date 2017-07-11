@@ -97,5 +97,23 @@ namespace Biblioteca.Negocio
             return sb.ToString();
 
         }
+
+        public bool SesionUsuarioNormal (int idUs)
+        {
+            try
+            {
+                Biblioteca.DALC.SESION sesion = CommonBC.ModeloBiblioteca.SESION.First
+                    (c => c.USUARIO_IDUSUARIO == (idUs));
+                sesion.TIPOSESION = "usuario";
+                CommonBC.ModeloBiblioteca.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
     }
 }

@@ -40,7 +40,7 @@ namespace Biblioteca.Negocio
 
                 //soli.HORASOLICITUD = horaSolicitud;
                 soli.USUARIO_IDUSUARIO = IdUsuario;
-                CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD(soli.USUARIO_IDUSUARIO);
+                CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD_FECHA(soli.USUARIO_IDUSUARIO, fecha);
                 //int id_sol = CommonBC.ModeloBiblioteca.;
 
                 //CommonBC.ModeloBiblioteca.PRO_ADD_SOLICITUD1(1);

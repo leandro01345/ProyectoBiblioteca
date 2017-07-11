@@ -69,6 +69,12 @@ namespace BibliotecaWeb.BibliotecaSvc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarSolicitud", ReplyAction="http://tempuri.org/IService1/AgregarSolicitudResponse")]
         System.Threading.Tasks.Task<int> AgregarSolicitudAsync(int idUsuario);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarSolicitudFecha", ReplyAction="http://tempuri.org/IService1/AgregarSolicitudFechaResponse")]
+        int AgregarSolicitudFecha(int idUsuario, System.DateTime fecha);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarSolicitudFecha", ReplyAction="http://tempuri.org/IService1/AgregarSolicitudFechaResponse")]
+        System.Threading.Tasks.Task<int> AgregarSolicitudFechaAsync(int idUsuario, System.DateTime fecha);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarDetalleSolicitud", ReplyAction="http://tempuri.org/IService1/AgregarDetalleSolicitudResponse")]
         bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud);
         
@@ -152,6 +158,30 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetRutUsuario", ReplyAction="http://tempuri.org/IService1/GetRutUsuarioResponse")]
         System.Threading.Tasks.Task<string> GetRutUsuarioAsync(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExisteRutUsuario", ReplyAction="http://tempuri.org/IService1/ExisteRutUsuarioResponse")]
+        bool ExisteRutUsuario(string rut);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExisteRutUsuario", ReplyAction="http://tempuri.org/IService1/ExisteRutUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> ExisteRutUsuarioAsync(string rut);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExisteEmailUsuario", ReplyAction="http://tempuri.org/IService1/ExisteEmailUsuarioResponse")]
+        bool ExisteEmailUsuario(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExisteEmailUsuario", ReplyAction="http://tempuri.org/IService1/ExisteEmailUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> ExisteEmailUsuarioAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActivarUsuario", ReplyAction="http://tempuri.org/IService1/ActivarUsuarioResponse")]
+        bool ActivarUsuario(int id, string rut);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActivarUsuario", ReplyAction="http://tempuri.org/IService1/ActivarUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> ActivarUsuarioAsync(int id, string rut);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EsActivoUsuario", ReplyAction="http://tempuri.org/IService1/EsActivoUsuarioResponse")]
+        bool EsActivoUsuario(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EsActivoUsuario", ReplyAction="http://tempuri.org/IService1/EsActivoUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> EsActivoUsuarioAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -251,6 +281,14 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         public System.Threading.Tasks.Task<int> AgregarSolicitudAsync(int idUsuario) {
             return base.Channel.AgregarSolicitudAsync(idUsuario);
+        }
+        
+        public int AgregarSolicitudFecha(int idUsuario, System.DateTime fecha) {
+            return base.Channel.AgregarSolicitudFecha(idUsuario, fecha);
+        }
+        
+        public System.Threading.Tasks.Task<int> AgregarSolicitudFechaAsync(int idUsuario, System.DateTime fecha) {
+            return base.Channel.AgregarSolicitudFechaAsync(idUsuario, fecha);
         }
         
         public bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud) {
@@ -363,6 +401,38 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         public System.Threading.Tasks.Task<string> GetRutUsuarioAsync(int idUsuario) {
             return base.Channel.GetRutUsuarioAsync(idUsuario);
+        }
+        
+        public bool ExisteRutUsuario(string rut) {
+            return base.Channel.ExisteRutUsuario(rut);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExisteRutUsuarioAsync(string rut) {
+            return base.Channel.ExisteRutUsuarioAsync(rut);
+        }
+        
+        public bool ExisteEmailUsuario(string email) {
+            return base.Channel.ExisteEmailUsuario(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExisteEmailUsuarioAsync(string email) {
+            return base.Channel.ExisteEmailUsuarioAsync(email);
+        }
+        
+        public bool ActivarUsuario(int id, string rut) {
+            return base.Channel.ActivarUsuario(id, rut);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ActivarUsuarioAsync(int id, string rut) {
+            return base.Channel.ActivarUsuarioAsync(id, rut);
+        }
+        
+        public bool EsActivoUsuario(int id) {
+            return base.Channel.EsActivoUsuario(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EsActivoUsuarioAsync(int id) {
+            return base.Channel.EsActivoUsuarioAsync(id);
         }
     }
 }

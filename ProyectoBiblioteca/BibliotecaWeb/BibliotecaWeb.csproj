@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ActivarCuenta.aspx" />
     <Content Include="Bienvenido.aspx" />
     <Content Include="bootstrap\css\bootstrap-theme.css" />
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
@@ -206,6 +207,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivarCuenta.aspx.cs">
+      <DependentUpon>ActivarCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivarCuenta.aspx.designer.cs">
+      <DependentUpon>ActivarCuenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Bienvenido.aspx.cs">
       <DependentUpon>Bienvenido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -15,6 +15,15 @@ namespace BibliotecaWeb
             {
                 lblUsuario.Text = User.Identity.Name;
             }
+
+            if (Session["TipoSesion"] != null)
+            {
+                if ((Session["TipoSesion"].ToString().Equals("usuarioNuevo")))
+                {
+                    Response.Redirect("ActivarCuenta.aspx");
+                }
+            }
+            
         }
     }
 }

@@ -36,6 +36,10 @@ namespace BibliotecaWeb
                 }
             }
             //lblVacio.Text = Session["UserName"].ToString();
+            if ((Session["TipoSesion"].ToString().Equals("usuarioNuevo")))
+            {
+                Response.Redirect("ActivarCuenta.aspx");
+            }
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
@@ -44,30 +48,48 @@ namespace BibliotecaWeb
             string error = String.Empty;
             BibliotecaSvc.Service1Client servicio = new BibliotecaSvc.Service1Client();
             int idUsuario = (int)Session["IdUsuario"];
-            int idsolicitud = servicio.AgregarSolicitud(idUsuario);//CONFIGURAR ID USUARIO
-            if (idsolicitud != -1)
+            bool usuarioActivo = servicio.EsActivoUsuario(idUsuario);
+            if (usuarioActivo)
             {
-                foreach (var iddoc in idList)
+                int idsolicitud = -1;
+                if (chkReservaFecha.Checked && !(txtFecha.Equals(String.Empty)))
                 {
-
-                    int idejemplr = servicio.Doc_EjemplarDisponible(iddoc);
-                    if (idejemplr != -1)
-                    {
-                        servicio.AgregarDetalleSolicitud(idejemplr, idsolicitud);
-                    }
-                    else
-                    {
-                        error = "Uno o más documentos de su solicitud ya no se encuentran disponibles.";
-                    }
+                    idsolicitud = servicio.AgregarSolicitudFecha(idUsuario, Calendar1.SelectedDate);
                 }
-                Session["idListCarro"] = null;
-                Response.AppendHeader("Refresh", "1");
+                else
+                {
+                    idsolicitud = servicio.AgregarSolicitud(idUsuario);
+                }
+
+                if (idsolicitud != -1)
+                {
+                    foreach (var iddoc in idList)
+                    {
+
+                        int idejemplr = servicio.Doc_EjemplarDisponible(iddoc);
+                        if (idejemplr != -1)
+                        {
+                            servicio.AgregarDetalleSolicitud(idejemplr, idsolicitud);
+                        }
+                        else
+                        {
+                            error = "Uno o más documentos de su solicitud ya no se encuentran disponibles.";
+                        }
+                    }
+                    Session["idListCarro"] = null;
+                    Response.AppendHeader("Refresh", "1");
+                }
+                else
+                {
+                    error = "Error al ingresar solicitud.";
+                }
+                lblError.Text = error;
             }
             else
             {
-                error = "Error al ingresar solicitud.";
+                error = "Su cuenta no está habilitada para enviar solicitudes.";
             }
-            lblError.Text = error;
+            
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)

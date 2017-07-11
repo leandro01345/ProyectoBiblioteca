@@ -33,7 +33,7 @@ namespace Biblioteca.Servicio
             return sec.IdUsuarioSesion(nomUser);
         }
 
-        public bool UserNameExiste (string nomUser)
+        public bool UserNameExiste(string nomUser)
         {
             Sesion sec = new Sesion();
             return sec.UserNameExiste(nomUser);
@@ -72,15 +72,22 @@ namespace Biblioteca.Servicio
         public int AgregarSolicitud(int idUsuario)
         {
             Solicitud sol = new Solicitud();
-            
+
             return sol.Create(idUsuario);
+        }
+
+        public int AgregarSolicitudFecha(int idUsuario, DateTime fecha)
+        {
+            Solicitud sol = new Solicitud();
+
+            return sol.CreateFecha(idUsuario, fecha);
         }
 
         public bool AgregarDetalleSolicitud(int idEjemplar, int idSolicitud)
         {
             Solicitud sol = new Solicitud();
 
-            return sol.CrearDetalle(idEjemplar,idSolicitud);
+            return sol.CrearDetalle(idEjemplar, idSolicitud);
         }
 
         public bool AgregarPrestamo(int idEjemplar, string tipoPrestamo, DateTime fechaDevolucion, int idSoli, int idUsu)
@@ -104,7 +111,7 @@ namespace Biblioteca.Servicio
         public bool ModificarEjemplarDisponibilidad(int idejemplar, string disponibilidad)
         {
             Ejemplar ej = new Ejemplar();
-            return ej.Update_Disponibilidad (idejemplar, disponibilidad);
+            return ej.Update_Disponibilidad(idejemplar, disponibilidad);
         }
 
         public bool ModificarDocumento(int iddocumento, string titulo, string autor, string anio, string tipo, string categoria, string edicion, string editorial)
@@ -153,6 +160,36 @@ namespace Biblioteca.Servicio
         {
             Usuario us = new Usuario();
             return us.getRut(idUsuario);
+        }
+
+        public bool ExisteRutUsuario(string rut)
+        {
+            Usuario us = new Usuario();
+            return us.ExisteRut(rut);
+        }
+
+        public bool ExisteEmailUsuario(string email)
+        {
+            Usuario us = new Usuario();
+            return us.ExisteEmail(email);
+        }
+
+        public bool ActivarUsuario (int id, string rut)
+        {
+            Usuario us = new Usuario();
+            Sesion se = new Sesion();
+            bool activo = us.Activar(id, rut);
+            if (activo)
+            {
+                activo = se.SesionUsuarioNormal(id);
+            }
+            return activo;
+        }
+
+        public bool EsActivoUsuario(int id)
+        {
+            Usuario us = new Usuario();
+            return us.EsActivo(id);
         }
 
     }

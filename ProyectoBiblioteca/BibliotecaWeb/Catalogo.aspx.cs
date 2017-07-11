@@ -44,6 +44,11 @@ namespace BibliotecaWeb
                 lblPrueba.Text = lblPrueba.Text + " " + item;
             }
 
+            if ((Session["TipoSesion"].ToString().Equals("usuarioNuevo")))
+            {
+                Response.Redirect("ActivarCuenta.aspx");
+            }
+
         }
 
         protected void grdDocumentos_SelectedIndexChanged(object sender, EventArgs e)
