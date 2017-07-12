@@ -81,6 +81,7 @@
     <Property Name="EMAILUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="SESION" Relationship="BibliotecaModel.SESION_USUARIO_FK" FromRole="USUARIO" ToRole="SESION" />
     <NavigationProperty Name="PRESTAMO" Relationship="BibliotecaModel.PRESTAMO_USUARIO_FK" FromRole="USUARIO" ToRole="PRESTAMO" />
+    <NavigationProperty Name="SANCION" Relationship="BibliotecaModel.SANCION_USUARIO_FK" FromRole="USUARIO" ToRole="SANCION" />
   </EntityType>
   <Association Name="EJEMPLAR_DOCUMENTO_FK">
     <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="1" />
@@ -219,6 +220,15 @@
     </FunctionImport>
     <EntitySet Name="V_PRESTAMOS_VENCIDOS_DOMICILIO" EntityType="BibliotecaModel.V_PRESTAMOS_VENCIDOS_DOMICILIO" />
     <EntitySet Name="V_PRESTAMOS_ACTUALES" EntityType="BibliotecaModel.V_PRESTAMOS_ACTUALES" />
+    <EntitySet Name="SANCION" EntityType="BibliotecaModel.SANCION" />
+    <AssociationSet Name="SANCION_USUARIO_FK" Association="BibliotecaModel.SANCION_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="SANCION" EntitySet="SANCION" />
+    </AssociationSet>
+    <FunctionImport Name="PRO_ADD_SANCION">
+      <Parameter Name="ID_USUARIO" Mode="In" Type="Decimal" />
+      <Parameter Name="FECHA_TERMINO" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="V_EJEMPLARES">
     <Key>
@@ -399,4 +409,29 @@
     <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="SANCION">
+    <Key>
+      <PropertyRef Name="IDSANCION" />
+      <PropertyRef Name="FECHAINICIOSANCION" />
+      <PropertyRef Name="FECHATERMINOSANCION" />
+      <PropertyRef Name="USUARIO_IDUSUARIO" />
+    </Key>
+    <Property Name="IDSANCION" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="FECHAINICIOSANCION" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FECHATERMINOSANCION" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="USUARIO_IDUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <NavigationProperty Name="USUARIO" Relationship="BibliotecaModel.SANCION_USUARIO_FK" FromRole="SANCION" ToRole="USUARIO" />
+  </EntityType>
+  <Association Name="SANCION_USUARIO_FK">
+    <End Type="BibliotecaModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+    <End Type="BibliotecaModel.SANCION" Role="SANCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="SANCION">
+        <PropertyRef Name="USUARIO_IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

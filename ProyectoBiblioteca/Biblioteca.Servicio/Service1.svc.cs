@@ -192,5 +192,23 @@ namespace Biblioteca.Servicio
             return us.EsActivo(id);
         }
 
+        public bool AgregarSancion(int idUs, DateTime fechaTermino)
+        {
+            Usuario us = new Usuario();
+            return us.agregarSancion(idUs, fechaTermino);
+        }
+
+        public bool ExisteSancion(int idUs)
+        {
+            Usuario us = new Usuario();
+            return us.existeSancion(idUs);
+        }
+
+        public int DiasAtraso(int idEj)
+        {
+            Prestamo pr = new Prestamo();
+            return pr.DiasAtrasoUltimaSolicitud(idEj);
+        }
+
     }
 }

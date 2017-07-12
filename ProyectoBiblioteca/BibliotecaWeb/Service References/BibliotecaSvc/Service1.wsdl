@@ -174,6 +174,24 @@
   <wsdl:message name="IService1_EsActivoUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:EsActivoUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AgregarSancion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarSancion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AgregarSancion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarSancionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExisteSancion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteSancion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExisteSancion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteSancionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DiasAtraso_InputMessage">
+    <wsdl:part name="parameters" element="tns:DiasAtraso" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DiasAtraso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DiasAtrasoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Logear">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logear" message="tns:IService1_Logear_InputMessage" />
@@ -286,6 +304,18 @@
     <wsdl:operation name="EsActivoUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EsActivoUsuario" message="tns:IService1_EsActivoUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/EsActivoUsuarioResponse" message="tns:IService1_EsActivoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSancion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AgregarSancion" message="tns:IService1_AgregarSancion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AgregarSancionResponse" message="tns:IService1_AgregarSancion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteSancion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExisteSancion" message="tns:IService1_ExisteSancion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExisteSancionResponse" message="tns:IService1_ExisteSancion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DiasAtraso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DiasAtraso" message="tns:IService1_DiasAtraso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DiasAtrasoResponse" message="tns:IService1_DiasAtraso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -535,6 +565,33 @@
     </wsdl:operation>
     <wsdl:operation name="EsActivoUsuario">
       <soap:operation soapAction="http://tempuri.org/IService1/EsActivoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarSancion">
+      <soap:operation soapAction="http://tempuri.org/IService1/AgregarSancion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteSancion">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExisteSancion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiasAtraso">
+      <soap:operation soapAction="http://tempuri.org/IService1/DiasAtraso" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

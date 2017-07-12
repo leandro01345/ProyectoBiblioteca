@@ -182,6 +182,24 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EsActivoUsuario", ReplyAction="http://tempuri.org/IService1/EsActivoUsuarioResponse")]
         System.Threading.Tasks.Task<bool> EsActivoUsuarioAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarSancion", ReplyAction="http://tempuri.org/IService1/AgregarSancionResponse")]
+        bool AgregarSancion(int idUs, System.DateTime fechaTermino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AgregarSancion", ReplyAction="http://tempuri.org/IService1/AgregarSancionResponse")]
+        System.Threading.Tasks.Task<bool> AgregarSancionAsync(int idUs, System.DateTime fechaTermino);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExisteSancion", ReplyAction="http://tempuri.org/IService1/ExisteSancionResponse")]
+        bool ExisteSancion(int idUs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExisteSancion", ReplyAction="http://tempuri.org/IService1/ExisteSancionResponse")]
+        System.Threading.Tasks.Task<bool> ExisteSancionAsync(int idUs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DiasAtraso", ReplyAction="http://tempuri.org/IService1/DiasAtrasoResponse")]
+        int DiasAtraso(int idEj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DiasAtraso", ReplyAction="http://tempuri.org/IService1/DiasAtrasoResponse")]
+        System.Threading.Tasks.Task<int> DiasAtrasoAsync(int idEj);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -433,6 +451,30 @@ namespace BibliotecaWeb.BibliotecaSvc {
         
         public System.Threading.Tasks.Task<bool> EsActivoUsuarioAsync(int id) {
             return base.Channel.EsActivoUsuarioAsync(id);
+        }
+        
+        public bool AgregarSancion(int idUs, System.DateTime fechaTermino) {
+            return base.Channel.AgregarSancion(idUs, fechaTermino);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AgregarSancionAsync(int idUs, System.DateTime fechaTermino) {
+            return base.Channel.AgregarSancionAsync(idUs, fechaTermino);
+        }
+        
+        public bool ExisteSancion(int idUs) {
+            return base.Channel.ExisteSancion(idUs);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExisteSancionAsync(int idUs) {
+            return base.Channel.ExisteSancionAsync(idUs);
+        }
+        
+        public int DiasAtraso(int idEj) {
+            return base.Channel.DiasAtraso(idEj);
+        }
+        
+        public System.Threading.Tasks.Task<int> DiasAtrasoAsync(int idEj) {
+            return base.Channel.DiasAtrasoAsync(idEj);
         }
     }
 }

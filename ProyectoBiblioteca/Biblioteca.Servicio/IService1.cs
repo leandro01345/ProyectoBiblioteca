@@ -70,6 +70,12 @@ namespace Biblioteca.Servicio
         bool ActivarUsuario(int id, string rut);
         [OperationContract]
         bool EsActivoUsuario(int id);
+        [OperationContract]
+        bool AgregarSancion(int idUs, DateTime fechaTermino);
+        [OperationContract]
+        bool ExisteSancion(int idUs);
+        [OperationContract]
+        int DiasAtraso(int idEj);
     }
 
 

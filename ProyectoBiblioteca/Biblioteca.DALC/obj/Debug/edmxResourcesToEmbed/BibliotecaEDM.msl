@@ -232,5 +232,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SANCION">
+      <EntityTypeMapping TypeName="BibliotecaModel.SANCION">
+        <MappingFragment StoreEntitySet="SANCION">
+          <ScalarProperty Name="USUARIO_IDUSUARIO" ColumnName="USUARIO_IDUSUARIO" />
+          <ScalarProperty Name="FECHATERMINOSANCION" ColumnName="FECHATERMINOSANCION" />
+          <ScalarProperty Name="FECHAINICIOSANCION" ColumnName="FECHAINICIOSANCION" />
+          <ScalarProperty Name="IDSANCION" ColumnName="IDSANCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PRO_ADD_SANCION" FunctionName="BibliotecaModel.Store.PRO_ADD_SANCION" />
   </EntityContainerMapping>
 </Mapping>

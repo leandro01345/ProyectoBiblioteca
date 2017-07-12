@@ -31,6 +31,15 @@ namespace BibliotecaWeb {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
+        /// Control lblIdUs.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdUs;
+        
+        /// <summary>
         /// Control txtID.
         /// </summary>
         /// <remarks>

@@ -49,7 +49,7 @@ namespace BibliotecaWeb
             BibliotecaSvc.Service1Client servicio = new BibliotecaSvc.Service1Client();
             int idUsuario = (int)Session["IdUsuario"];
             bool usuarioActivo = servicio.EsActivoUsuario(idUsuario);
-            if (usuarioActivo)
+            if ((usuarioActivo) && !(servicio.ExisteSancion(idUsuario)))
             {
                 int idsolicitud = -1;
                 if (chkReservaFecha.Checked && !(txtFecha.Equals(String.Empty)))
@@ -89,6 +89,7 @@ namespace BibliotecaWeb
             else
             {
                 error = "Su cuenta no está habilitada para enviar solicitudes.";
+                lblError.Text = error;
             }
             
         }

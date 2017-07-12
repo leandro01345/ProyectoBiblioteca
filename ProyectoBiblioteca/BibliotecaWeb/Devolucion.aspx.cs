@@ -21,6 +21,7 @@ namespace BibliotecaWeb
         {
             GridViewRow row = grdPrestamos.SelectedRow;
             txtID.Text = row.Cells[1].Text;
+            lblIdUs.Text = row.Cells[6].Text;
         }
 
         protected void btnGenerarPrestamo_Click(object sender, EventArgs e)
@@ -31,6 +32,16 @@ namespace BibliotecaWeb
                 if (servicio.DevolucionPrestamo(int.Parse(txtID.Text)))
                 {
                     lblMensaje.Text = "Devolución exitosa.";
+                    int dias = servicio.DiasAtraso(int.Parse(txtID.Text));
+                    if (dias > 0)
+                    {
+                        int sancion = 2 * dias;
+                        DateTime fechaFinal = DateTime.Now.AddDays(dias);
+                        servicio.AgregarSancion(int.Parse(lblIdUs.Text), fechaFinal);
+
+                        lblMensaje.Text = "Devolución exitosa. El ejemplar se ha entregado con "+dias
+                            +" día(s) de atraso. Se aplicará una sanción de "+sancion+" días.";
+                    }
                     Response.AppendHeader("Refresh", "3");
                 }
             }

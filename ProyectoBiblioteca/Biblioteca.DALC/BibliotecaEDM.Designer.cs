@@ -25,6 +25,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "DETALLESOLICITUD", "EJEMPLAR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.EJEMPLAR), "SOLICITUD", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SOLICITUD))]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "SESION_USUARIO_FK", "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Biblioteca.DALC.USUARIO), "SESION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SESION), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "PRESTAMO_USUARIO_FK", "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Biblioteca.DALC.USUARIO), "PRESTAMO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.PRESTAMO), true)]
+[assembly: EdmRelationshipAttribute("BibliotecaModel", "SANCION_USUARIO_FK", "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Biblioteca.DALC.USUARIO), "SANCION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Biblioteca.DALC.SANCION), true)]
 
 #endregion
 
@@ -363,6 +364,22 @@ namespace Biblioteca.DALC
             }
         }
         private ObjectSet<V_PRESTAMOS_ACTUALES> _V_PRESTAMOS_ACTUALES;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<SANCION> SANCION
+        {
+            get
+            {
+                if ((_SANCION == null))
+                {
+                    _SANCION = base.CreateObjectSet<SANCION>("SANCION");
+                }
+                return _SANCION;
+            }
+        }
+        private ObjectSet<SANCION> _SANCION;
 
         #endregion
 
@@ -510,6 +527,14 @@ namespace Biblioteca.DALC
         public void AddToV_PRESTAMOS_ACTUALES(V_PRESTAMOS_ACTUALES v_PRESTAMOS_ACTUALES)
         {
             base.AddObject("V_PRESTAMOS_ACTUALES", v_PRESTAMOS_ACTUALES);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet SANCION. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToSANCION(SANCION sANCION)
+        {
+            base.AddObject("SANCION", sANCION);
         }
 
         #endregion
@@ -968,6 +993,36 @@ namespace Biblioteca.DALC
             }
     
             return base.ExecuteFunction("PRO_ADD_SOLICITUD_FECHA", iD_USUARIOParameter, fECHAParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="iD_USUARIO">No hay documentación de metadatos disponible.</param>
+        /// <param name="fECHA_TERMINO">No hay documentación de metadatos disponible.</param>
+        public int PRO_ADD_SANCION(Nullable<global::System.Decimal> iD_USUARIO, Nullable<global::System.DateTime> fECHA_TERMINO)
+        {
+            ObjectParameter iD_USUARIOParameter;
+            if (iD_USUARIO.HasValue)
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", iD_USUARIO);
+            }
+            else
+            {
+                iD_USUARIOParameter = new ObjectParameter("ID_USUARIO", typeof(global::System.Decimal));
+            }
+    
+            ObjectParameter fECHA_TERMINOParameter;
+            if (fECHA_TERMINO.HasValue)
+            {
+                fECHA_TERMINOParameter = new ObjectParameter("FECHA_TERMINO", fECHA_TERMINO);
+            }
+            else
+            {
+                fECHA_TERMINOParameter = new ObjectParameter("FECHA_TERMINO", typeof(global::System.DateTime));
+            }
+    
+            return base.ExecuteFunction("PRO_ADD_SANCION", iD_USUARIOParameter, fECHA_TERMINOParameter);
         }
 
         #endregion
@@ -1777,6 +1832,191 @@ namespace Biblioteca.DALC
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="SANCION")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SANCION : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto SANCION.
+        /// </summary>
+        /// <param name="iDSANCION">Valor inicial de la propiedad IDSANCION.</param>
+        /// <param name="fECHAINICIOSANCION">Valor inicial de la propiedad FECHAINICIOSANCION.</param>
+        /// <param name="fECHATERMINOSANCION">Valor inicial de la propiedad FECHATERMINOSANCION.</param>
+        /// <param name="uSUARIO_IDUSUARIO">Valor inicial de la propiedad USUARIO_IDUSUARIO.</param>
+        public static SANCION CreateSANCION(global::System.Decimal iDSANCION, global::System.DateTime fECHAINICIOSANCION, global::System.DateTime fECHATERMINOSANCION, global::System.Decimal uSUARIO_IDUSUARIO)
+        {
+            SANCION sANCION = new SANCION();
+            sANCION.IDSANCION = iDSANCION;
+            sANCION.FECHAINICIOSANCION = fECHAINICIOSANCION;
+            sANCION.FECHATERMINOSANCION = fECHATERMINOSANCION;
+            sANCION.USUARIO_IDUSUARIO = uSUARIO_IDUSUARIO;
+            return sANCION;
+        }
+
+        #endregion
+
+        #region Propiedades simples
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal IDSANCION
+        {
+            get
+            {
+                return _IDSANCION;
+            }
+            set
+            {
+                if (_IDSANCION != value)
+                {
+                    OnIDSANCIONChanging(value);
+                    ReportPropertyChanging("IDSANCION");
+                    _IDSANCION = StructuralObject.SetValidValue(value, "IDSANCION");
+                    ReportPropertyChanged("IDSANCION");
+                    OnIDSANCIONChanged();
+                }
+            }
+        }
+        private global::System.Decimal _IDSANCION;
+        partial void OnIDSANCIONChanging(global::System.Decimal value);
+        partial void OnIDSANCIONChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FECHAINICIOSANCION
+        {
+            get
+            {
+                return _FECHAINICIOSANCION;
+            }
+            set
+            {
+                if (_FECHAINICIOSANCION != value)
+                {
+                    OnFECHAINICIOSANCIONChanging(value);
+                    ReportPropertyChanging("FECHAINICIOSANCION");
+                    _FECHAINICIOSANCION = StructuralObject.SetValidValue(value, "FECHAINICIOSANCION");
+                    ReportPropertyChanged("FECHAINICIOSANCION");
+                    OnFECHAINICIOSANCIONChanged();
+                }
+            }
+        }
+        private global::System.DateTime _FECHAINICIOSANCION;
+        partial void OnFECHAINICIOSANCIONChanging(global::System.DateTime value);
+        partial void OnFECHAINICIOSANCIONChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FECHATERMINOSANCION
+        {
+            get
+            {
+                return _FECHATERMINOSANCION;
+            }
+            set
+            {
+                if (_FECHATERMINOSANCION != value)
+                {
+                    OnFECHATERMINOSANCIONChanging(value);
+                    ReportPropertyChanging("FECHATERMINOSANCION");
+                    _FECHATERMINOSANCION = StructuralObject.SetValidValue(value, "FECHATERMINOSANCION");
+                    ReportPropertyChanged("FECHATERMINOSANCION");
+                    OnFECHATERMINOSANCIONChanged();
+                }
+            }
+        }
+        private global::System.DateTime _FECHATERMINOSANCION;
+        partial void OnFECHATERMINOSANCIONChanging(global::System.DateTime value);
+        partial void OnFECHATERMINOSANCIONChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal USUARIO_IDUSUARIO
+        {
+            get
+            {
+                return _USUARIO_IDUSUARIO;
+            }
+            set
+            {
+                if (_USUARIO_IDUSUARIO != value)
+                {
+                    OnUSUARIO_IDUSUARIOChanging(value);
+                    ReportPropertyChanging("USUARIO_IDUSUARIO");
+                    _USUARIO_IDUSUARIO = StructuralObject.SetValidValue(value, "USUARIO_IDUSUARIO");
+                    ReportPropertyChanged("USUARIO_IDUSUARIO");
+                    OnUSUARIO_IDUSUARIOChanged();
+                }
+            }
+        }
+        private global::System.Decimal _USUARIO_IDUSUARIO;
+        partial void OnUSUARIO_IDUSUARIOChanging(global::System.Decimal value);
+        partial void OnUSUARIO_IDUSUARIOChanged();
+
+        #endregion
+
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "SANCION_USUARIO_FK", "USUARIO")]
+        public USUARIO USUARIO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.SANCION_USUARIO_FK", "USUARIO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.SANCION_USUARIO_FK", "USUARIO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<USUARIO> USUARIOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USUARIO>("BibliotecaModel.SANCION_USUARIO_FK", "USUARIO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<USUARIO>("BibliotecaModel.SANCION_USUARIO_FK", "USUARIO", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="SESION")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2542,6 +2782,28 @@ namespace Biblioteca.DALC
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PRESTAMO>("BibliotecaModel.PRESTAMO_USUARIO_FK", "PRESTAMO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "SANCION_USUARIO_FK", "SANCION")]
+        public EntityCollection<SANCION> SANCION
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SANCION>("BibliotecaModel.SANCION_USUARIO_FK", "SANCION");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SANCION>("BibliotecaModel.SANCION_USUARIO_FK", "SANCION", value);
                 }
             }
         }

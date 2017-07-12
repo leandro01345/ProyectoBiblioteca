@@ -45,6 +45,20 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.DETALLESOLICITUD' no tiene defini
     <Property Name="FECHADEVOLUCIONREALPRESTAMO" Type="date" />
     <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BIBLIOTECA.SANCION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="SANCION">
+    <Key>
+      <PropertyRef Name="IDSANCION" />
+      <PropertyRef Name="FECHAINICIOSANCION" />
+      <PropertyRef Name="FECHATERMINOSANCION" />
+      <PropertyRef Name="USUARIO_IDUSUARIO" />
+    </Key>
+    <Property Name="IDSANCION" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FECHAINICIOSANCION" Type="date" Nullable="false" />
+    <Property Name="FECHATERMINOSANCION" Type="date" Nullable="false" />
+    <Property Name="USUARIO_IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
   <EntityType Name="SESION">
     <Key>
       <PropertyRef Name="IDSESION" />
@@ -319,6 +333,18 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="SANCION_USUARIO_FK">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="SANCION" Type="Self.SANCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="SANCION">
+        <PropertyRef Name="USUARIO_IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="SESION_USUARIO_FK">
     <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
     <End Role="SESION" Type="Self.SESION" Multiplicity="*" />
@@ -347,9 +373,6 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
     <Parameter Name="IDDOC" Type="number" Mode="In" />
   </Function>
   <Function Name="FN_ULTIMA_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="number" />
-  <Function Name="MD5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA" ReturnType="varchar2">
-    <Parameter Name="INPUT" Type="varchar2" Mode="In" />
-  </Function>
   <Function Name="PRO_ADD_DETALLESOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="ID_EJEMPLAR" Type="number" Mode="In" />
     <Parameter Name="ID_SOLICITUD" Type="number" Mode="In" />
@@ -374,6 +397,10 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
     <Parameter Name="FECHA_DEVOLUCION" Type="date" Mode="In" />
     <Parameter Name="ID_SOLICITUD" Type="number" Mode="In" />
     <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="PRO_ADD_SANCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
+    <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
+    <Parameter Name="FECHA_TERMINO" Type="date" Mode="In" />
   </Function>
   <Function Name="PRO_ADD_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BIBLIOTECA">
     <Parameter Name="ID_USUARIO" Type="number" Mode="In" />
@@ -413,6 +440,14 @@ advertencia 6002: La tabla o vista 'BIBLIOTECA.V_TIPOSDOC' no tiene definida nin
 "DETALLESOLICITUD"."EJEMPLAR_IDEJEMPLAR" AS "EJEMPLAR_IDEJEMPLAR", 
 "DETALLESOLICITUD"."SOLICITUD_IDSOLICITUD" AS "SOLICITUD_IDSOLICITUD"
 FROM "BIBLIOTECA"."DETALLESOLICITUD" "DETALLESOLICITUD"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SANCION" EntityType="Self.SANCION" store:Type="Tables" store:Schema="BIBLIOTECA">
+      <DefiningQuery>SELECT 
+"SANCION"."IDSANCION" AS "IDSANCION", 
+"SANCION"."FECHAINICIOSANCION" AS "FECHAINICIOSANCION", 
+"SANCION"."FECHATERMINOSANCION" AS "FECHATERMINOSANCION", 
+"SANCION"."USUARIO_IDUSUARIO" AS "USUARIO_IDUSUARIO"
+FROM "BIBLIOTECA"."SANCION" "SANCION"</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_CATALOGO" EntityType="Self.V_CATALOGO" store:Type="Views" store:Schema="BIBLIOTECA">
       <DefiningQuery>SELECT 
@@ -546,6 +581,10 @@ FROM "BIBLIOTECA"."V_TIPOSDOC" "V_TIPOSDOC"</DefiningQuery>
     <AssociationSet Name="PRESTAMO_USUARIO_FK" Association="Self.PRESTAMO_USUARIO_FK">
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+    </AssociationSet>
+    <AssociationSet Name="SANCION_USUARIO_FK" Association="Self.SANCION_USUARIO_FK">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="SANCION" EntitySet="SANCION" />
     </AssociationSet>
     <AssociationSet Name="SESION_USUARIO_FK" Association="Self.SESION_USUARIO_FK">
       <End Role="USUARIO" EntitySet="USUARIO" />

@@ -76,14 +76,15 @@
                 <td __designer:mapid="37" class="auto-style5">
                     <h3>Devolución</h3></td>
                 <td __designer:mapid="37">
-                    &nbsp;</td>
+                    <asp:Label ID="lblIdUs" runat="server"></asp:Label>
+                </td>
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style6">&nbsp;</td>
                 <td __designer:mapid="3c" class="auto-style7">
                     Id del ejemplar</td>
                 <td __designer:mapid="3c" class="auto-style8">
-                    <asp:TextBox ID="txtID" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="txtID" runat="server" OnTextChanged="TextBox1_TextChanged" Enabled="False"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtID" ErrorMessage="(*) Debe seleccionar un ejemplar"></asp:RequiredFieldValidator>
                     <asp:Label ID="lblIdSoli" runat="server" Visible="False">0</asp:Label>
                     <asp:Label ID="lblIdUsuario" runat="server" Visible="False">0</asp:Label>
@@ -91,9 +92,9 @@
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style6">
-                    &nbsp;</td>
+                    </td>
                 <td __designer:mapid="3c" class="auto-style8" colspan="2">
-                    &nbsp;</td>
+                    </td>
             </tr>
             <tr __designer:mapid="3a">
                 <td __designer:mapid="3b" class="auto-style2">&nbsp;</td>

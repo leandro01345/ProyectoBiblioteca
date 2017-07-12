@@ -104,5 +104,30 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public int DiasAtrasoUltimaSolicitud (int idEjemplar)
+        {
+            try
+            {
+                Biblioteca.DALC.PRESTAMO pres = CommonBC.ModeloBiblioteca.PRESTAMO.Where
+                    (e => e.EJEMPLAR_IDEJEMPLAR == idEjemplar).OrderByDescending(p => p.FECHADEVOLUCIONREALPRESTAMO).First();
+
+                if (pres.FECHADEVOLUCIONREALPRESTAMO > pres.FECHADEVOLUCIONPRESTAMO)
+                {
+                    DateTime fechaFinal = (DateTime)pres.FECHADEVOLUCIONREALPRESTAMO;
+                    DateTime fechaInicio = (DateTime)pres.FECHADEVOLUCIONPRESTAMO;
+
+                    int dias = (int)(fechaFinal - fechaInicio).TotalDays;
+                    return dias;
+                } else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
     }
 }

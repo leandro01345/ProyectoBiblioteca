@@ -260,5 +260,40 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public bool agregarSancion(int idUsuario, DateTime fechaTermino)
+        {
+            try
+            {
+                CommonBC.ModeloBiblioteca.PRO_ADD_SANCION(idUsuario, fechaTermino);
+                CommonBC.ModeloBiblioteca.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool existeSancion(int idUsuario)
+        {
+            try
+            {
+                Biblioteca.DALC.SANCION sa = CommonBC.ModeloBiblioteca.SANCION.Where
+                   (u => u.USUARIO_IDUSUARIO == idUsuario).OrderByDescending(s => s.FECHATERMINOSANCION).First();
+                if (System.DateTime.Now > sa.FECHATERMINOSANCION)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
     }
 }
