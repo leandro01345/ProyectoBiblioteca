@@ -116,7 +116,8 @@
                     <asp:Label ID="lblPrueba" runat="server" Visible="False"></asp:Label>
                 </td>
                 <td __designer:mapid="3c" class="auto-style5">
-                    &nbsp;</td>
+                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                </td>
                 <td __designer:mapid="3c">
                     &nbsp;</td>
             </tr>

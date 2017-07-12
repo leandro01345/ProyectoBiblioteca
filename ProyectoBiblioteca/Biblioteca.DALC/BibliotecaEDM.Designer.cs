@@ -4559,6 +4559,30 @@ namespace Biblioteca.DALC
         private global::System.String _HORA;
         partial void OnHORAChanging(global::System.String value);
         partial void OnHORAChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> RESERVA
+        {
+            get
+            {
+                return _RESERVA;
+            }
+            set
+            {
+                OnRESERVAChanging(value);
+                ReportPropertyChanging("RESERVA");
+                _RESERVA = StructuralObject.SetValidValue(value, "RESERVA");
+                ReportPropertyChanged("RESERVA");
+                OnRESERVAChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _RESERVA;
+        partial void OnRESERVAChanging(Nullable<global::System.DateTime> value);
+        partial void OnRESERVAChanged();
 
         #endregion
 

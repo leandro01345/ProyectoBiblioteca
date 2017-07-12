@@ -2,9 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <link href="Css/style.css" rel="stylesheet" />
     <p>
-        Bienvenid@ a BEC, para validar su cuenta ingrese su RUT. Será necesario iniciar sesión nuevamente después de validar.</p>
+        <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Text="Bienvenid@ a BEC, para validar su cuenta ingrese su RUT. Será necesario iniciar sesión nuevamente después de validar."></asp:Label>
+    </p>
     <p>
         <td __designer:mapid="3c" class="auto-style5">
                     Rut del usuario:</td>

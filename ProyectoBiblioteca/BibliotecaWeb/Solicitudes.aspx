@@ -47,9 +47,10 @@
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="IDSOLICITUD" HeaderText="Id Solicitud" SortExpression="IDSOLICITUD" />
                             <asp:BoundField DataField="IDUSUARIO" HeaderText="Id Usuario" SortExpression="IDUSUARIO" />
-                            <asp:BoundField DataField="NOMBREUSUARIO" HeaderText="Nombre de usuario" SortExpression="NOMBREUSUARIO" HtmlEncode="False"/>
+                            <asp:BoundField DataField="NOMBREUSUARIO" HeaderText="Nombre de usuario" SortExpression="NOMBREUSUARIO"/>
                             <asp:BoundField DataField="FECHA" HeaderText="Fecha" SortExpression="FECHA" />
                             <asp:BoundField DataField="HORA" HeaderText="Hora" SortExpression="HORA" />
+                            <asp:BoundField DataField="RESERVA" HeaderText="Reserva" SortExpression="RESERVA" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

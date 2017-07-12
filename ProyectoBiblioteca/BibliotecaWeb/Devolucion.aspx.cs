@@ -19,7 +19,8 @@ namespace BibliotecaWeb
 
         protected void grdDocumentos_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            GridViewRow row = grdPrestamos.SelectedRow;
+            txtID.Text = row.Cells[1].Text;
         }
 
         protected void btnGenerarPrestamo_Click(object sender, EventArgs e)
@@ -30,6 +31,7 @@ namespace BibliotecaWeb
                 if (servicio.DevolucionPrestamo(int.Parse(txtID.Text)))
                 {
                     lblMensaje.Text = "Devolución exitosa.";
+                    Response.AppendHeader("Refresh", "3");
                 }
             }
             catch (Exception)

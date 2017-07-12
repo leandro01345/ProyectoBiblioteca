@@ -156,6 +156,7 @@
     <EntitySetMapping Name="V_SOLICITUDES_PENDIENTES">
       <EntityTypeMapping TypeName="BibliotecaModel.V_SOLICITUDES_PENDIENTES">
         <MappingFragment StoreEntitySet="V_SOLICITUDES_PENDIENTES">
+          <ScalarProperty Name="RESERVA" ColumnName="RESERVA" />
           <ScalarProperty Name="HORA" ColumnName="HORA" />
           <ScalarProperty Name="FECHA" ColumnName="FECHA" />
           <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />

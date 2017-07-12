@@ -33,10 +33,11 @@ namespace BibliotecaWeb
 
         protected void btnEnviarRecordatorio_Click(object sender, EventArgs e)
         {
+            int cont = 0;
             for (int i = 0; i < GridView1.Rows.Count; i++)
             {
                 GridViewRow row = GridView1.Rows[i];
-                int idUsuario = int.Parse(row.Cells[6].Text);
+                int idUsuario = int.Parse(row.Cells[5].Text);
                 BibliotecaSvc.Service1Client servicio = new BibliotecaSvc.Service1Client();
                 string emailUsuario = servicio.GetEmailUsuario(idUsuario); 
 
@@ -55,7 +56,12 @@ namespace BibliotecaWeb
                 cli.Credentials = new NetworkCredential("sis.biblio.auto@gmail.com", "SistemaDeBiblioteca");
                 cli.EnableSsl = true;
                 cli.Send(msj);
-                
+
+                cont++;
+            }
+            if (cont > 0)
+            {
+                lblMensaje.Text = "Correos enviados con éxito";
             }
         }
     }

@@ -53,7 +53,8 @@ namespace BibliotecaWeb
 
         protected void grdDocumentos_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
+            
         }
 
         
@@ -65,9 +66,10 @@ namespace BibliotecaWeb
 
         protected void btnAgregarASolicitud_Click(object sender, EventArgs e)
         {
+            int cant = 0;
             for (int i = 0; i < GridView1.Rows.Count; i++)
             {
-
+                
                 CheckBox ch = (CheckBox)GridView1.Rows[i].FindControl("CheckBox1");
                 //Label lb = (Label)GridView1.Rows[i].FindControl("Label1");
 
@@ -93,18 +95,27 @@ namespace BibliotecaWeb
                     if (!existe)
                     {
                         this.idList.Add(idTitulo);
+                        cant++;
                     }
                     
                     Session["idListCarro"] = idList;
                 }
 
             }
-            
+            if (cant == 0) {
+                lblMensaje.Text = "No se han seleccionado documentos o los documentos seleccionados ya están agregados al carro.";
+            }
+            else
+            {
+                lblMensaje.Text = "Se han agregado los documentos seleccionados al carro";
+            }
+            Response.AppendHeader("Refresh", "3");
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            CheckBox ch = (CheckBox)GridView1.SelectedRow.FindControl("CheckBox1");
+            ch.Checked = true;
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)

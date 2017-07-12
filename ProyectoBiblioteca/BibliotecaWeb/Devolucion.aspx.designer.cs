@@ -13,13 +13,13 @@ namespace BibliotecaWeb {
     public partial class Devolucion {
         
         /// <summary>
-        /// Control grdSolicitudes.
+        /// Control grdPrestamos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdSolicitudes;
+        protected global::System.Web.UI.WebControls.GridView grdPrestamos;
         
         /// <summary>
         /// Control SqlDataSource1.

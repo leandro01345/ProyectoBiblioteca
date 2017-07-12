@@ -310,6 +310,7 @@
     <Property Name="NOMBREUSUARIO" Type="String" MaxLength="201" FixedLength="false" Unicode="false" />
     <Property Name="FECHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="HORA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="RESERVA" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="V_DETALLE_EJEMPLAR_TITULO">
     <Key>

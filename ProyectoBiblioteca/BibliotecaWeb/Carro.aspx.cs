@@ -77,7 +77,8 @@ namespace BibliotecaWeb
                         }
                     }
                     Session["idListCarro"] = null;
-                    Response.AppendHeader("Refresh", "1");
+                    lblMensaje.Text = "Solicitud ingresada con éxito.";
+                    Response.AppendHeader("Refresh", "3");
                 }
                 else
                 {
